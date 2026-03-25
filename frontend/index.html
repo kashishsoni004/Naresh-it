@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NareshIT — Best No.1 Software Training Institute. Expert-led courses in Full Stack, Data Science, DevOps, AI, Cloud and more." />
+  <title>NareshIT — Best No.1 Software Training Institute</title>
+  <link rel="preload" href="https://cdn.nareshit.com/images/naresh-it-logo2.png" as="image" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+
+    :root {
+      --cream:      #f6f3ed;
+      --cream-dark: #edeae1;
+      --ink:        #111010;
+      --gold:       #b89050;
+      --gold-light: #d4aa6a;
+      --ash:        #7c7870;
+      --white:      #ffffff;
+      --divider:    rgba(17,16,16,0.08);
+      --red:        #e05050;
+      --green:      #4ade80;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Outfit', sans-serif;
+
+      --silk: cubic-bezier(0.16,1,0.3,1);
+      --std:  cubic-bezier(0.25,0.46,0.45,0.94);
+
+      --pad: 120px 60px;
+      --r-xl:   24px;
+      --r-lg:   16px;
+      --r-md:   12px;
+      --r-sm:    8px;
+      --r-pill: 100px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font-family: var(--sans); cursor: pointer; }
+
+    ::-webkit-scrollbar       { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+    .wrap    { max-width: 1200px; margin: 0 auto; }
+    .section { padding: var(--pad); }
+
+    .label {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .label::before {
+      content: ''; display: block; width: 24px; height: 1px;
+      background: var(--gold); flex-shrink: 0;
+    }
+    .label--center { justify-content: center; }
+    .label--light  { color: var(--gold-light); }
+    .label--light::before { background: var(--gold-light); }
+
+    .heading {
+      font-family: var(--serif);
+      font-size: clamp(38px, 5.5vw, 66px);
+      font-weight: 300; line-height: 1.05; letter-spacing: -0.5px;
+      color: var(--ink); margin-bottom: 18px;
+    }
+    .heading em     { font-style: italic; color: var(--gold); }
+    .heading strong { font-weight: 700; }
+    .heading--light { color: rgba(246,243,237,.9); }
+    .heading--center { text-align: center; }
+
+    .body-copy {
+      font-size: 15px; color: var(--ash);
+      font-weight: 300; max-width: 440px; line-height: 1.9;
+    }
+    .body-copy--center { text-align: center; margin: 0 auto; }
+
+    .rv {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.9s var(--silk), transform 0.9s var(--silk);
+    }
+    .rv.in  { opacity: 1; transform: none; }
+    .rv.d1  { transition-delay: 0.10s; }
+    .rv.d2  { transition-delay: 0.22s; }
+    .rv.d3  { transition-delay: 0.34s; }
+    .rv.d4  { transition-delay: 0.46s; }
+
+    .hs {
+      opacity: 0; transform: translateY(36px);
+      transition: opacity 1s var(--silk), transform 1s var(--silk);
+    }
+    .hs.go { opacity: 1; transform: none; }
+    .hs.d1 { transition-delay: 0.05s; }
+    .hs.d2 { transition-delay: 0.20s; }
+    .hs.d3 { transition-delay: 0.38s; }
+    .hs.d4 { transition-delay: 0.55s; }
+    .hs.d5 { transition-delay: 0.72s; }
+
+    .btn-primary {
+      padding: 14px 40px;
+      background: var(--gold); color: var(--white);
+      border: none; border-radius: var(--r-pill);
+      font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+      box-shadow: 0 8px 32px rgba(184,144,80,.3);
+      transition: background 0.4s var(--silk), transform 0.35s var(--silk), box-shadow 0.35s;
+    }
+    .btn-primary:hover {
+      background: var(--ink); transform: translateY(-3px);
+      box-shadow: 0 16px 44px rgba(17,16,16,.18);
+    }
+
+    .btn-outline {
+      padding: 13px 38px;
+      background: transparent; color: var(--ink);
+      border: 1.5px solid rgba(17,16,16,.18); border-radius: var(--r-pill);
+      font-size: 13px; font-weight: 500; letter-spacing: 0.5px;
+      transition: all 0.35s var(--silk);
+    }
+    .btn-outline:hover {
+      background: var(--ink); color: var(--white);
+      border-color: var(--ink); transform: translateY(-3px);
+    }
+
+    #intro {
+      position: fixed; inset: 0; z-index: 1000;
+      background: var(--ink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    #intro-logo {
+      height: clamp(48px, 8vw, 88px);
+      filter: brightness(0) invert(1);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 1s var(--silk), transform 1s var(--silk);
+    }
+    #intro-tag {
+      font-size: 12px; letter-spacing: 5px; text-transform: uppercase;
+      color: rgba(246,243,237,.35); margin-top: 16px;
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 0.8s 0.4s var(--silk), transform 0.8s 0.4s var(--silk);
+    }
+    #intro-line {
+      width: 0; height: 1px; background: var(--gold); margin-top: 32px;
+      transition: width 1.2s 0.8s var(--silk);
+    }
+    #curtain-top, #curtain-bottom {
+      position: fixed; left: 0; right: 0; z-index: 999;
+      background: var(--ink); height: 50vh;
+      transition: transform 1.1s 1.8s var(--silk);
+    }
+    #curtain-top    { top: 0; }
+    #curtain-bottom { bottom: 0; }
+
+    /* When intro is skipped, immediately hide curtains and show content */
+    body.intro-skip #intro,
+    body.intro-skip #curtain-top,
+    body.intro-skip #curtain-bottom { display: none !important; }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 400;
+      height: 68px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 60px;
+      opacity: 0;
+      transition: opacity 0.8s var(--std), background 0.5s var(--std), box-shadow 0.4s;
+    }
+    .nav.visible { opacity: 1; }
+    /* When intro skipped, show nav immediately */
+    body.intro-skip .nav { opacity: 1; transition: background 0.5s var(--std), box-shadow 0.4s; }
+    .nav.scrolled {
+      background: rgba(246,243,237,.92);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 1px 0 var(--divider);
+    }
+
+    .nav-logo img { height: 38px; display: block; }
+
+    .nav-links {
+      display: flex; gap: 36px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--ash); position: relative; transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; left: 0; bottom: -4px; right: 0; height: 1px;
+      background: var(--gold); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s var(--std);
+    }
+    .nav-links a:hover           { color: var(--ink); }
+    .nav-links a:hover::after    { transform: scaleX(1); }
+
+    .nav-item       { position: relative; }
+
+    .nav-item > a {
+      display: flex; align-items: center; gap: 5px;
+      padding-bottom: 24px;
+      margin-bottom: -24px;
+    }
+    .nav-chevron    { font-size: 8px; transition: transform .3s var(--silk); pointer-events: none; }
+    .nav-item:hover .nav-chevron { transform: rotate(180deg); }
+
+    .dropdown {
+      position: absolute; top: calc(100% + 18px); left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      width: 520px; z-index: 500;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s var(--silk), transform .35s var(--silk);
+    }
+    .nav-item:hover .dropdown {
+      opacity: 1; pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown::before {
+      content: ''; position: absolute; top: -7px; left: 50%; transform: translateX(-50%);
+      border: 7px solid transparent; border-top: none;
+      border-bottom-color: var(--white);
+      filter: drop-shadow(0 -1px 0 rgba(17,16,16,.06));
+    }
+    .dropdown::after {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: -20px; right: -20px;
+      height: 24px;
+      background: transparent;
+    }
+
+    .dropdown-inner {
+      background: var(--white); border-radius: var(--r-lg);
+      box-shadow: 0 16px 48px rgba(17,16,16,.13), 0 2px 8px rgba(17,16,16,.06);
+      border: 1px solid var(--divider); padding: 8px 12px 12px;
+    }
+    .dropdown-header {
+      padding: 12px 8px 10px; border-bottom: 1px solid var(--divider); margin-bottom: 10px;
+      font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--ash);
+    }
+    .dropdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .dropdown-item {
+      display: flex; align-items: center; gap: 11px;
+      padding: 10px 12px; border-radius: var(--r-md);
+      transition: background .2s var(--silk);
+    }
+    .dropdown-item:hover { background: var(--cream); }
+    .dropdown-item:hover .dd-icon  { background: var(--gold); }
+    .dropdown-item:hover .dd-label { color: var(--gold); }
+    .dd-icon {
+      width: 34px; height: 34px; border-radius: var(--r-sm);
+      background: var(--cream-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; flex-shrink: 0;
+      transition: background .25s;
+    }
+    .dd-label { font-size: 12.5px; font-weight: 500; color: var(--ink); transition: color .2s; }
+    .dd-sub   { font-size: 10.5px; color: var(--ash); margin-top: 1px; }
+
+    .nav-actions { display: flex; gap: 10px; align-items: center; }
+
+    .btn-nav-ghost {
+      padding: 9px 20px; background: transparent;
+      border: 1.5px solid var(--divider); border-radius: var(--r-pill);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.5px; color: var(--ash);
+      transition: all 0.3s var(--std);
+    }
+    .btn-nav-ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+    .btn-nav-fill {
+      padding: 9px 22px; background: var(--gold);
+      border: 1.5px solid var(--gold); border-radius: var(--r-pill);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.5px; color: var(--white);
+      transition: all 0.35s var(--silk);
+    }
+    .btn-nav-fill:hover { background: var(--ink); border-color: var(--ink); }
+
+    .nav-user {
+      display: none;
+      align-items: center; gap: 10px;
+      padding: 5px 14px 5px 6px;
+      background: var(--white);
+      border: 1.5px solid var(--divider);
+      border-radius: var(--r-pill);
+      cursor: default;
+      transition: all .35s var(--silk);
+      box-shadow: 0 2px 12px rgba(17,16,16,.06);
+    }
+    .nav-user.show { display: flex; }
+    .nav-user:hover {
+      border-color: rgba(184,144,80,.4);
+      box-shadow: 0 4px 20px rgba(184,144,80,.15);
+    }
+    .nav-user-avatar {
+      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--ink));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 13px; font-weight: 700; color: var(--white);
+      letter-spacing: 0;
+      border: 2px solid rgba(184,144,80,.25);
+    }
+    .nav-user-info {
+      display: flex; flex-direction: column; line-height: 1.25;
+    }
+    .nav-user-name {
+      font-size: 12px; font-weight: 600; color: var(--ink);
+      letter-spacing: 0.1px; white-space: nowrap;
+    }
+    .nav-user-email {
+      font-size: 10px; color: var(--ash);
+      letter-spacing: 0.1px; white-space: nowrap;
+      max-width: 160px; overflow: hidden; text-overflow: ellipsis;
+    }
+    .nav-signout {
+      width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+      background: var(--cream-dark); border: 1px solid var(--divider);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; color: var(--ash); cursor: pointer;
+      transition: all .2s var(--silk); margin-left: 2px;
+    }
+    .nav-signout:hover {
+      background: #fee2e2; border-color: #fca5a5; color: #dc2626;
+      transform: scale(1.1);
+    }
+    .nav-user.show ~ #nav-login-btn,
+    #nav-login-btn.hidden { display: none !important; }
+
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 80px 60px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(184,144,80,.07), transparent 70%),
+        repeating-linear-gradient(0deg,  transparent, transparent 99px, var(--divider) 100px),
+        repeating-linear-gradient(90deg, transparent, transparent 99px, var(--divider) 100px);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 32px;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: ''; display: block; width: 30px; height: 1px;
+      background: var(--gold); opacity: 0.5;
+    }
+    .hero-h1 {
+      font-family: var(--serif);
+      font-size: clamp(56px, 10vw, 128px);
+      font-weight: 300; line-height: 0.97; letter-spacing: -2px; color: var(--ink);
+    }
+    .hero-h1 em     { font-style: italic; color: var(--gold); }
+    .hero-h1 strong { font-weight: 700; }
+
+    .hero-divider {
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin: 44px auto;
+      opacity: 0; transition: opacity 1s 0.85s var(--silk);
+    }
+    .hero-divider.visible { opacity: 1; }
+    /* When intro skipped, show divider immediately */
+    body.intro-skip .hero-divider { opacity: 1; transition: none; }
+
+    .hero-sub {
+      font-size: 16px; font-weight: 300; color: var(--ash);
+      max-width: 420px; line-height: 1.9; margin-bottom: 40px;
+    }
+    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex; margin-top: 80px; width: 100%; max-width: 740px;
+      background: var(--white); border: 1px solid var(--divider);
+      border-radius: var(--r-lg); overflow: hidden;
+      box-shadow: 0 4px 50px rgba(17,16,16,.07);
+    }
+    .stat-item {
+      flex: 1; padding: 28px 20px; text-align: center;
+      border-right: 1px solid var(--divider); transition: background 0.3s;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover      { background: var(--cream-dark); }
+    .stat-num {
+      font-family: var(--serif); font-size: 32px; font-weight: 700; line-height: 1;
+      background: linear-gradient(90deg, var(--ink), var(--gold), var(--ink));
+      background-size: 200%;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: shimmer 4s 3.2s infinite;
+    }
+    @keyframes shimmer { 0%,100%{background-position:0%} 50%{background-position:100%} }
+    .stat-lbl {
+      font-size: 10px; color: var(--ash);
+      letter-spacing: 1.5px; text-transform: uppercase;
+      margin-top: 6px; font-weight: 500;
+    }
+
+    .marquee { overflow: hidden; background: var(--ink); padding: 20px 0; }
+    .marquee-track {
+      display: flex; gap: 80px; width: max-content;
+      animation: marquee-run 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item {
+      display: flex; align-items: center; gap: 20px; white-space: nowrap;
+      font-family: var(--serif); font-size: 16px; font-style: italic;
+      font-weight: 300; color: rgba(246,243,237,.4);
+    }
+    .marquee-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold); opacity: 0.7; flex-shrink: 0;
+    }
+    @keyframes marquee-run { to { transform: translateX(-50%); } }
+
+    .sec-courses { background: var(--cream-dark); }
+
+    .course-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(256px,1fr)); gap: 16px;
+      margin-top: 40px;
+    }
+    .course-card {
+      background: var(--white); border: 1px solid var(--divider);
+      border-radius: var(--r-lg); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.45s var(--silk), box-shadow 0.45s var(--silk), border-color 0.3s;
+    }
+    .course-card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 28px 64px rgba(17,16,16,.11);
+      border-color: rgba(184,144,80,.3);
+    }
+    .course-thumb {
+      height: 130px; background: var(--cream-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 42px; position: relative;
+    }
+    .course-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--gold); color: var(--white);
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: var(--r-pill);
+    }
+    .course-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+    .course-name {
+      font-family: var(--serif); font-size: 16px; font-weight: 600;
+      line-height: 1.3; color: var(--ink); margin-bottom: 10px;
+    }
+    .course-stars { display: flex; align-items: center; gap: 2px; margin-bottom: 10px; }
+    .star         { font-size: 12px; color: var(--gold-light); }
+    .rating       { font-size: 12px; color: var(--ash); margin-left: 5px; }
+    .course-meta  { font-size: 12px; color: var(--ash); line-height: 1.9; flex: 1; }
+    .course-meta span { display: block; }
+    .course-meta b    { color: var(--ink); font-weight: 500; }
+    .course-foot {
+      display: flex; gap: 8px; margin-top: 18px;
+      padding-top: 16px; border-top: 1px solid var(--divider);
+    }
+    .btn-learn {
+      flex: 1; padding: 10px;
+      background: var(--ink); color: var(--white);
+      border: none; border-radius: var(--r-sm);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+      transition: background 0.35s var(--silk);
+    }
+    .btn-learn:hover { background: var(--gold); }
+    .btn-share {
+      padding: 10px 14px; background: transparent;
+      border: 1px solid var(--divider); border-radius: var(--r-sm);
+      font-size: 13px; color: var(--ash); transition: all 0.25s;
+    }
+    .btn-share:hover { border-color: var(--ink); color: var(--ink); }
+
+    .sec-about { background: var(--ink); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 100px; align-items: center;
+    }
+    .value-list { display: flex; flex-direction: column; }
+    .value-item {
+      display: flex; gap: 28px; align-items: flex-start;
+      padding: 32px 0; border-bottom: 1px solid rgba(246,243,237,.07);
+      transition: padding-left 0.35s var(--silk);
+    }
+    .value-item:last-child { border-bottom: none; }
+    .value-item:hover      { padding-left: 12px; }
+    .value-num {
+      font-family: var(--serif); font-size: 13px; font-style: italic;
+      color: var(--gold); min-width: 24px; padding-top: 3px; opacity: 0.7;
+    }
+    .value-item h5 {
+      font-family: var(--serif); font-size: 18px; font-weight: 600;
+      color: rgba(246,243,237,.85); margin-bottom: 6px;
+    }
+    .value-item p  { font-size: 13px; color: rgba(246,243,237,.4); line-height: 1.8; }
+
+    .stats-band {
+      background: var(--cream-dark);
+      border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider);
+    }
+    .stats-band-inner { display: flex; flex-wrap: wrap; }
+    .stat-band-item {
+      flex: 1; min-width: 180px; padding: 52px 40px;
+      border-right: 1px solid var(--divider); transition: background 0.3s;
+    }
+    .stat-band-item:last-child { border-right: none; }
+    .stat-band-item:hover      { background: var(--white); }
+    .stat-band-num {
+      font-family: var(--serif); font-size: 52px;
+      font-weight: 300; color: var(--ink); line-height: 1;
+    }
+    .stat-band-num em { font-style: italic; color: var(--gold); }
+    .stat-band-lbl {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--ash); margin-top: 8px; font-weight: 500;
+    }
+
+    .sec-testi { background: var(--white); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .testi-card {
+      background: var(--white); border: 1px solid var(--divider);
+      border-radius: var(--r-lg); padding: 36px;
+      display: flex; flex-direction: column;
+      transition: all 0.45s var(--silk);
+    }
+    .testi-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 56px rgba(17,16,16,.08);
+      border-color: rgba(184,144,80,.25);
+    }
+    .testi-stars  { font-size: 13px; letter-spacing: 2px; color: var(--gold-light); margin-bottom: 20px; }
+    .testi-text   {
+      font-family: var(--serif); font-size: 17px; font-style: italic;
+      color: var(--ink); line-height: 1.8; flex: 1;
+    }
+    .testi-author {
+      display: flex; align-items: center; gap: 14px;
+      margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--divider);
+    }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--ink));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--white);
+    }
+    .testi-name   { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .testi-course { font-size: 12px; color: var(--ash); margin-top: 2px; }
+
+    .sec-placed { background: var(--cream-dark); }
+    .placed-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(186px,1fr)); gap: 14px; }
+    .placed-card {
+      background: var(--white); border: 1px solid var(--divider);
+      border-radius: var(--r-md); padding: 28px 18px; text-align: center;
+      transition: all 0.45s var(--silk);
+    }
+    .placed-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(184,144,80,.3);
+      box-shadow: 0 20px 44px rgba(184,144,80,.1);
+    }
+    .placed-avatar {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--cream-dark); border: 2px solid var(--divider);
+      margin: 0 auto 14px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .placed-name   { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .placed-role   { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .placed-company { font-size: 12px; color: var(--ash); }
+
+    .sec-domains { background: var(--ink); }
+    .domains-layout { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; }
+
+    .domains-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(140px,1fr)); gap: 10px; }
+    .domain-card {
+      background: rgba(246,243,237,.03); border: 1px solid rgba(246,243,237,.07);
+      border-radius: var(--r-sm); padding: 28px 16px; text-align: center;
+      transition: all 0.4s var(--silk);
+    }
+    .domain-card:hover {
+      background: rgba(184,144,80,.1); border-color: rgba(184,144,80,.35);
+      transform: translateY(-5px);
+    }
+    .domain-icon { font-size: 26px; margin-bottom: 10px; }
+    .domain-name { font-size: 12px; color: rgba(246,243,237,.55); }
+
+    .ai-widget {
+      background: rgba(246,243,237,.03); border: 1px solid rgba(246,243,237,.09);
+      border-radius: var(--r-lg); overflow: hidden;
+      position: sticky; top: 88px;
+    }
+    .ai-header {
+      padding: 20px 22px 16px; border-bottom: 1px solid rgba(246,243,237,.07);
+      display: flex; align-items: center; gap: 11px;
+    }
+    .ai-icon {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center; font-size: 17px;
+    }
+    .ai-title    { font-family: var(--serif); font-size: 15px; font-weight: 600; color: rgba(246,243,237,.88); }
+    .ai-subtitle { font-size: 11px; color: rgba(246,243,237,.32); margin-top: 2px; }
+    .ai-status-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4ade80; margin-left: auto; flex-shrink: 0;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.45;transform:scale(1.35)} }
+
+    .ai-messages {
+      padding: 18px 22px; display: flex; flex-direction: column;
+      gap: 13px; max-height: 300px; overflow-y: auto;
+    }
+    .ai-messages::-webkit-scrollbar       { width: 3px; }
+    .ai-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,.08); border-radius: 3px; }
+
+    .chat-msg { display: flex; gap: 9px; align-items: flex-start; }
+    .chat-msg.user { flex-direction: row-reverse; }
+    .chat-avatar {
+      width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center; font-size: 12px;
+    }
+    .chat-msg.user .chat-avatar {
+      background: rgba(246,243,237,.08); border: 1px solid rgba(246,243,237,.1);
+      font-size: 10px; color: rgba(246,243,237,.5);
+    }
+    .chat-bubble {
+      background: rgba(246,243,237,.05); border: 1px solid rgba(246,243,237,.08);
+      border-radius: 3px 11px 11px 11px;
+      padding: 10px 13px; font-size: 12.5px;
+      color: rgba(246,243,237,.7); line-height: 1.65; flex: 1;
+    }
+    .chat-msg.user .chat-bubble {
+      background: rgba(184,144,80,.1); border-color: rgba(184,144,80,.18);
+      border-radius: 11px 3px 11px 11px; text-align: right;
+      color: rgba(246,243,237,.82);
+    }
+
+    .ai-typing { display: none; gap: 9px; align-items: center; padding: 0 22px 14px; }
+    .ai-typing.visible { display: flex; }
+    .ai-typing .chat-avatar { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+    .typing-dots {
+      display: flex; gap: 4px; padding: 9px 13px;
+      background: rgba(246,243,237,.05); border: 1px solid rgba(246,243,237,.08);
+      border-radius: 3px 11px 11px 11px;
+    }
+    .typing-dots span {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(246,243,237,.3); animation: bounce-dot 1.2s infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: .2s; }
+    .typing-dots span:nth-child(3) { animation-delay: .4s; }
+    @keyframes bounce-dot { 0%,80%,100%{transform:translateY(0);opacity:.3} 40%{transform:translateY(-4px);opacity:1} }
+
+    .ai-quick-prompts { padding: 0 22px 14px; display: flex; flex-direction: column; gap: 6px; }
+    .prompt-label {
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(246,243,237,.28); margin-bottom: 2px;
+    }
+    .prompt-btn {
+      padding: 9px 13px; background: transparent;
+      border: 1px solid rgba(246,243,237,.08); border-radius: 8px;
+      font-size: 12px; color: rgba(246,243,237,.5); text-align: left; line-height: 1.4;
+      transition: all 0.25s var(--silk);
+    }
+    .prompt-btn:hover {
+      border-color: rgba(184,144,80,.35); color: rgba(246,243,237,.88);
+      background: rgba(184,144,80,.06);
+    }
+
+    .ai-error {
+      margin: 0 22px 14px; padding: 10px 13px; border-radius: 8px;
+      font-size: 12px; display: none;
+      background: rgba(255,80,80,.08); border: 1px solid rgba(255,80,80,.2);
+      color: rgba(255,160,160,.8);
+    }
+    .ai-error.visible { display: block; }
+
+    .ai-input-row {
+      padding: 14px 22px 18px; border-top: 1px solid rgba(246,243,237,.07);
+      display: flex; gap: 8px;
+    }
+    .ai-input {
+      flex: 1; background: rgba(246,243,237,.05); border: 1px solid rgba(246,243,237,.09);
+      border-radius: 9px; padding: 9px 13px;
+      font-size: 12.5px; font-weight: 300; color: rgba(246,243,237,.82); outline: none;
+      transition: border-color .25s, background .25s;
+    }
+    .ai-input::placeholder { color: rgba(246,243,237,.22); }
+    .ai-input:focus { border-color: rgba(184,144,80,.4); background: rgba(246,243,237,.07); }
+    .ai-send {
+      width: 36px; height: 36px; border-radius: 9px; background: var(--gold);
+      border: none; font-size: 15px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .25s var(--silk);
+    }
+    .ai-send:hover { background: var(--gold-light); transform: scale(1.06); }
+
+    .sec-blog { background: var(--white); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .blog-card {
+      border: 1px solid var(--divider); border-radius: var(--r-lg);
+      overflow: hidden; display: flex; flex-direction: column;
+      background: var(--white); transition: all 0.45s var(--silk);
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(17,16,16,.09);
+      border-color: rgba(184,144,80,.2);
+    }
+    .blog-thumb {
+      height: 148px; background: var(--cream-dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 38px; border-bottom: 1px solid var(--divider);
+    }
+    .blog-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
+    .blog-tag   {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .blog-title {
+      font-family: var(--serif); font-size: 17px; font-weight: 600;
+      line-height: 1.45; color: var(--ink); flex: 1; margin-bottom: 20px;
+    }
+    .blog-read {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--ink); border-bottom: 1px solid currentColor;
+      padding-bottom: 2px; width: fit-content; transition: all 0.3s var(--silk);
+    }
+    .blog-read:hover { color: var(--gold); gap: 14px; }
+
+    .sec-cta {
+      background: var(--cream); padding: 120px 60px; text-align: center;
+      border-top: 1px solid var(--divider);
+    }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 48px; }
+
+    .sec-contact { background: var(--cream-dark); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 90px; align-items: start; }
+
+    .contact-info-text { font-size: 15px; color: var(--ash); line-height: 1.9; margin: 20px 0 40px; }
+    .contact-detail { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 24px; }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: var(--r-sm);
+      background: var(--white); border: 1px solid var(--divider);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .contact-detail strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+    .contact-detail span   { font-size: 13px; color: var(--ash); }
+
+    .contact-form {
+      background: var(--white); border: 1px solid var(--divider);
+      border-radius: 18px; padding: 48px;
+      box-shadow: 0 8px 60px rgba(17,16,16,.07);
+    }
+    .form-title    { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .form-subtitle { font-size: 13px; color: var(--ash); margin-bottom: 32px; }
+    .form-row  { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block; font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; color: var(--ash); margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; background: var(--cream-dark);
+      border: 1.5px solid transparent; border-radius: var(--r-sm);
+      padding: 13px 16px; font-family: var(--sans); font-size: 14px;
+      font-weight: 300; color: var(--ink); outline: none;
+      transition: all 0.3s var(--silk); appearance: none; -webkit-appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--ash); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      background: var(--white); border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(184,144,80,.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-group select   { cursor: pointer; }
+    .btn-submit {
+      width: 100%; padding: 15px; background: var(--ink); color: var(--white);
+      border: none; border-radius: var(--r-sm); margin-top: 6px;
+      font-family: var(--serif); font-size: 18px; font-weight: 600;
+      letter-spacing: 0.3px; transition: all 0.4s var(--silk);
+    }
+    .btn-submit:hover {
+      background: var(--gold); transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(184,144,80,.3);
+    }
+
+    .site-footer { background: var(--ink); padding: 80px 60px 40px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 64px;
+      max-width: 1200px; margin: 0 auto 60px;
+    }
+    .footer-logo img   { height: 36px; filter: brightness(0) invert(1); opacity: .85; margin-bottom: 18px; }
+    .footer-desc       { font-size: 13px; color: rgba(246,243,237,.35); line-height: 1.9; margin-bottom: 26px; }
+    .footer-socials    { display: flex; gap: 10px; }
+    .footer-social {
+      width: 36px; height: 36px; border-radius: var(--r-sm);
+      border: 1px solid rgba(246,243,237,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: rgba(246,243,237,.35); transition: all 0.3s var(--std);
+    }
+    .footer-social:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h5 {
+      font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      color: rgba(246,243,237,.3); margin-bottom: 22px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a  { font-size: 13px; color: rgba(246,243,237,.45); transition: color .25s; }
+    .footer-col a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      border-top: 1px solid rgba(246,243,237,.07); padding-top: 26px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom p { font-size: 12px; color: rgba(246,243,237,.25); }
+
+    .float-widget {
+      position: fixed; bottom: 28px; right: 28px; z-index: 500;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+      opacity: 0; transition: opacity 0.6s var(--std);
+    }
+    .float-widget.visible { opacity: 1; }
+    /* When intro skipped, show widget immediately */
+    body.intro-skip .float-widget { opacity: 1; transition: none; }
+
+    .fai-panel {
+      width: 360px; background: var(--ink); border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.06);
+      overflow: hidden; display: flex; flex-direction: column;
+      max-height: 0; opacity: 0; pointer-events: none;
+      transform: translateY(16px) scale(0.97); transform-origin: bottom right;
+      transition: max-height 0.45s var(--silk), opacity 0.35s var(--silk), transform 0.45s var(--silk);
+    }
+    .fai-panel.open { max-height: 540px; opacity: 1; pointer-events: all; transform: none; }
+
+    .fai-head {
+      display: flex; align-items: center; gap: 11px; padding: 16px 18px;
+      background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.07); flex-shrink: 0;
+    }
+    .fai-head-icon {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center; font-size: 16px;
+    }
+    .fai-head-title   { font-family: var(--serif); font-size: 14px; font-weight: 600; color: rgba(246,243,237,.9); }
+    .fai-head-sub     { font-size: 11px; color: rgba(246,243,237,.35); margin-top: 1px; }
+    .fai-head-dot     {
+      width: 7px; height: 7px; border-radius: 50%; background: #4ade80;
+      margin-left: auto; flex-shrink: 0; animation: pulse-dot 2s infinite;
+    }
+    .fai-close-btn {
+      width: 26px; height: 26px; border-radius: 50%; border: none; flex-shrink: 0;
+      background: rgba(255,255,255,.07); color: rgba(246,243,237,.4);
+      font-size: 13px; display: flex; align-items: center; justify-content: center;
+      transition: all .2s; margin-left: 6px;
+    }
+    .fai-close-btn:hover { background: rgba(255,255,255,.14); color: rgba(246,243,237,.9); }
+
+    .fai-messages {
+      flex: 1; overflow-y: auto; padding: 14px 16px;
+      display: flex; flex-direction: column; gap: 10px;
+      min-height: 200px; max-height: 320px;
+    }
+    .fai-messages::-webkit-scrollbar       { width: 3px; }
+    .fai-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,.08); border-radius: 3px; }
+
+    .fai-msg { display: flex; gap: 8px; align-items: flex-end; }
+    .fai-msg.user { flex-direction: row-reverse; }
+    .fai-av {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 600; color: var(--white);
+    }
+    .fai-msg.user .fai-av { background: rgba(255,255,255,.1); font-size: 9px; color: rgba(246,243,237,.5); }
+    .fai-bbl {
+      max-width: 80%; padding: 9px 12px; font-size: 12.5px; line-height: 1.6; font-weight: 300;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      color: rgba(246,243,237,.8); border-radius: 4px 12px 12px 12px;
+    }
+    .fai-msg.user .fai-bbl {
+      background: rgba(184,144,80,.15); border-color: rgba(184,144,80,.25);
+      color: rgba(246,243,237,.9); border-radius: 12px 4px 12px 12px; text-align: right;
+    }
+
+    .fai-typing { display: none; align-items: flex-end; gap: 8px; padding: 0 16px 8px; }
+    .fai-typing.on { display: flex; }
+    .fai-typing-dots {
+      padding: 9px 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 4px 12px 12px 12px; display: flex; gap: 4px;
+    }
+    .fai-typing-dots span {
+      width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.3);
+      animation: bounce-dot 1.2s infinite;
+    }
+    .fai-typing-dots span:nth-child(2) { animation-delay: .2s; }
+    .fai-typing-dots span:nth-child(3) { animation-delay: .4s; }
+
+    .fai-prompts { padding: 6px 16px 10px; display: flex; flex-wrap: wrap; gap: 6px; flex-shrink: 0; }
+    .fai-prompt {
+      padding: 5px 11px; background: transparent;
+      border: 1px solid rgba(255,255,255,.1); border-radius: 20px;
+      font-size: 11px; color: rgba(246,243,237,.5); transition: all .2s var(--silk);
+    }
+    .fai-prompt:hover { border-color: rgba(184,144,80,.4); color: rgba(246,243,237,.9); background: rgba(184,144,80,.08); }
+
+    .fai-input-row {
+      display: flex; gap: 8px; padding: 10px 14px 14px;
+      border-top: 1px solid rgba(255,255,255,.07); flex-shrink: 0;
+    }
+    .fai-input {
+      flex: 1; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px; padding: 9px 13px;
+      font-family: var(--sans); font-size: 12.5px; color: rgba(246,243,237,.85); outline: none;
+      transition: border-color .2s, background .2s;
+    }
+    .fai-input::placeholder { color: rgba(246,243,237,.25); }
+    .fai-input:focus { border-color: rgba(184,144,80,.45); background: rgba(255,255,255,.09); }
+    .fai-send {
+      width: 36px; height: 36px; flex-shrink: 0; border: none; border-radius: 10px;
+      background: var(--gold); color: var(--white); font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .25s var(--silk);
+    }
+    .fai-send:hover { background: var(--gold-light); transform: scale(1.08); }
+
+    .fai-contacts {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+      opacity: 0; pointer-events: none; transform: translateY(10px);
+      transition: opacity .3s var(--silk), transform .3s var(--silk);
+    }
+    .fai-contacts.open { opacity: 1; pointer-events: all; transform: none; }
+
+    .fai-contact-item { display: flex; align-items: center; gap: 10px; }
+    .fai-contact-label {
+      background: var(--ink); color: rgba(246,243,237,.85);
+      font-size: 12px; font-weight: 500; padding: 6px 14px;
+      border-radius: 20px; white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.08);
+      opacity: 0; transform: translateX(10px);
+      transition: opacity .3s var(--silk), transform .3s var(--silk);
+    }
+    .fai-contacts.open .fai-contact-label { opacity: 1; transform: none; }
+    .fai-contacts.open .fai-contact-item:nth-child(1) .fai-contact-label { transition-delay: .05s; }
+    .fai-contacts.open .fai-contact-item:nth-child(2) .fai-contact-label { transition-delay: .12s; }
+    .fai-contacts.open .fai-contact-item:nth-child(3) .fai-contact-label { transition-delay: .19s; }
+
+    .fai-cBtn {
+      width: 46px; height: 46px; border-radius: 50%; border: none;
+      display: flex; align-items: center; justify-content: center; font-size: 19px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.22);
+      opacity: 0; transform: scale(0.7);
+      transition: opacity .3s var(--silk), transform .3s var(--silk), box-shadow .3s;
+    }
+    .fai-contacts.open .fai-cBtn { opacity: 1; transform: none; }
+    .fai-cBtn:hover { transform: scale(1.1) !important; box-shadow: 0 8px 24px rgba(0,0,0,.28); }
+    .fai-cBtn-wa  { background: #25D366; color: var(--white); }
+    .fai-cBtn-ph  { background: var(--gold); color: var(--white); }
+    .fai-cBtn-ai  { background: var(--ink); color: var(--gold); border: 1.5px solid rgba(184,144,80,.4); }
+
+    .fai-fab {
+      width: 58px; height: 58px; border-radius: 50%; border: none;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--white); font-size: 24px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 28px rgba(184,144,80,.45);
+      transition: transform .35s var(--silk), box-shadow .35s, background .3s;
+      position: relative; z-index: 2; flex-shrink: 0;
+    }
+    .fai-fab:hover { transform: scale(1.08); box-shadow: 0 12px 36px rgba(184,144,80,.55); }
+    .fai-fab.active { background: var(--ink); box-shadow: 0 8px 28px rgba(0,0,0,.3); transform: rotate(45deg); }
+    .fai-fab .fab-icon { transition: transform .3s var(--silk), opacity .25s; }
+    .fai-fab.active .fab-icon { transform: rotate(-45deg); }
+
+    .auth-backdrop {
+      position: fixed; inset: 0; z-index: 600;
+      background: rgba(17,16,16,.72);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity 0.4s var(--silk);
+    }
+    .auth-backdrop.open { opacity: 1; pointer-events: all; }
+
+    .auth-modal {
+      width: 100%; max-width: 860px; max-height: 90vh;
+      background: var(--white); border-radius: var(--r-xl);
+      box-shadow: 0 40px 100px rgba(17,16,16,.28), 0 0 0 1px rgba(17,16,16,.06);
+      display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;
+      transform: translateY(32px) scale(0.97); transition: transform 0.5s var(--silk);
+    }
+    .auth-backdrop.open .auth-modal { transform: none; }
+
+    .auth-visual {
+      background: var(--ink); padding: 48px 40px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden;
+    }
+    .auth-visual::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 120% 80% at 10% 110%, rgba(184,144,80,.22), transparent 60%),
+        radial-gradient(ellipse 80% 60% at 90% -20%, rgba(184,144,80,.12), transparent 60%),
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(246,243,237,.03) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(246,243,237,.03) 40px);
+    }
+    .auth-visual-logo { position: relative; z-index: 1; }
+    .auth-visual-logo img { height: 34px; filter: brightness(0) invert(1); opacity: .9; }
+    .auth-visual-body { position: relative; z-index: 1; }
+    .auth-visual-headline {
+      font-family: var(--serif); font-size: clamp(26px,3vw,36px);
+      font-weight: 300; line-height: 1.2; color: rgba(246,243,237,.9); margin-bottom: 16px;
+    }
+    .auth-visual-headline em { font-style: italic; color: var(--gold-light); }
+    .auth-visual-sub { font-size: 13px; color: rgba(246,243,237,.35); line-height: 1.8; }
+    .auth-visual-pills { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; }
+    .auth-pill {
+      padding: 5px 14px; background: rgba(184,144,80,.12); border: 1px solid rgba(184,144,80,.22);
+      border-radius: var(--r-pill); font-size: 11px; font-weight: 500; color: rgba(246,243,237,.55);
+    }
+
+    .auth-form-panel {
+      display: flex; flex-direction: column;
+      padding: 40px 44px; position: relative; overflow-y: auto;
+    }
+    .auth-form-panel::-webkit-scrollbar       { width: 3px; }
+    .auth-form-panel::-webkit-scrollbar-thumb { background: var(--cream-dark); }
+
+    .auth-close {
+      position: absolute; top: 18px; right: 18px; z-index: 10;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--cream-dark); border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: var(--ash); transition: all 0.25s var(--silk);
+    }
+    .auth-close:hover { background: var(--ink); color: var(--white); transform: rotate(90deg); }
+
+    .auth-tabs {
+      display: flex; background: var(--cream-dark);
+      border-radius: var(--r-pill); padding: 4px; margin-bottom: 32px;
+    }
+    .auth-tab {
+      flex: 1; padding: 9px 20px; background: transparent; border: none;
+      border-radius: var(--r-pill); font-size: 13px; font-weight: 500; color: var(--ash);
+      transition: all 0.3s var(--silk);
+    }
+    .auth-tab.active { background: var(--white); color: var(--ink); box-shadow: 0 2px 12px rgba(17,16,16,.1); }
+
+    .auth-panel { display: none; flex-direction: column; }
+    .auth-panel.active { display: flex; animation: panel-in 0.38s var(--silk); }
+    @keyframes panel-in { from { opacity:0; transform:translateX(14px); } to { opacity:1; transform:none; } }
+
+    .auth-form-title { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.2; }
+    .auth-form-sub { font-size: 13px; color: var(--ash); margin-bottom: 28px; line-height: 1.7; }
+
+    .field-group { margin-bottom: 14px; position: relative; }
+    .field-group label {
+      display: block; font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; color: var(--ash); margin-bottom: 7px;
+    }
+    .field-group input {
+      width: 100%; background: var(--cream-dark); border: 1.5px solid transparent;
+      border-radius: var(--r-sm); padding: 13px 16px; font-family: var(--sans); font-size: 14px;
+      font-weight: 300; color: var(--ink); outline: none; transition: all 0.3s var(--silk);
+    }
+    .field-group input::placeholder { color: var(--ash); }
+    .field-group input:focus   { background: var(--white); border-color: var(--gold); box-shadow: 0 0 0 4px rgba(184,144,80,.1); }
+    .field-group input.is-error   { border-color: var(--red);  box-shadow: 0 0 0 4px rgba(224,80,80,.08); }
+    .field-group input.is-valid   { border-color: var(--green); box-shadow: 0 0 0 4px rgba(74,222,128,.08); }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .pw-toggle {
+      position: absolute; right: 14px; bottom: 14px;
+      background: none; border: none; font-size: 14px; color: var(--ash); transition: color .2s;
+    }
+    .pw-toggle:hover { color: var(--ink); }
+
+    .auth-or {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 11px; color: var(--ash); letter-spacing: 1px; text-transform: uppercase; margin: 18px 0;
+    }
+    .auth-or::before, .auth-or::after { content: ''; flex: 1; height: 1px; background: var(--divider); }
+
+    .auth-socials { display: flex; gap: 10px; }
+    .auth-social-btn {
+      flex: 1; padding: 11px 16px; background: var(--cream-dark); border: 1px solid var(--divider);
+      border-radius: var(--r-sm); font-size: 12px; font-weight: 500; color: var(--ink);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.3s var(--silk);
+    }
+    .auth-social-btn:hover { background: var(--white); border-color: rgba(17,16,16,.2); box-shadow: 0 2px 12px rgba(17,16,16,.08); }
+
+    .auth-switch { text-align: center; margin-top: 20px; font-size: 13px; color: var(--ash); }
+    .auth-switch a { color: var(--gold); font-weight: 600; transition: color .2s; }
+    .auth-switch a:hover { color: var(--ink); text-decoration: underline; }
+
+    .auth-forgot { text-align: right; font-size: 12px; margin-bottom: 6px; }
+    .auth-forgot a { color: var(--ash); transition: color .2s; }
+    .auth-forgot a:hover { color: var(--gold); }
+
+    .auth-terms { font-size: 11px; color: var(--ash); text-align: center; margin-top: 14px; line-height: 1.6; }
+    .auth-terms a { color: var(--gold); }
+
+    .btn-auth-submit {
+      width: 100%; padding: 14px; background: var(--gold); color: var(--white);
+      border: none; border-radius: var(--r-sm); margin-top: 6px;
+      font-family: var(--serif); font-size: 17px; font-weight: 600; letter-spacing: 0.3px;
+      box-shadow: 0 8px 28px rgba(184,144,80,.28); transition: all 0.4s var(--silk);
+    }
+    .btn-auth-submit:hover { background: var(--ink); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(17,16,16,.18); }
+    .btn-auth-submit:disabled { opacity: .55; transform: none; box-shadow: none; }
+
+    .auth-alert {
+      padding: 10px 14px; border-radius: var(--r-sm);
+      font-size: 12px; line-height: 1.5; margin-bottom: 14px; display: none;
+    }
+    .auth-alert.show          { display: block; }
+    .auth-alert.info          { background: rgba(184,144,80,.08); border: 1px solid rgba(184,144,80,.2); color: var(--gold); }
+    .auth-alert.success       { background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.2); color: #2a7a5a; }
+    .auth-alert.error         { background: rgba(224,80,80,.08);  border: 1px solid rgba(224,80,80,.2);  color: #c04040; }
+
+    .step-track { display: flex; align-items: center; margin-bottom: 6px; }
+    .step-dot {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: var(--cream-dark); border: 2px solid var(--divider);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--ash); transition: all 0.35s var(--silk);
+    }
+    .step-dot.active { background: var(--gold); border-color: var(--gold); color: var(--white); box-shadow: 0 4px 12px rgba(184,144,80,.35); }
+    .step-dot.done   { background: var(--ink);  border-color: var(--ink);  color: var(--white); }
+    .step-line { flex: 1; height: 2px; background: var(--cream-dark); position: relative; overflow: hidden; }
+    .step-line::after {
+      content: ''; position: absolute; inset: 0; background: var(--gold);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--silk);
+    }
+    .step-line.done::after { transform: scaleX(1); }
+    .step-labels {
+      display: flex; justify-content: space-between;
+      font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--ash); margin-bottom: 22px;
+    }
+
+    .otp-grid { display: flex; gap: 10px; justify-content: center; margin-bottom: 16px; }
+    .otp-box {
+      width: 44px; height: 52px; text-align: center;
+      font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink);
+      background: var(--cream-dark); border: 1.5px solid transparent;
+      border-radius: var(--r-sm); outline: none; transition: all .25s var(--silk);
+    }
+    .otp-box:focus { background: var(--white); border-color: var(--gold); box-shadow: 0 0 0 4px rgba(184,144,80,.1); }
+    .otp-box.is-error { border-color: var(--red); }
+
+    .resend-row { font-size: 12px; color: var(--ash); margin-bottom: 14px; }
+    .resend-link { color: var(--gold); font-weight: 500; }
+    .resend-link:hover { text-decoration: underline; }
+
+    .pw-strength { margin-bottom: 14px; }
+    .pw-strength-bar-track { height: 4px; background: var(--cream-dark); border-radius: 4px; overflow: hidden; }
+    .pw-strength-bar       { height: 100%; width: 0; border-radius: 4px; transition: all .4s var(--silk); }
+    .pw-strength-labels    { display: flex; justify-content: space-between; margin-top: 5px; font-size: 11px; color: var(--ash); }
+
+    .auth-success {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 20px 0;
+    }
+    .auth-success-icon {
+      width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 20px;
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; box-shadow: 0 8px 28px rgba(74,222,128,.25);
+      animation: pop-in 0.5s var(--silk);
+    }
+    @keyframes pop-in { from { transform:scale(0.6); opacity:0; } to { transform:none; opacity:1; } }
+    .auth-success h3 { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+    .auth-success p  { font-size: 14px; color: var(--ash); line-height: 1.7; max-width: 260px; }
+
+    .login-gate-toast {
+      position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px);
+      z-index: 9999; background: var(--ink); color: rgba(246,243,237,.92);
+      padding: 14px 28px; border-radius: 100px;
+      font-family: var(--sans); font-size: 13px; font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.08);
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s cubic-bezier(0.16,1,0.3,1), transform .35s cubic-bezier(0.16,1,0.3,1);
+      white-space: nowrap;
+    }
+    .login-gate-toast.show {
+      opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto;
+    }
+    .login-gate-toast-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; flex-shrink: 0;
+    }
+    .login-gate-toast-action {
+      color: var(--gold-light); font-weight: 700; cursor: pointer;
+      border-bottom: 1px solid rgba(212,170,106,.35);
+      padding-bottom: 1px; margin-left: 4px;
+      transition: color .2s;
+    }
+    .login-gate-toast-action:hover { color: var(--gold); }
+
+    @keyframes gate-ripple {
+      0%   { transform: scale(0.8); opacity: .6; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    .gate-ripple-ring {
+      position: absolute; inset: 0; border-radius: inherit;
+      border: 2px solid var(--gold); pointer-events: none;
+      animation: gate-ripple .55s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+
+    @media (max-width: 1024px) {
+      :root { --pad: 80px 28px; }
+      .nav           { padding: 0 28px; }
+      .nav-links     { display: none; }
+      .hero          { padding: 80px 28px; }
+      .about-grid    { grid-template-columns: 1fr; gap: 48px; }
+      .domains-layout { grid-template-columns: 1fr; }
+      .ai-widget     { position: static; }
+      .testi-grid    { grid-template-columns: 1fr 1fr; }
+      .blog-grid     { grid-template-columns: 1fr 1fr; }
+      .contact-grid  { grid-template-columns: 1fr; gap: 52px; }
+      .footer-grid   { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .form-row      { grid-template-columns: 1fr; }
+      .site-footer   { padding: 64px 28px 36px; }
+      .sec-cta       { padding: 80px 28px; }
+      .hero-stats    { max-width: 100%; }
+      .auth-modal    { grid-template-columns: 1fr; max-width: 440px; }
+      .auth-visual   { display: none; }
+      .auth-form-panel { padding: 32px 28px; }
+      .field-row     { grid-template-columns: 1fr; }
+      .nav-user-email { max-width: 120px; }
+    }
+    @media (max-width: 640px) {
+      .testi-grid   { grid-template-columns: 1fr; }
+      .blog-grid    { grid-template-columns: 1fr; }
+      .stats-band-inner { flex-direction: column; }
+      .stat-band-item { border-right: none; border-bottom: 1px solid var(--divider); }
+      .stat-band-item:last-child { border-bottom: none; }
+      .hero-stats   { flex-wrap: wrap; }
+      .stat-item    { min-width: 50%; }
+      .nav-user-email { display: none; }
+      .login-gate-toast { font-size: 12px; padding: 12px 18px; white-space: normal; text-align: center; max-width: 80vw; border-radius: 16px; }
+    }
+
+  </style>
+
+  <!-- ▶ Skip intro on repeat visits (runs before paint to avoid flash) -->
+  <script>
+    (function() {
+      if (sessionStorage.getItem('nit_intro_seen')) {
+        document.documentElement.classList.add('intro-skip-pending');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="intro" aria-hidden="true">
+    <img id="intro-logo" src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT" loading="eager" fetchpriority="high" decoding="sync" />
+    <div id="intro-tag">Best No.1 Software Training Institute</div>
+    <div id="intro-line"></div>
+  </div>
+  <div id="curtain-top"    aria-hidden="true"></div>
+  <div id="curtain-bottom" aria-hidden="true"></div>
+
+  <div class="login-gate-toast" id="login-gate-toast" role="alert" aria-live="polite">
+    <div class="login-gate-toast-icon">🔒</div>
+    <span>Please sign in to continue</span>
+    <span class="login-gate-toast-action" id="gate-signin-link">Sign In →</span>
+  </div>
+
+  <div class="auth-backdrop" id="auth-backdrop" role="dialog" aria-modal="true" aria-label="Sign in or create account">
+    <div class="auth-modal">
+      <div class="auth-visual">
+        <div class="auth-visual-logo">
+          <img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT" loading="eager" fetchpriority="high" />
+        </div>
+        <div class="auth-visual-body">
+          <div class="auth-visual-headline">Launch your<br><em>tech career</em><br>today.</div>
+          <p class="auth-visual-sub">Join 10 lakh+ students who transformed their careers with NareshIT's expert-led programmes.</p>
+        </div>
+        <div class="auth-visual-pills">
+          <span class="auth-pill">✦ 22+ Years</span>
+          <span class="auth-pill">☁️ Cloud & DevOps</span>
+          <span class="auth-pill">🤖 AI & ML</span>
+          <span class="auth-pill">💼 Placement Support</span>
+          <span class="auth-pill">🎓 NASSCOM Certified</span>
+        </div>
+      </div>
+
+      <div class="auth-form-panel">
+        <button class="auth-close" id="auth-close" aria-label="Close dialog">✕</button>
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-login"  type="button">Login</button>
+          <button class="auth-tab"        id="tab-signup" type="button">Sign Up</button>
+        </div>
+
+        <div class="auth-panel active" id="panel-login">
+          <h2 class="auth-form-title">Welcome back</h2>
+          <p class="auth-form-sub">Sign in to access your courses and dashboard.</p>
+          <div class="field-group">
+            <label for="login-email">Email Address</label>
+            <input id="login-email" type="email" placeholder="you@email.com" autocomplete="email" />
+          </div>
+          <div class="field-group" style="position:relative;">
+            <label for="login-pw">Password</label>
+            <input id="login-pw" type="password" placeholder="Your password" autocomplete="current-password" style="padding-right:44px;" />
+            <button class="pw-toggle" type="button" data-target="login-pw">👁</button>
+          </div>
+          <div class="auth-forgot"><a id="link-forgot">Forgot password?</a></div>
+          <button class="btn-auth-submit" id="btn-login" type="button">Sign In →</button>
+          <div class="auth-or">or continue with</div>
+          <div class="auth-socials">
+            <button class="auth-social-btn" id="btn-google-login" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              Google
+            </button>
+            <button class="auth-social-btn" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </button>
+          </div>
+          <div class="auth-switch">Don't have an account? <a id="link-to-signup">Create one →</a></div>
+        </div>
+
+        <div class="auth-panel" id="panel-forgot">
+          <h2 class="auth-form-title">Reset password</h2>
+          <p class="auth-form-sub">Enter your email and we'll send a reset link.</p>
+          <div class="field-group">
+            <label for="forgot-email">Email Address</label>
+            <input id="forgot-email" type="email" placeholder="you@email.com" />
+          </div>
+          <div class="auth-alert" id="forgot-alert"></div>
+          <button class="btn-auth-submit" id="btn-forgot" type="button">Send Reset Link →</button>
+          <div class="auth-switch" style="margin-top:16px;"><a id="link-back-login">← Back to Login</a></div>
+        </div>
+
+        <div class="auth-panel" id="panel-signup">
+          <div class="step-track" id="step-track">
+            <div class="step-dot active" id="dot-1">1</div>
+            <div class="step-line"       id="line-1"></div>
+            <div class="step-dot"        id="dot-2">2</div>
+            <div class="step-line"       id="line-2"></div>
+            <div class="step-dot"        id="dot-3">3</div>
+          </div>
+          <div class="step-labels"><span>Details</span><span>Verify</span><span>Password</span></div>
+
+          <div id="step-1">
+            <h2 class="auth-form-title">Create account</h2>
+            <p class="auth-form-sub">Start your learning journey with NareshIT.</p>
+            <div class="field-row">
+              <div class="field-group"><label for="su-fname">First Name</label><input id="su-fname" type="text" placeholder="First name" autocomplete="given-name" /></div>
+              <div class="field-group"><label for="su-lname">Last Name</label><input id="su-lname" type="text" placeholder="Last name" autocomplete="family-name" /></div>
+            </div>
+            <div class="field-group"><label for="su-email">Email Address</label><input id="su-email" type="email" placeholder="you@email.com" autocomplete="email" /></div>
+            <div class="field-group"><label for="su-phone">Mobile Number</label><input id="su-phone" type="tel" placeholder="+91 XXXXXXXXXX" autocomplete="tel" /></div>
+            <button class="btn-auth-submit" id="btn-step1-next" type="button">Continue →</button>
+            <div class="auth-switch">Already have an account? <a id="link-to-login">Sign in →</a></div>
+          </div>
+
+          <div id="step-2" style="display:none;">
+            <h2 class="auth-form-title">Verify your email</h2>
+            <p class="auth-form-sub">We sent a 6-digit code to <strong id="otp-email-label"></strong></p>
+            <div class="auth-alert" id="otp-alert"></div>
+            <div class="otp-grid" id="otp-grid">
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" />
+            </div>
+            <div class="resend-row">
+              Didn't receive it?
+              <span class="resend-link" id="resend-link" style="display:none;">Resend code</span>
+              <span id="resend-timer"> Resend in <strong id="resend-countdown">60</strong>s</span>
+            </div>
+            <button class="btn-auth-submit" id="btn-verify" type="button">Verify Email →</button>
+            <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--ash);">
+              Wrong email? <a id="link-back-step1" style="color:var(--gold);font-weight:500;">Change email</a>
+            </div>
+          </div>
+
+          <div id="step-3" style="display:none;">
+            <h2 class="auth-form-title">Set your password</h2>
+            <p class="auth-form-sub">Choose a strong password to protect your account.</p>
+            <div class="field-group" style="position:relative;">
+              <label for="su-pw">Password</label>
+              <input id="su-pw" type="password" placeholder="Min. 8 characters" autocomplete="new-password" style="padding-right:44px;" />
+              <button class="pw-toggle" type="button" data-target="su-pw">👁</button>
+            </div>
+            <div class="pw-strength">
+              <div class="pw-strength-bar-track"><div class="pw-strength-bar" id="pw-bar"></div></div>
+              <div class="pw-strength-labels"><span id="pw-label">Enter password</span><span>Strength</span></div>
+            </div>
+            <div class="field-group" style="position:relative;">
+              <label for="su-pw2">Confirm Password</label>
+              <input id="su-pw2" type="password" placeholder="Re-enter password" autocomplete="new-password" style="padding-right:44px;" />
+              <button class="pw-toggle" type="button" data-target="su-pw2">👁</button>
+            </div>
+            <div class="auth-alert" id="pw-alert"></div>
+            <button class="btn-auth-submit" id="btn-signup-submit" type="button">Create Account →</button>
+            <div class="auth-terms">By signing up you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</div>
+          </div>
+
+          <div id="step-success" style="display:none;flex:1;">
+            <div class="auth-success">
+              <div class="auth-success-icon">✓</div>
+              <h3>You're in!</h3>
+              <p>Your NareshIT account has been created. Welcome to the community 🎉</p>
+              <button class="btn-auth-submit" id="btn-go-dashboard" type="button" style="margin-top:24px;max-width:220px;">Go to Dashboard →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="NareshIT Home">
+      <img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT" loading="eager" fetchpriority="high" decoding="sync" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="courses.html">Courses</a></li>
+      <li class="nav-item">
+        <a href="#about">About <span class="nav-chevron">▾</span></a>
+        <div class="dropdown">
+          <div class="dropdown-inner">
+            <div class="dropdown-header">About NareshIT</div>
+            <div class="dropdown-grid">
+              <a href="About.html"    class="dropdown-item"><div class="dd-icon">🏛️</div><div><div class="dd-label">About Naresh IT</div><div class="dd-sub">22+ years of excellence</div></div></a>
+              <a href="Faculty.html" class="dropdown-item"><div class="dd-icon">👨‍🏫</div><div><div class="dd-label">Trainers Profile</div><div class="dd-sub">Meet our expert faculty</div></div></a>
+              <a href="Theme.html"    class="dropdown-item"><div class="dd-icon">🎯</div><div><div class="dd-label">Our Theme</div><div class="dd-sub">Vision &amp; mission</div></div></a>
+              <a href="Careers.html"  class="dropdown-item"><div class="dd-icon">💼</div><div><div class="dd-label">Careers</div><div class="dd-sub">Join our growing team</div></div></a>
+              <a href="Testimonials.html"  class="dropdown-item"><div class="dd-icon">⭐</div><div><div class="dd-label">Testimonials</div><div class="dd-sub">What students say</div></div></a>
+              <a href="news.html"     class="dropdown-item"><div class="dd-icon">📰</div><div><div class="dd-label">News &amp; Events</div><div class="dd-sub">Latest updates</div></div></a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="Roadmap.html">Roadmap</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions" id="nav-actions">
+      <div class="nav-user" id="nav-user">
+        <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+        <div class="nav-user-info">
+          <span class="nav-user-name"  id="nav-user-name">Name</span>
+          <span class="nav-user-email" id="nav-user-email">email@example.com</span>
+        </div>
+        <button class="nav-signout" id="nav-signout" title="Sign out" aria-label="Sign out">✕</button>
+      </div>
+      <button class="btn-nav-ghost" id="nav-login-btn" type="button">Login</button>
+      <button class="btn-nav-fill"  id="nav-learn-btn" type="button">Learn More</button>
+    </div>
+  </nav>
+
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <div class="hero-eyebrow hs d1">22 Years of Excellence</div>
+      <h1 class="hero-h1 hs d2" id="hero-heading">
+        Best <em>No.1</em><br>
+        <strong>Software Training</strong><br>
+        Institute
+      </h1>
+      <div class="hero-divider" id="hero-divider"></div>
+      <p class="hero-sub hs d3">Expert-led, hands-on learning — from Full Stack to Generative AI — built to launch careers that last a lifetime.</p>
+      <div class="hero-cta hs d4">
+        <button class="btn-primary"  id="hero-explore-btn" type="button">Explore Courses</button>
+        <button class="btn-outline"  id="hero-advisor-btn" type="button">Talk to an Advisor</button>
+      </div>
+      <div class="hero-stats hs d5">
+        <div class="stat-item"><div class="stat-num">22+</div><div class="stat-lbl">Years</div></div>
+        <div class="stat-item"><div class="stat-num">10L+</div><div class="stat-lbl">Students</div></div>
+        <div class="stat-item"><div class="stat-num">2801+</div><div class="stat-lbl">Placed</div></div>
+        <div class="stat-item"><div class="stat-num">95%</div><div class="stat-lbl">Success</div></div>
+        <div class="stat-item"><div class="stat-num">98%</div><div class="stat-lbl">Recommend</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-item"><span class="marquee-dot"></span>Full Stack Java</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Generative AI</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>DevOps with Multi Cloud</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Data Science &amp; AI</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Cyber Security</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>AWS &amp; Azure</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>React &amp; Angular</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Software Testing</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Salesforce</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Playwright Automation</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Full Stack Java</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Generative AI</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>DevOps with Multi Cloud</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Data Science &amp; AI</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Cyber Security</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>AWS &amp; Azure</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>React &amp; Angular</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Software Testing</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Salesforce</div>
+      <div class="marquee-item"><span class="marquee-dot"></span>Playwright Automation</div>
+    </div>
+  </div>
+
+
+  <section class="sec-courses section" id="courses" aria-labelledby="courses-heading">
+    <div class="wrap">
+      <div class="rv">
+        <div class="label">Trending Now</div>
+        <h2 class="heading" id="courses-heading">Courses Crafted<br>for <em>Real Careers</em></h2>
+        <p class="body-copy">Every programme is built around industry demand, live projects, and expert mentors.</p>
+      </div>
+      <div class="course-grid rv d2" id="course-grid"></div>
+      <div class="rv d3" style="text-align:center;margin-top:52px;">
+        <button class="btn-outline" id="view-all-courses-btn" type="button">View All Courses →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec-about section" id="about" aria-labelledby="about-heading">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="rv">
+          <div class="label label--light">Our Philosophy</div>
+          <h2 class="heading heading--light" id="about-heading">Empowering<br>Futures for<br><em>22+ Years</em></h2>
+          <p class="body-copy" style="color:rgba(246,243,237,.4);">NareshIT was built on one belief — every student deserves practical, industry-grade education. Over two decades we've shaped over ten lakh careers across India and beyond.</p>
+        </div>
+        <div class="value-list rv d2">
+          <div class="value-item"><span class="value-num">I</span><div><h5>Practical Learning First</h5><p>Real projects and live mentorship make theory tangible. Students graduate work-ready, not just certificate-ready.</p></div></div>
+          <div class="value-item"><span class="value-num">II</span><div><h5>Expert-Led Instruction</h5><p>Every trainer is an active industry practitioner bringing current knowledge and genuine insight into every session.</p></div></div>
+          <div class="value-item"><span class="value-num">III</span><div><h5>End-to-End Career Support</h5><p>From skill-building to placement assistance, we walk alongside every student until they land the role they deserve.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="stats-band" aria-label="Key statistics">
+    <div class="wrap">
+      <div class="stats-band-inner">
+        <div class="stat-band-item rv">    <div class="stat-band-num">10<em>L+</em></div><div class="stat-band-lbl">Students Trained</div></div>
+        <div class="stat-band-item rv d1"> <div class="stat-band-num">2801<em>+</em></div><div class="stat-band-lbl">Placed Recently</div></div>
+        <div class="stat-band-item rv d2"> <div class="stat-band-num">95<em>%+</em></div><div class="stat-band-lbl">Success Rate</div></div>
+        <div class="stat-band-item rv d3"> <div class="stat-band-num">22<em>+</em></div><div class="stat-band-lbl">Years Experience</div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="sec-testi section" id="reviews" aria-labelledby="reviews-heading">
+    <div class="wrap">
+      <div class="rv" style="text-align:center;margin-bottom:60px;">
+        <div class="label label--center">Student Stories</div>
+        <h2 class="heading heading--center" id="reviews-heading">Voices of Our <em>Community</em></h2>
+        <p class="body-copy body-copy--center">98% of students would recommend NareshIT to a friend.</p>
+      </div>
+      <div class="testi-grid">
+        <article class="testi-card rv"><div class="testi-stars">★★★★½</div><p class="testi-text">"Learning multicloud DevOps under Veera Sir was a genuinely transformative experience. Clear, practical, and surprisingly enjoyable even for the hardest cloud concepts."</p><div class="testi-author"><div class="testi-avatar">SR</div><div><div class="testi-name">Shanmuk Reddy</div><div class="testi-course">DevOps with Multi Cloud</div></div></div></article>
+        <article class="testi-card rv d1"><div class="testi-stars">★★★★★</div><p class="testi-text">"Best institute I've attended. The trainers are incredible and the curriculum is directly tied to what the industry actually needs right now."</p><div class="testi-author"><div class="testi-avatar">SB</div><div><div class="testi-name">Shakina Bano</div><div class="testi-course">Full Stack &amp; Internship</div></div></div></article>
+        <article class="testi-card rv d2"><div class="testi-stars">★★★★★</div><p class="testi-text">"Omkar Sir's data science teaching focused on real company problems, not textbook theory. The internship gave me the confidence to ace every interview."</p><div class="testi-author"><div class="testi-avatar">VK</div><div><div class="testi-name">V Sai Krishna Teja</div><div class="testi-course">Data Science &amp; AI</div></div></div></article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec-placed section" aria-labelledby="placed-heading">
+    <div class="wrap">
+      <div class="rv" style="text-align:center;margin-bottom:52px;">
+        <div class="label label--center">Placement Success</div>
+        <h2 class="heading heading--center" id="placed-heading">Graduates at <em>Top Companies</em></h2>
+      </div>
+      <div class="placed-grid">
+        <div class="placed-card rv"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/3.jpg" alt="Debashis Behera" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Debashis Behera</div><div class="placed-role">Java Developer</div><div class="placed-company">Emagia Corporation</div></div>
+        <div class="placed-card rv d1"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/10.jpg" alt="Rupal Borkar" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Rupal Borkar</div><div class="placed-role">Java Developer</div><div class="placed-company">Mphasis Ltd</div></div>
+        <div class="placed-card rv d2"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/5.jpg" alt="Anshuman Swain" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Anshuman Swain</div><div class="placed-role">Web Developer</div><div class="placed-company">Conseqta Technology</div></div>
+        <div class="placed-card rv d3"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/6.jpg" alt="Indrani Malladi" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Indrani Malladi</div><div class="placed-role">QA Engineer</div><div class="placed-company">Celium Pvt Ltd</div></div>
+        <div class="placed-card rv"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/Oct_24-7.jpg" alt="Ganga BhavyaSri" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Ganga BhavyaSri</div><div class="placed-role">Java Developer</div><div class="placed-company">Fenix Commerce</div></div>
+        <div class="placed-card rv d1"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/Oct_24-2.jpg" alt="Tanmay Shyamal" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Tanmay Shyamal</div><div class="placed-role">React Developer</div><div class="placed-company">RJAY Technology</div></div>
+        <div class="placed-card rv d2"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/Oct_24-10.jpg" alt="Swikruti Shende" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Swikruti Shende</div><div class="placed-role">Assoc. SW Eng</div><div class="placed-company">Alacriti Pvt Ltd</div></div>
+        <div class="placed-card rv d3"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/Oct_24-8.jpg" alt="Devika M. Sarkar" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Devika M. Sarkar</div><div class="placed-role">Java Developer</div><div class="placed-company">Adulla IT Solutions</div></div>
+        <div class="placed-card rv"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/7.jpg" alt="Sai Bharathi" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Sai Bharathi</div><div class="placed-role">Web Developer</div><div class="placed-company">Conseqta Technology</div></div>
+        <div class="placed-card rv"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/8.jpg" alt="K Tejeswari" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">K Tejeswari</div><div class="placed-role">Java Developer</div><div class="placed-company">Virinchi</div></div>
+        <div class="placed-card rv"><div class="placed-avatar" style="padding:0;"><img src="https://images.nareshit.com/Oct_24-6.jpg" alt="Naveena" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;margin:0 auto;" /></div><div class="placed-name">Naveena</div><div class="placed-role">Data Scientist</div><div class="placed-company">Edubot Technologies</div></div>
+      </div>
+      <div class="rv" style="text-align:center;margin-top:52px;">
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec-domains section" aria-labelledby="domains-heading">
+    <div class="wrap">
+      <div class="rv" style="margin-bottom:48px;">
+        <div class="label label--light">Browse by Domain</div>
+        <h2 class="heading heading--light" id="domains-heading">Every Technology,<br><em>One Destination</em></h2>
+      </div>
+      <div class="domains-layout">
+        <div class="domains-grid">
+          <div class="domain-card rv"    data-cat="devops">   <div class="domain-icon">☁️</div><div class="domain-name">Cloud Computing</div></div>
+          <div class="domain-card rv d1" data-cat="devops">   <div class="domain-icon">⚙️</div><div class="domain-name">DevOps</div></div>
+          <div class="domain-card rv d2" data-cat="datascience"><div class="domain-icon">🤖</div><div class="domain-name">AI &amp; ML</div></div>
+          <div class="domain-card rv d3" data-cat="fullstack"> <div class="domain-icon">☕</div><div class="domain-name">Full Stack Java</div></div>
+          <div class="domain-card rv"    data-cat="programming"><div class="domain-icon">🐍</div><div class="domain-name">Python</div></div>
+          <div class="domain-card rv d1" data-cat="trending">  <div class="domain-icon">🛡️</div><div class="domain-name">Cyber Security</div></div>
+          <div class="domain-card rv d2" data-cat="datascience"><div class="domain-icon">📊</div><div class="domain-name">Data Science</div></div>
+          <div class="domain-card rv d3" data-cat="testing">   <div class="domain-icon">🔬</div><div class="domain-name">Testing</div></div>
+          <div class="domain-card rv"    data-cat="webdev">    <div class="domain-icon">⚛️</div><div class="domain-name">React &amp; Angular</div></div>
+          <div class="domain-card rv d1" data-cat="database">  <div class="domain-icon">🗄️</div><div class="domain-name">Databases</div></div>
+          <div class="domain-card rv d2" data-cat="mobile">    <div class="domain-icon">📱</div><div class="domain-name">Mobile Dev</div></div>
+          <div class="domain-card rv d3" data-cat="salesforce"><div class="domain-icon">🎯</div><div class="domain-name">Salesforce</div></div>
+          <div class="domain-card rv"    data-cat="analytics"> <div class="domain-icon">📈</div><div class="domain-name">Analytics</div></div>
+          <div class="domain-card rv d1" data-cat="devops">    <div class="domain-icon">🔧</div><div class="domain-name">DevSecOps</div></div>
+        </div>
+
+        <div class="ai-widget rv d2">
+          <div class="ai-header">
+            <div class="ai-icon">✦</div>
+            <div><div class="ai-title">AI Course Advisor</div><div class="ai-subtitle">Powered by NareshIT · Ask me anything</div></div>
+            <div class="ai-status-dot" title="Online"></div>
+          </div>
+          <div class="ai-messages" id="ai-messages">
+            <div class="chat-msg">
+              <div class="chat-avatar">✦</div>
+              <div class="chat-bubble">Hello! I'm your NareshIT AI advisor. Tell me your background or goals and I'll recommend the perfect programme for you.</div>
+            </div>
+          </div>
+          <div class="ai-typing" id="ai-typing"><div class="chat-avatar">✦</div><div class="typing-dots"><span></span><span></span><span></span></div></div>
+          <div class="ai-error" id="ai-error">⚠ Could not connect. Please try again in a moment.</div>
+          <div class="ai-quick-prompts" id="ai-prompts">
+            <div class="prompt-label">Quick questions</div>
+            <button class="prompt-btn" type="button" data-q="I'm a fresher. Which course should I start with?">🎓 I'm a fresher — where do I start?</button>
+            <button class="prompt-btn" type="button" data-q="I want a cloud or DevOps career. What do you recommend?">☁️ I want a cloud / DevOps career</button>
+            <button class="prompt-btn" type="button" data-q="Which AI or Data Science course is best for me?">🤖 Best AI / Data Science course?</button>
+            <button class="prompt-btn" type="button" data-q="I'm a working professional. Is there a weekend batch?">📅 Weekend batch for professionals</button>
+          </div>
+          <div class="ai-input-row">
+            <input class="ai-input" id="ai-input" type="text" placeholder="Ask about any course…" autocomplete="off" />
+            <button class="ai-send" id="ai-send" type="button" aria-label="Send">➤</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec-blog section" id="blog" aria-labelledby="blog-heading">
+    <div class="wrap">
+      <div class="rv" style="margin-bottom:52px;">
+        <div class="label">Knowledge &amp; Insights</div>
+        <h2 class="heading" id="blog-heading">From Our <em>Editorial</em></h2>
+        <p class="body-copy">Stay sharp with the latest on cloud, DevOps, AI, and software careers.</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card rv"><div class="blog-thumb"><img src="https://phoentech.com/wp-content/uploads/2024/05/efficiency-and-scalability-of-cloud-computing.jpeg" alt="Cloud Computing" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;"></div><div class="blog-body"><div class="blog-tag">Cloud Computing</div><h3 class="blog-title">What Is the Job Description for Cloud Computing? A Complete Career Guide</h3><a class="blog-read" href="#">Read Article</a></div></article>
+        <article class="blog-card rv d1"><div class="blog-thumb"><img src="https://dt-cdn.net/wp-content/uploads/2022/05/DevSecOps-1.jpg" alt="DevSecOps" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;"></div><div class="blog-body"><div class="blog-tag">DevSecOps</div><h3 class="blog-title">Secrets Management in DevSecOps Pipelines — Best Practices 2025</h3><a class="blog-read" href="#">Read Article</a></div></article>
+        <article class="blog-card rv d2"><div class="blog-thumb"><img src="https://tse3.mm.bing.net/th/id/OIP.I32kBf5GpL-g6WJsafLQDQHaE8?w=750&h=500&rs=1&pid=ImgDetMain&o=7&rm=3" alt="DevOps Secure CI/CD" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;"></div><div class="blog-body"><div class="blog-tag">DevOps</div><h3 class="blog-title">Understanding Secure CI/CD Pipelines in DevSecOps — Full Explainer</h3><a class="blog-read" href="#">Read Article</a></div></article>
+        <article class="blog-card rv"><div class="blog-thumb"><img src="https://cdn.iplocation.net/assets/images/blog/featured/AI-vs-machine-learning.jpg" alt="AI vs ML" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;"></div><div class="blog-body"><div class="blog-tag">AI &amp; ML</div><h3 class="blog-title">How Containers and Kubernetes Fit into DevSecOps Architecture</h3><a class="blog-read" href="#">Read Article</a></div></article>
+        <article class="blog-card rv d1"><div class="blog-thumb"><img src="https://wallpapers.com/images/featured/data-science-xe1pmo7wm4jcokpd.jpg" alt="Data Science" style="width:100%;height:100%;object-fit:cover;display:block;margin:0 auto;"></div><div class="blog-body"><div class="blog-tag">Data Science</div><h3 class="blog-title">Can a Fresher Become a Cloud Engineer? The Complete 2025 Roadmap</h3><a class="blog-read" href="#">Read Article</a></div></article>
+        <article class="blog-card rv d2"><div class="blog-thumb"><img src="https://media.istockphoto.com/id/1458788600/photo/digital-technology-concept-cyber-security-data-protection-internet-network-connection-man.jpg?s=170667a&w=0&k=20&c=BXsVKoxr3DVtP4M1F1sQFVpk8-oMD74ZcR3C3ln4Qgw=" alt="Security" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;"></div><div class="blog-body"><div class="blog-tag">Security</div><h3 class="blog-title">Static Application Security Testing (SAST) in DevSecOps Explained</h3><a class="blog-read" href="#">Read Article</a></div></article>
+      </div>
+      <div class="rv" style="text-align:center;margin-top:52px;">
+        <button class="btn-outline" id="view-all-articles-btn" type="button">View All Articles →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec-cta" aria-labelledby="cta-heading">
+    <div class="wrap rv">
+      <div class="label label--center">Begin Today</div>
+      <h2 class="heading heading--center" id="cta-heading">Ready to launch<br>your <em>tech career?</em></h2>
+      <p class="body-copy body-copy--center">Join over ten lakh students who chose NareshIT — real skills, real mentors, real results.</p>
+      <div class="cta-btns">
+        <button class="btn-primary" id="cta-enroll-btn" type="button">Enroll Today</button>
+        <a href="tel:+918179191999"><button class="btn-outline" type="button">📞 +91 8179191999</button></a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec-contact section" id="contact" aria-labelledby="contact-heading">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="rv">
+          <div class="label">Get in Touch</div>
+          <h2 class="heading" id="contact-heading">We Love to<br><em>Help You</em></h2>
+          <p class="contact-info-text">Our advisors are here to guide you toward the right programme. We respond within the hour.</p>
+          <div class="contact-detail"><div class="contact-icon">📞</div><div><strong>Phone</strong><span>040-2374 6666 &nbsp;|&nbsp; +91 8179191999</span></div></div>
+          <div class="contact-detail"><div class="contact-icon">✉️</div><div><strong>Email</strong><span>info@nareshit.com</span></div></div>
+          <div class="contact-detail"><div class="contact-icon">📍</div><div><strong>Head Office</strong><span>2nd Floor, Durga Bhavani Plaza, Ameerpet, Hyderabad — 500016</span></div></div>
+          <div class="contact-detail"><div class="contact-icon">🌐</div><div><strong>International</strong><span>+1 404-232-9879 &nbsp;|&nbsp; +1 248-522-6925</span></div></div>
+        </div>
+        <div class="contact-form rv d2">
+          <h3 class="form-title">Enroll for a Bright Career</h3>
+          <p class="form-subtitle">Fill in the form and our team will reach out within 24 hours.</p>
+          <div class="form-row">
+            <div class="form-group"><label for="f-name">Full Name</label><input id="f-name" type="text" placeholder="Your full name" /></div>
+            <div class="form-group"><label for="f-phone">Mobile Number</label><input id="f-phone" type="tel" placeholder="+91 XXXXXXXXXX" /></div>
+          </div>
+          <div class="form-group"><label for="f-email">Email Address</label><input id="f-email" type="email" placeholder="you@email.com" /></div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-course">Course</label>
+              <select id="f-course">
+                <option value="">Choose a programme</option>
+                <option>Full Stack Java</option><option>Full Stack Python</option>
+                <option>DevOps with Multi Cloud</option><option>Data Science &amp; AI</option>
+                <option>Generative AI &amp; Agentic AI</option><option>Cyber Security &amp; Ethical Hacking</option>
+                <option>AWS Solutions Architect</option><option>Playwright Automation</option>
+                <option>Spring Boot &amp; Microservices</option><option>Salesforce LWC</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="f-mode">Mode of Training</label>
+              <select id="f-mode">
+                <option value="">Select mode</option>
+                <option>Online</option><option>Offline / Classroom</option>
+                <option>Weekend</option><option>Corporate</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label for="f-msg">Message (Optional)</label><textarea id="f-msg" placeholder="Tell us about your background or goals…"></textarea></div>
+          <button class="btn-submit" id="btn-contact-submit" type="button">Submit Enquiry</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT" loading="eager" fetchpriority="high" />
+        </div>
+        <p class="footer-desc">NNV Naresh is an entrepreneur with a noble vision to transform career aspirations. Over 22 years shaping India's software talent ecosystem.</p>
+        <div class="footer-socials">
+          <a class="footer-social" href="https://www.facebook.com/nareshitechnologies" target="_blank" rel="noopener">f</a>
+          <a class="footer-social" href="https://www.instagram.com/nareshitech" target="_blank" rel="noopener">◎</a>
+          <a class="footer-social" href="https://www.youtube.com/@NareshIT" target="_blank" rel="noopener">▶</a>
+          <a class="footer-social" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank" rel="noopener">in</a>
+          <a class="footer-social" href="https://wa.me/+918179191999" target="_blank" rel="noopener">⊡</a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="#about">About Us</a></li><li><a href="#trainers">Trainers Profile</a></li><li><a href="#careers">Careers</a></li><li><a href="#reviews">Testimonials</a></li><li><a href="#news">News &amp; Events</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#contact">Contact Us</a></li></ul></div>
+      <div class="footer-col"><h5>Quick Links</h5><ul><li><a href="#">New Batches</a></li><li><a href="#">Hire from NareshIT</a></li><li><a href="#">Interview Questions</a></li><li><a href="#blog">Blog</a></li><li><a href="#">Internships</a></li><li><a href="#">Corporate Training</a></li><li><a href="#">NareshJobs</a></li></ul></div>
+      <div class="footer-col"><h5>Top Courses</h5><ul><li><a href="courses.html?cat=fullstack">Full Stack Java</a></li><li><a href="courses.html?cat=fullstack">Full Stack Python</a></li><li><a href="courses.html?cat=devops">DevOps Multi Cloud</a></li><li><a href="courses.html?cat=datascience">Data Science &amp; AI</a></li><li><a href="courses.html?cat=datascience">Generative AI</a></li><li><a href="courses.html?cat=trending">Cyber Security</a></li><li><a href="courses.html?cat=testing">Software Testing</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Naresh i Technologies. All rights reserved.</p>
+      <p>Crafted with care in Hyderabad, India</p>
+    </div>
+  </footer>
+
+
+  <div class="float-widget" id="float-widget">
+    <div class="fai-panel" id="fai-panel">
+      <div class="fai-head">
+        <div class="fai-head-icon">✦</div>
+        <div><div class="fai-head-title">NareshIT AI Assistant</div><div class="fai-head-sub">Ask me anything about courses</div></div>
+        <div class="fai-head-dot"></div>
+        <button class="fai-close-btn" id="fai-close" type="button" aria-label="Close chat">✕</button>
+      </div>
+      <div class="fai-messages" id="fai-messages">
+        <div class="fai-msg"><div class="fai-av">✦</div><div class="fai-bbl">Hi there! 👋 I'm your NareshIT assistant. Ask me anything — courses, fees, batches, placements, or career advice!</div></div>
+      </div>
+      <div class="fai-typing" id="fai-typing"><div class="fai-av">✦</div><div class="fai-typing-dots"><span></span><span></span><span></span></div></div>
+      <div class="fai-prompts" id="fai-prompts">
+        <button class="fai-prompt" type="button" data-q="What courses do you offer?">📚 Courses</button>
+        <button class="fai-prompt" type="button" data-q="What are the fees for DevOps course?">💰 Fees</button>
+        <button class="fai-prompt" type="button" data-q="Are there weekend batches available?">📅 Batches</button>
+        <button class="fai-prompt" type="button" data-q="Tell me about placement support and success rate">💼 Placements</button>
+        <button class="fai-prompt" type="button" data-q="I'm a fresher, which course should I choose?">🎓 For Freshers</button>
+        <button class="fai-prompt" type="button" data-q="What is the duration of Full Stack Java course?">⏱ Duration</button>
+      </div>
+      <div class="fai-input-row">
+        <input class="fai-input" id="fai-input" type="text" placeholder="Type your question…" autocomplete="off" />
+        <button class="fai-send" id="fai-send" type="button" aria-label="Send">➤</button>
+      </div>
+    </div>
+
+    <div class="fai-contacts" id="fai-contacts">
+      <div class="fai-contact-item"><span class="fai-contact-label">Chat on WhatsApp</span><button class="fai-cBtn fai-cBtn-wa" type="button" onclick="window.open('https://wa.me/+918179191999?text=Hi%2C%20I%20want%20to%20know%20more%20about%20NareshIT%20courses','_blank')" aria-label="WhatsApp">💬</button></div>
+      <div class="fai-contact-item"><span class="fai-contact-label">Call Us Now</span><button class="fai-cBtn fai-cBtn-ph" type="button" onclick="location.href='tel:+918179191999'" aria-label="Call">📞</button></div>
+      <div class="fai-contact-item"><span class="fai-contact-label">Ask AI Assistant</span><button class="fai-cBtn fai-cBtn-ai" id="fai-open-chat" type="button" aria-label="AI Chat">✦</button></div>
+    </div>
+
+    <button class="fai-fab" id="fai-fab" type="button" aria-label="Contact options">
+      <span class="fab-icon">💬</span>
+    </button>
+  </div>
+
+
+  <script type="module">
+  'use strict';
+
+  /* ============================================================
+     ★ ONLY LINE YOU NEED TO CHANGE — your backend IP or LB URL
+  ============================================================ */
+  const BACKEND_URL = 'http://localhost:5000';  // e.g. http://13.233.45.67:8080
+  const CHAT_ENDPOINT = `${BACKEND_URL}/chat`;
+
+
+  /* ── INTRO SKIP LOGIC ──
+     Show the full intro animation only on the very first visit
+     within a browser session. Every subsequent page load skips it
+     and reveals the page immediately.
+  ─────────────────────────────────────────────────────────────── */
+  const INTRO_KEY = 'nit_intro_seen';
+  const introAlreadySeen = !!sessionStorage.getItem(INTRO_KEY);
+
+  if (introAlreadySeen) {
+    // Mark body immediately so CSS hides the overlay before paint
+    document.body.classList.add('intro-skip');
+    document.documentElement.classList.remove('intro-skip-pending');
+  } else {
+    // Mark the session so all future loads within this tab session skip
+    sessionStorage.setItem(INTRO_KEY, '1');
+  }
+
+  /* ── LOGO CACHE ── */
+  (function cacheLogos() {
+    const LOGO_URL = 'https://cdn.nareshit.com/images/naresh-it-logo2.png';
+    const CACHE_KEY = 'nit_logo_v1';
+    document.querySelectorAll('img[src*="naresh-it-logo"]').forEach(img => {
+      img.setAttribute('loading', 'eager');
+      img.setAttribute('fetchpriority', 'high');
+      img.setAttribute('decoding', 'sync');
+    });
+    if (!sessionStorage.getItem(CACHE_KEY)) {
+      fetch(LOGO_URL, { cache: 'force-cache' })
+        .then(() => sessionStorage.setItem(CACHE_KEY, '1'))
+        .catch(() => {});
+    }
+  })();
+
+  /* ── FIREBASE ── */
+  import { initializeApp }
+    from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js';
+  import { getAnalytics }
+    from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-analytics.js';
+  import {
+    getAuth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    sendPasswordResetEmail,
+    GoogleAuthProvider,
+    signInWithPopup,
+    updateProfile,
+    onAuthStateChanged,
+    signOut,
+  } from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+
+  const firebaseConfig = {
+    apiKey:            'AIzaSyBHAPhCQHq0jR-4pAwlLKAphskkbhpC5iw',
+    authDomain:        'nareshit-bd900.firebaseapp.com',
+    projectId:         'nareshit-bd900',
+    storageBucket:     'nareshit-bd900.firebasestorage.app',
+    messagingSenderId: '923456489902',
+    appId:             '1:923456489902:web:f652e970887451c2ba203f',
+    measurementId:     'G-EXWYHW9TB2',
+  };
+
+  const app       = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth      = getAuth(app);
+  const gProvider = new GoogleAuthProvider();
+
+  /* ── NAV PROFILE ── */
+  const LS_KEY = 'nit_user';
+
+  function getInitials(name) {
+    if (!name) return '?';
+    return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  }
+
+  function showNavProfile(name, email) {
+    const userEl   = document.getElementById('nav-user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    const avatarEl = document.getElementById('nav-user-avatar');
+    const nameEl   = document.getElementById('nav-user-name');
+    const emailEl  = document.getElementById('nav-user-email');
+    if (!userEl) return;
+    avatarEl.textContent = getInitials(name);
+    nameEl.textContent   = name  || 'My Account';
+    emailEl.textContent  = email || '';
+    userEl.classList.add('show');
+    loginBtn.classList.add('hidden');
+    try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch(_) {}
+  }
+
+  function hideNavProfile() {
+    const userEl   = document.getElementById('nav-user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (!userEl) return;
+    userEl.classList.remove('show');
+    loginBtn.classList.remove('hidden');
+    try { localStorage.removeItem(LS_KEY); } catch(_) {}
+  }
+
+  (function initFromCache() {
+    try {
+      const cached = localStorage.getItem(LS_KEY);
+      if (cached) {
+        const { name, email } = JSON.parse(cached);
+        if (name || email) showNavProfile(name, email);
+      }
+    } catch(_) {}
+  })();
+
+  document.getElementById('nav-signout')?.addEventListener('click', () => {
+    signOut(auth).then(hideNavProfile).catch(console.error);
+  });
+
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      const name  = user.displayName || user.email?.split('@')[0] || 'Student';
+      const email = user.email || '';
+      showNavProfile(name, email);
+      window.__nitLoggedIn = true;
+    } else {
+      hideNavProfile();
+      window.__nitLoggedIn = false;
+    }
+  });
+
+  window.openAuthModal = (tab = 'login') => {
+    document.getElementById('auth-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (tab === 'signup') showSignupPanel(); else showLoginPanel();
+  };
+
+  document.getElementById('nav-login-btn').addEventListener('click', () => window.openAuthModal('login'));
+  document.getElementById('nav-learn-btn').addEventListener('click', () => {
+    if (window.__nitLoggedIn) { window.location.href = 'courses.html'; }
+    else { window.openAuthModal('login'); }
+  });
+
+  /* ── LOGIN GATE ── */
+  (function initLoginGate() {
+    const toast    = document.getElementById('login-gate-toast');
+    const signinLk = document.getElementById('gate-signin-link');
+    let toastTimer = null;
+
+    const ALWAYS_ALLOW_IDS = new Set([
+      'auth-backdrop','auth-close','tab-login','tab-signup',
+      'btn-login','btn-forgot','btn-step1-next','btn-verify',
+      'btn-signup-submit','btn-go-dashboard','btn-google-login',
+      'nav-login-btn','nav-signout','nav-user',
+      'link-forgot','link-back-login','link-to-signup','link-to-login',
+      'link-back-step1','resend-link',
+      'fai-fab','fai-close','fai-open-chat',
+      'fai-cBtn-wa','fai-cBtn-ph',
+      'login-gate-toast','gate-signin-link','pw-toggle',
+    ]);
+
+    const ALWAYS_ALLOW_SELECTORS = [
+      '#auth-backdrop','#auth-backdrop *',
+      '.nav-logo','.nav-logo *',
+      '.fai-cBtn-wa','.fai-cBtn-ph',
+      '.footer-social',
+      'a[href^="tel:"]','a[href^="mailto:"]','a[href^="https://wa.me"]',
+      '#login-gate-toast','#login-gate-toast *','.pw-toggle',
+    ];
+
+    function isAllowed(el) {
+      if (el.id && ALWAYS_ALLOW_IDS.has(el.id)) return true;
+      let cur = el;
+      while (cur && cur !== document.body) {
+        if (cur.id && ALWAYS_ALLOW_IDS.has(cur.id)) return true;
+        for (const sel of ALWAYS_ALLOW_SELECTORS) {
+          try { if (cur.matches && cur.matches(sel)) return true; } catch(_) {}
+        }
+        cur = cur.parentElement;
+      }
+      return false;
+    }
+
+    function addRipple(el) {
+      const target = el.closest('button, a, .domain-card, .course-card, .placed-card, .blog-card') || el;
+      const prevPos = getComputedStyle(target).position;
+      if (prevPos === 'static') target.style.position = 'relative';
+      const ring = document.createElement('div');
+      ring.className = 'gate-ripple-ring';
+      target.appendChild(ring);
+      setTimeout(() => { ring.remove(); if (prevPos === 'static') target.style.position = ''; }, 600);
+    }
+
+    function showToast() {
+      toast.classList.add('show');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+
+    signinLk.addEventListener('click', () => { toast.classList.remove('show'); window.openAuthModal('login'); });
+
+    document.addEventListener('click', function(e) {
+      if (window.__nitLoggedIn) return;
+      const interactive = e.target.closest('button, a, [data-cat], .domain-card, .course-card, .placed-card, .blog-card, .blog-read, .prompt-btn, .fai-prompt, select');
+      if (!interactive) return;
+      if (isAllowed(e.target)) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      addRipple(interactive); showToast();
+    }, true);
+
+    document.addEventListener('focus', function(e) {
+      if (window.__nitLoggedIn) return;
+      const inContactForm = e.target.closest('.contact-form');
+      if (!inContactForm) return;
+      e.target.blur(); showToast();
+    }, true);
+  })();
+
+
+  /* ── COURSE DATA ── */
+  const COURSES = [
+    { name: 'Generative AI & Agentic AI with Python', icon: '<img src="https://morhover.com/blog/wp-content/uploads/2025/04/Agentic-AI-vs.-generative.jpg" alt="Generative & Agentic AI" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;">', rating: 4.8, start: '18 Mar 2026', dur: '3 months', trainer: 'Mr. Prudhvi', badge: 'HOT' },
+    { name: 'DevOps with Multi Cloud', icon: '<img src="https://www.qodo.ai/wp-content/uploads/2024/06/post-10-best-devops-platforms-768x499.jpg" alt="DevOps Multi Cloud" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;">', rating: 5.0, start: '23 Mar 2026', dur: '5 months', trainer: 'Mr. Veera Babu', badge: 'TOP' },
+    { name: 'Cyber Security & Ethical Hacking', icon: '<img src="https://www.cadle.in/wp-content/uploads/2024/07/Ethical-Hacking.jpg" alt="Cyber Security" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;">', rating: 4.7, start: '25 Mar 2026', dur: '3 months', trainer: 'Expert Trainer', badge: '' },
+    { name: 'Full Stack Data Science & AI', icon: '<img src="https://i.ytimg.com/vi/pPHCIekf9uA/maxresdefault.jpg" alt="Full Stack Data Science" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;">', rating: 5.0, start: '18 Mar 2026', dur: '4 months', trainer: 'Mr. Nikhil', badge: 'HOT' },
+    { name: 'Playwright Automation', icon: '<img src="https://testgrid.io/blog/wp-content/uploads/2024/06/playright-for-automation-testing.jpg" alt="Playwright" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;">', rating: 4.5, start: '25 Mar 2026', dur: '3 months', trainer: 'Mr. Karthik', badge: 'NEW' },
+    { name: 'Advanced Generative & Agentic AI', icon: '<img src="https://oyelabs.com/wp-content/uploads/2025/02/Agentic-AI-vs-Generative-AI-A-Complete-Guide-770x400@2x.jpg" alt="Advanced AI" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;">', rating: 4.9, start: '18 Mar 2026', dur: '3 months', trainer: 'Mr. Prudhvi', badge: 'NEW' },
+    { name: 'DSA with AI Engineer Program', icon: '<img src="https://cdn.prod.website-files.com/65581ec692b13c6e5c72d0a3/656233a56a2068e01d715f6b_ctabanner-image.jpg" alt="DSA AI" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;">', rating: 4.5, start: '23 Mar 2026', dur: '60 days', trainer: 'Mr. Abhijeeth', badge: '' },
+    { name: 'SnowFlake', icon: '<img src="https://miro.medium.com/v2/resize:fit:1358/1*jpltjDzBzaVW5kbawsgZvg.png" alt="SnowFlake" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:4px;">', rating: 4.6, start: '23 Mar 2026', dur: '2 months', trainer: 'Expert Trainer', badge: '' },
+  ];
+
+  function renderStars(r) {
+    return Array.from({ length: 5 }, (_, i) => {
+      const opacity = i < Math.floor(r) ? 1 : (i === Math.floor(r) && r % 1 >= 0.5) ? 0.45 : 0.2;
+      return `<span class="star" style="opacity:${opacity}">★</span>`;
+    }).join('');
+  }
+
+  function renderCourses() {
+    const grid = document.getElementById('course-grid');
+    grid.innerHTML = COURSES.map(c => `
+      <div class="course-card">
+        <div class="course-thumb">
+          ${c.badge ? `<span class="course-badge">${c.badge}</span>` : ''}
+          ${c.icon}
+        </div>
+        <div class="course-body">
+          <h3 class="course-name">${c.name}</h3>
+          <div class="course-stars">${renderStars(c.rating)}<span class="rating">${c.rating}</span></div>
+          <div class="course-meta">
+            <span>⏱ Starts <b>${c.start}</b></span>
+            <span>📆 Duration: <b>${c.dur}</b></span>
+            <span>👤 By <b>${c.trainer}</b></span>
+          </div>
+          <div class="course-foot">
+            <button class="btn-learn" type="button">Learn More</button>
+            <button class="btn-share" type="button" title="Share">↗</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+  renderCourses();
+
+
+  /* ── INTRO SEQUENCE ── */
+  window.addEventListener('load', () => {
+    const nav     = document.getElementById('main-nav');
+    const widget  = document.getElementById('float-widget');
+    const divider = document.getElementById('hero-divider');
+
+    if (introAlreadySeen) {
+      // Intro was skipped — immediately reveal everything
+      nav.classList.add('visible');
+      widget.classList.add('visible');
+      divider.classList.add('visible');
+      document.querySelectorAll('.hs').forEach(el => el.classList.add('go'));
+      return;
+    }
+
+    // First visit — run the full intro animation
+    const logo    = document.getElementById('intro-logo');
+    const tag     = document.getElementById('intro-tag');
+    const line    = document.getElementById('intro-line');
+    const ctTop   = document.getElementById('curtain-top');
+    const ctBot   = document.getElementById('curtain-bottom');
+
+    requestAnimationFrame(() => {
+      logo.style.opacity   = '1';
+      logo.style.transform = 'none';
+      tag.style.opacity    = '1';
+      tag.style.transform  = 'none';
+      line.style.width     = '80px';
+    });
+
+    setTimeout(() => {
+      ctTop.style.transform = 'translateY(-100%)';
+      ctBot.style.transform = 'translateY(100%)';
+      document.getElementById('intro').style.transition = 'opacity .6s ease';
+      document.getElementById('intro').style.opacity    = '0';
+    }, 1600);
+
+    setTimeout(() => {
+      document.getElementById('intro').remove();
+      ctTop.remove(); ctBot.remove();
+      nav.classList.add('visible');
+      widget.classList.add('visible');
+      divider.classList.add('visible');
+      document.querySelectorAll('.hs').forEach(el => el.classList.add('go'));
+    }, 3000);
+  });
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => revealObserver.observe(el));
+
+  document.getElementById('hero-explore-btn').addEventListener('click', () => {
+    if (window.__nitLoggedIn) window.location.href = 'courses.html';
+    else window.openAuthModal('login');
+  });
+  document.getElementById('hero-advisor-btn').addEventListener('click', () => {
+    if (window.__nitLoggedIn) document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    else window.openAuthModal('login');
+  });
+  document.getElementById('cta-enroll-btn').addEventListener('click', () => {
+    if (window.__nitLoggedIn) document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    else window.openAuthModal('login');
+  });
+  document.getElementById('view-all-courses-btn').addEventListener('click', () => {
+    if (window.__nitLoggedIn) window.location.href = 'courses.html';
+    else window.openAuthModal('login');
+  });
+  document.getElementById('view-all-articles-btn').addEventListener('click', () => {
+    if (window.__nitLoggedIn) window.location.href = 'Blog.html';
+    else window.openAuthModal('login');
+  });
+
+  document.querySelectorAll('.domain-card[data-cat]').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      if (window.__nitLoggedIn) window.location.href = `courses.html?cat=${card.dataset.cat}`;
+    });
+  });
+
+
+  /* ── AI COURSE ADVISOR ── */
+  (function initAdvisor() {
+    const messagesEl = document.getElementById('ai-messages');
+    const inputEl    = document.getElementById('ai-input');
+    const sendBtn    = document.getElementById('ai-send');
+    const typingEl   = document.getElementById('ai-typing');
+    const promptsEl  = document.getElementById('ai-prompts');
+    const errorEl    = document.getElementById('ai-error');
+    const history    = [];
+
+    const SYSTEM = `You are a friendly, knowledgeable AI course advisor for NareshIT — India's Best No.1 Software Training Institute with 22+ years of experience, 10 lakh+ students trained, and 2801+ recent placements.
+Your role: help prospective students choose the right course based on their background, goals, and preferences.
+Key courses: Full Stack Java (6 months, Mr. Hari Krishna), Full Stack Python (5 months, Mr. Satish Gupta), DevOps with Multi Cloud (5 months, Mr. Veera Babu), Generative AI & Agentic AI (3 months, Mr. Prudhvi), Full Stack Data Science & AI (4-6 months, Mr. Nikhil / Mr. Omkar), Cyber Security (3 months), Playwright Automation (3 months, Mr. Karthik), AWS Solutions Architect Associate (3 months), Spring Boot & Microservices (3 months), Salesforce LWC, Snowflake, DSA with AI Engineer, and more.
+Training modes: Online (live), Offline/Classroom (Ameerpet, Hyderabad), Weekend batches. NASSCOM-certified internship programmes (30 days) available.
+Contact: +91 8179191999 | info@nareshit.com
+Be warm, concise and helpful (2–4 sentences max). Ask one clarifying question if needed. Always encourage them to call or fill the enquiry form for fees and batch details.`;
+
+    function addMessage(text, isUser) {
+      const row = document.createElement('div');
+      row.className = `chat-msg${isUser ? ' user' : ''}`;
+      const avatar = document.createElement('div'); avatar.className = 'chat-avatar'; avatar.textContent = isUser ? 'You' : '✦';
+      const bubble = document.createElement('div'); bubble.className = 'chat-bubble'; bubble.innerHTML = text;
+      row.appendChild(avatar); row.appendChild(bubble);
+      messagesEl.appendChild(row); messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    async function askClaude(userMsg) {
+      errorEl.classList.remove('visible'); typingEl.classList.add('visible');
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      history.push({ role: 'user', content: userMsg });
+      try {
+        const res = await fetch(CHAT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ system: SYSTEM, max_tokens: 300, messages: history }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data  = await res.json();
+        const reply = data.content.filter(b => b.type === 'text').map(b => b.text).join('');
+        history.push({ role: 'assistant', content: reply });
+        typingEl.classList.remove('visible'); addMessage(reply, false);
+      } catch (err) {
+        typingEl.classList.remove('visible'); errorEl.classList.add('visible'); history.pop();
+      }
+    }
+
+    function handleSend() {
+      if (!window.__nitLoggedIn) { window.openAuthModal('login'); return; }
+      const msg = inputEl.value.trim(); if (!msg) return;
+      if (promptsEl) promptsEl.style.display = 'none';
+      addMessage(msg, true); inputEl.value = ''; askClaude(msg);
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
+    inputEl.addEventListener('focus', () => { if (!window.__nitLoggedIn) { inputEl.blur(); window.openAuthModal('login'); } });
+    if (promptsEl) {
+      promptsEl.addEventListener('click', e => {
+        const btn = e.target.closest('.prompt-btn'); if (!btn) return;
+        if (!window.__nitLoggedIn) { window.openAuthModal('login'); return; }
+        promptsEl.style.display = 'none'; addMessage(btn.dataset.q, true); askClaude(btn.dataset.q);
+      });
+    }
+  })();
+
+
+  /* ── CONTACT FORM ── */
+  document.getElementById('btn-contact-submit').addEventListener('click', function () {
+    if (!window.__nitLoggedIn) { window.openAuthModal('login'); return; }
+    const orig = this.textContent;
+    this.textContent = "✓ Submitted — we'll be in touch shortly";
+    this.style.background = '#2a7a5a'; this.disabled = true;
+    setTimeout(() => { this.textContent = orig; this.style.background = ''; this.disabled = false; }, 3500);
+  });
+
+
+  /* ── AUTH MODAL ── */
+  (function initAuth() {
+    const backdrop    = document.getElementById('auth-backdrop');
+    const tabLogin    = document.getElementById('tab-login');
+    const tabSignup   = document.getElementById('tab-signup');
+    const panelLogin  = document.getElementById('panel-login');
+    const panelForgot = document.getElementById('panel-forgot');
+    const panelSignup = document.getElementById('panel-signup');
+    const stepEls     = [1, 2, 3].map(n => document.getElementById(`step-${n}`));
+    const successEl   = document.getElementById('step-success');
+    const stepTrack   = document.getElementById('step-track');
+    const stepLabels  = document.querySelector('.step-labels');
+
+    let generatedOTP = '', resendInterval = null, currentStep = 1;
+
+    function closeModal() { backdrop.classList.remove('open'); document.body.style.overflow = ''; }
+
+    window.openAuthModal = (tab = 'login') => {
+      backdrop.classList.add('open'); document.body.style.overflow = 'hidden';
+      tab === 'signup' ? showSignup() : showLogin();
+    };
+
+    document.getElementById('auth-close').addEventListener('click', closeModal);
+    backdrop.addEventListener('click', e => { if (e.target === backdrop) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    function setPanel(show) { [panelLogin, panelForgot, panelSignup].forEach(p => p.classList.remove('active')); show.classList.add('active'); }
+    function showLogin()  { tabLogin.classList.add('active'); tabSignup.classList.remove('active'); setPanel(panelLogin); }
+    function showSignup() { tabSignup.classList.add('active'); tabLogin.classList.remove('active'); setPanel(panelSignup); goToStep(1); }
+    window.showLoginPanel  = showLogin;
+    window.showSignupPanel = showSignup;
+
+    tabLogin.addEventListener('click',  showLogin);
+    tabSignup.addEventListener('click', showSignup);
+    document.getElementById('link-to-signup').addEventListener('click',  showSignup);
+    document.getElementById('link-to-login').addEventListener('click',   showLogin);
+    document.getElementById('link-forgot').addEventListener('click',     () => setPanel(panelForgot));
+    document.getElementById('link-back-login').addEventListener('click', showLogin);
+
+    document.querySelectorAll('.pw-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const inp = document.getElementById(btn.dataset.target);
+        const isHidden = inp.type === 'password';
+        inp.type = isHidden ? 'text' : 'password';
+        btn.textContent = isHidden ? '🙈' : '👁';
+      });
+    });
+
+    function setAlert(el, type, msg) { el.className = `auth-alert ${type} show`; el.textContent = msg; }
+    function clearAlert(el) { el.className = 'auth-alert'; el.textContent = ''; }
+    function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+    function markField(el, valid) { el.classList.toggle('is-error', !valid); el.classList.toggle('is-valid', valid); }
+
+    document.getElementById('btn-login').addEventListener('click', async () => {
+      const emailEl = document.getElementById('login-email');
+      const pwEl    = document.getElementById('login-pw');
+      const email   = emailEl.value.trim(); const pw = pwEl.value;
+      const emailOk = validateEmail(email), pwOk = pw.length >= 6;
+      markField(emailEl, emailOk); markField(pwEl, pwOk);
+      if (!emailOk || !pwOk) return;
+      const btn = document.getElementById('btn-login');
+      btn.textContent = 'Signing in…'; btn.disabled = true;
+      let alertEl = document.getElementById('login-alert');
+      if (!alertEl) { alertEl = document.createElement('div'); alertEl.id = 'login-alert'; alertEl.className = 'auth-alert'; btn.parentNode.insertBefore(alertEl, btn); }
+      clearAlert(alertEl);
+      try {
+        await signInWithEmailAndPassword(auth, email, pw);
+        btn.textContent = '✓ Welcome back!'; btn.style.background = '#2a7a5a';
+        setTimeout(closeModal, 1200);
+      } catch (err) {
+        btn.textContent = 'Sign In →'; btn.disabled = false;
+        setAlert(alertEl, 'error', firebaseErrorMsg(err.code));
+      }
+    });
+
+    document.getElementById('btn-forgot').addEventListener('click', async () => {
+      const emailEl = document.getElementById('forgot-email');
+      const email   = emailEl.value.trim();
+      const alertEl = document.getElementById('forgot-alert');
+      if (!validateEmail(email)) { setAlert(alertEl, 'error', 'Please enter a valid email address.'); return; }
+      const btn = document.getElementById('btn-forgot');
+      btn.textContent = 'Sending…'; btn.disabled = true;
+      try {
+        await sendPasswordResetEmail(auth, email);
+        setAlert(alertEl, 'success', `✓ Reset link sent to ${email}. Check your inbox.`);
+        btn.textContent = '✓ Link Sent!'; btn.style.background = '#2a7a5a';
+      } catch (err) {
+        btn.textContent = 'Send Reset Link →'; btn.disabled = false;
+        setAlert(alertEl, 'error', firebaseErrorMsg(err.code));
+      }
+    });
+
+    function goToStep(n) {
+      currentStep = n;
+      stepEls.forEach((el, i) => { el.style.display = (i + 1 === n) ? 'block' : 'none'; });
+      successEl.style.display = 'none';
+      if (stepTrack) stepTrack.style.display = 'flex';
+      if (stepLabels) stepLabels.style.display = 'flex';
+      for (let i = 1; i <= 3; i++) { const dot = document.getElementById(`dot-${i}`); dot.classList.remove('active','done'); if (i < n) dot.classList.add('done'); if (i === n) dot.classList.add('active'); }
+      for (let i = 1; i <= 2; i++) { document.getElementById(`line-${i}`).classList.toggle('done', i < n); }
+    }
+
+    document.getElementById('btn-step1-next').addEventListener('click', () => {
+      const fname = document.getElementById('su-fname'); const lname = document.getElementById('su-lname');
+      const email = document.getElementById('su-email'); const phone = document.getElementById('su-phone');
+      const fnOk = fname.value.trim().length > 0, lnOk = lname.value.trim().length > 0;
+      const emOk = validateEmail(email.value.trim()), phOk = phone.value.trim().length >= 7;
+      markField(fname, fnOk); markField(lname, lnOk); markField(email, emOk); markField(phone, phOk);
+      if (!fnOk || !lnOk || !emOk || !phOk) return;
+      document.getElementById('otp-email-label').textContent = email.value.trim();
+      goToStep(2); generateAndShowOTP(); startResendTimer();
+    });
+
+    document.getElementById('link-back-step1').addEventListener('click', () => goToStep(1));
+
+    function generateAndShowOTP() {
+      generatedOTP = String(Math.floor(100000 + Math.random() * 900000));
+      document.querySelectorAll('.otp-box').forEach(b => { b.value = ''; b.classList.remove('is-error'); });
+      document.querySelectorAll('.otp-box')[0].focus();
+      setAlert(document.getElementById('otp-alert'), 'info', `✦ Demo mode — your code is: ${generatedOTP}`);
+    }
+
+    const otpBoxes = Array.from(document.querySelectorAll('.otp-box'));
+    otpBoxes.forEach((box, idx) => {
+      box.addEventListener('input', () => {
+        box.value = box.value.replace(/\D/g,'').slice(-1);
+        if (box.value && idx < otpBoxes.length - 1) otpBoxes[idx + 1].focus();
+      });
+      box.addEventListener('keydown', e => { if (e.key === 'Backspace' && !box.value && idx > 0) otpBoxes[idx - 1].focus(); });
+      box.addEventListener('paste', e => {
+        e.preventDefault();
+        const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g,'').slice(0,6);
+        pasted.split('').forEach((ch, pi) => { if (otpBoxes[pi]) otpBoxes[pi].value = ch; });
+        otpBoxes[Math.min(pasted.length, otpBoxes.length - 1)].focus();
+      });
+    });
+
+    function startResendTimer() {
+      const linkEl = document.getElementById('resend-link');
+      const timerEl = document.getElementById('resend-timer');
+      const countdownEl = document.getElementById('resend-countdown');
+      let secs = 60;
+      linkEl.style.display = 'none'; timerEl.style.display = 'inline'; countdownEl.textContent = secs;
+      if (resendInterval) clearInterval(resendInterval);
+      resendInterval = setInterval(() => {
+        secs--; countdownEl.textContent = secs;
+        if (secs <= 0) { clearInterval(resendInterval); linkEl.style.display = 'inline'; timerEl.style.display = 'none'; }
+      }, 1000);
+    }
+
+    document.getElementById('resend-link').addEventListener('click', () => { generateAndShowOTP(); startResendTimer(); });
+
+    document.getElementById('btn-verify').addEventListener('click', () => {
+      const entered = otpBoxes.map(b => b.value).join('');
+      const alertEl = document.getElementById('otp-alert');
+      if (entered.length < 6) { setAlert(alertEl, 'error', 'Please enter all 6 digits.'); return; }
+      if (entered !== generatedOTP) {
+        setAlert(alertEl, 'error', 'Incorrect code. Please try again.');
+        otpBoxes.forEach(b => { b.classList.add('is-error'); b.value = ''; });
+        setTimeout(() => { otpBoxes.forEach(b => b.classList.remove('is-error')); otpBoxes[0].focus(); }, 800);
+        return;
+      }
+      setAlert(alertEl, 'success', '✓ Email verified successfully!');
+      setTimeout(() => goToStep(3), 700);
+    });
+
+    document.getElementById('su-pw').addEventListener('input', function () {
+      const val = this.value; let score = 0;
+      if (val.length >= 8) score++; if (/[A-Z]/.test(val)) score++; if (/[0-9]/.test(val)) score++; if (/[^A-Za-z0-9]/.test(val)) score++;
+      const levels = [
+        { w:'0%', color:'transparent', label:'Enter password' },
+        { w:'25%', color:'#e05050', label:'Weak' },
+        { w:'50%', color:'#f59e0b', label:'Fair' },
+        { w:'75%', color:'#3b82f6', label:'Good' },
+        { w:'100%', color:'#4ade80', label:'Strong' },
+      ];
+      const lvl = val ? levels[score] : levels[0];
+      const bar = document.getElementById('pw-bar'); const lbl = document.getElementById('pw-label');
+      bar.style.width = lvl.w; bar.style.background = lvl.color;
+      lbl.textContent = lvl.label; lbl.style.color = lvl.color !== 'transparent' ? lvl.color : 'var(--ash)';
+    });
+
+    document.getElementById('btn-signup-submit').addEventListener('click', async () => {
+      const pw = document.getElementById('su-pw').value;
+      const pw2 = document.getElementById('su-pw2').value;
+      const alertEl = document.getElementById('pw-alert');
+      if (pw.length < 8) { setAlert(alertEl, 'error', 'Password must be at least 8 characters.'); return; }
+      if (pw !== pw2) { setAlert(alertEl, 'error', 'Passwords do not match.'); return; }
+      const btn = document.getElementById('btn-signup-submit');
+      btn.textContent = 'Creating account…'; btn.disabled = true;
+      const email    = document.getElementById('su-email').value.trim();
+      const fullName = (document.getElementById('su-fname').value.trim() + ' ' + document.getElementById('su-lname').value.trim()).trim();
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, pw);
+        await updateProfile(cred.user, { displayName: fullName });
+        setAlert(alertEl, 'success', '✓ Account created!');
+        setTimeout(() => {
+          if (stepTrack) stepTrack.style.display = 'none';
+          if (stepLabels) stepLabels.style.display = 'none';
+          stepEls.forEach(el => { el.style.display = 'none'; });
+          successEl.style.display = 'flex';
+        }, 600);
+      } catch (err) {
+        btn.textContent = 'Create Account →'; btn.disabled = false;
+        setAlert(alertEl, 'error', firebaseErrorMsg(err.code));
+      }
+    });
+
+    document.getElementById('btn-go-dashboard').addEventListener('click', closeModal);
+
+    document.getElementById('btn-google-login').addEventListener('click', async () => {
+      let alertEl = document.getElementById('login-alert');
+      if (!alertEl) { alertEl = document.createElement('div'); alertEl.id = 'login-alert'; alertEl.className = 'auth-alert'; document.getElementById('btn-login').parentNode.insertBefore(alertEl, document.getElementById('btn-login')); }
+      try {
+        await signInWithPopup(auth, gProvider);
+        closeModal();
+      } catch (err) {
+        if (err.code !== 'auth/popup-closed-by-user') setAlert(alertEl, 'error', firebaseErrorMsg(err.code));
+      }
+    });
+  })();
+
+
+  function firebaseErrorMsg(code) {
+    const map = {
+      'auth/invalid-email':          'Please enter a valid email address.',
+      'auth/user-not-found':         'No account found with this email.',
+      'auth/wrong-password':         'Incorrect password. Please try again.',
+      'auth/invalid-credential':     'Incorrect email or password.',
+      'auth/email-already-in-use':   'An account with this email already exists.',
+      'auth/weak-password':          'Password must be at least 6 characters.',
+      'auth/too-many-requests':      'Too many attempts. Please try again later.',
+      'auth/network-request-failed': 'Network error. Check your connection.',
+      'auth/popup-blocked':          'Popup was blocked. Please allow popups and try again.',
+      'auth/user-disabled':          'This account has been disabled.',
+    };
+    return map[code] || 'Something went wrong. Please try again.';
+  }
+
+
+  /* ── FLOATING WIDGET ── */
+  (function initWidget() {
+    const fab        = document.getElementById('fai-fab');
+    const contacts   = document.getElementById('fai-contacts');
+    const panel      = document.getElementById('fai-panel');
+    const closeBtn   = document.getElementById('fai-close');
+    const openChat   = document.getElementById('fai-open-chat');
+    const messagesEl = document.getElementById('fai-messages');
+    const inputEl    = document.getElementById('fai-input');
+    const sendBtn    = document.getElementById('fai-send');
+    const typingEl   = document.getElementById('fai-typing');
+    const promptsEl  = document.getElementById('fai-prompts');
+
+    let menuOpen = false, chatOpen = false;
+    const history = [];
+
+    const SYSTEM = `You are a warm, knowledgeable AI assistant for NareshIT — India's Best No.1 Software Training Institute with 22+ years of experience, 10 lakh+ students trained, 2801+ placements, and a 95% success rate.
+Answer any question a prospective student might have. Key info:
+COURSES & TRAINERS: Full Stack Java (6 months) — Mr. Hari Krishna | Full Stack Python (5 months) — Mr. Satish Gupta | DevOps with Multi Cloud (5 months) — Mr. Veera Babu | Generative AI & Agentic AI (3 months) — Mr. Prudhvi | Full Stack Data Science & AI (4–6 months) — Mr. Nikhil / Mr. Omkar | Cyber Security & Ethical Hacking (3 months) | Playwright Automation (3 months) — Mr. Karthik | AWS Solutions Architect Associate (3 months) | Full Stack .NET Core (5 months) — Mr. Bangar Raju | Spring Boot & Microservices (3 months) | Salesforce LWC, Snowflake, DSA with AI Engineer Program
+BATCHES & MODES: Online live, Offline/Classroom (Ameerpet, Hyderabad), Weekend batches. NASSCOM-certified internship programmes (30 days). Corporate training available.
+CONTACT: Phone: +91 8179191999 | 040-2374 6666 | Email: info@nareshit.com | Address: 2nd Floor, Durga Bhavani Plaza, Ameerpet, Hyderabad — 500016
+FEES: Direct the user to call +91 8179191999 or visit the centre for exact fee details.
+Be conversational, warm and concise (3–5 sentences max). Use emojis occasionally.`;
+
+    fab.addEventListener('click', () => {
+      if (chatOpen) { closeChatPanel(); return; }
+      menuOpen = !menuOpen;
+      fab.classList.toggle('active', menuOpen);
+      contacts.classList.toggle('open', menuOpen);
+      fab.querySelector('.fab-icon').textContent = menuOpen ? '✕' : '💬';
+    });
+
+    openChat.addEventListener('click', () => { closeMenu(); openChatPanel(); });
+    closeBtn.addEventListener('click', closeChatPanel);
+
+    function closeMenu() { menuOpen = false; fab.classList.remove('active'); contacts.classList.remove('open'); fab.querySelector('.fab-icon').textContent = '💬'; }
+    function openChatPanel() { chatOpen = true; panel.classList.add('open'); fab.classList.add('active'); fab.querySelector('.fab-icon').textContent = '✕'; contacts.classList.remove('open'); setTimeout(() => inputEl.focus(), 400); }
+    function closeChatPanel() { chatOpen = false; panel.classList.remove('open'); fab.classList.remove('active'); fab.querySelector('.fab-icon').textContent = '💬'; }
+
+    function addMsg(text, isUser) {
+      const row = document.createElement('div'); row.className = `fai-msg${isUser ? ' user' : ''}`;
+      const av  = document.createElement('div'); av.className = 'fai-av'; av.textContent = isUser ? 'You' : '✦';
+      const bbl = document.createElement('div'); bbl.className = 'fai-bbl'; bbl.innerHTML = text.replace(/\n/g,'<br>');
+      row.appendChild(av); row.appendChild(bbl);
+      messagesEl.appendChild(row); messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    async function askAgent(userMsg) {
+      typingEl.classList.add('on'); messagesEl.scrollTop = messagesEl.scrollHeight;
+      history.push({ role: 'user', content: userMsg });
+      try {
+        const res = await fetch(CHAT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ system: SYSTEM, max_tokens: 400, messages: history }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data  = await res.json();
+        const reply = data.content.filter(b => b.type === 'text').map(b => b.text).join('');
+        history.push({ role: 'assistant', content: reply });
+        typingEl.classList.remove('on'); addMsg(reply, false);
+      } catch (err) {
+        typingEl.classList.remove('on');
+        addMsg('Sorry, I\'m having trouble connecting right now. Please call us at <strong>+91 8179191999</strong> for immediate help! 📞', false);
+        history.pop();
+      }
+    }
+
+    function handleSend() {
+      const msg = inputEl.value.trim(); if (!msg) return;
+      if (promptsEl) promptsEl.style.display = 'none';
+      addMsg(msg, true); inputEl.value = ''; askAgent(msg);
+    }
+
+    sendBtn.addEventListener('click', handleSend);
+    inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
+    if (promptsEl) {
+      promptsEl.addEventListener('click', e => {
+        const btn = e.target.closest('.fai-prompt'); if (!btn) return;
+        promptsEl.style.display = 'none'; addMsg(btn.dataset.q, true); askAgent(btn.dataset.q);
+      });
+    }
+
+    document.addEventListener('click', e => {
+      const widget = document.getElementById('float-widget');
+      if (!widget.contains(e.target) && menuOpen) { closeMenu(); }
+    });
+  })();
+
+  </script>
+</body>
+</html>

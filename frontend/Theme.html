@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Our Theme — Innovating Tomorrow: Empowering Through Technology. NareshIT's guiding philosophy for IT education excellence." />
+  <title>Our Theme — NareshIT Best No.1 Software Training Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f6f3ed; --cream-dark:#edeae1; --ink:#0e0d0c;
+      --gold:#b89050; --gold-light:#d4aa6a; --gold-pale:rgba(184,144,80,.08);
+      --ash:#7c7870; --white:#fff; --divider:rgba(17,16,16,.08);
+      --green:#22c55e; --red:#ef4444;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+      --ease-silk:cubic-bezier(.16,1,.3,1);
+      --ease-std:cubic-bezier(.25,.46,.45,.94);
+      --r-lg:16px; --r-md:12px; --r-sm:8px; --r-pill:100px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--ink);font-family:var(--font-sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:3px;}
+    ::-webkit-scrollbar-track{background:transparent;}
+    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:400;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(246,243,237,.96);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--divider);}
+    .nav-logo img{height:38px;}
+    .nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+    .nav-links a{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ash);position:relative;transition:color .3s;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-std);}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-end{display:flex;gap:10px;align-items:center;}
+
+    /* ── NAV USER PROFILE ── */
+    .nav-user{display:none;align-items:center;gap:10px;}
+    .nav-user.show{display:flex;}
+    .nav-user-avatar{
+      width:34px;height:34px;border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--ink));
+      color:#fff;display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-serif);font-size:13px;font-weight:700;
+      flex-shrink:0;
+    }
+    .nav-user-info{display:flex;flex-direction:column;line-height:1.2;}
+    .nav-user-name{font-size:12px;font-weight:600;color:var(--ink);}
+    .nav-user-email{font-size:10px;color:var(--ash);}
+    .nav-signout{
+      background:none;border:1px solid var(--divider);border-radius:var(--r-pill);
+      padding:4px 10px;font-family:var(--font-sans);font-size:10px;font-weight:600;
+      color:var(--ash);cursor:pointer;transition:all .25s;
+    }
+    .nav-signout:hover{border-color:var(--ink);color:var(--ink);}
+    #nav-login-btn{transition:all .25s;}
+    #nav-login-btn.hidden{display:none;}
+
+    .btn-ng{padding:9px 20px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .3s;letter-spacing:.5px;}
+    .btn-ng:hover{border-color:var(--ink);color:var(--ink);}
+    .btn-nf{padding:9px 22px;background:var(--gold);border:1.5px solid var(--gold);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:700;color:var(--white);cursor:pointer;transition:all .35s var(--ease-silk);letter-spacing:.5px;}
+    .btn-nf:hover{background:var(--ink);border-color:var(--ink);}
+
+    /* ── HERO ── */
+    .hero{
+      background:var(--ink);
+      padding:100px 60px 90px;
+      position:relative;overflow:hidden;
+    }
+    .hero::before{
+      content:'';position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 60% 100% at 90% 50%,rgba(184,144,80,.1),transparent 60%),
+        radial-gradient(ellipse 30% 50% at 10% 80%,rgba(184,144,80,.05),transparent),
+        repeating-linear-gradient(90deg,transparent,transparent 119px,rgba(255,255,255,.018) 120px),
+        repeating-linear-gradient(0deg,transparent,transparent 119px,rgba(255,255,255,.018) 120px);
+    }
+    .hero-glyph{
+      position:absolute;right:40px;top:-40px;
+      font-family:var(--font-serif);font-size:400px;font-weight:700;
+      color:rgba(255,255,255,.025);line-height:1;
+      pointer-events:none;user-select:none;letter-spacing:-10px;
+    }
+    .hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+    .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);}
+    .hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold-light);}
+    .hero h1{
+      font-family:var(--font-serif);
+      font-size:clamp(36px,6.5vw,82px);
+      font-weight:300;line-height:.95;
+      letter-spacing:-2.5px;
+      color:rgba(246,243,237,.92);
+      margin-bottom:28px;
+      max-width:800px;
+    }
+    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero h1 strong{font-weight:700;}
+    .hero-sub{font-size:16px;color:rgba(246,243,237,.42);max-width:560px;line-height:1.9;}
+
+    /* ── MAIN TWO-COLUMN LAYOUT ── */
+    .page-wrap{max-width:1280px;margin:0 auto;padding:72px 60px 100px;}
+    .two-col{display:grid;grid-template-columns:1fr 380px;gap:72px;align-items:start;}
+
+    /* ── LEFT: THEME CONTENT ── */
+    .theme-lead-block{
+      padding:32px 36px;background:var(--white);
+      border:1px solid var(--divider);border-radius:var(--r-lg);
+      border-left:4px solid var(--gold);
+      margin-bottom:52px;
+    }
+    .theme-lead-tag{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+    .theme-lead-text{font-size:16px;color:var(--ash);line-height:1.9;font-style:italic;}
+
+    .theme-values{display:flex;flex-direction:column;gap:0;margin-bottom:52px;}
+    .tv{
+      display:flex;gap:20px;padding:28px 0;
+      border-bottom:1px solid var(--divider);
+      transition:padding-left .35s var(--ease-silk);
+      cursor:default;
+    }
+    .tv:first-child{padding-top:0;}
+    .tv:last-child{border-bottom:none;}
+    .tv:hover{padding-left:10px;}
+    .tv-num{
+      font-family:var(--font-serif);font-size:13px;font-weight:700;
+      color:var(--gold);letter-spacing:1px;flex-shrink:0;
+      width:28px;margin-top:3px;
+    }
+    .tv-icon{
+      width:44px;height:44px;border-radius:10px;
+      background:var(--gold-pale);border:1px solid rgba(184,144,80,.2);
+      display:flex;align-items:center;justify-content:center;
+      font-size:20px;flex-shrink:0;
+      transition:background .3s var(--ease-silk),transform .3s var(--ease-silk);
+    }
+    .tv:hover .tv-icon{background:rgba(184,144,80,.18);transform:scale(1.06);}
+    .tv-body{}
+    .tv-title{
+      font-family:var(--font-serif);font-size:20px;font-weight:700;
+      color:var(--ink);line-height:1.2;margin-bottom:7px;
+    }
+    .tv-text{font-size:14px;color:var(--ash);line-height:1.85;}
+
+    .theme-closing{
+      background:var(--ink);border-radius:var(--r-lg);
+      padding:44px 48px;position:relative;overflow:hidden;
+    }
+    .theme-closing::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 70% 100% at 100% 0%,rgba(184,144,80,.12),transparent);
+    }
+    .theme-closing-quote{
+      font-family:var(--font-serif);font-size:clamp(18px,2.5vw,26px);
+      font-weight:300;color:rgba(246,243,237,.88);
+      line-height:1.5;font-style:italic;
+      position:relative;z-index:1;margin-bottom:20px;
+    }
+    .theme-closing-quote strong{font-style:normal;font-weight:700;color:var(--gold);}
+    .theme-closing-attr{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(246,243,237,.3);position:relative;z-index:1;}
+    .theme-closing-bar{width:32px;height:2px;background:var(--gold);margin-bottom:18px;position:relative;z-index:1;}
+
+    /* ── RIGHT: STICKY ENQUIRY FORM ── */
+    .sidebar{position:sticky;top:88px;}
+    .enq-card{
+      background:var(--white);border:1px solid var(--divider);
+      border-radius:20px;overflow:hidden;
+      box-shadow:0 8px 40px rgba(17,16,16,.08);
+    }
+    .enq-hd{
+      background:var(--ink);padding:24px 28px;
+      position:relative;overflow:hidden;
+    }
+    .enq-hd::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 120% at 110% 0%,rgba(184,144,80,.18),transparent 60%);}
+    .enq-hd-badge{
+      display:inline-flex;align-items:center;gap:7px;
+      padding:4px 12px;background:rgba(184,144,80,.15);
+      border:1px solid rgba(184,144,80,.25);border-radius:var(--r-pill);
+      margin-bottom:12px;position:relative;z-index:1;
+    }
+    .enq-hd-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+    .enq-hd-badge span{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);}
+    .enq-hd h3{font-family:var(--font-serif);font-size:22px;font-weight:600;color:rgba(246,243,237,.92);position:relative;z-index:1;margin-bottom:4px;}
+    .enq-hd p{font-size:12px;color:rgba(246,243,237,.4);position:relative;z-index:1;}
+    .enq-body{padding:24px 28px;}
+    .ef{margin-bottom:14px;}
+    .ef label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ash);margin-bottom:5px;}
+    .ef input,.ef select{
+      width:100%;padding:11px 14px;
+      background:var(--cream);border:1.5px solid var(--divider);
+      border-radius:var(--r-sm);font-family:var(--font-sans);font-size:13px;color:var(--ink);
+      outline:none;transition:all .3s var(--ease-silk);
+      appearance:none;-webkit-appearance:none;
+    }
+    .ef select{
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 5 5-5' stroke='%237c7870' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;background-position:right 12px center;
+      padding-right:34px;background-color:var(--cream);
+    }
+    .ef input:focus,.ef select:focus{border-color:var(--gold);background:var(--white);box-shadow:0 0 0 3px rgba(184,144,80,.1);}
+    .ef input.err,.ef select.err{border-color:var(--red);box-shadow:0 0 0 3px rgba(239,68,68,.07);}
+    .ef-err{font-size:10px;color:var(--red);margin-top:3px;display:none;}
+    .ef-err.show{display:block;}
+    .mode-row{display:flex;gap:6px;}
+    .md-btn{
+      flex:1;padding:9px 4px;
+      background:var(--cream);border:1.5px solid var(--divider);
+      border-radius:var(--r-sm);font-family:var(--font-sans);font-size:11px;
+      font-weight:500;color:var(--ash);cursor:pointer;
+      transition:all .25s var(--ease-silk);text-align:center;
+    }
+    .md-btn.on{background:rgba(184,144,80,.1);border-color:var(--gold);color:var(--gold);font-weight:700;}
+    .md-btn:hover:not(.on){border-color:var(--ash);}
+    .enq-submit{
+      width:100%;padding:13px;
+      background:var(--ink);border:none;border-radius:var(--r-sm);
+      font-family:var(--font-sans);font-size:13px;font-weight:700;
+      color:var(--white);cursor:pointer;letter-spacing:.3px;
+      transition:all .4s var(--ease-silk);
+      position:relative;overflow:hidden;margin-top:4px;
+    }
+    .enq-submit::after{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform .4s var(--ease-silk);}
+    .enq-submit span{position:relative;z-index:1;}
+    .enq-submit:hover::after{transform:translateX(0);}
+    .enq-submit:disabled{opacity:.5;cursor:not-allowed;}
+    .enq-submit:disabled::after{display:none;}
+    .enq-trust{
+      display:flex;justify-content:space-around;
+      padding:12px 20px;border-top:1px solid var(--divider);
+      background:var(--cream);
+    }
+    .enq-trust span{font-size:10px;font-weight:600;color:var(--ash);}
+    .enq-success{display:none;text-align:center;padding:44px 28px 32px;}
+    .enq-success.show{display:block;animation:fadeUp .5s var(--ease-silk);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .es-icon{width:60px;height:60px;border-radius:50%;background:rgba(34,197,94,.1);border:2px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--green);margin:0 auto 16px;}
+    .es-title{font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+    .es-sub{font-size:13px;color:var(--ash);line-height:1.7;margin-bottom:20px;}
+    .es-again{padding:9px 22px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .3s;}
+    .es-again:hover{border-color:var(--ink);color:var(--ink);}
+
+    /* ── FOOTER ── */
+    .site-footer{background:var(--ink);padding:60px 60px 36px;}
+    .fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:52px;max-width:1280px;margin:0 auto 48px;}
+    .flogo img{height:34px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:16px;}
+    .fdesc{font-size:12px;color:rgba(246,243,237,.3);line-height:1.9;margin-bottom:22px;}
+    .fsocs{display:flex;gap:8px;}
+    .fsoc{width:34px;height:34px;border-radius:8px;border:1px solid rgba(246,243,237,.1);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(246,243,237,.3);transition:all .25s;}
+    .fsoc:hover{border-color:var(--gold);color:var(--gold);}
+    .fcol h5{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(246,243,237,.28);margin-bottom:16px;}
+    .fcol ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+    .fcol ul a{font-size:12px;color:rgba(246,243,237,.4);transition:color .25s;}
+    .fcol ul a:hover{color:var(--gold-light);}
+    .fbot{max-width:1280px;margin:0 auto;border-top:1px solid rgba(246,243,237,.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+    .fbot p{font-size:11px;color:rgba(246,243,237,.22);}
+    .floats{position:fixed;bottom:26px;right:26px;z-index:300;display:flex;flex-direction:column;gap:10px;}
+    .fbtn{width:48px;height:48px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .35s var(--ease-silk);}
+    .fbtn:hover{transform:scale(1.12);}
+    .fbtn-wa{background:#25D366;color:#fff;}
+    .fbtn-ph{background:var(--gold);color:#fff;}
+
+    /* Scroll reveal */
+    .rv{opacity:0;transform:translateY(22px);transition:opacity .65s var(--ease-silk),transform .65s var(--ease-silk);}
+    .rv.in{opacity:1;transform:translateY(0);}
+
+    /* Responsive */
+    @media(max-width:1024px){
+      .nav{padding:0 28px;}.nav-links{display:none;}
+      .hero{padding:56px 28px 56px;}
+      .page-wrap{padding:52px 28px 80px;}
+      .two-col{grid-template-columns:1fr;gap:48px;}
+      .sidebar{position:static;}
+      .fgrid{grid-template-columns:1fr 1fr;gap:32px;} .site-footer{padding:44px 28px 28px;}
+    }
+    @media(max-width:640px){
+      .fgrid{grid-template-columns:1fr;}
+      .hero h1{letter-spacing:-1.5px;}
+      .nav-user-info{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-end">
+    <!-- Logged-in profile pill -->
+    <div class="nav-user" id="nav-user">
+      <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+      <div class="nav-user-info">
+        <span class="nav-user-name" id="nav-user-name">Name</span>
+        <span class="nav-user-email" id="nav-user-email">email</span>
+      </div>
+      <button class="nav-signout" id="nav-signout">Sign out</button>
+    </div>
+    <!-- Logged-out buttons -->
+    <button class="btn-ng" id="nav-login-btn" onclick="window.location.href='index.html'">Login</button>
+    <button class="btn-nf" id="enroll-btn">Enroll Now</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glyph">"</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Our Philosophy</div>
+    <h1>
+      <em>"Innovating Tomorrow:</em><br>
+      <strong>Empowering Through</strong><br>
+      <strong>Technology"</strong>
+    </h1>
+    <p class="hero-sub">A guiding philosophy that shapes our organisation's identity — and the lives of every student who walks through our doors.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+  <div class="two-col">
+
+    <!-- LEFT: Theme Content -->
+    <div>
+      <!-- Lead statement -->
+      <div class="theme-lead-block rv">
+        <div class="theme-lead-tag">Our Core Belief</div>
+        <div class="theme-lead-text">
+          "Welcome to the heart of our organisation's theme. It encapsulates our commitment to pushing the boundaries of what's possible in the dynamic landscape of the IT industry — and our belief that every student who deserves a chance, gets one."
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="theme-values">
+
+        <div class="tv rv" style="transition-delay:.04s">
+          <div class="tv-num">01</div>
+          <div class="tv-icon">💡</div>
+          <div class="tv-body">
+            <div class="tv-title">The Power of Innovation</div>
+            <div class="tv-text">We embrace creativity, encourage out-of-the-box thinking, and consistently seek new ways to solve challenges through groundbreaking technological solutions. Innovation at NareshIT is not a department — it is the mindset we instil in every student, shaping how they approach problems for the rest of their careers.</div>
+          </div>
+        </div>
+
+        <div class="tv rv" style="transition-delay:.08s">
+          <div class="tv-num">02</div>
+          <div class="tv-icon">⚡</div>
+          <div class="tv-body">
+            <div class="tv-title">Technology as an Empowerment Tool</div>
+            <div class="tv-text">We dive deep into the transformative role of technology in empowering individuals and businesses. The right skills at the right time can rewrite a career trajectory entirely. Technology is the great equaliser — and NareshIT exists to ensure that every deserving student has access to it.</div>
+          </div>
+        </div>
+
+        <div class="tv rv" style="transition-delay:.12s">
+          <div class="tv-num">03</div>
+          <div class="tv-icon">🔭</div>
+          <div class="tv-body">
+            <div class="tv-title">Future-Focused Solutions</div>
+            <div class="tv-text">Our organisation is dedicated to staying ahead of the curve. We train students not just for today's job market but for the technology landscape of tomorrow. Our curriculum is updated continuously by active practitioners — so you graduate with what companies actually hire for right now, not three years ago.</div>
+          </div>
+        </div>
+
+        <div class="tv rv" style="transition-delay:.16s">
+          <div class="tv-num">04</div>
+          <div class="tv-icon">🤝</div>
+          <div class="tv-body">
+            <div class="tv-title">Collaboration &amp; Synergy</div>
+            <div class="tv-text">NareshIT fosters a culture that values teamwork, synergy, and interconnectedness to drive innovation and create impactful technological solutions. We believe that the best learning happens in communities — and we have built one of India's most active alumni and peer-learning networks over 22+ years.</div>
+          </div>
+        </div>
+
+        <div class="tv rv" style="transition-delay:.20s">
+          <div class="tv-num">05</div>
+          <div class="tv-icon">🌱</div>
+          <div class="tv-body">
+            <div class="tv-title">Sustainable &amp; Responsible Technology</div>
+            <div class="tv-text">Naresh IT strives to balance technological advancement with environmental responsibility, contributing to a sustainable and responsible digital future. Technology built without conscience is technology built without purpose — and we teach our students to build with both.</div>
+          </div>
+        </div>
+
+        <div class="tv rv" style="transition-delay:.24s">
+          <div class="tv-num">06</div>
+          <div class="tv-icon">📚</div>
+          <div class="tv-body">
+            <div class="tv-title">Continuous Learning &amp; Inclusion</div>
+            <div class="tv-text">We encourage a culture of continuous learning by embracing diversity and inclusion, thus empowering the future generation of technologists. Our classroom is not a classroom — it is a community where engineers from every background learn from each other alongside our expert trainers.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Closing statement -->
+      <div class="theme-closing rv">
+        <div class="theme-closing-bar"></div>
+        <div class="theme-closing-quote">
+          <strong>"Innovating Tomorrow: Empowering Through Technology"</strong> is not just a theme — it is a guiding philosophy that shapes our organisation's identity. Join us on this journey of innovation, empowerment, and technological excellence as we pave the way for a brighter digital future.
+        </div>
+        <div class="theme-closing-attr">— NareshIT, Hyderabad · Est. 2003</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Enquiry Form -->
+    <div class="sidebar" id="enq-form">
+      <div class="enq-card">
+
+        <div class="enq-hd">
+          <div class="enq-hd-badge">
+            <div class="enq-hd-dot"></div>
+            <span>Free Counselling</span>
+          </div>
+          <h3>Quick Enquiry</h3>
+          <p>Our counsellor will call you back within 2 hours.</p>
+        </div>
+
+        <form id="enquiry-form" novalidate>
+          <div class="enq-body">
+
+            <div class="ef">
+              <label>Full Name <span style="color:var(--red)">*</span></label>
+              <input type="text" id="enq-name" placeholder="e.g. Rahul Sharma" autocomplete="name">
+              <div class="ef-err" id="err-name">Please enter your full name</div>
+            </div>
+
+            <div class="ef">
+              <label>Email Address <span style="color:var(--red)">*</span></label>
+              <input type="email" id="enq-email" placeholder="rahul@example.com" autocomplete="email">
+              <div class="ef-err" id="err-email">Enter a valid email address</div>
+            </div>
+
+            <div class="ef">
+              <label>Mobile Number <span style="color:var(--red)">*</span></label>
+              <input type="tel" id="enq-mobile" placeholder="+91 98765 43210" maxlength="15">
+              <div class="ef-err" id="err-mobile">Enter a valid 10-digit number</div>
+            </div>
+
+            <div class="ef">
+              <label>Select Course <span style="color:var(--red)">*</span></label>
+              <select id="enq-course">
+                <option value="">— Select a course —</option>
+                <optgroup label="🤖 AI & GenAI">
+                  <option>Advanced Generative &amp; Agentic AI</option>
+                  <option>Generative AI &amp; Agentic AI with Python</option>
+                  <option>DSA with AI Engineer Program</option>
+                  <option>Chat GPT</option>
+                  <option>MLOps &amp; AIOps</option>
+                  <option>Full Stack Testing with Gen AI</option>
+                  <option>Next-Gen Full Stack UI with React &amp; AI</option>
+                </optgroup>
+                <optgroup label="☁️ DevOps & Cloud">
+                  <option>DevOps with Multi Cloud</option>
+                  <option>DevOps</option>
+                  <option>DevSecOps</option>
+                  <option>DevOps with AWS</option>
+                  <option>Multi Cloud</option>
+                  <option>DevOps &amp; Site Reliability Engineering (SRE)</option>
+                  <option>DevOps Certification Course</option>
+                  <option>Terraform Associate Certification Training (003)</option>
+                  <option>AWS Solutions Architect Associate</option>
+                  <option>Amazon Web Services (AWS)</option>
+                  <option>Google Cloud Online Training</option>
+                  <option>Azure Fundamentals (AZ-900)</option>
+                  <option>Azure Developer Associate (AZ-204)</option>
+                  <option>Azure DevOps (AZ-400)</option>
+                  <option>Azure Administrator (AZ-104)</option>
+                  <option>Azure Data Engineer</option>
+                  <option>MS Azure + Azure DevOps</option>
+                  <option>MS Azure Data Factory</option>
+                  <option>Docker &amp; Kubernetes</option>
+                  <option>Linux Administration</option>
+                  <option>Unix / Linux</option>
+                  <option>Internship Program on DevOps with Cloud</option>
+                </optgroup>
+                <optgroup label="☕ Full Stack">
+                  <option>Full Stack Java</option>
+                  <option>Full Stack Java Developer Program</option>
+                  <option>Full Stack Java Placement Assistance Program</option>
+                  <option>Full Stack Python</option>
+                  <option>Full Stack .NET Core</option>
+                  <option>Full Stack .Net Placement Assistance Program</option>
+                  <option>UI Full Stack Web Development with React</option>
+                  <option>UI Full Stack Web with React</option>
+                  <option>Backend Development</option>
+                  <option>Spring Boot and Microservices</option>
+                  <option>Spring</option>
+                  <option>Django with Rest API</option>
+                  <option>Backend for UI Full Stack</option>
+                  <option>Java Real-Time Projects</option>
+                  <option>Python Scripting for DevOps</option>
+                </optgroup>
+                <optgroup label="📊 Data Science & Analytics">
+                  <option>Full Stack Data Science &amp; AI</option>
+                  <option>Full Stack Data Science Program</option>
+                  <option>Data Science with AI</option>
+                  <option>Data Analytics &amp; Business Analytics</option>
+                  <option>Numpy | Pandas | Matplotlib</option>
+                  <option>SnowFlake</option>
+                  <option>Tableau</option>
+                  <option>Power BI</option>
+                  <option>Power BI for Data Science</option>
+                  <option>Power Apps</option>
+                  <option>Microsoft Fabric Data Engineer (DP-700)</option>
+                  <option>R Programming Online Training</option>
+                  <option>Hadoop Online Training</option>
+                  <option>Internship program on Data Science</option>
+                </optgroup>
+                <optgroup label="🔬 Software Testing">
+                  <option>Playwright Automation</option>
+                  <option>Playwright with TypeScript</option>
+                  <option>Selenium</option>
+                  <option>Full Stack Software Testing</option>
+                  <option>Software Testing</option>
+                  <option>Manual Testing</option>
+                  <option>Tosca</option>
+                </optgroup>
+                <optgroup label="💻 Programming">
+                  <option>Core Java</option>
+                  <option>Advanced Java</option>
+                  <option>Java Programming (Core Java)</option>
+                  <option>Python Programming</option>
+                  <option>Python Developer</option>
+                  <option>C Language</option>
+                  <option>C#.NET</option>
+                  <option>Asp. Net MVC 5 + MVC core 9.0</option>
+                  <option>Data Structures &amp; Algorithms using Java</option>
+                  <option>Data Structures &amp; Algorithms using C</option>
+                  <option>Data Structures and Algorithms with Python</option>
+                  <option>DSA with Java and System Design</option>
+                  <option>Internship Program on Python</option>
+                </optgroup>
+                <optgroup label="🌐 Web Development">
+                  <option>React JS</option>
+                  <option>Angular</option>
+                  <option>Node JS</option>
+                  <option>HTML CSS JavaScript</option>
+                  <option>Bootstrap</option>
+                  <option>PHP with MySQL</option>
+                </optgroup>
+                <optgroup label="🗄️ Database">
+                  <option>SQL Server</option>
+                  <option>MySQL</option>
+                  <option>MongoDB</option>
+                  <option>Oracle</option>
+                  <option>Database for Data Science &amp; Analytics</option>
+                  <option>Database for Python</option>
+                </optgroup>
+                <optgroup label="🎯 Salesforce & RPA">
+                  <option>Salesforce CRM with LWC</option>
+                  <option>Salesforce CRM</option>
+                  <option>Salesforce LWC</option>
+                  <option>UiPath</option>
+                  <option>Automation Anywhere</option>
+                  <option>Blue Prism</option>
+                  <option>MuleSoft</option>
+                </optgroup>
+                <optgroup label="🛡️ Security & Others">
+                  <option>Cyber Security &amp; Ethical Hacking</option>
+                  <option>Android</option>
+                  <option>iOS</option>
+                  <option>Digital Marketing</option>
+                  <option>SEO Online Training</option>
+                  <option>Spoken English</option>
+                  <option>Adv Spoken English</option>
+                  <option>Soft Skills</option>
+                  <option>Campus Recruitment Training (CRT)</option>
+                </optgroup>
+              </select>
+              <div class="ef-err" id="err-course">Please select a course</div>
+            </div>
+
+            <div class="ef">
+              <label>Mode of Training</label>
+              <div class="mode-row">
+                <button type="button" class="md-btn on" data-v="Online">🖥 Online</button>
+                <button type="button" class="md-btn" data-v="Offline">🏫 Offline</button>
+                <button type="button" class="md-btn" data-v="Live">⚡ Live</button>
+              </div>
+            </div>
+
+            <button type="submit" class="enq-submit" id="enq-submit"><span id="enq-txt">Submit Enquiry →</span></button>
+          </div>
+        </form>
+
+        <!-- Success state -->
+        <div class="enq-success" id="enq-success">
+          <div class="es-icon">✓</div>
+          <div class="es-title">Enquiry Submitted!</div>
+          <div class="es-sub">Thank you! A NareshIT counsellor will call you within 2 hours to discuss the best course for your goals.</div>
+          <button class="es-again" id="es-again-btn">Submit Another Enquiry</button>
+        </div>
+
+        <div class="enq-trust">
+          <span>🔒 100% Private</span>
+          <span>📞 2hr Callback</span>
+          <span>🆓 Free Advice</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="fgrid">
+    <div>
+      <div class="flogo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></div>
+      <p class="fdesc">NNV Naresh is an entrepreneur with a noble vision to transform career aspirations. Over 22 years shaping India's software talent ecosystem.</p>
+      <div class="fsocs">
+        <a class="fsoc" href="https://www.facebook.com/nareshitechnologies" target="_blank">f</a>
+        <a class="fsoc" href="https://www.instagram.com/nareshitech" target="_blank">◎</a>
+        <a class="fsoc" href="https://www.youtube.com/@NareshIT" target="_blank">▶</a>
+        <a class="fsoc" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank">in</a>
+      </div>
+    </div>
+    <div class="fcol"><h5>Company</h5><ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="theme.html" style="color:var(--gold-light)">Our Theme</a></li>
+      <li><a href="faculty.html">Trainers Profile</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul></div>
+    <div class="fcol"><h5>Quick Links</h5><ul>
+      <li><a href="courses.html">All Courses</a></li>
+      <li><a href="#">New Batches</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="#">Corporate Training</a></li>
+    </ul></div>
+    <div class="fcol"><h5>Top Courses</h5><ul>
+      <li><a href="courses.html?cat=fullstack">Full Stack Java</a></li>
+      <li><a href="courses.html?cat=devops">DevOps Multi Cloud</a></li>
+      <li><a href="courses.html?cat=datascience">Data Science &amp; AI</a></li>
+      <li><a href="courses.html?cat=testing">Software Testing</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 Naresh i Technologies. All rights reserved.</p>
+    <p>Crafted with care in Hyderabad, India</p>
+  </div>
+</footer>
+
+<div class="floats">
+  <button class="fbtn fbtn-wa" onclick="window.open('https://wa.me/+918179191999','_blank')">💬</button>
+  <button class="fbtn fbtn-ph" onclick="window.location.href='tel:+918179191999'">📞</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────────
+     SCRIPTS  —  type="module" required for ES import statements
+───────────────────────────────────────────────────────────────── -->
+<script type="module">
+
+/* ── Firebase ── */
+import { initializeApp }
+  from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js';
+import { getAuth, onAuthStateChanged, signOut }
+  from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+
+const firebaseConfig = {
+  apiKey:            'AIzaSyBHAPhCQHq0jR-4pAwlLKAphskkbhpC5iw',
+  authDomain:        'nareshit-bd900.firebaseapp.com',
+  projectId:         'nareshit-bd900',
+  storageBucket:     'nareshit-bd900.firebasestorage.app',
+  messagingSenderId: '923456489902',
+  appId:             '1:923456489902:web:f652e970887451c2ba203f',
+  measurementId:     'G-EXWYHW9TB2',
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const LS_KEY = 'nit_user';
+
+function getInitials(name) {
+  if (!name) return '?';
+  return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+}
+
+function showNavProfile(name, email) {
+  const userEl   = document.getElementById('nav-user');
+  const loginBtn = document.getElementById('nav-login-btn');
+  if (!userEl) return;
+  document.getElementById('nav-user-avatar').textContent = getInitials(name);
+  document.getElementById('nav-user-name').textContent   = name  || 'My Account';
+  document.getElementById('nav-user-email').textContent  = email || '';
+  userEl.classList.add('show');
+  loginBtn.classList.add('hidden');
+  try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch(_) {}
+}
+
+function hideNavProfile() {
+  const userEl   = document.getElementById('nav-user');
+  const loginBtn = document.getElementById('nav-login-btn');
+  if (!userEl) return;
+  userEl.classList.remove('show');
+  loginBtn.classList.remove('hidden');
+  try { localStorage.removeItem(LS_KEY); } catch(_) {}
+}
+
+/* Instant render from localStorage — no flicker on page load */
+(function() {
+  try {
+    const cached = localStorage.getItem(LS_KEY);
+    if (cached) {
+      const { name, email } = JSON.parse(cached);
+      if (name || email) showNavProfile(name, email);
+    }
+  } catch(_) {}
+})();
+
+/* Sign-out */
+document.getElementById('nav-signout').addEventListener('click', () => {
+  signOut(auth).then(hideNavProfile).catch(console.error);
+});
+
+/* Firebase auth — authoritative source of truth */
+onAuthStateChanged(auth, user => {
+  if (user) {
+    showNavProfile(
+      user.displayName || user.email?.split('@')[0] || 'Student',
+      user.email || ''
+    );
+  } else {
+    hideNavProfile();
+  }
+});
+
+/* ── ENROLL NOW button → scroll to form ── */
+document.getElementById('enroll-btn').addEventListener('click', () => {
+  document.getElementById('enq-form').scrollIntoView({ behavior: 'smooth' });
+});
+
+/* ── MODE TOGGLE ── */
+let selMode = 'Online';
+document.querySelectorAll('.md-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.md-btn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    selMode = btn.dataset.v;
+  });
+});
+
+/* ── FORM SUBMIT ── */
+document.getElementById('enquiry-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  let valid = true;
+
+  function check(id, errId, fn) {
+    const el  = document.getElementById(id);
+    const err = document.getElementById(errId);
+    const ok  = fn(el.value.trim());
+    el.classList.toggle('err', !ok);
+    err.classList.toggle('show', !ok);
+    if (!ok) valid = false;
+  }
+
+  check('enq-name',   'err-name',   v => v.length >= 2);
+  check('enq-email',  'err-email',  v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+  check('enq-mobile', 'err-mobile', v => /^\+?[\d\s\-]{10,15}$/.test(v));
+  check('enq-course', 'err-course', v => v !== '');
+
+  if (!valid) return;
+
+  const btn = document.getElementById('enq-submit');
+  const txt = document.getElementById('enq-txt');
+  btn.disabled = true;
+  txt.textContent = 'Sending…';
+
+  await new Promise(r => setTimeout(r, 1300));
+
+  document.getElementById('enquiry-form').style.display = 'none';
+  document.getElementById('enq-success').classList.add('show');
+  btn.disabled = false;
+  txt.textContent = 'Submit Enquiry →';
+});
+
+/* Clear errors on input */
+['enq-name', 'enq-email', 'enq-mobile', 'enq-course'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('input', () => {
+    el.classList.remove('err');
+    const errEl = document.getElementById('err-' + id.replace('enq-', ''));
+    if (errEl) errEl.classList.remove('show');
+  });
+});
+
+/* Reset form */
+function resetForm() {
+  document.getElementById('enquiry-form').reset();
+  document.getElementById('enquiry-form').style.display = 'block';
+  document.getElementById('enq-success').classList.remove('show');
+  document.querySelectorAll('.md-btn').forEach((b, i) => b.classList.toggle('on', i === 0));
+  selMode = 'Online';
+}
+document.getElementById('es-again-btn').addEventListener('click', resetForm);
+
+/* ── SCROLL REVEAL ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+</script>
+</body>
+</html>

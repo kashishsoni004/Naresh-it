@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact NareshIT — India's Best No.1 Software Training Institute. Reach us for course enquiries, admissions, corporate training, and placement support." />
+  <title>Contact Us — NareshIT Best No.1 Software Training Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f6f3ed; --cream-dark:#edeae1; --ink:#111010;
+      --gold:#b89050; --gold-light:#d4aa6a; --gold-pale:rgba(184,144,80,.08);
+      --ash:#7c7870; --white:#ffffff; --divider:rgba(17,16,16,0.08);
+      --green:#22c55e; --red:#ef4444;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+      --ease-silk:cubic-bezier(0.16,1,0.3,1);
+      --ease-std:cubic-bezier(0.25,0.46,0.45,0.94);
+      --r-lg:16px; --r-md:12px; --r-sm:8px; --r-pill:100px;
+      --shadow-card:0 2px 20px rgba(17,16,16,.06);
+      --shadow-hover:0 24px 60px rgba(17,16,16,.12);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--ink);font-family:var(--font-sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:4px;}
+    ::-webkit-scrollbar-track{background:var(--cream-dark);}
+    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;}
+
+    /* ─── NAV ─── */
+    .nav{position:sticky;top:0;z-index:400;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(246,243,237,.96);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--divider);}
+    .nav-logo img{height:38px;}
+    .nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+    .nav-links a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ash);position:relative;transition:color .3s;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-std);}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-end{display:flex;gap:10px;align-items:center;}
+
+    /* ── NAV USER PROFILE ── */
+    .nav-user{display:none;align-items:center;gap:10px;}
+    .nav-user.show{display:flex;}
+    .nav-user-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ink));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:13px;font-weight:700;flex-shrink:0;}
+    .nav-user-info{display:flex;flex-direction:column;line-height:1.2;}
+    .nav-user-name{font-size:12px;font-weight:600;color:var(--ink);}
+    .nav-user-email{font-size:10px;color:var(--ash);}
+    .nav-signout{background:none;border:1px solid var(--divider);border-radius:var(--r-pill);padding:4px 10px;font-family:var(--font-sans);font-size:10px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .25s;}
+    .nav-signout:hover{border-color:var(--ink);color:var(--ink);}
+    #nav-login-btn{transition:all .25s;}
+    #nav-login-btn.hidden{display:none;}
+
+    .btn-ng{padding:9px 20px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--ash);cursor:pointer;transition:all .3s;}
+    .btn-ng:hover{border-color:var(--ink);color:var(--ink);}
+    .btn-nf{padding:9px 22px;background:var(--gold);border:1.5px solid var(--gold);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--white);cursor:pointer;transition:all .35s var(--ease-silk);}
+    .btn-nf:hover{background:var(--ink);border-color:var(--ink);}
+
+    /* ─── HERO ─── */
+    .hero{background:var(--ink);padding:80px 60px 70px;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 55% 100% at 85% 50%,rgba(184,144,80,.1),transparent 60%),
+        radial-gradient(ellipse 30% 60% at 15% 80%,rgba(184,144,80,.05),transparent 70%),
+        repeating-linear-gradient(90deg,transparent,transparent 119px,rgba(255,255,255,.015) 120px),
+        repeating-linear-gradient(0deg,transparent,transparent 119px,rgba(255,255,255,.015) 120px);}
+    .hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .hero-lbl{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);}
+    .hero-lbl::before{content:'';display:block;width:20px;height:1px;background:var(--gold-light);}
+    .hero h1{font-family:var(--font-serif);font-size:clamp(42px,6vw,78px);font-weight:300;line-height:.95;letter-spacing:-2px;color:rgba(246,243,237,.92);margin-bottom:22px;}
+    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero p{font-size:15px;color:rgba(246,243,237,.42);line-height:1.9;max-width:420px;}
+    .hero-cards{display:flex;flex-direction:column;gap:14px;}
+    .hcard{background:rgba(246,243,237,.06);border:1px solid rgba(246,243,237,.1);border-radius:var(--r-md);padding:18px 22px;display:flex;align-items:center;gap:16px;transition:all .35s var(--ease-silk);}
+    .hcard:hover{background:rgba(184,144,80,.1);border-color:rgba(184,144,80,.3);transform:translateX(6px);}
+    .hcard-icon{width:42px;height:42px;border-radius:var(--r-sm);background:rgba(184,144,80,.15);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+    .hcard-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(246,243,237,.3);margin-bottom:3px;}
+    .hcard-val{font-size:14px;font-weight:500;color:rgba(246,243,237,.85);}
+    .hcard-sub{font-size:11px;color:rgba(246,243,237,.35);margin-top:1px;}
+
+    /* ─── MAIN LAYOUT ─── */
+    .page-wrap{max-width:1280px;margin:0 auto;padding:72px 60px 100px;}
+    .two-col{display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:start;}
+
+    /* ─── FORM ─── */
+    .form-header{margin-bottom:36px;}
+    .form-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+    .form-header h2{font-family:var(--font-serif);font-size:clamp(32px,4vw,48px);font-weight:400;line-height:1;letter-spacing:-1px;color:var(--ink);margin-bottom:12px;}
+    .form-header h2 em{font-style:italic;color:var(--gold);}
+    .form-header p{font-size:14px;color:var(--ash);line-height:1.8;}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .form-full{grid-column:1/-1;}
+    .field{display:flex;flex-direction:column;gap:6px;}
+    .field label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ash);}
+    .field input,.field select,.field textarea{padding:13px 16px;background:var(--white);border:1.5px solid var(--divider);border-radius:var(--r-sm);font-family:var(--font-sans);font-size:14px;color:var(--ink);outline:none;transition:all .3s var(--ease-silk);appearance:none;-webkit-appearance:none;}
+    .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237c7870' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;}
+    .field input::placeholder,.field textarea::placeholder{color:#c0bbb5;}
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,144,80,.12);background:var(--white);}
+    .field input.error,.field select.error,.field textarea.error{border-color:var(--red);box-shadow:0 0 0 3px rgba(239,68,68,.08);}
+    .field-err{font-size:11px;color:var(--red);margin-top:2px;display:none;}
+    .field.has-error .field-err{display:block;}
+    .field textarea{resize:vertical;min-height:110px;line-height:1.7;}
+    .mode-toggle{display:flex;gap:8px;}
+    .mode-btn{flex:1;padding:11px 8px;background:var(--cream-dark);border:1.5px solid var(--divider);border-radius:var(--r-sm);font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--ash);cursor:pointer;transition:all .3s var(--ease-silk);text-align:center;}
+    .mode-btn.sel{background:rgba(184,144,80,.1);border-color:var(--gold);color:var(--gold);font-weight:600;}
+    .mode-btn:hover:not(.sel){border-color:var(--ash);color:var(--ink);}
+    .form-submit{margin-top:8px;}
+    .btn-submit{width:100%;padding:15px;background:var(--ink);border:none;border-radius:var(--r-sm);font-family:var(--font-sans);font-size:14px;font-weight:600;color:var(--white);cursor:pointer;letter-spacing:.5px;transition:all .4s var(--ease-silk);position:relative;overflow:hidden;}
+    .btn-submit::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform .4s var(--ease-silk);}
+    .btn-submit:hover::before{transform:translateX(0);}
+    .btn-submit span{position:relative;z-index:1;}
+    .btn-submit:disabled{opacity:.5;cursor:not-allowed;}
+    .btn-submit:disabled::before{display:none;}
+    .form-success{display:none;text-align:center;padding:60px 32px;background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);box-shadow:var(--shadow-card);}
+    .form-success.show{display:block;animation:fadeUp .5s var(--ease-silk);}
+    .success-icon{width:72px;height:72px;border-radius:50%;background:rgba(34,197,94,.1);border:2px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 20px;}
+    .form-success h3{font-family:var(--font-serif);font-size:28px;font-weight:600;color:var(--ink);margin-bottom:10px;}
+    .form-success p{font-size:14px;color:var(--ash);line-height:1.8;max-width:320px;margin:0 auto 24px;}
+    .btn-again{padding:11px 28px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .3s;}
+    .btn-again:hover{border-color:var(--ink);color:var(--ink);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ─── SIDEBAR ─── */
+    .sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:96px;}
+    .info-card{background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow-card);transition:box-shadow .4s var(--ease-silk);}
+    .info-card:hover{box-shadow:var(--shadow-hover);}
+    .info-card-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+    .info-card-icon{width:40px;height:40px;border-radius:var(--r-sm);background:var(--gold-pale);border:1px solid rgba(184,144,80,.2);display:flex;align-items:center;justify-content:center;font-size:17px;}
+    .info-card-title{font-family:var(--font-serif);font-size:18px;font-weight:600;color:var(--ink);}
+    .contact-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--divider);}
+    .contact-item:last-child{border-bottom:none;padding-bottom:0;}
+    .ci-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px;}
+    .ci-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ash);margin-bottom:3px;}
+    .ci-val{font-size:13px;color:var(--ink);font-weight:400;}
+    .ci-val a{color:var(--gold);transition:color .25s;}
+    .ci-val a:hover{color:var(--gold-light);}
+    .hours-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--divider);font-size:13px;}
+    .hours-row:last-child{border-bottom:none;}
+    .hours-day{color:var(--ash);}
+    .hours-time{color:var(--ink);font-weight:500;}
+    .hours-badge{font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:var(--r-pill);background:rgba(34,197,94,.1);color:var(--green);text-transform:uppercase;}
+    .hours-closed{font-size:9px;font-weight:700;letter-spacing:1px;padding:2px 8px;border-radius:var(--r-pill);background:rgba(239,68,68,.08);color:var(--red);text-transform:uppercase;}
+    .map-card{background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-card);}
+    .map-frame{height:260px;position:relative;overflow:hidden;}
+    .map-footer{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;}
+    .map-addr{font-size:12px;color:var(--ash);line-height:1.5;}
+    .map-addr strong{display:block;font-size:13px;color:var(--ink);font-weight:600;margin-bottom:2px;}
+    .btn-directions{padding:8px 16px;background:var(--gold);border:none;border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--white);cursor:pointer;white-space:nowrap;transition:background .3s;}
+    .btn-directions:hover{background:var(--ink);}
+    .social-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .soc-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--cream-dark);border:1px solid var(--divider);border-radius:var(--r-sm);transition:all .3s var(--ease-silk);cursor:pointer;}
+    .soc-btn:hover{border-color:var(--gold);background:var(--gold-pale);transform:translateY(-2px);}
+    .soc-icon{width:32px;height:32px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+    .soc-text{font-size:12px;font-weight:500;color:var(--ink);}
+    .soc-sub{font-size:10px;color:var(--ash);}
+    .soc-yt .soc-icon{background:rgba(255,0,0,.1);}
+    .soc-fb .soc-icon{background:rgba(24,119,242,.1);}
+    .soc-ig .soc-icon{background:rgba(225,48,108,.1);}
+    .soc-li .soc-icon{background:rgba(10,102,194,.1);}
+
+    /* ─── STATS BAND ─── */
+    .stats-band{background:var(--ink);border-radius:var(--r-lg);padding:36px 40px;margin-bottom:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;overflow:hidden;}
+    .stats-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 100% 0%,rgba(184,144,80,.1),transparent);}
+    .stat-item{position:relative;z-index:1;text-align:center;padding:0 20px;}
+    .stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:10%;height:80%;width:1px;background:rgba(246,243,237,.08);}
+    .stat-num{font-family:var(--font-serif);font-size:42px;font-weight:300;line-height:1;color:rgba(246,243,237,.9);letter-spacing:-1px;}
+    .stat-num em{font-style:italic;color:var(--gold);}
+    .stat-lbl{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(246,243,237,.3);margin-top:6px;}
+
+    /* ─── FAQ ─── */
+    .faq-section{margin-top:72px;}
+    .faq-hd{text-align:center;margin-bottom:40px;}
+    .faq-hd h2{font-family:var(--font-serif);font-size:clamp(28px,4vw,44px);font-weight:400;color:var(--ink);margin-bottom:10px;}
+    .faq-hd h2 em{font-style:italic;color:var(--gold);}
+    .faq-hd p{font-size:14px;color:var(--ash);}
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .faq-item{background:var(--white);border:1px solid var(--divider);border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:border-color .3s,box-shadow .3s;}
+    .faq-item:hover,.faq-item.open{border-color:rgba(184,144,80,.3);box-shadow:0 4px 20px rgba(184,144,80,.07);}
+    .faq-q{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px;}
+    .faq-q-text{font-size:14px;font-weight:500;color:var(--ink);line-height:1.4;}
+    .faq-arr{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--divider);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--ash);transition:all .35s var(--ease-silk);}
+    .faq-item.open .faq-arr{background:var(--gold);border-color:var(--gold);color:var(--white);transform:rotate(180deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease-silk),padding .3s;}
+    .faq-item.open .faq-a{max-height:200px;}
+    .faq-a-inner{padding:0 20px 18px;font-size:13px;color:var(--ash);line-height:1.8;border-top:1px solid var(--divider);}
+
+    /* ─── FOOTER ─── */
+    .site-footer{background:var(--ink);padding:60px 60px 36px;margin-top:80px;}
+    .fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:52px;max-width:1280px;margin:0 auto 48px;}
+    .flogo img{height:34px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:16px;}
+    .fdesc{font-size:12px;color:rgba(246,243,237,.3);line-height:1.9;margin-bottom:22px;}
+    .fsocs{display:flex;gap:8px;}
+    .fsoc{width:34px;height:34px;border-radius:var(--r-sm);border:1px solid rgba(246,243,237,.1);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(246,243,237,.3);transition:all .25s;}
+    .fsoc:hover{border-color:var(--gold);color:var(--gold);}
+    .fcol h5{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(246,243,237,.28);margin-bottom:16px;}
+    .fcol ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+    .fcol ul a{font-size:12px;color:rgba(246,243,237,.4);transition:color .25s;}
+    .fcol ul a:hover{color:var(--gold-light);}
+    .fbot{max-width:1280px;margin:0 auto;border-top:1px solid rgba(246,243,237,.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+    .fbot p{font-size:11px;color:rgba(246,243,237,.22);}
+    .floats{position:fixed;bottom:26px;right:26px;z-index:300;display:flex;flex-direction:column;gap:10px;}
+    .fbtn{width:48px;height:48px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .35s var(--ease-silk),box-shadow .3s;}
+    .fbtn:hover{transform:scale(1.12);box-shadow:0 8px 30px rgba(0,0,0,.22);}
+    .fbtn-wa{background:#25D366;color:#fff;}
+    .fbtn-ph{background:var(--gold);color:#fff;}
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:1100px){
+      .two-col{grid-template-columns:1fr;}
+      .sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+      .map-card{grid-column:1/-1;}
+    }
+    @media(max-width:1024px){
+      .nav{padding:0 28px;} .nav-links{display:none;}
+      .hero{padding:52px 28px 52px;} .hero-inner{grid-template-columns:1fr;gap:40px;}
+      .hero-cards{grid-template-columns:1fr 1fr;display:grid;}
+      .page-wrap{padding:48px 28px 80px;}
+      .stats-band{grid-template-columns:1fr 1fr;gap:24px;padding:28px;}
+      .stat-item::after{display:none;}
+      .fgrid{grid-template-columns:1fr 1fr;gap:32px;} .site-footer{padding:44px 28px 28px;}
+      .nav-user-info{display:none;}
+    }
+    @media(max-width:640px){
+      .form-grid{grid-template-columns:1fr;}
+      .faq-grid{grid-template-columns:1fr;}
+      .sidebar{grid-template-columns:1fr;}
+      .stats-band{grid-template-columns:1fr 1fr;}
+      .social-grid{grid-template-columns:1fr 1fr;}
+      .fgrid{grid-template-columns:1fr;}
+      .hero-cards{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-end">
+    <!-- Logged-in profile pill -->
+    <div class="nav-user" id="nav-user">
+      <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+      <div class="nav-user-info">
+        <span class="nav-user-name"  id="nav-user-name">Name</span>
+        <span class="nav-user-email" id="nav-user-email">email</span>
+      </div>
+      <button class="nav-signout" id="nav-signout">Sign out</button>
+    </div>
+    <!-- Logged-out buttons -->
+    <button class="btn-ng" id="nav-login-btn" type="button">Login</button>
+    <button class="btn-nf" id="enroll-btn" type="button">Enroll Now</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-lbl">Get In Touch</div>
+      <h1>We're Here<br>to <em>Help You</em><br>Succeed</h1>
+      <p>Whether you have a course question, need placement guidance, or want to discuss corporate training — our team responds within 2 hours during business days.</p>
+    </div>
+    <div class="hero-cards">
+      <a href="tel:+918179191999" class="hcard">
+        <div class="hcard-icon">📞</div>
+        <div class="hcard-text">
+          <div class="hcard-label">Call Us Directly</div>
+          <div class="hcard-val">+91 81791 91999</div>
+          <div class="hcard-sub">Mon–Sat · 9 AM – 7 PM</div>
+        </div>
+      </a>
+      <a href="https://wa.me/+918179191999" target="_blank" class="hcard">
+        <div class="hcard-icon">💬</div>
+        <div class="hcard-text">
+          <div class="hcard-label">WhatsApp</div>
+          <div class="hcard-val">+91 81791 91999</div>
+          <div class="hcard-sub">Quick responses, fast answers</div>
+        </div>
+      </a>
+      <a href="mailto:info@nareshit.com" class="hcard">
+        <div class="hcard-icon">✉️</div>
+        <div class="hcard-text">
+          <div class="hcard-label">Email Us</div>
+          <div class="hcard-val">info@nareshit.com</div>
+          <div class="hcard-sub">Replies within 2 hours</div>
+        </div>
+      </a>
+      <a href="https://goo.gl/maps/nareshit" target="_blank" class="hcard">
+        <div class="hcard-icon">📍</div>
+        <div class="hcard-text">
+          <div class="hcard-label">Visit Us</div>
+          <div class="hcard-val">Ameerpet, Hyderabad</div>
+          <div class="hcard-sub">Telangana – 500 016</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAND -->
+<div class="page-wrap" style="padding-bottom:0; padding-top:52px;">
+  <div class="stats-band">
+    <div class="stat-item"><div class="stat-num">22<em>+</em></div><div class="stat-lbl">Years of Excellence</div></div>
+    <div class="stat-item"><div class="stat-num">10<em>L+</em></div><div class="stat-lbl">Students Trained</div></div>
+    <div class="stat-item"><div class="stat-num">2801<em>+</em></div><div class="stat-lbl">Placements</div></div>
+    <div class="stat-item"><div class="stat-num">95<em>%</em></div><div class="stat-lbl">Success Rate</div></div>
+  </div>
+</div>
+
+<!-- MAIN TWO COLUMN -->
+<div class="page-wrap" style="padding-top:56px;">
+  <div class="two-col">
+
+    <!-- FORM -->
+    <div id="enquiry-form">
+      <div class="form-header">
+        <div class="form-eyebrow">Enquiry Form</div>
+        <h2>Start Your <em>Learning</em> Journey</h2>
+        <p>Fill in your details and our counsellors will reach out with a personalised course recommendation within 2 hours.</p>
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="form-grid">
+
+          <div class="field" id="f-name">
+            <label for="inp-name">Full Name <span style="color:var(--red)">*</span></label>
+            <input id="inp-name" type="text" placeholder="e.g. Rahul Sharma" autocomplete="name">
+            <span class="field-err">Please enter your full name</span>
+          </div>
+
+          <div class="field" id="f-phone">
+            <label for="inp-phone">Mobile Number <span style="color:var(--red)">*</span></label>
+            <input id="inp-phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" maxlength="15">
+            <span class="field-err">Enter a valid 10-digit mobile number</span>
+          </div>
+
+          <div class="field form-full" id="f-email">
+            <label for="inp-email">Email Address <span style="color:var(--red)">*</span></label>
+            <input id="inp-email" type="email" placeholder="rahul@example.com" autocomplete="email">
+            <span class="field-err">Please enter a valid email address</span>
+          </div>
+
+          <div class="field form-full" id="f-course">
+            <label for="inp-course">Course Interest <span style="color:var(--red)">*</span></label>
+            <select id="inp-course">
+              <option value="">— Select a course —</option>
+              <optgroup label="🤖 AI & Data Science">
+                <option>Advanced Generative &amp; Agentic AI</option>
+                <option>Generative AI &amp; Agentic AI with Python</option>
+                <option>Full Stack Data Science &amp; AI</option>
+                <option>Data Science with AI</option>
+                <option>MLOps &amp; AIOps</option>
+                <option>Data Analytics &amp; Business Analytics</option>
+              </optgroup>
+              <optgroup label="☁️ DevOps &amp; Cloud">
+                <option>DevOps with Multi Cloud</option>
+                <option>DevOps with AWS</option>
+                <option>Azure DevOps (AZ-400)</option>
+                <option>AWS Solutions Architect Associate</option>
+                <option>Azure Fundamentals (AZ-900)</option>
+                <option>Azure Administrator (AZ-104)</option>
+                <option>Terraform Associate Certification</option>
+                <option>Docker &amp; Kubernetes</option>
+                <option>Linux Administration</option>
+              </optgroup>
+              <optgroup label="☕ Full Stack Development">
+                <option>Full Stack Java Placement Assistance</option>
+                <option>Full Stack Java Developer Program</option>
+                <option>Full Stack Python</option>
+                <option>Full Stack .NET Core</option>
+                <option>UI Full Stack Web Development with React</option>
+                <option>Spring Boot and Microservices</option>
+                <option>Backend Development</option>
+              </optgroup>
+              <optgroup label="🔬 Software Testing">
+                <option>Playwright Automation</option>
+                <option>Playwright with TypeScript</option>
+                <option>Selenium</option>
+                <option>Full Stack Software Testing</option>
+                <option>Tosca</option>
+                <option>Software Testing</option>
+                <option>Manual Testing</option>
+              </optgroup>
+              <optgroup label="📊 Analytics &amp; BI">
+                <option>Power BI</option>
+                <option>Tableau</option>
+                <option>SQL Server</option>
+                <option>MySQL</option>
+                <option>MongoDB</option>
+                <option>Snowflake</option>
+              </optgroup>
+              <optgroup label="🎯 Salesforce &amp; RPA">
+                <option>Salesforce CRM with LWC</option>
+                <option>Salesforce CRM</option>
+                <option>UiPath</option>
+                <option>Automation Anywhere</option>
+                <option>Blue Prism</option>
+                <option>MuleSoft</option>
+              </optgroup>
+              <optgroup label="🛡️ Security &amp; Others">
+                <option>Cyber Security &amp; Ethical Hacking</option>
+                <option>Android</option>
+                <option>iOS Development</option>
+                <option>Digital Marketing</option>
+                <option>Campus Recruitment Training (CRT)</option>
+                <option>Spoken English</option>
+              </optgroup>
+              <option value="other">Other / Not Sure Yet</option>
+            </select>
+            <span class="field-err">Please select a course</span>
+          </div>
+
+          <div class="field form-full">
+            <label>Preferred Training Mode</label>
+            <div class="mode-toggle" id="mode-toggle">
+              <button type="button" class="mode-btn sel" data-val="Online">🖥 Online</button>
+              <button type="button" class="mode-btn" data-val="Offline">🏫 Offline (Hyderabad)</button>
+              <button type="button" class="mode-btn" data-val="Hybrid">⚡ Hybrid</button>
+            </div>
+          </div>
+
+          <div class="field form-full" id="f-msg">
+            <label for="inp-msg">Your Message</label>
+            <textarea id="inp-msg" placeholder="Tell us about your background, goals, or any specific questions you have…"></textarea>
+          </div>
+
+        </div>
+
+        <p style="font-size:11px;color:var(--ash);margin:14px 0 16px;line-height:1.7;">
+          By submitting this form you agree to be contacted by NareshIT regarding your enquiry. We never share your information with third parties.
+        </p>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-submit" id="submit-btn"><span id="submit-txt">Send My Enquiry ✦</span></button>
+        </div>
+      </form>
+
+      <!-- Success state -->
+      <div class="form-success" id="form-success">
+        <div class="success-icon">✓</div>
+        <h3>Enquiry Received!</h3>
+        <p>Thank you! A NareshIT counsellor will call you within 2 hours to discuss the best course for your goals.</p>
+        <button class="btn-again" id="btn-again" type="button">Submit Another Enquiry</button>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- Contact Details -->
+      <div class="info-card">
+        <div class="info-card-hd">
+          <div class="info-card-icon">📋</div>
+          <div class="info-card-title">Contact Details</div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-dot"></div>
+          <div>
+            <div class="ci-label">Admissions Helpline</div>
+            <div class="ci-val"><a href="tel:+918179191999">+91 81791 91999</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-dot"></div>
+          <div>
+            <div class="ci-label">WhatsApp</div>
+            <div class="ci-val"><a href="https://wa.me/+918179191999" target="_blank">+91 81791 91999</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-dot"></div>
+          <div>
+            <div class="ci-label">Email — Admissions</div>
+            <div class="ci-val"><a href="mailto:info@nareshit.com">info@nareshit.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-dot"></div>
+          <div>
+            <div class="ci-label">Corporate Training</div>
+            <div class="ci-val"><a href="mailto:corporate@nareshit.com">corporate@nareshit.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-dot"></div>
+          <div>
+            <div class="ci-label">Address</div>
+            <div class="ci-val">3rd Floor, Durga Bhavani Plaza, Ameerpet,<br>Hyderabad — 500 016, Telangana</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Office Hours -->
+      <div class="info-card">
+        <div class="info-card-hd">
+          <div class="info-card-icon">🕐</div>
+          <div class="info-card-title">Office Hours</div>
+        </div>
+        <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">9:00 AM – 7:00 PM <span class="hours-badge" id="status-weekday">Open</span></span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00 AM – 5:00 PM <span class="hours-badge" id="status-sat">Open</span></span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time" style="color:var(--ash)">Closed <span class="hours-closed">Closed</span></span></div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-card">
+        <div class="map-frame" style="height:260px;padding:0;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1576.8531882070713!2d78.44672583721685!3d17.437610719101823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c8a05d2125%3A0xee84a18a25bbfce2!2sNaresh%20i%20Technologies!5e0!3m2!1sen!2sin!4v1774110629988!5m2!1sen!2sin"
+            width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="NareshIT Location Map">
+          </iframe>
+        </div>
+        <div class="map-footer">
+          <div class="map-addr">
+            <strong>NareshIT Hyderabad</strong>
+            Durga Bhavani Plaza, Ameerpet
+          </div>
+          <button class="btn-directions" id="btn-directions" type="button">Get Directions ↗</button>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="info-card">
+        <div class="info-card-hd">
+          <div class="info-card-icon">🌐</div>
+          <div class="info-card-title">Follow Us</div>
+        </div>
+        <div class="social-grid">
+          <a href="https://www.youtube.com/@NareshIT" target="_blank" class="soc-btn soc-yt">
+            <div class="soc-icon">▶</div>
+            <div><div class="soc-text">YouTube</div><div class="soc-sub">Free tutorials</div></div>
+          </a>
+          <a href="https://www.facebook.com/nareshitechnologies" target="_blank" class="soc-btn soc-fb">
+            <div class="soc-icon">f</div>
+            <div><div class="soc-text">Facebook</div><div class="soc-sub">Updates</div></div>
+          </a>
+          <a href="https://www.instagram.com/nareshitech" target="_blank" class="soc-btn soc-ig">
+            <div class="soc-icon">◎</div>
+            <div><div class="soc-text">Instagram</div><div class="soc-sub">Campus life</div></div>
+          </a>
+          <a href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank" class="soc-btn soc-li">
+            <div class="soc-icon">in</div>
+            <div><div class="soc-text">LinkedIn</div><div class="soc-sub">Alumni &amp; jobs</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="faq-hd">
+      <h2>Frequently Asked <em>Questions</em></h2>
+      <p>Everything you need to know before enrolling at NareshIT.</p>
+    </div>
+    <div class="faq-grid" id="faq-grid"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="fgrid">
+    <div>
+      <div class="flogo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></div>
+      <p class="fdesc">NNV Naresh is an entrepreneur with a noble vision to transform career aspirations. Over 22 years shaping India's software talent ecosystem.</p>
+      <div class="fsocs">
+        <a class="fsoc" href="https://www.facebook.com/nareshitechnologies" target="_blank">f</a>
+        <a class="fsoc" href="https://www.instagram.com/nareshitech" target="_blank">◎</a>
+        <a class="fsoc" href="https://www.youtube.com/@NareshIT" target="_blank">▶</a>
+        <a class="fsoc" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank">in</a>
+      </div>
+    </div>
+    <div class="fcol"><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="faculty.html">Trainers Profile</a></li><li><a href="#">Careers</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div class="fcol"><h5>Quick Links</h5><ul><li><a href="courses.html">All Courses</a></li><li><a href="#">New Batches</a></li><li><a href="#">Corporate Training</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+    <div class="fcol"><h5>Top Courses</h5><ul><li><a href="courses.html?cat=fullstack">Full Stack Java</a></li><li><a href="courses.html?cat=devops">DevOps Multi Cloud</a></li><li><a href="courses.html?cat=datascience">Data Science &amp; AI</a></li><li><a href="courses.html?cat=testing">Software Testing</a></li></ul></div>
+  </div>
+  <div class="fbot"><p>© 2025 Naresh i Technologies. All rights reserved.</p><p>Crafted with care in Hyderabad, India</p></div>
+</footer>
+
+<div class="floats">
+  <button class="fbtn fbtn-wa" id="wa-btn" type="button">💬</button>
+  <button class="fbtn fbtn-ph" id="ph-btn" type="button">📞</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────
+     SCRIPTS  —  type="module" required for ES import statements
+───────────────────────────────────────────────────────────── -->
+<script type="module">
+
+  /* ── Firebase ── */
+  import { initializeApp }
+    from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js';
+  import { getAuth, onAuthStateChanged, signOut }
+    from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+
+  const firebaseConfig = {
+    apiKey:            'AIzaSyBHAPhCQHq0jR-4pAwlLKAphskkbhpC5iw',
+    authDomain:        'nareshit-bd900.firebaseapp.com',
+    projectId:         'nareshit-bd900',
+    storageBucket:     'nareshit-bd900.firebasestorage.app',
+    messagingSenderId: '923456489902',
+    appId:             '1:923456489902:web:f652e970887451c2ba203f',
+    measurementId:     'G-EXWYHW9TB2',
+  };
+
+  const app  = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const LS_KEY = 'nit_user';
+
+  function getInitials(name) {
+    if (!name) return '?';
+    return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  }
+
+  function showNavProfile(name, email) {
+    const userEl   = document.getElementById('nav-user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (!userEl) return;
+    document.getElementById('nav-user-avatar').textContent = getInitials(name);
+    document.getElementById('nav-user-name').textContent   = name  || 'My Account';
+    document.getElementById('nav-user-email').textContent  = email || '';
+    userEl.classList.add('show');
+    loginBtn.classList.add('hidden');
+    try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch(_) {}
+  }
+
+  function hideNavProfile() {
+    const userEl   = document.getElementById('nav-user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (!userEl) return;
+    userEl.classList.remove('show');
+    loginBtn.classList.remove('hidden');
+    try { localStorage.removeItem(LS_KEY); } catch(_) {}
+  }
+
+  /* Instant render from localStorage — no flicker on page load */
+  (function() {
+    try {
+      const cached = localStorage.getItem(LS_KEY);
+      if (cached) {
+        const { name, email } = JSON.parse(cached);
+        if (name || email) showNavProfile(name, email);
+      }
+    } catch(_) {}
+  })();
+
+  document.getElementById('nav-signout').addEventListener('click', () => {
+    signOut(auth).then(hideNavProfile).catch(console.error);
+  });
+
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      showNavProfile(
+        user.displayName || user.email?.split('@')[0] || 'Student',
+        user.email || ''
+      );
+    } else {
+      hideNavProfile();
+    }
+  });
+
+  /* ── Button wiring ── */
+  document.getElementById('nav-login-btn').addEventListener('click', () => { window.location.href = 'index.html'; });
+  document.getElementById('enroll-btn').addEventListener('click',    () => { document.getElementById('enquiry-form').scrollIntoView({ behavior: 'smooth' }); });
+  document.getElementById('btn-directions').addEventListener('click', () => { window.open('https://maps.google.com/?q=Naresh+i+Technologies+Ameerpet+Hyderabad', '_blank'); });
+  document.getElementById('wa-btn').addEventListener('click',  () => { window.open('https://wa.me/+918179191999', '_blank'); });
+  document.getElementById('ph-btn').addEventListener('click',  () => { window.location.href = 'tel:+918179191999'; });
+
+  /* ── MODE TOGGLE ── */
+  let selectedMode = 'Online';
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('sel'));
+      btn.classList.add('sel');
+      selectedMode = btn.dataset.val;
+    });
+  });
+
+  /* ── LIVE OFFICE STATUS ── */
+  (function updateStatus() {
+    const now  = new Date();
+    const day  = now.getDay();
+    const hour = now.getHours() + now.getMinutes() / 60;
+    const isWeekday = day >= 1 && day <= 5;
+    const isSat     = day === 6;
+    const wdOpen    = isWeekday && hour >= 9 && hour < 19;
+    const satOpen   = isSat && hour >= 9 && hour < 17;
+
+    function badge(el, open) {
+      if (!open) { el.textContent = 'Closed'; el.className = 'hours-closed'; }
+      else        { el.textContent = 'Open';   el.className = 'hours-badge'; }
+    }
+    badge(document.getElementById('status-weekday'), wdOpen);
+    badge(document.getElementById('status-sat'),     satOpen);
+  })();
+
+  /* ── FORM VALIDATION ── */
+  function validate() {
+    let ok = true;
+
+    function setField(elId, wrapId, valid) {
+      document.getElementById(elId).classList.toggle('error', !valid);
+      document.getElementById(wrapId).classList.toggle('has-error', !valid);
+      if (!valid) ok = false;
+    }
+
+    setField('inp-name',   'f-name',   document.getElementById('inp-name').value.trim().length >= 2);
+    setField('inp-phone',  'f-phone',  /^\+?[\d\s\-]{10,15}$/.test(document.getElementById('inp-phone').value.trim()));
+    setField('inp-email',  'f-email',  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('inp-email').value.trim()));
+    setField('inp-course', 'f-course', document.getElementById('inp-course').value !== '');
+
+    return ok;
+  }
+
+  /* Clear error on input */
+  ['inp-name','inp-phone','inp-email','inp-course','inp-msg'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', () => {
+      el.classList.remove('error');
+      const wrap = el.closest('.field');
+      if (wrap) wrap.classList.remove('has-error');
+    });
+  });
+
+  /* ── FORM SUBMIT ── */
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    const btn = document.getElementById('submit-btn');
+    const txt = document.getElementById('submit-txt');
+    btn.disabled = true;
+    txt.textContent = 'Sending…';
+
+    await new Promise(r => setTimeout(r, 1400));
+
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+
+    btn.disabled = false;
+    txt.textContent = 'Send My Enquiry ✦';
+  });
+
+  /* Reset form */
+  function resetForm() {
+    document.getElementById('contact-form').reset();
+    document.getElementById('contact-form').style.display = 'block';
+    document.getElementById('form-success').classList.remove('show');
+    document.querySelectorAll('.mode-btn').forEach((b, i) => b.classList.toggle('sel', i === 0));
+    selectedMode = 'Online';
+  }
+  document.getElementById('btn-again').addEventListener('click', resetForm);
+
+  /* ── FAQ ── */
+  const FAQS = [
+    { q:'What is the batch size at NareshIT?', a:'NareshIT maintains small batch sizes of 20–30 students to ensure every student receives personalized attention from the trainer. This deliberate approach is one reason our placement rates are consistently high.' },
+    { q:'Are courses available online and offline?', a:'Yes. All courses are available in three modes: Online (live interactive sessions with recording access), Offline at our Ameerpet centre, and Hybrid. You can switch between modes if your circumstances change.' },
+    { q:'What is the fee structure and are EMI options available?', a:'Fees vary by course and typically range from ₹8,000 to ₹35,000 for most programs. No-cost EMI options are available through major banking partners. Contact our admissions team for the current fee schedule and offers.' },
+    { q:'How does the placement assistance work?', a:'NareshIT has relationships with 2,800+ hiring companies. Our placement team provides resume building, mock interview preparation, LinkedIn optimization, and active job referrals. Over 95% of our students who complete placement assistance receive offers.' },
+    { q:'Are the trainers working professionals from industry?', a:'Yes. Every NareshIT trainer is an active or recently active industry practitioner, not a full-time academic. They bring current, real-world project experience into every session — including knowledge of what companies actually hire for today.' },
+    { q:'How quickly can I expect a call back after enquiry?', a:'Our admissions counsellors call back within 2 hours during business hours (Mon–Sat, 9 AM–7 PM). For WhatsApp messages, we typically respond within 30 minutes. Evening and weekend enquiries are addressed first thing the next morning.' },
+    { q:'Does NareshIT offer corporate training?', a:'Yes. NareshIT delivers customized corporate training programs for organizations that want to upskill their teams. We design curriculum around your specific technology stack and business requirements. Contact corporate@nareshit.com for a proposal.' },
+    { q:'Can I switch courses after enrollment?', a:'Course switches are accommodated within the first two weeks of starting, subject to availability in the desired batch. Contact our admissions team promptly if you feel the current course is not the right fit.' },
+  ];
+
+  const faqGrid = document.getElementById('faq-grid');
+  faqGrid.innerHTML = FAQS.map((f, i) => `
+    <div class="faq-item" id="faq-${i}">
+      <div class="faq-q" data-faq="${i}">
+        <span class="faq-q-text">${f.q}</span>
+        <div class="faq-arr">▾</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">${f.a}</div>
+      </div>
+    </div>`).join('');
+
+  faqGrid.addEventListener('click', e => {
+    const q = e.target.closest('.faq-q');
+    if (!q) return;
+    const i    = +q.dataset.faq;
+    const item = document.getElementById('faq-' + i);
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+
+  /* ── Scroll reveal ── */
+  const revealEls = document.querySelectorAll('.info-card,.stats-band,.map-card');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.animation = 'fadeUp .6s cubic-bezier(0.16,1,0.3,1) both';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => io.observe(el));
+
+</script>
+</body>
+</html>

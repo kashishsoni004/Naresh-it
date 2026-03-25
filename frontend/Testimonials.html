@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Student Testimonials — NareshIT Best No.1 Software Training Institute. Real stories, real placements, real success." />
+  <title>Student Testimonials — NareshIT Best No.1 Software Training Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f6f3ed; --cream-dark:#edeae1; --ink:#0e0d0c;
+      --gold:#b89050; --gold-light:#d4aa6a; --gold-pale:rgba(184,144,80,.08);
+      --ash:#7c7870; --white:#fff; --divider:rgba(17,16,16,.08);
+      --green:#22c55e; --blue:#0a66c2;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+      --ease-silk:cubic-bezier(.16,1,.3,1);
+      --ease-std:cubic-bezier(.25,.46,.45,.94);
+      --r-lg:16px; --r-md:12px; --r-sm:8px; --r-pill:100px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--ink);font-family:var(--font-sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:3px;}
+    ::-webkit-scrollbar-track{background:transparent;}
+    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:400;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(246,243,237,.96);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--divider);}
+    .nav-logo img{height:38px;}
+    .nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+    .nav-links a{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ash);position:relative;transition:color .3s;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-std);}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-end{display:flex;gap:10px;align-items:center;}
+
+    /* ── NAV USER PROFILE ── */
+    .nav-user{display:none;align-items:center;gap:10px;}
+    .nav-user.show{display:flex;}
+    .nav-user-avatar{
+      width:34px;height:34px;border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--ink));
+      color:#fff;display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-serif);font-size:13px;font-weight:700;
+      flex-shrink:0;
+    }
+    .nav-user-info{display:flex;flex-direction:column;line-height:1.2;}
+    .nav-user-name{font-size:12px;font-weight:600;color:var(--ink);}
+    .nav-user-email{font-size:10px;color:var(--ash);}
+    .nav-signout{
+      background:none;border:1px solid var(--divider);border-radius:var(--r-pill);
+      padding:4px 10px;font-family:var(--font-sans);font-size:10px;font-weight:600;
+      color:var(--ash);cursor:pointer;transition:all .25s;
+    }
+    .nav-signout:hover{border-color:var(--ink);color:var(--ink);}
+    #nav-login-btn{transition:all .25s;}
+    #nav-login-btn.hidden{display:none;}
+
+    .btn-ng{padding:9px 20px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .3s;}
+    .btn-ng:hover{border-color:var(--ink);color:var(--ink);}
+    .btn-nf{padding:9px 22px;background:var(--gold);border:1.5px solid var(--gold);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:700;color:var(--white);cursor:pointer;transition:all .35s var(--ease-silk);}
+    .btn-nf:hover{background:var(--ink);border-color:var(--ink);}
+
+    /* ── HERO ── */
+    .hero{background:var(--ink);padding:96px 60px 88px;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 55% 100% at 88% 50%,rgba(184,144,80,.11),transparent 60%),
+        radial-gradient(ellipse 25% 40% at 10% 80%,rgba(184,144,80,.05),transparent),
+        repeating-linear-gradient(90deg,transparent,transparent 119px,rgba(255,255,255,.018) 120px),
+        repeating-linear-gradient(0deg,transparent,transparent 119px,rgba(255,255,255,.018) 120px);}
+    .hero-glyph{position:absolute;right:20px;top:-60px;font-family:Georgia,serif;font-size:500px;font-weight:700;color:rgba(255,255,255,.022);line-height:1;pointer-events:none;user-select:none;}
+    .hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+    .hero-lbl{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);}
+    .hero-lbl::before{content:'';display:block;width:22px;height:1px;background:var(--gold-light);}
+    .hero h1{font-family:var(--font-serif);font-size:clamp(44px,7vw,88px);font-weight:300;line-height:.92;letter-spacing:-2.5px;color:rgba(246,243,237,.92);margin-bottom:22px;max-width:700px;}
+    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero h1 strong{font-weight:700;}
+    .hero-desc{font-size:15px;color:rgba(246,243,237,.42);max-width:500px;line-height:1.9;margin-bottom:40px;}
+    .hero-stats{display:flex;gap:48px;flex-wrap:wrap;}
+    .hs{border-left:2px solid rgba(184,144,80,.3);padding-left:20px;}
+    .hs-num{font-family:var(--font-serif);font-size:36px;font-weight:300;color:rgba(246,243,237,.9);line-height:1;letter-spacing:-1px;}
+    .hs-num em{font-style:italic;color:var(--gold);}
+    .hs-lbl{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(246,243,237,.3);margin-top:4px;}
+
+    /* ── FILTER BAR ── */
+    .filter-bar{background:var(--white);border-bottom:1px solid var(--divider);position:sticky;top:68px;z-index:300;overflow-x:auto;}
+    .filter-bar::-webkit-scrollbar{display:none;}
+    .filter-inner{max-width:1280px;margin:0 auto;padding:0 60px;display:flex;align-items:center;gap:0;white-space:nowrap;}
+    .fb{padding:16px 20px;background:transparent;border:none;border-bottom:2px solid transparent;font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--ash);cursor:pointer;transition:color .25s;white-space:nowrap;flex-shrink:0;}
+    .fb:hover{color:var(--ink);}
+    .fb.active{color:var(--ink);border-bottom-color:var(--gold);}
+    .filter-right{margin-left:auto;flex-shrink:0;padding:10px 0 10px 20px;}
+    .add-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 20px;background:var(--gold);border:none;border-radius:var(--r-pill);
+      font-family:var(--font-sans);font-size:11px;font-weight:700;color:var(--white);
+      cursor:pointer;transition:all .35s var(--ease-silk);letter-spacing:.3px;
+    }
+    .add-btn:hover{background:var(--ink);}
+
+    /* ── MAIN ── */
+    .page-wrap{max-width:1280px;margin:0 auto;padding:64px 60px 100px;}
+
+    .results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;}
+    .results-title{font-family:var(--font-serif);font-size:26px;font-weight:600;color:var(--ink);}
+    .results-count{font-size:12px;color:var(--ash);}
+    .sort-sel{padding:8px 14px;background:var(--white);border:1px solid var(--divider);border-radius:var(--r-sm);font-family:var(--font-sans);font-size:12px;color:var(--ash);cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;}
+
+    /* ── TESTIMONIAL GRID ── */
+    #t-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+      gap:20px;
+      transition:opacity .35s var(--ease-std),transform .35s var(--ease-std);
+    }
+    #t-grid.fading{opacity:0;transform:translateY(10px);}
+
+    .tcard{
+      background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);
+      padding:28px;display:flex;flex-direction:column;gap:0;
+      position:relative;overflow:hidden;
+      animation:cardIn .55s var(--ease-silk) both;
+      transition:transform .4s var(--ease-silk),box-shadow .4s,border-color .3s;
+    }
+    @keyframes cardIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .tcard:hover{transform:translateY(-7px);box-shadow:0 22px 56px rgba(17,16,16,.1);border-color:rgba(184,144,80,.28);}
+    .tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease-silk);}
+    .tcard:hover::before{transform:scaleX(1);}
+    .tcard-quote-bg{position:absolute;top:-14px;right:20px;font-family:Georgia,serif;font-size:100px;font-weight:700;color:var(--cream-dark);line-height:1;pointer-events:none;transition:color .3s;}
+    .tcard:hover .tcard-quote-bg{color:rgba(184,144,80,.12);}
+    .tcard-stars{display:flex;gap:3px;margin-bottom:14px;}
+    .tcard-stars span{font-size:13px;color:var(--gold);}
+    .tcard-text{
+      font-size:13.5px;color:var(--ash);line-height:1.85;
+      flex:1;margin-bottom:20px;
+      display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;
+      position:relative;
+    }
+    .tcard-text.expanded{-webkit-line-clamp:unset;overflow:visible;}
+    .read-more-btn{background:none;border:none;font-family:var(--font-sans);font-size:11px;font-weight:700;color:var(--gold);cursor:pointer;letter-spacing:.5px;padding:0;margin-bottom:16px;display:none;}
+    .read-more-btn.show{display:inline-block;}
+    .tcard-divider{border:none;border-top:1px solid var(--divider);margin:0 0 16px;}
+    .tcard-author{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+    .tcard-avatar{
+      width:40px;height:40px;border-radius:50%;
+      object-fit:cover;flex-shrink:0;
+      border:2px solid var(--cream-dark);
+    }
+    .tcard-avatar-fallback{
+      width:40px;height:40px;border-radius:50%;flex-shrink:0;
+      background:linear-gradient(135deg,var(--gold),var(--ink));
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-serif);font-size:15px;font-weight:700;color:var(--white);
+    }
+    .tcard-name{font-size:14px;font-weight:600;color:var(--ink);}
+    .tcard-li{
+      width:22px;height:22px;border-radius:5px;background:rgba(10,102,194,.1);
+      display:flex;align-items:center;justify-content:center;
+      margin-left:auto;flex-shrink:0;transition:background .25s;
+    }
+    .tcard-li:hover{background:rgba(10,102,194,.2);}
+    .tcard-li svg{width:12px;height:12px;fill:var(--blue);}
+    .tcard-meta{display:flex;gap:8px;flex-wrap:wrap;}
+    .tmeta{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:var(--r-pill);font-size:10px;font-weight:600;letter-spacing:.4px;}
+    .tmeta-course{background:var(--gold-pale);border:1px solid rgba(184,144,80,.2);color:var(--gold);}
+    .tmeta-faculty{background:rgba(17,16,16,.04);border:1px solid var(--divider);color:var(--ash);}
+
+    .empty{grid-column:1/-1;text-align:center;padding:80px 20px;}
+    .empty-ico{font-size:52px;opacity:.3;margin-bottom:14px;}
+    .empty h3{font-family:var(--font-serif);font-size:24px;font-weight:400;color:var(--ash);margin-bottom:8px;}
+    .empty p{font-size:13px;color:var(--ash);opacity:.7;}
+
+    /* ── MODAL ── */
+    .modal-overlay{position:fixed;inset:0;z-index:800;background:rgba(14,13,12,.65);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease-std);}
+    .modal-overlay.open{opacity:1;pointer-events:all;}
+    .modal{background:var(--white);border-radius:20px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;transform:translateY(24px) scale(.97);transition:transform .4s var(--ease-silk);box-shadow:0 40px 100px rgba(14,13,12,.28);}
+    .modal-overlay.open .modal{transform:translateY(0) scale(1);}
+    .modal::-webkit-scrollbar{width:3px;}
+    .modal::-webkit-scrollbar-thumb{background:var(--cream-dark);}
+    .modal-hd{background:var(--ink);border-radius:20px 20px 0 0;padding:32px 36px 28px;position:relative;overflow:hidden;}
+    .modal-hd::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 120% at 110% 0%,rgba(184,144,80,.15),transparent 60%);}
+    .modal-close{position:absolute;top:14px;right:14px;z-index:1;width:30px;height:30px;border-radius:50%;background:rgba(246,243,237,.1);border:1px solid rgba(246,243,237,.15);color:rgba(246,243,237,.6);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;}
+    .modal-close:hover{background:rgba(246,243,237,.2);color:var(--white);}
+    .modal-hd h3{font-family:var(--font-serif);font-size:26px;font-weight:600;color:rgba(246,243,237,.92);position:relative;z-index:1;margin-bottom:4px;}
+    .modal-hd p{font-size:12px;color:rgba(246,243,237,.4);position:relative;z-index:1;}
+    .modal-body{padding:28px 36px 36px;}
+    .mf{margin-bottom:16px;}
+    .mf label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ash);margin-bottom:5px;}
+    .mf input,.mf select,.mf textarea{width:100%;padding:11px 14px;background:var(--cream);border:1.5px solid var(--divider);border-radius:var(--r-sm);font-family:var(--font-sans);font-size:13px;color:var(--ink);outline:none;transition:all .3s var(--ease-silk);appearance:none;-webkit-appearance:none;}
+    .mf select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 5 5-5' stroke='%237c7870' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;background-color:var(--cream);}
+    .mf textarea{resize:vertical;min-height:100px;line-height:1.6;}
+    .mf input:focus,.mf select:focus,.mf textarea:focus{border-color:var(--gold);background:var(--white);box-shadow:0 0 0 3px rgba(184,144,80,.1);}
+    .mf input.err,.mf select.err,.mf textarea.err{border-color:#ef4444;}
+    .mf-err{font-size:10px;color:#ef4444;margin-top:3px;display:none;}
+    .mf-err.show{display:block;}
+    .star-sel{display:flex;gap:8px;margin-top:2px;}
+    .star-sel button{font-size:22px;background:none;border:none;cursor:pointer;opacity:.3;transition:opacity .2s,transform .2s;}
+    .star-sel button.lit{opacity:1;}
+    .star-sel button:hover{transform:scale(1.2);}
+    .modal-submit{width:100%;padding:13px;background:var(--gold);border:none;border-radius:var(--r-sm);font-family:var(--font-sans);font-size:14px;font-weight:700;color:var(--white);cursor:pointer;transition:all .4s var(--ease-silk);position:relative;overflow:hidden;}
+    .modal-submit::after{content:'';position:absolute;inset:0;background:var(--ink);transform:translateX(-101%);transition:transform .4s var(--ease-silk);}
+    .modal-submit span{position:relative;z-index:1;}
+    .modal-submit:hover::after{transform:translateX(0);}
+    .modal-submit:disabled{opacity:.5;cursor:not-allowed;}
+    .modal-submit:disabled::after{display:none;}
+    .modal-success{display:none;text-align:center;padding:48px 36px 36px;}
+    .modal-success.show{display:block;animation:fadeUp .5s var(--ease-silk);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .ms-icon{width:64px;height:64px;border-radius:50%;background:rgba(34,197,94,.1);border:2px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--green);margin:0 auto 18px;}
+    .ms-title{font-family:var(--font-serif);font-size:26px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+    .ms-sub{font-size:13px;color:var(--ash);line-height:1.7;margin-bottom:22px;}
+    .ms-close{padding:10px 24px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .3s;}
+    .ms-close:hover{border-color:var(--ink);color:var(--ink);}
+
+    /* ── FOOTER ── */
+    .site-footer{background:var(--ink);padding:60px 60px 36px;}
+    .fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:52px;max-width:1280px;margin:0 auto 48px;}
+    .flogo img{height:34px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:16px;}
+    .fdesc{font-size:12px;color:rgba(246,243,237,.3);line-height:1.9;margin-bottom:22px;}
+    .fsocs{display:flex;gap:8px;}
+    .fsoc{width:34px;height:34px;border-radius:8px;border:1px solid rgba(246,243,237,.1);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(246,243,237,.3);transition:all .25s;}
+    .fsoc:hover{border-color:var(--gold);color:var(--gold);}
+    .fcol h5{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(246,243,237,.28);margin-bottom:16px;}
+    .fcol ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+    .fcol ul a{font-size:12px;color:rgba(246,243,237,.4);transition:color .25s;}
+    .fcol ul a:hover{color:var(--gold-light);}
+    .fbot{max-width:1280px;margin:0 auto;border-top:1px solid rgba(246,243,237,.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+    .fbot p{font-size:11px;color:rgba(246,243,237,.22);}
+    .floats{position:fixed;bottom:26px;right:26px;z-index:300;display:flex;flex-direction:column;gap:10px;}
+    .fbtn{width:48px;height:48px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .35s var(--ease-silk);}
+    .fbtn:hover{transform:scale(1.12);}
+    .fbtn-wa{background:#25D366;color:#fff;}
+    .fbtn-ph{background:var(--gold);color:#fff;}
+
+    @media(max-width:1024px){
+      .nav{padding:0 28px;}.nav-links{display:none;}
+      .hero{padding:60px 28px 60px;}
+      .filter-inner{padding:0 20px;}
+      .page-wrap{padding:48px 28px 80px;}
+      #t-grid{grid-template-columns:1fr;}
+      .fgrid{grid-template-columns:1fr 1fr;gap:32px;}.site-footer{padding:44px 28px 28px;}
+    }
+    @media(max-width:640px){
+      .fgrid{grid-template-columns:1fr;}
+      .hero-stats{gap:28px;}
+      .nav-user-info{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li><a href="testimonials.html" class="active">Testimonials</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-end">
+    <!-- Logged-in profile pill -->
+    <div class="nav-user" id="nav-user">
+      <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+      <div class="nav-user-info">
+        <span class="nav-user-name" id="nav-user-name">Name</span>
+        <span class="nav-user-email" id="nav-user-email">email</span>
+      </div>
+      <button class="nav-signout" id="nav-signout">Sign out</button>
+    </div>
+    <!-- Logged-out login button -->
+    <button class="btn-ng" id="nav-login-btn" onclick="window.location.href='index.html'">Login</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glyph">"</div>
+  <div class="hero-inner">
+    <div class="hero-lbl">Student Stories</div>
+    <h1>Real People.<br><em>Real Results.</em><br><strong>Real Careers.</strong></h1>
+    <p class="hero-desc">Thousands of students have transformed their careers through NareshIT. Here are their stories — in their own words.</p>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">10<em>L+</em></div><div class="hs-lbl">Students Trained</div></div>
+      <div class="hs"><div class="hs-num">2801<em>+</em></div><div class="hs-lbl">Placements</div></div>
+      <div class="hs"><div class="hs-num">95<em>%</em></div><div class="hs-lbl">Success Rate</div></div>
+      <div class="hs"><div class="hs-num">4.9<em>★</em></div><div class="hs-lbl">Average Rating</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner" id="filter-inner">
+    <!-- rendered by JS -->
+    <div class="filter-right">
+      <button class="add-btn" id="add-testimonial-btn">+ Add Testimonial</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+  <div class="results-bar">
+    <div>
+      <span class="results-title" id="results-title">All Testimonials</span>
+      <span class="results-count" id="results-count"></span>
+    </div>
+    <select class="sort-sel" id="sort-sel">
+      <option value="default">Most Recent</option>
+      <option value="name">Name A–Z</option>
+    </select>
+  </div>
+  <div id="t-grid"></div>
+</div>
+
+<!-- ADD TESTIMONIAL MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+
+    <div class="modal-hd">
+      <button class="modal-close" id="modal-close-btn">✕</button>
+      <h3>Share Your Story</h3>
+      <p>Your experience helps future students make the right choice.</p>
+    </div>
+
+    <form id="testimonial-form" novalidate>
+      <div class="modal-body">
+
+        <div class="mf">
+          <label>Your Full Name <span style="color:#ef4444">*</span></label>
+          <input type="text" id="t-name" placeholder="e.g. Rahul Sharma">
+          <div class="mf-err" id="err-tname">Please enter your name</div>
+        </div>
+
+        <div class="mf">
+          <label>LinkedIn Profile URL</label>
+          <input type="url" id="t-li" placeholder="https://linkedin.com/in/your-profile">
+        </div>
+
+        <div class="mf">
+          <label>Course Taken <span style="color:#ef4444">*</span></label>
+          <select id="t-course">
+            <option value="">— Select a course —</option>
+            <option>Python Programming</option><option>Full Stack Python</option>
+            <option>Full Stack Java</option><option>Full Stack Data Science &amp; AI</option>
+            <option>Data Science with AI</option><option>DevOps with AWS</option>
+            <option>DevOps with Multi Cloud</option><option>Full Stack .NET Core</option>
+            <option>React JS</option><option>Angular</option><option>Node JS</option>
+            <option>AWS Solutions Architect Associate</option><option>Azure DevOps (AZ-400)</option>
+            <option>Generative AI &amp; Agentic AI with Python</option>
+            <option>Advanced Generative &amp; Agentic AI</option>
+            <option>Playwright Automation</option><option>Selenium</option>
+            <option>Software Testing</option><option>Salesforce CRM with LWC</option>
+            <option>Cyber Security &amp; Ethical Hacking</option>
+            <option>Other</option>
+          </select>
+          <div class="mf-err" id="err-tcourse">Please select a course</div>
+        </div>
+
+        <div class="mf">
+          <label>Faculty Name <span style="color:#ef4444">*</span></label>
+          <select id="t-faculty">
+            <option value="">— Select faculty —</option>
+            <option>Mr. K V Rao</option><option>Mr. Hari Krishna</option>
+            <option>Mr. Satish Gupta</option><option>Mr. Veera Babu</option>
+            <option>Mr. Omkar</option><option>Mr. Ram</option>
+            <option>Mr. Bangar Raju</option><option>Mr. Prakash</option>
+            <option>Mr. Prudhvi</option><option>Mr. Karthik</option>
+            <option>Mr. Daniel</option><option>Mr. Nikhil</option>
+            <option>Mr. Wasif</option><option>Mr. Naveen</option>
+            <option>Mr. Rajinikanth</option><option>Mr. Riyaz</option>
+            <option>Mr. Shiva Rama Krishna</option><option>Mr. Rakesh</option>
+            <option>Other Faculty</option>
+          </select>
+          <div class="mf-err" id="err-tfaculty">Please select a faculty</div>
+        </div>
+
+        <div class="mf">
+          <label>Your Rating</label>
+          <div class="star-sel" id="star-sel">
+            <button type="button" data-v="1">★</button>
+            <button type="button" data-v="2">★</button>
+            <button type="button" data-v="3">★</button>
+            <button type="button" data-v="4">★</button>
+            <button type="button" data-v="5">★</button>
+          </div>
+        </div>
+
+        <div class="mf">
+          <label>Your Testimonial <span style="color:#ef4444">*</span></label>
+          <textarea id="t-msg" placeholder="Share your experience — what you learned, how it helped your career, what you loved about the training…"></textarea>
+          <div class="mf-err" id="err-tmsg">Please write at least 20 characters</div>
+        </div>
+
+        <button type="submit" class="modal-submit" id="m-submit">
+          <span id="m-submit-txt">Submit Testimonial →</span>
+        </button>
+      </div>
+    </form>
+
+    <div class="modal-success" id="modal-success">
+      <div class="ms-icon">✓</div>
+      <div class="ms-title">Thank You!</div>
+      <div class="ms-sub">Your testimonial has been submitted and will appear after review. We appreciate you sharing your experience with future students.</div>
+      <button class="ms-close" id="modal-success-close">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="fgrid">
+    <div>
+      <div class="flogo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></div>
+      <p class="fdesc">NNV Naresh is an entrepreneur with a noble vision to transform career aspirations. Over 22 years shaping India's software talent ecosystem.</p>
+      <div class="fsocs">
+        <a class="fsoc" href="https://www.facebook.com/nareshitechnologies" target="_blank">f</a>
+        <a class="fsoc" href="https://www.instagram.com/nareshitech" target="_blank">◎</a>
+        <a class="fsoc" href="https://www.youtube.com/@NareshIT" target="_blank">▶</a>
+        <a class="fsoc" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank">in</a>
+      </div>
+    </div>
+    <div class="fcol"><h5>Company</h5><ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul></div>
+    <div class="fcol"><h5>Quick Links</h5><ul>
+      <li><a href="courses.html">All Courses</a></li>
+      <li><a href="#">New Batches</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="#">Corporate Training</a></li>
+    </ul></div>
+    <div class="fcol"><h5>Top Courses</h5><ul>
+      <li><a href="courses.html?cat=fullstack">Full Stack Java</a></li>
+      <li><a href="courses.html?cat=devops">DevOps Multi Cloud</a></li>
+      <li><a href="courses.html?cat=datascience">Data Science &amp; AI</a></li>
+      <li><a href="courses.html?cat=testing">Software Testing</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 Naresh i Technologies. All rights reserved.</p>
+    <p>Crafted with care in Hyderabad, India</p>
+  </div>
+</footer>
+
+<div class="floats">
+  <button class="fbtn fbtn-wa" onclick="window.open('https://wa.me/+918179191999','_blank')">💬</button>
+  <button class="fbtn fbtn-ph" onclick="window.location.href='tel:+918179191999'">📞</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────────
+     SCRIPTS  —  type="module" is REQUIRED for ES import statements
+───────────────────────────────────────────────────────────────── -->
+<script type="module">
+
+/* ── Firebase ── */
+import { initializeApp }
+  from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js';
+import { getAuth, onAuthStateChanged, signOut }
+  from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+
+const firebaseConfig = {
+  apiKey:            'AIzaSyBHAPhCQHq0jR-4pAwlLKAphskkbhpC5iw',
+  authDomain:        'nareshit-bd900.firebaseapp.com',
+  projectId:         'nareshit-bd900',
+  storageBucket:     'nareshit-bd900.firebasestorage.app',
+  messagingSenderId: '923456489902',
+  appId:             '1:923456489902:web:f652e970887451c2ba203f',
+  measurementId:     'G-EXWYHW9TB2',
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const LS_KEY = 'nit_user';
+
+function getInitials(name) {
+  if (!name) return '?';
+  return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+}
+
+function showNavProfile(name, email) {
+  const userEl   = document.getElementById('nav-user');
+  const loginBtn = document.getElementById('nav-login-btn');
+  if (!userEl) return;
+  document.getElementById('nav-user-avatar').textContent = getInitials(name);
+  document.getElementById('nav-user-name').textContent   = name  || 'My Account';
+  document.getElementById('nav-user-email').textContent  = email || '';
+  userEl.classList.add('show');
+  loginBtn.classList.add('hidden');
+  try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch(_) {}
+}
+
+function hideNavProfile() {
+  const userEl   = document.getElementById('nav-user');
+  const loginBtn = document.getElementById('nav-login-btn');
+  if (!userEl) return;
+  userEl.classList.remove('show');
+  loginBtn.classList.remove('hidden');
+  try { localStorage.removeItem(LS_KEY); } catch(_) {}
+}
+
+/* Instant render from localStorage — no flicker on page load */
+(function() {
+  try {
+    const cached = localStorage.getItem(LS_KEY);
+    if (cached) {
+      const { name, email } = JSON.parse(cached);
+      if (name || email) showNavProfile(name, email);
+    }
+  } catch(_) {}
+})();
+
+/* Sign-out button */
+document.getElementById('nav-signout').addEventListener('click', () => {
+  signOut(auth).then(hideNavProfile).catch(console.error);
+});
+
+/* Firebase auth — authoritative source of truth */
+onAuthStateChanged(auth, user => {
+  if (user) {
+    showNavProfile(
+      user.displayName || user.email?.split('@')[0] || 'Student',
+      user.email || ''
+    );
+  } else {
+    hideNavProfile();
+  }
+});
+
+/* ─────────────────────────────────────────
+   TESTIMONIAL DATA
+───────────────────────────────────────── */
+const TESTIMONIALS = [
+  {
+    name:'KS KR',
+    avatar:'https://images.nareshit.com/images/image_1773064489568.txt',
+    li:'https://nareshit.com',
+    course:'Python Programming',
+    faculty:'Mr. K V Rao',
+    stars:4,
+    cat:'Python',
+    text:'I attended Python Module‑1, which ended on February 12, 2026, taught by Mr. KVR in the 7:30 AM IST batch. Let me be absolutely clear: Mr. KVR is an outstanding trainer. His teaching is clear, structured, practical, and extremely beginner‑friendly. Even complex topics are explained so well that any student can understand them with ease. I never felt bored in his classes — in fact, I could attend his lectures for hours without losing interest. There is zero doubt about his teaching quality and commitment.',
+  },
+  {
+    name:'Venkata Pavan',
+    avatar:'https://images.nareshit.com/images/image_1758429404388.txt',
+    li:'https://www.linkedin.com/in/j-v-pavan-624595212/',
+    course:'Python Developer',
+    faculty:'Mr. K V Rao',
+    stars:5,
+    cat:'Python',
+    text:'I recently completed Python programming training with Mr. KV Rao at Naresh IT. I am working as a Data Warehouse developer for the last 10 years and was completely new to programming. Now I can work on backend development with programming and Data Warehousing applications. The way of teaching is really ideal for working employees and students. Thanks KV Rao Sir for his expertise and support — I\'m grateful for the exceptional training and would like to extend my thanks to Mr. KV Rao and Naresh IT for this valuable opportunity!',
+  },
+  {
+    name:'Surya Syam Sarath Sathavilli',
+    avatar:'https://images.nareshit.com/images/image_1755526834310.pdf',
+    li:'https://www.linkedin.com/in/surya-syam-sarath-sathavilli-335661343',
+    course:'DevOps with AWS',
+    faculty:'Mr. Ram',
+    stars:5,
+    cat:'DevOps',
+    text:'The AWS DevOps course at this institute was fantastic. The instructors are experts, the curriculum is thorough, and hands-on projects make learning practical. The staff is supportive, and the facilities are top-notch. Choosing this institute was a game changer for my AWS DevOps career. Ram Sir is well experienced in DevOps and has excellent knowledge — he teaches from scratch. Ram Sir is my truly inspired person, a good mentor and top knowledge instructor. Highly recommend!! Thank you Sir.',
+  },
+  {
+    name:'Sudarshan Bansode',
+    avatar:'https://images.nareshit.com/images/image_1751226127346.jpg',
+    li:'https://www.linkedin.com/in/sudarshanbansode',
+    course:'Full Stack Data Science Program',
+    faculty:'Mr. Omkar',
+    stars:5,
+    cat:'Data Science',
+    text:'I had enrolled in the Full Stack Data Science course at Naresh IT. My mentor was Omkar Sir. I would like to sincerely thank him for his dedicated efforts in making students knowledgeable and job-ready. Thank you, Sir, the Naresh IT team, and all my batchmates for the support and learning experience.',
+  },
+  {
+    name:'Shaikh Abubakar',
+    avatar:'https://images.nareshit.com/images/image_1751134931095.jpg',
+    li:'https://www.linkedin.com/in/shaikh-abubakar-a76524315',
+    course:'Data Science with AI',
+    faculty:'Mr. Omkar',
+    stars:5,
+    cat:'Data Science',
+    text:'I enrolled in the Data Science with AI course, and Omkar Sir has provided all the necessary industry knowledge and ensured that I would get the best training. As a result I got placed in a good company with a reasonable package within 2 months of completion of the course. I would like to thank the institute, especially Omkar Sir for supporting and guiding me throughout this journey.',
+    placed:true,
+    company:'Placed within 2 months',
+  },
+  {
+    name:'Adam Shafi Noorbasha',
+    avatar:'https://images.nareshit.com/image_1707303210384.png',
+    li:'https://www.linkedin.com/in/adam-shafi-noorbasha-5996a91b9/',
+    course:'Full Stack .NET Core',
+    faculty:'Mr. Prakash',
+    stars:5,
+    cat:'.NET',
+    text:'I completed the Full Stack .NET Core Online Training with Mr. Prakash at Naresh IT. His clear and engaging teaching was invaluable, and I\'m pleased to share that I\'ve been placed as a .NET Developer at Choice Solutions. Thank you, Mr. Prakash, and Naresh IT, for the excellent training!',
+    placed:true,
+    company:'Choice Solutions',
+  },
+  {
+    name:'Rudraboyina Kalyani',
+    avatar:'https://images.nareshit.com/Rudraboyina_kalyani_(2).jpg',
+    li:'https://www.linkedin.com/in/rudraboyina-kalyani-b4493626a/',
+    course:'Full Stack Python',
+    faculty:'Mr. K V Rao',
+    stars:5,
+    cat:'Python',
+    text:'I recently completed the Full Stack Python training with Mr. KV Rao at Naresh IT. His engaging and insightful instruction made learning Python both effective and enjoyable. Thanks to his expertise and support, I\'m now successfully working as a Python Developer. I\'m grateful for the exceptional training and would like to extend my thanks to Mr. KV Rao and Naresh IT for this valuable opportunity!',
+    placed:true,
+    company:'Python Developer',
+  },
+  {
+    name:'Pallavi Sakre',
+    avatar:'https://images.nareshit.com/Pallavi_sakre.jpg',
+    li:'https://www.linkedin.com/in/pallavi-sakre-351183262/',
+    course:'Full Stack Python',
+    faculty:'Mr. Satish Gupta',
+    stars:5,
+    cat:'Python',
+    text:'I finished the Full Stack Python course with Mr. Sathish Gupta at Naresh IT, and it was an excellent experience. His clear and practical teaching approach helped me grasp complex concepts easily. I\'m excited to share that I\'ve landed a Python Developer role thanks to his support. A big thank you to Mr. Sathish Gupta and Naresh IT for the outstanding training!',
+    placed:true,
+    company:'Python Developer',
+  },
+  {
+    name:'Jyotiranjan Mohanty',
+    avatar:'https://images.nareshit.com/Jyotiranjan_Mohanty.jpg',
+    li:'https://www.linkedin.com/in/jyotiranjan-mohanty-83225827b/',
+    course:'Full Stack .NET Core',
+    faculty:'Mr. Bangar Raju',
+    stars:5,
+    cat:'.NET',
+    text:'I completed the Full Stack .NET Core training with Mr. Bangar Raju at Naresh IT. His clear and engaging teaching helped me secure a .NET Developer role at Motto Systems. I\'m grateful for the valuable skills and guidance. Thank you, Mr. Bangar Raju, and Naresh IT!',
+    placed:true,
+    company:'Motto Systems',
+  },
+];
+
+/* ── User-added testimonials (session) ── */
+let userTestimonials = [];
+
+/* ─────────────────────────────────────────
+   CATEGORIES
+───────────────────────────────────────── */
+const ALL_CATS = ['All', ...new Set(TESTIMONIALS.map(t => t.cat))];
+let currentCat = 'All';
+let sortMode   = 'default';
+
+/* ─────────────────────────────────────────
+   RENDER FILTERS
+───────────────────────────────────────── */
+function renderFilters() {
+  const bar   = document.getElementById('filter-inner');
+  const right = bar.querySelector('.filter-right');
+  bar.querySelectorAll('.fb').forEach(b => b.remove());
+
+  ALL_CATS.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'fb' + (currentCat === cat ? ' active' : '');
+    btn.textContent = cat;
+    btn.addEventListener('click', () => {
+      currentCat = cat;
+      renderFilters();
+      renderGrid();
+    });
+    bar.insertBefore(btn, right);
+  });
+}
+
+/* ─────────────────────────────────────────
+   FILTER + SORT
+───────────────────────────────────────── */
+function getFiltered() {
+  const all  = [...TESTIMONIALS, ...userTestimonials];
+  let   list = currentCat === 'All' ? all : all.filter(t => t.cat === currentCat);
+  if (sortMode === 'name') list.sort((a, b) => a.name.localeCompare(b.name));
+  return list;
+}
+
+/* ─────────────────────────────────────────
+   INITIALS HELPER
+───────────────────────────────────────── */
+function initials(name) {
+  return name.split(/\s+/).slice(0, 2).map(w => w[0]?.toUpperCase() || '').join('');
+}
+
+/* ─────────────────────────────────────────
+   RENDER GRID
+───────────────────────────────────────── */
+function renderGrid() {
+  const grid  = document.getElementById('t-grid');
+  const title = document.getElementById('results-title');
+  const count = document.getElementById('results-count');
+  const list  = getFiltered();
+
+  title.textContent = currentCat === 'All' ? 'All Testimonials' : currentCat + ' Testimonials';
+  count.textContent = `— ${list.length} review${list.length !== 1 ? 's' : ''}`;
+
+  grid.classList.add('fading');
+  setTimeout(() => {
+    if (!list.length) {
+      grid.innerHTML = `<div class="empty"><div class="empty-ico">💬</div><h3>No testimonials yet</h3><p>Be the first to share your experience!</p></div>`;
+    } else {
+      grid.innerHTML = list.map((t, i) => {
+        const stars    = '★'.repeat(t.stars || 5) + '☆'.repeat(5 - (t.stars || 5));
+        const isImg    = t.avatar && /\.(jpg|jpeg|png|webp)$/i.test(t.avatar);
+        const avatarEl = isImg
+          ? `<img class="tcard-avatar" src="${t.avatar}" alt="${t.name}" onerror="this.outerHTML='<div class=tcard-avatar-fallback>${initials(t.name)}</div>'">`
+          : `<div class="tcard-avatar-fallback">${initials(t.name)}</div>`;
+
+        const placedBadge = t.placed
+          ? `<div class="tmeta" style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);color:#16a34a;">✓ Placed${t.company ? ' — ' + t.company : ''}</div>`
+          : '';
+
+        const liLink = t.li
+          ? `<a href="${t.li}" target="_blank" class="tcard-li" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>`
+          : '';
+
+        return `
+          <div class="tcard" style="animation-delay:${Math.min(i * .04, .5)}s" id="tc-${i}">
+            <div class="tcard-quote-bg">"</div>
+            <div class="tcard-stars">${stars.split('').map(s => `<span style="color:${s === '★' ? 'var(--gold)' : 'var(--cream-dark)'}">${s}</span>`).join('')}</div>
+            <div class="tcard-text" id="tt-${i}">${t.text}</div>
+            <button class="read-more-btn" id="rm-${i}" data-idx="${i}">Read more ↓</button>
+            <hr class="tcard-divider">
+            <div class="tcard-author">
+              ${avatarEl}
+              <div style="flex:1">
+                <div class="tcard-name">${t.name}</div>
+              </div>
+              ${liLink}
+            </div>
+            <div class="tcard-meta">
+              <div class="tmeta tmeta-course">📚 ${t.course}</div>
+              <div class="tmeta tmeta-faculty">👨‍🏫 ${t.faculty}</div>
+              ${placedBadge}
+            </div>
+          </div>`;
+      }).join('');
+
+      /* Attach read-more listeners */
+      grid.querySelectorAll('.read-more-btn').forEach(btn => {
+        btn.addEventListener('click', () => toggleText(+btn.dataset.idx));
+      });
+
+      /* Check for clamped text */
+      setTimeout(() => {
+        list.forEach((_, i) => {
+          const el  = document.getElementById('tt-' + i);
+          const btn = document.getElementById('rm-' + i);
+          if (el && btn && el.scrollHeight > el.clientHeight + 4) {
+            btn.classList.add('show');
+          }
+        });
+      }, 100);
+    }
+    grid.classList.remove('fading');
+  }, 220);
+}
+
+function toggleText(i) {
+  const el  = document.getElementById('tt-' + i);
+  const btn = document.getElementById('rm-' + i);
+  if (!el || !btn) return;
+  const expanded = el.classList.toggle('expanded');
+  btn.textContent = expanded ? 'Read less ↑' : 'Read more ↓';
+}
+
+/* ─────────────────────────────────────────
+   SORT
+───────────────────────────────────────── */
+document.getElementById('sort-sel').addEventListener('change', e => {
+  sortMode = e.target.value;
+  renderGrid();
+});
+
+/* ─────────────────────────────────────────
+   MODAL OPEN / CLOSE
+───────────────────────────────────────── */
+function openModal() {
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  /* Reset form view */
+  document.getElementById('testimonial-form').style.display = '';
+  document.getElementById('modal-success').classList.remove('show');
+}
+
+document.getElementById('add-testimonial-btn').addEventListener('click', openModal);
+document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+document.getElementById('modal-success-close').addEventListener('click', closeModal);
+
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ─────────────────────────────────────────
+   STARS SELECTOR
+───────────────────────────────────────── */
+let selectedStars = 5;
+const starBtns = document.querySelectorAll('#star-sel button');
+
+starBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    selectedStars = +btn.dataset.v;
+    starBtns.forEach((b, i) => b.classList.toggle('lit', i < selectedStars));
+  });
+});
+/* Init all 5 lit */
+starBtns.forEach(b => b.classList.add('lit'));
+
+/* ─────────────────────────────────────────
+   FORM SUBMIT
+───────────────────────────────────────── */
+document.getElementById('testimonial-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  let ok = true;
+
+  function check(id, errId, fn) {
+    const el    = document.getElementById(id);
+    const errEl = document.getElementById(errId);
+    const valid = fn(el.value.trim());
+    el.classList.toggle('err', !valid);
+    errEl.classList.toggle('show', !valid);
+    if (!valid) ok = false;
+  }
+
+  check('t-name',    'err-tname',    v => v.length >= 2);
+  check('t-course',  'err-tcourse',  v => v !== '');
+  check('t-faculty', 'err-tfaculty', v => v !== '');
+  check('t-msg',     'err-tmsg',     v => v.length >= 20);
+  if (!ok) return;
+
+  const btn = document.getElementById('m-submit');
+  const txt = document.getElementById('m-submit-txt');
+  btn.disabled = true;
+  txt.textContent = 'Submitting…';
+
+  await new Promise(r => setTimeout(r, 1200));
+
+  userTestimonials.unshift({
+    name:    document.getElementById('t-name').value.trim(),
+    li:      document.getElementById('t-li').value.trim() || null,
+    course:  document.getElementById('t-course').value,
+    faculty: document.getElementById('t-faculty').value,
+    stars:   selectedStars,
+    cat:     'Other',
+    text:    document.getElementById('t-msg').value.trim(),
+  });
+
+  document.getElementById('testimonial-form').style.display = 'none';
+  document.getElementById('modal-success').classList.add('show');
+
+  btn.disabled = false;
+  txt.textContent = 'Submit Testimonial →';
+
+  renderGrid();
+});
+
+/* Clear error states on input */
+['t-name', 't-course', 't-faculty', 't-msg'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('input', () => {
+    el.classList.remove('err');
+    const errEl = document.getElementById('err-' + id);
+    if (errEl) errEl.classList.remove('show');
+  });
+});
+
+/* ─────────────────────────────────────────
+   INIT
+───────────────────────────────────────── */
+renderFilters();
+renderGrid();
+
+</script>
+</body>
+</html>

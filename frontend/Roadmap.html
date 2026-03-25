@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NareshIT — AI Career Roadmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --ink:        #0d0d0f;
+      --ink-2:      #1a1a1f;
+      --cream:      #f6f3ed;
+      --gold:       #b89050;
+      --gold-l:     #d4aa6a;
+      --gold-dim:   rgba(184,144,80,.15);
+      --ash:        #6b6870;
+      --white:      #ffffff;
+      --div:        rgba(255,255,255,.07);
+      --green:      #4ade80;
+      --blue:       #60a5fa;
+      --purple:     #a78bfa;
+      --orange:     #fb923c;
+      --pink:       #f472b6;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Outfit', sans-serif;
+      --silk:  cubic-bezier(0.16,1,0.3,1);
+      --std:   cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: var(--sans); cursor: pointer; }
+    ::-webkit-scrollbar       { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--ink-2); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+    /* ── BG MESH ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 10% 20%, rgba(184,144,80,.06), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(96,165,250,.05), transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% 50%, rgba(167,139,250,.03), transparent 60%),
+        repeating-linear-gradient(0deg,  transparent, transparent 59px, rgba(255,255,255,.015) 60px),
+        repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,.015) 60px);
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 64px; padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(13,13,15,.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--div);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { height: 32px; filter: brightness(0) invert(1); opacity: .9; }
+    .nav-logo-tag {
+      font-family: var(--serif); font-size: 13px; font-style: italic;
+      color: var(--gold-l); opacity: .7;
+    }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--ash); transition: color .25s;
+    }
+    .nav-back:hover { color: var(--gold); }
+
+    /* ── PAGE WRAPPER ── */
+    .page { position: relative; z-index: 1; }
+
+    /* ═══════════════════════════════════════
+       SCREEN 1 — INTAKE FORM
+    ═══════════════════════════════════════ */
+    #screen-intake {
+      min-height: 100vh; padding: 64px 0 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+
+    .intake-wrap {
+      width: 100%; max-width: 680px; padding: 0 24px;
+    }
+
+    .intake-eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .intake-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+
+    .intake-h1 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 300; line-height: 1.0; letter-spacing: -1px;
+      color: var(--cream); margin-bottom: 14px;
+    }
+    .intake-h1 em { font-style: italic; color: var(--gold); }
+
+    .intake-sub {
+      font-size: 15px; color: var(--ash); line-height: 1.8; margin-bottom: 52px; max-width: 480px;
+    }
+
+    /* Form card */
+    .intake-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; padding: 40px;
+    }
+
+    .field-group { margin-bottom: 20px; }
+    .field-group label {
+      display: block; font-size: 10px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--ash); margin-bottom: 8px;
+    }
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      width: 100%; background: rgba(255,255,255,.05);
+      border: 1.5px solid rgba(255,255,255,.1); border-radius: 10px;
+      padding: 14px 18px; font-family: var(--sans); font-size: 14px; font-weight: 300;
+      color: var(--cream); outline: none;
+      transition: border-color .25s var(--silk), background .25s, box-shadow .25s;
+      appearance: none; -webkit-appearance: none;
+    }
+    .field-group input::placeholder,
+    .field-group textarea::placeholder { color: rgba(246,243,237,.2); }
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus {
+      border-color: var(--gold); background: rgba(184,144,80,.06);
+      box-shadow: 0 0 0 4px rgba(184,144,80,.12);
+    }
+    .field-group select option { background: #1a1a1f; color: var(--cream); }
+    .field-group textarea      { resize: none; height: 90px; }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* Goal chips */
+    .chip-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .goal-chip {
+      padding: 8px 18px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 40px; font-size: 12px; font-weight: 500; color: var(--ash);
+      transition: all .25s var(--silk);
+    }
+    .goal-chip.selected {
+      background: var(--gold-dim); border-color: var(--gold); color: var(--gold-l);
+    }
+    .goal-chip:hover { border-color: rgba(184,144,80,.4); color: rgba(246,243,237,.7); }
+
+    /* Submit */
+    .btn-generate {
+      width: 100%; margin-top: 32px; padding: 16px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-l));
+      border: none; border-radius: 12px; color: var(--ink);
+      font-family: var(--serif); font-size: 20px; font-weight: 700; letter-spacing: .3px;
+      box-shadow: 0 8px 32px rgba(184,144,80,.3);
+      transition: all .35s var(--silk);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .btn-generate:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(184,144,80,.4); }
+    .btn-generate:disabled { opacity: .5; transform: none; }
+
+    /* ── LOADING STATE ── */
+    #screen-loading {
+      display: none; min-height: 100vh; padding-top: 64px;
+      align-items: center; justify-content: center; flex-direction: column; gap: 28px;
+    }
+    .loading-orb {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-l));
+      animation: orb-pulse 1.8s ease-in-out infinite;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+    }
+    @keyframes orb-pulse {
+      0%,100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(184,144,80,.4); }
+      50%      { transform: scale(1.08); box-shadow: 0 0 0 20px rgba(184,144,80,0); }
+    }
+    .loading-text { font-family: var(--serif); font-size: 22px; font-style: italic; color: rgba(246,243,237,.6); }
+    .loading-steps { display: flex; flex-direction: column; gap: 10px; }
+    .loading-step {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 13px; color: rgba(246,243,237,.3); transition: color .4s;
+    }
+    .loading-step.active { color: var(--gold-l); }
+    .loading-step.done   { color: var(--green); }
+    .loading-step-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.15); flex-shrink: 0; transition: background .4s;
+    }
+    .loading-step.active .loading-step-dot { background: var(--gold); animation: orb-pulse .9s infinite; }
+    .loading-step.done   .loading-step-dot { background: var(--green); animation: none; }
+
+    /* ═══════════════════════════════════════
+       SCREEN 2 — ROADMAP OUTPUT
+    ═══════════════════════════════════════ */
+    #screen-roadmap {
+      display: none; padding: 64px 0 80px;
+      min-height: 100vh;
+    }
+
+    /* ── HERO BANNER ── */
+    .rm-hero {
+      max-width: 1100px; margin: 0 auto; padding: 52px 40px 0;
+      display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start;
+    }
+    .rm-greeting {
+      font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .rm-name {
+      font-family: var(--serif); font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300; line-height: 1.05; color: var(--cream);
+      margin-bottom: 10px;
+    }
+    .rm-name em { font-style: italic; color: var(--gold); }
+    .rm-tagline { font-size: 14px; color: var(--ash); line-height: 1.7; max-width: 500px; }
+
+    .rm-profile-card {
+      background: rgba(255,255,255,.04); border: 1px solid var(--div);
+      border-radius: 16px; padding: 22px 28px; min-width: 220px; flex-shrink: 0;
+    }
+    .rm-profile-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .rm-avatar {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-l));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink);
+    }
+    .rm-profile-name   { font-size: 14px; font-weight: 600; color: var(--cream); }
+    .rm-profile-qual   { font-size: 11px; color: var(--ash); }
+    .rm-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; background: var(--gold-dim); border: 1px solid rgba(184,144,80,.3);
+      border-radius: 20px; font-size: 10px; font-weight: 600; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--gold-l); margin-bottom: 8px;
+    }
+    .rm-stat-row { display: flex; gap: 16px; margin-top: 12px; }
+    .rm-stat { text-align: center; }
+    .rm-stat-num { font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--cream); }
+    .rm-stat-lbl { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ash); }
+
+    /* ── SUMMARY CARDS ── */
+    .rm-summary {
+      max-width: 1100px; margin: 40px auto 0; padding: 0 40px;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 14px;
+    }
+    .summary-card {
+      background: rgba(255,255,255,.03); border: 1px solid var(--div);
+      border-radius: 14px; padding: 22px 20px;
+      transition: border-color .3s, background .3s;
+    }
+    .summary-card:hover { border-color: rgba(184,144,80,.3); background: rgba(184,144,80,.04); }
+    .summary-ico  { font-size: 22px; margin-bottom: 10px; }
+    .summary-val  { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--cream); line-height: 1.1; margin-bottom: 4px; }
+    .summary-key  { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ash); }
+
+    /* ── SECTION DIVIDER ── */
+    .rm-section {
+      max-width: 1100px; margin: 52px auto 0; padding: 0 40px;
+    }
+    .rm-section-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 24px;
+    }
+    .rm-section-icon {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 16px;
+    }
+    .rm-section-title {
+      font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--cream);
+    }
+    .rm-section-sub { font-size: 12px; color: var(--ash); margin-top: 2px; }
+    .rm-section-line { flex: 1; height: 1px; background: var(--div); }
+
+    /* ── ROADMAP ARROW FLOW ── */
+
+    /* Outer scroll wrapper on desktop */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    /* Each row holds up to 3 cards, alternating direction */
+    .phase-row {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      position: relative;
+    }
+    .phase-row.reverse { flex-direction: row-reverse; }
+
+    /* ── Phase card ── */
+    .phase {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s var(--silk), transform .65s var(--silk);
+    }
+    .phase.visible { opacity: 1; transform: none; }
+
+    .phase-inner {
+      margin: 0 6px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--div);
+      border-radius: 18px;
+      padding: 22px 22px 18px;
+      display: flex; flex-direction: column;
+      flex: 1;
+      transition: border-color .3s, box-shadow .3s, transform .3s var(--silk);
+    }
+    .phase-inner:hover {
+      border-color: rgba(255,255,255,.16);
+      box-shadow: 0 16px 48px rgba(0,0,0,.3);
+      transform: translateY(-4px);
+    }
+
+    /* Step badge */
+    .phase-step-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      font-family: var(--serif); font-size: 16px; font-weight: 700;
+      margin-bottom: 14px; flex-shrink: 0;
+    }
+
+    .phase-title { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--cream); margin-bottom: 6px; line-height: 1.25; }
+    .phase-dur   { font-size: 11px; color: var(--ash); margin-bottom: 12px; display: flex; align-items: center; gap: 5px; }
+    .phase-desc  { font-size: 12px; color: rgba(246,243,237,.5); line-height: 1.75; margin-bottom: 14px; flex: 1; }
+    .topic-list  { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .topic-tag   { padding: 3px 10px; border-radius: 20px; font-size: 10.5px; font-weight: 500; }
+    .phase-outcome {
+      padding: 9px 13px; border-radius: 8px; font-size: 11.5px; line-height: 1.55;
+      background: rgba(74,222,128,.06); border: 1px solid rgba(74,222,128,.14);
+      color: rgba(74,222,128,.85);
+    }
+
+    /* ── ARROW TOOLTIP POPUP ── */
+    .phase-arrow {
+      display: flex; align-items: center; justify-content: center;
+      width: 64px; flex-shrink: 0; position: relative; z-index: 10;
+      cursor: pointer;
+    }
+    .phase-arrow svg {
+      width: 42px; height: 42px; flex-shrink: 0;
+      filter: drop-shadow(0 0 6px rgba(184,144,80,.4));
+      animation: arrow-pulse 2s ease-in-out infinite;
+      transition: filter .2s;
+    }
+    .phase-arrow:hover svg { filter: drop-shadow(0 0 12px rgba(184,144,80,.8)); }
+
+    @keyframes arrow-pulse {
+      0%,100% { transform: translateX(0); opacity: .7; }
+      50%      { transform: translateX(5px); opacity: 1; }
+    }
+    .phase-row.reverse .phase-arrow svg { animation: arrow-pulse-rev 2s ease-in-out infinite; }
+    @keyframes arrow-pulse-rev {
+      0%,100% { transform: rotate(180deg) translateX(0); opacity: .7; }
+      50%      { transform: rotate(180deg) translateX(5px); opacity: 1; }
+    }
+
+    /* Tooltip popup */
+    .arrow-tooltip {
+      position: absolute;
+      bottom: calc(100% + 14px);
+      left: 50%; transform: translateX(-50%) translateY(8px);
+      width: 220px;
+      background: #1c1a24;
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .25s var(--silk), transform .25s var(--silk);
+      z-index: 100;
+    }
+    .phase-arrow:hover .arrow-tooltip {
+      opacity: 1; transform: translateX(-50%) translateY(0);
+    }
+
+    /* Caret */
+    .arrow-tooltip::after {
+      content: '';
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: #1c1a24;
+    }
+
+    /* Tip row */
+    .tooltip-tip {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 11.5px; line-height: 1.55; color: rgba(246,243,237,.75);
+      margin-bottom: 8px;
+    }
+    .tooltip-tip:last-child { margin-bottom: 0; }
+    .tooltip-tip-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+
+    /* Warning badge */
+    .tooltip-warn {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 11px; line-height: 1.5; color: rgba(251,146,60,.9);
+      background: rgba(251,146,60,.08); border: 1px solid rgba(251,146,60,.2);
+      border-radius: 8px; padding: 8px 10px; margin-top: 8px;
+    }
+    .tooltip-warn-icon { font-size: 13px; flex-shrink: 0; }
+
+    /* Divider inside tooltip */
+    .tooltip-divider {
+      height: 1px; background: rgba(255,255,255,.07); margin: 8px 0;
+    }
+
+    .tooltip-header {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: rgba(246,243,237,.3); margin-bottom: 8px;
+    }
+
+    /* ── TURN ARROW between rows (down connector) ── */
+    .row-connector {
+      display: flex; align-items: center; justify-content: center;
+      height: 70px; position: relative;
+    }
+    .row-connector svg {
+      width: 40px; height: 56px;
+      filter: drop-shadow(0 0 6px rgba(184,144,80,.35));
+      animation: down-pulse 2s ease-in-out infinite;
+    }
+    @keyframes down-pulse {
+      0%,100% { transform: translateY(0); opacity: .65; }
+      50%      { transform: translateY(6px); opacity: 1; }
+    }
+
+    /* ── Mobile: stack vertically ── */
+    @media (max-width: 900px) {
+      .phase-row           { flex-direction: column !important; gap: 0; }
+      .phase-arrow         { width: auto; height: 60px; }
+      .phase-arrow svg     { width: 36px; height: 36px; transform: rotate(90deg); }
+      .phase-row.reverse .phase-arrow svg { transform: rotate(90deg); }
+      .phase-inner         { margin: 0; }
+      .row-connector       { height: 50px; }
+      .arrow-tooltip       { bottom: auto; top: calc(100% + 14px); }
+      .arrow-tooltip::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: #1c1a24; }
+    }
+    .phase-c1 .phase-step-badge { background: rgba(184,144,80,.15); color: var(--gold-l); border: 2px solid var(--gold); }
+    .phase-c2 .phase-step-badge { background: rgba(96,165,250,.15);  color: var(--blue);   border: 2px solid var(--blue); }
+    .phase-c3 .phase-step-badge { background: rgba(167,139,250,.15); color: var(--purple); border: 2px solid var(--purple); }
+    .phase-c4 .phase-step-badge { background: rgba(251,146,60,.15);  color: var(--orange); border: 2px solid var(--orange); }
+    .phase-c5 .phase-step-badge { background: rgba(244,114,182,.15); color: var(--pink);   border: 2px solid var(--pink); }
+    .phase-c6 .phase-step-badge { background: rgba(74,222,128,.15);  color: var(--green);  border: 2px solid var(--green); }
+
+    .phase-c1 .phase-inner { border-top: 2px solid rgba(184,144,80,.35); }
+    .phase-c2 .phase-inner { border-top: 2px solid rgba(96,165,250,.35); }
+    .phase-c3 .phase-inner { border-top: 2px solid rgba(167,139,250,.35); }
+    .phase-c4 .phase-inner { border-top: 2px solid rgba(251,146,60,.35); }
+    .phase-c5 .phase-inner { border-top: 2px solid rgba(244,114,182,.35); }
+    .phase-c6 .phase-inner { border-top: 2px solid rgba(74,222,128,.35); }
+
+    .phase-c1 .phase-inner:hover { border-color: rgba(184,144,80,.55); box-shadow: 0 16px 48px rgba(184,144,80,.12); }
+    .phase-c2 .phase-inner:hover { border-color: rgba(96,165,250,.55);  box-shadow: 0 16px 48px rgba(96,165,250,.1); }
+    .phase-c3 .phase-inner:hover { border-color: rgba(167,139,250,.55); box-shadow: 0 16px 48px rgba(167,139,250,.1); }
+    .phase-c4 .phase-inner:hover { border-color: rgba(251,146,60,.55);  box-shadow: 0 16px 48px rgba(251,146,60,.1); }
+    .phase-c5 .phase-inner:hover { border-color: rgba(244,114,182,.55); box-shadow: 0 16px 48px rgba(244,114,182,.1); }
+    .phase-c6 .phase-inner:hover { border-color: rgba(74,222,128,.55);  box-shadow: 0 16px 48px rgba(74,222,128,.1); }
+
+    .phase-c1 .topic-tag { background: rgba(184,144,80,.12); color: var(--gold-l); border: 1px solid rgba(184,144,80,.25); }
+    .phase-c2 .topic-tag { background: rgba(96,165,250,.1);  color: var(--blue);   border: 1px solid rgba(96,165,250,.25); }
+    .phase-c3 .topic-tag { background: rgba(167,139,250,.1); color: var(--purple); border: 1px solid rgba(167,139,250,.25); }
+    .phase-c4 .topic-tag { background: rgba(251,146,60,.1);  color: var(--orange); border: 1px solid rgba(251,146,60,.25); }
+    .phase-c5 .topic-tag { background: rgba(244,114,182,.1); color: var(--pink);   border: 1px solid rgba(244,114,182,.25); }
+    .phase-c6 .topic-tag { background: rgba(74,222,128,.1);  color: var(--green);  border: 1px solid rgba(74,222,128,.25); }
+
+    /* Arrow colour variants */
+    .arrow-c1 { color: var(--gold); }
+    .arrow-c2 { color: var(--blue); }
+    .arrow-c3 { color: var(--purple); }
+    .arrow-c4 { color: var(--orange); }
+    .arrow-c5 { color: var(--pink); }
+    .arrow-c6 { color: var(--green); }
+
+    /* ── Mobile: stack vertically ── */
+    @media (max-width: 900px) {
+      .phase-row        { flex-direction: column !important; gap: 0; }
+      .phase-arrow      { width: auto; height: 50px; transform: rotate(90deg); }
+      .phase-arrow svg  { width: 36px; height: 36px; }
+      .phase-row.reverse .phase-arrow svg { transform: rotate(0deg); }
+      .phase-inner      { margin: 0 0; }
+      .row-connector    { height: 50px; }
+    }
+
+    /* ── COURSE RECOMMENDATIONS ── */
+    .courses-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 16px; }
+    .course-rec {
+      background: rgba(255,255,255,.03); border: 1px solid var(--div);
+      border-radius: 16px; padding: 24px; display: flex; flex-direction: column;
+      transition: all .35s var(--silk);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .5s var(--silk), transform .5s var(--silk), border-color .3s, box-shadow .3s;
+    }
+    .course-rec.visible { opacity: 1; transform: none; }
+    .course-rec:hover { border-color: rgba(184,144,80,.35); box-shadow: 0 16px 48px rgba(0,0,0,.25); transform: translateY(-4px); }
+    .course-rec-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 14px; width: fit-content;
+    }
+    .badge-primary   { background: rgba(184,144,80,.15); color: var(--gold-l); border: 1px solid rgba(184,144,80,.3); }
+    .badge-secondary { background: rgba(96,165,250,.1);  color: var(--blue);   border: 1px solid rgba(96,165,250,.25); }
+    .badge-elective  { background: rgba(167,139,250,.1); color: var(--purple); border: 1px solid rgba(167,139,250,.25); }
+    .course-rec-name { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--cream); margin-bottom: 8px; line-height: 1.3; }
+    .course-rec-meta { font-size: 12px; color: var(--ash); line-height: 1.7; flex: 1; }
+    .course-rec-meta span { display: block; }
+    .course-rec-meta b    { color: rgba(246,243,237,.7); font-weight: 500; }
+    .course-rec-why {
+      margin-top: 14px; padding: 10px 14px;
+      background: rgba(184,144,80,.06); border-left: 2px solid var(--gold);
+      border-radius: 0 8px 8px 0; font-size: 12px;
+      color: rgba(246,243,237,.5); line-height: 1.6; font-style: italic;
+    }
+    .course-rec-enroll {
+      margin-top: 16px; padding: 10px; width: 100%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-l));
+      border: none; border-radius: 8px; color: var(--ink);
+      font-family: var(--sans); font-size: 12px; font-weight: 700;
+      letter-spacing: .5px; text-transform: uppercase;
+      transition: all .3s var(--silk);
+    }
+    .course-rec-enroll:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,144,80,.35); }
+
+    /* ── SKILLS CHART ── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .skill-row { display: flex; flex-direction: column; gap: 6px; }
+    .skill-header { display: flex; justify-content: space-between; font-size: 12px; }
+    .skill-name  { color: rgba(246,243,237,.7); font-weight: 500; }
+    .skill-pct   { color: var(--gold-l); font-weight: 600; font-family: var(--serif); }
+    .skill-bar-track { height: 5px; background: rgba(255,255,255,.08); border-radius: 5px; overflow: hidden; }
+    .skill-bar {
+      height: 100%; border-radius: 5px; width: 0;
+      transition: width 1.2s var(--silk);
+    }
+
+    /* ── CAREER PATHS ── */
+    .careers-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
+    .career-card {
+      background: rgba(255,255,255,.03); border: 1px solid var(--div);
+      border-radius: 14px; padding: 20px 18px; text-align: center;
+      transition: all .3s var(--silk);
+      opacity: 0; transform: scale(.95);
+      transition: opacity .5s var(--silk), transform .5s var(--silk), border-color .3s;
+    }
+    .career-card.visible { opacity: 1; transform: none; }
+    .career-card:hover { border-color: rgba(184,144,80,.3); transform: translateY(-4px); }
+    .career-ico  { font-size: 28px; margin-bottom: 10px; }
+    .career-role { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--cream); margin-bottom: 4px; }
+    .career-sal  { font-size: 11px; color: var(--gold-l); font-weight: 600; margin-bottom: 4px; }
+    .career-exp  { font-size: 11px; color: var(--ash); }
+
+    /* ── AI CHAT ── */
+    .ai-chat-box {
+      background: rgba(255,255,255,.02); border: 1px solid var(--div);
+      border-radius: 20px; overflow: hidden;
+    }
+    .ai-chat-head {
+      padding: 18px 24px; border-bottom: 1px solid var(--div);
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,.03);
+    }
+    .ai-chat-avatar {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-l));
+      display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0;
+    }
+    .ai-chat-name   { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--cream); }
+    .ai-chat-status { font-size: 11px; color: var(--ash); margin-top: 1px; }
+    .ai-online-dot  {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+      margin-left: auto; animation: orb-pulse 2s infinite;
+    }
+    .ai-msgs {
+      padding: 20px 22px; min-height: 280px; max-height: 360px;
+      overflow-y: auto; display: flex; flex-direction: column; gap: 12px;
+    }
+    .ai-msgs::-webkit-scrollbar       { width: 3px; }
+    .ai-msgs::-webkit-scrollbar-thumb { background: var(--div); border-radius: 3px; }
+    .ai-bubble { display: flex; gap: 10px; align-items: flex-end; }
+    .ai-bubble.user { flex-direction: row-reverse; }
+    .ai-bav {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-l));
+      display: flex; align-items: center; justify-content: center; font-size: 12px;
+    }
+    .ai-bubble.user .ai-bav {
+      background: rgba(255,255,255,.08); font-size: 10px; color: var(--ash);
+    }
+    .ai-bbl {
+      max-width: 78%; padding: 11px 15px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 4px 14px 14px 14px;
+      font-size: 13px; color: rgba(246,243,237,.75); line-height: 1.65;
+    }
+    .ai-bubble.user .ai-bbl {
+      background: rgba(184,144,80,.12); border-color: rgba(184,144,80,.22);
+      color: rgba(246,243,237,.9); border-radius: 14px 4px 14px 14px; text-align: right;
+    }
+    .ai-typing-row  { display: none; gap: 10px; align-items: flex-end; padding: 0 22px 14px; }
+    .ai-typing-row.on { display: flex; }
+    .ai-dots {
+      padding: 11px 15px; gap: 5px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 4px 14px 14px 14px; display: flex;
+    }
+    .ai-dots span {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(255,255,255,.3); animation: bounce-d 1.2s infinite;
+    }
+    .ai-dots span:nth-child(2) { animation-delay: .2s; }
+    .ai-dots span:nth-child(3) { animation-delay: .4s; }
+    @keyframes bounce-d { 0%,80%,100%{transform:translateY(0);opacity:.3} 40%{transform:translateY(-5px);opacity:1} }
+
+    .ai-suggestions {
+      padding: 0 22px 14px; display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .ai-sug {
+      padding: 6px 14px; background: transparent;
+      border: 1px solid rgba(255,255,255,.09); border-radius: 20px;
+      font-size: 12px; color: rgba(246,243,237,.4);
+      transition: all .2s var(--silk);
+    }
+    .ai-sug:hover { border-color: rgba(184,144,80,.4); color: rgba(246,243,237,.85); background: rgba(184,144,80,.07); }
+
+    .ai-input-bar {
+      display: flex; gap: 10px; padding: 14px 20px;
+      border-top: 1px solid var(--div);
+    }
+    .ai-input {
+      flex: 1; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px; padding: 11px 16px;
+      font-family: var(--sans); font-size: 13px; color: var(--cream); outline: none;
+      transition: border-color .25s, background .25s;
+    }
+    .ai-input::placeholder { color: rgba(246,243,237,.2); }
+    .ai-input:focus { border-color: rgba(184,144,80,.5); background: rgba(184,144,80,.05); }
+    .ai-send-btn {
+      width: 42px; height: 42px; border-radius: 10px; border: none;
+      background: var(--gold); color: var(--ink); font-size: 15px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all .25s var(--silk);
+    }
+    .ai-send-btn:hover { background: var(--gold-l); transform: scale(1.06); }
+
+    /* ── REGENERATE ── */
+    .rm-actions {
+      max-width: 1100px; margin: 48px auto 0; padding: 0 40px;
+      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+    }
+    .btn-regen {
+      padding: 12px 32px; background: transparent;
+      border: 1.5px solid rgba(184,144,80,.35); border-radius: 40px; color: var(--gold-l);
+      font-family: var(--sans); font-size: 13px; font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+      transition: all .3s var(--silk);
+    }
+    .btn-regen:hover { background: var(--gold-dim); border-color: var(--gold); }
+    .btn-start-over {
+      padding: 12px 28px; background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1); border-radius: 40px;
+      color: var(--ash); font-size: 13px;
+      transition: all .3s var(--silk);
+    }
+    .btn-start-over:hover { color: var(--cream); border-color: rgba(255,255,255,.2); }
+
+    .btn-download {
+      padding: 12px 28px; background: rgba(74,222,128,.1);
+      border: 1px solid rgba(74,222,128,.25); border-radius: 40px;
+      color: var(--green); font-size: 13px; font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+      transition: all .3s var(--silk); margin-left: auto;
+    }
+    .btn-download:hover { background: rgba(74,222,128,.18); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .rm-hero    { grid-template-columns: 1fr; }
+      .rm-profile-card { display: none; }
+      .rm-summary { grid-template-columns: 1fr 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .nav { padding: 0 20px; }
+      .rm-hero, .rm-summary, .rm-section, .rm-actions { padding-left: 20px; padding-right: 20px; }
+      .intake-card { padding: 24px; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .rm-summary { grid-template-columns: 1fr 1fr; }
+      .courses-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT" />
+      <span class="nav-logo-tag">Career Roadmap</span>
+    </div>
+    <a href="index.html" class="nav-back">← Back to Home</a>
+  </nav>
+
+  <div class="page">
+
+    <!-- ═══════════════════════════════════
+         SCREEN 1 — INTAKE
+    ═══════════════════════════════════ -->
+    <div id="screen-intake">
+      <div class="intake-wrap">
+        <div class="intake-eyebrow">AI-Powered Career Planner</div>
+        <h1 class="intake-h1">Your Personal<br><em>Tech Roadmap</em></h1>
+        <p class="intake-sub">Tell us about yourself and our AI will craft a personalised learning roadmap, course recommendations, and career path — just for you.</p>
+
+        <div class="intake-card">
+          <div class="field-row">
+            <div class="field-group">
+              <label for="i-fname">First Name</label>
+              <input id="i-fname" type="text" placeholder="e.g. Ravi" />
+            </div>
+            <div class="field-group">
+              <label for="i-lname">Last Name</label>
+              <input id="i-lname" type="text" placeholder="e.g. Kumar" />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="i-qual">Qualification</label>
+              <select id="i-qual">
+                <option value="">Select your qualification</option>
+                <option>10th Grade / SSC</option>
+                <option>12th Grade / Intermediate</option>
+                <option>Diploma</option>
+                <option>B.Tech / B.E.</option>
+                <option>B.Sc / B.Com / B.A.</option>
+                <option>MCA / M.Tech / M.Sc</option>
+                <option>MBA</option>
+                <option>Working Professional</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="i-exp">Experience Level</label>
+              <select id="i-exp">
+                <option value="">Select experience</option>
+                <option>Fresher (0 years)</option>
+                <option>0–1 Year</option>
+                <option>1–3 Years</option>
+                <option>3–5 Years</option>
+                <option>5+ Years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="i-bg">Current Background / Skills (optional)</label>
+            <textarea id="i-bg" placeholder="e.g. Basic Python, HTML/CSS, Java basics…"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label>Career Goal — Choose up to 2</label>
+            <div class="chip-grid" id="chip-grid">
+              <button class="goal-chip" type="button" data-val="Full Stack Developer">💻 Full Stack Dev</button>
+              <button class="goal-chip" type="button" data-val="Data Scientist / AI Engineer">🤖 Data Science / AI</button>
+              <button class="goal-chip" type="button" data-val="DevOps / Cloud Engineer">☁️ DevOps / Cloud</button>
+              <button class="goal-chip" type="button" data-val="Cybersecurity Specialist">🛡️ Cybersecurity</button>
+              <button class="goal-chip" type="button" data-val="QA / Test Automation Engineer">🔬 QA / Testing</button>
+              <button class="goal-chip" type="button" data-val="Mobile App Developer">📱 Mobile Dev</button>
+              <button class="goal-chip" type="button" data-val="Salesforce Developer">☁️ Salesforce</button>
+              <button class="goal-chip" type="button" data-val="Not sure — help me decide">🎯 Help me decide</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="i-timeline">Target Timeline</label>
+            <select id="i-timeline">
+              <option value="">When do you want to be job-ready?</option>
+              <option>As soon as possible (3–4 months)</option>
+              <option>Within 6 months</option>
+              <option>Within 1 year</option>
+              <option>Flexible — quality over speed</option>
+            </select>
+          </div>
+
+          <button class="btn-generate" id="btn-generate" type="button">
+            ✦ Generate My Roadmap
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════
+         SCREEN 2 — LOADING
+    ═══════════════════════════════════ -->
+    <div id="screen-loading" style="display:none;">
+      <div class="loading-orb">✦</div>
+      <div class="loading-text">Crafting your roadmap…</div>
+      <div class="loading-steps" id="loading-steps">
+        <div class="loading-step" id="ls-1"><div class="loading-step-dot"></div> Analysing your profile</div>
+        <div class="loading-step" id="ls-2"><div class="loading-step-dot"></div> Mapping career pathways</div>
+        <div class="loading-step" id="ls-3"><div class="loading-step-dot"></div> Selecting best-fit courses</div>
+        <div class="loading-step" id="ls-4"><div class="loading-step-dot"></div> Building phase-by-phase plan</div>
+        <div class="loading-step" id="ls-5"><div class="loading-step-dot"></div> Estimating timelines &amp; salaries</div>
+        <div class="loading-step" id="ls-6"><div class="loading-step-dot"></div> Finalising your roadmap</div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════
+         SCREEN 3 — ROADMAP
+    ═══════════════════════════════════ -->
+    <div id="screen-roadmap" style="display:none;">
+
+      <!-- Hero -->
+      <div class="rm-hero">
+        <div>
+          <div class="rm-greeting">Your Personalised Roadmap</div>
+          <h2 class="rm-name">Hello, <em id="rm-display-name">there</em>!</h2>
+          <p class="rm-tagline" id="rm-tagline">Your AI-generated career roadmap is ready.</p>
+        </div>
+        <div class="rm-profile-card">
+          <div class="rm-profile-row">
+            <div class="rm-avatar" id="rm-avatar">R</div>
+            <div>
+              <div class="rm-profile-name" id="rm-profile-name">Ravi Kumar</div>
+              <div class="rm-profile-qual" id="rm-profile-qual">B.Tech · Fresher</div>
+            </div>
+          </div>
+          <div class="rm-badge" id="rm-goal-badge">🎯 Full Stack Dev</div>
+          <div class="rm-stat-row">
+            <div class="rm-stat"><div class="rm-stat-num" id="rm-dur">6mo</div><div class="rm-stat-lbl">Duration</div></div>
+            <div class="rm-stat"><div class="rm-stat-num" id="rm-phases">4</div><div class="rm-stat-lbl">Phases</div></div>
+            <div class="rm-stat"><div class="rm-stat-num" id="rm-courses-count">3</div><div class="rm-stat-lbl">Courses</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary cards -->
+      <div class="rm-summary" id="rm-summary"></div>
+
+      <!-- Timeline -->
+      <div class="rm-section">
+        <div class="rm-section-header">
+          <div class="rm-section-icon" style="background:rgba(184,144,80,.15);">🗺️</div>
+          <div>
+            <div class="rm-section-title">Learning Roadmap</div>
+            <div class="rm-section-sub">Phase-by-phase plan to reach your goal</div>
+          </div>
+          <div class="rm-section-line"></div>
+        </div>
+        <div class="timeline" id="rm-timeline"></div>
+      </div>
+
+      <!-- Course Recommendations -->
+      <div class="rm-section">
+        <div class="rm-section-header">
+          <div class="rm-section-icon" style="background:rgba(96,165,250,.15);">📚</div>
+          <div>
+            <div class="rm-section-title">Recommended Courses</div>
+            <div class="rm-section-sub">Hand-picked from NareshIT's curriculum for your profile</div>
+          </div>
+          <div class="rm-section-line"></div>
+        </div>
+        <div class="courses-grid" id="rm-courses"></div>
+      </div>
+
+      <!-- Skills to Build -->
+      <div class="rm-section">
+        <div class="rm-section-header">
+          <div class="rm-section-icon" style="background:rgba(167,139,250,.15);">⚡</div>
+          <div>
+            <div class="rm-section-title">Skills You'll Master</div>
+            <div class="rm-section-sub">Proficiency targets by end of programme</div>
+          </div>
+          <div class="rm-section-line"></div>
+        </div>
+        <div class="skills-grid" id="rm-skills"></div>
+      </div>
+
+      <!-- Career Paths -->
+      <div class="rm-section">
+        <div class="rm-section-header">
+          <div class="rm-section-icon" style="background:rgba(251,146,60,.15);">💼</div>
+          <div>
+            <div class="rm-section-title">Career Opportunities</div>
+            <div class="rm-section-sub">Roles you'll be qualified for after this roadmap</div>
+          </div>
+          <div class="rm-section-line"></div>
+        </div>
+        <div class="careers-grid" id="rm-careers"></div>
+      </div>
+
+      <!-- AI Chat -->
+      <div class="rm-section">
+        <div class="rm-section-header">
+          <div class="rm-section-icon" style="background:rgba(184,144,80,.15);">✦</div>
+          <div>
+            <div class="rm-section-title">Ask Your AI Advisor</div>
+            <div class="rm-section-sub">Ask anything about your roadmap, courses, fees, or career</div>
+          </div>
+          <div class="rm-section-line"></div>
+        </div>
+        <div class="ai-chat-box">
+          <div class="ai-chat-head">
+            <div class="ai-chat-avatar">✦</div>
+            <div>
+              <div class="ai-chat-name">NareshIT AI Advisor</div>
+              <div class="ai-chat-status">Powered by Claude · knows your full roadmap</div>
+            </div>
+            <div class="ai-online-dot"></div>
+          </div>
+          <div class="ai-msgs" id="ai-msgs">
+            <div class="ai-bubble">
+              <div class="ai-bav">✦</div>
+              <div class="ai-bbl" id="ai-intro-msg">Hi! I've reviewed your roadmap. Ask me anything — I can explain any phase, suggest study tips, clarify course details, or help with career questions! 😊</div>
+            </div>
+          </div>
+          <div class="ai-typing-row" id="ai-typing">
+            <div class="ai-bav">✦</div>
+            <div class="ai-dots"><span></span><span></span><span></span></div>
+          </div>
+          <div class="ai-suggestions" id="ai-suggestions">
+            <button class="ai-sug" type="button" data-q="How long will it take me to complete this roadmap?">⏱ Timeline</button>
+            <button class="ai-sug" type="button" data-q="Which course should I enroll in first?">📚 First course?</button>
+            <button class="ai-sug" type="button" data-q="What salary can I expect after completing this roadmap?">💰 Expected salary</button>
+            <button class="ai-sug" type="button" data-q="Are there weekend or online batch options?">📅 Batch options</button>
+            <button class="ai-sug" type="button" data-q="What are the fees for these courses?">💳 Fees</button>
+          </div>
+          <div class="ai-input-bar">
+            <input class="ai-input" id="ai-input" type="text" placeholder="Ask about your roadmap…" autocomplete="off" />
+            <button class="ai-send-btn" id="ai-send" type="button" aria-label="Send">➤</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="rm-actions">
+        <button class="btn-regen" id="btn-regen" type="button">⟳ Regenerate Roadmap</button>
+        <button class="btn-start-over" id="btn-restart" type="button">← Start Over</button>
+        <button class="btn-download" type="button" onclick="window.print()">⬇ Save as PDF</button>
+      </div>
+
+    </div><!-- /screen-roadmap -->
+  </div><!-- /page -->
+
+
+  <script>
+  'use strict';
+
+  /* ── State ── */
+  let userProfile  = {};
+  let roadmapData  = {};
+  let aiContext    = '';
+  let chatHistory  = [];
+  let selectedGoals = [];
+
+  /* ── Screens ── */
+  const sIntake  = document.getElementById('screen-intake');
+  const sLoading = document.getElementById('screen-loading');
+  const sRoadmap = document.getElementById('screen-roadmap');
+
+  function show(el) { el.style.display = 'flex'; }
+  function hide(el) { el.style.display = 'none'; }
+  function showBlock(el) { el.style.display = 'block'; }
+
+  /* ── Goal chips ── */
+  document.getElementById('chip-grid').addEventListener('click', e => {
+    const chip = e.target.closest('.goal-chip');
+    if (!chip) return;
+    const val = chip.dataset.val;
+    if (chip.classList.contains('selected')) {
+      chip.classList.remove('selected');
+      selectedGoals = selectedGoals.filter(g => g !== val);
+    } else {
+      if (selectedGoals.length >= 2) return;
+      chip.classList.add('selected');
+      selectedGoals.push(val);
+    }
+  });
+
+  /* ── Generate ── */
+  document.getElementById('btn-generate').addEventListener('click', async () => {
+    const fname    = document.getElementById('i-fname').value.trim();
+    const lname    = document.getElementById('i-lname').value.trim();
+    const qual     = document.getElementById('i-qual').value;
+    const exp      = document.getElementById('i-exp').value;
+    const bg       = document.getElementById('i-bg').value.trim();
+    const timeline = document.getElementById('i-timeline').value;
+
+    if (!fname) { alert('Please enter your first name.'); return; }
+    if (!qual)  { alert('Please select your qualification.'); return; }
+    if (!exp)   { alert('Please select your experience level.'); return; }
+    if (selectedGoals.length === 0) { alert('Please select at least one career goal.'); return; }
+    if (!timeline) { alert('Please select your target timeline.'); return; }
+
+    userProfile = { fname, lname, qual, exp, bg, goals: selectedGoals, timeline };
+
+    hide(sIntake);
+    sLoading.style.display = 'flex';
+    animateLoadingSteps();
+
+    try {
+      const json = await callClaude(buildPrompt(userProfile));
+      roadmapData = JSON.parse(json);
+      await sleep(500);
+      renderRoadmap(roadmapData, userProfile);
+      hide(sLoading);
+      showBlock(sRoadmap);
+      initScrollAnimations();
+      initSkillBars();
+    } catch (err) {
+      console.error(err);
+      hide(sLoading);
+      show(sIntake);
+      alert('Could not generate roadmap. Please check your connection and try again.');
+    }
+  });
+
+  /* ── Regenerate ── */
+  document.getElementById('btn-regen').addEventListener('click', async () => {
+    hide(sRoadmap);
+    sLoading.style.display = 'flex';
+    animateLoadingSteps();
+    chatHistory = [];
+    try {
+      const json = await callClaude(buildPrompt(userProfile) + '\n\nNote: generate a slightly different variation.');
+      roadmapData = JSON.parse(json);
+      await sleep(400);
+      renderRoadmap(roadmapData, userProfile);
+      hide(sLoading);
+      showBlock(sRoadmap);
+      initScrollAnimations();
+      initSkillBars();
+    } catch { hide(sLoading); showBlock(sRoadmap); }
+  });
+
+  /* ── Restart ── */
+  document.getElementById('btn-restart').addEventListener('click', () => {
+    hide(sRoadmap);
+    selectedGoals = [];
+    document.querySelectorAll('.goal-chip').forEach(c => c.classList.remove('selected'));
+    ['i-fname','i-lname','i-bg'].forEach(id => document.getElementById(id).value = '');
+    ['i-qual','i-exp','i-timeline'].forEach(id => document.getElementById(id).value = '');
+    show(sIntake);
+    chatHistory = [];
+  });
+
+  /* ── Loading animation ── */
+  function animateLoadingSteps() {
+    const steps = ['ls-1','ls-2','ls-3','ls-4','ls-5','ls-6'];
+    steps.forEach(id => {
+      const el = document.getElementById(id);
+      el.classList.remove('active','done');
+    });
+    let i = 0;
+    const tick = () => {
+      if (i > 0) document.getElementById(steps[i-1]).classList.replace('active','done');
+      if (i < steps.length) {
+        document.getElementById(steps[i]).classList.add('active');
+        i++;
+        setTimeout(tick, 700 + Math.random() * 400);
+      }
+    };
+    tick();
+  }
+
+  /* ── Claude API call ── */
+  async function callClaude(prompt) {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 3000,
+        system: `You are an expert career advisor for NareshIT — India's #1 software training institute.
+You MUST respond with ONLY valid JSON. No markdown, no code fences, no commentary. Pure JSON only.`,
+        messages: [{ role: 'user', content: prompt }],
+      }),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data  = await res.json();
+    const text  = data.content.filter(b => b.type === 'text').map(b => b.text).join('');
+    // Strip any accidental markdown fences
+    return text.replace(/```json|```/g, '').trim();
+  }
+
+  /* ── Prompt builder ── */
+  function buildPrompt(p) {
+    return `Create a detailed career roadmap for this student. Return ONLY valid JSON matching this exact schema:
+
+{
+  "tagline": "one motivating sentence about their journey",
+  "summary": {
+    "totalDuration": "e.g. 6 months",
+    "totalPhases": 4,
+    "primaryGoal": "job role title",
+    "expectedSalary": "e.g. ₹4–8 LPA"
+  },
+  "summaryCards": [
+    { "icon": "emoji", "value": "text", "key": "label" }
+  ],
+  "phases": [
+    {
+      "title": "phase title",
+      "duration": "e.g. 4 weeks",
+      "description": "2-sentence description",
+      "topics": ["topic1", "topic2", "topic3", "topic4", "topic5"],
+      "outcome": "what they'll be able to do after this phase"
+    }
+  ],
+  "courses": [
+    {
+      "name": "course name from NareshIT",
+      "type": "Primary|Secondary|Elective",
+      "duration": "e.g. 5 months",
+      "trainer": "trainer name if known",
+      "mode": "Online / Offline / Weekend",
+      "highlights": ["highlight1", "highlight2"],
+      "why": "one sentence why this course fits this student"
+    }
+  ],
+  "skills": [
+    { "name": "skill name", "pct": 85, "color": "#hex" }
+  ],
+  "careers": [
+    { "icon": "emoji", "role": "job title", "salary": "₹X–Y LPA", "experience": "0–1 year exp" }
+  ]
+}
+
+Student profile:
+- Name: ${p.fname} ${p.lname}
+- Qualification: ${p.qual}
+- Experience: ${p.exp}
+- Background/Skills: ${p.bg || 'none mentioned'}
+- Career Goal(s): ${p.goals.join(', ')}
+- Target Timeline: ${p.timeline}
+
+NareshIT courses to choose from: Full Stack Java (6m, Mr. Hari Krishna), Full Stack Python (5m, Mr. Satish Gupta), DevOps with Multi Cloud (5m, Mr. Veera Babu), Generative AI & Agentic AI (3m, Mr. Prudhvi), Full Stack Data Science & AI (4–6m, Mr. Nikhil), Cyber Security (3m), Playwright Automation (3m, Mr. Karthik), AWS Solutions Architect (3m), Spring Boot & Microservices (3m), Salesforce LWC, Snowflake, DSA with AI.
+
+Rules:
+- phases: 3–6 phases appropriate to their timeline
+- courses: 2–4 courses; recommend real NareshIT courses
+- skills: 6–10 skills with realistic pct values
+- careers: 4–6 roles
+- summaryCards: exactly 4 cards (e.g. duration, phases, salary range, success rate)
+- Make everything specific to their background and goals
+- ONLY return JSON, nothing else`;
+  }
+
+  /* ── Render roadmap ── */
+  function renderRoadmap(d, p) {
+    // Update AI context for chat
+    aiContext = `You are the NareshIT AI Advisor. You know this student's full details:
+Name: ${p.fname} ${p.lname}
+Qualification: ${p.qual}, Experience: ${p.exp}
+Goals: ${p.goals.join(', ')}, Timeline: ${p.timeline}
+Background: ${p.bg || 'not specified'}
+Roadmap summary: ${JSON.stringify(d.summary)}
+Phases: ${d.phases.map((ph,i) => `Phase ${i+1}: ${ph.title} (${ph.duration}) — topics: ${ph.topics.join(', ')}`).join(' | ')}
+Recommended courses: ${d.courses.map(c => `${c.name} (${c.duration}, ${c.trainer||'NareshIT expert'})`).join(', ')}
+Career opportunities: ${d.careers.map(c => `${c.role} ${c.salary}`).join(', ')}
+Contact: +91 8179191999 | info@nareshit.com | Ameerpet, Hyderabad
+
+Be warm, helpful, concise (3–5 sentences). Use their name occasionally. Answer questions about their specific roadmap.`;
+
+    chatHistory = [];
+
+    // Reset AI chat
+    const msgs = document.getElementById('ai-msgs');
+    msgs.innerHTML = `<div class="ai-bubble">
+      <div class="ai-bav">✦</div>
+      <div class="ai-bbl">Hi ${p.fname}! 👋 Your roadmap is ready. I know everything about your ${d.summary.totalDuration} journey to become a <strong>${d.summary.primaryGoal}</strong>. Ask me anything!</div>
+    </div>`;
+
+    // Profile card
+    document.getElementById('rm-display-name').textContent = p.fname;
+    document.getElementById('rm-tagline').textContent = d.tagline || 'Your personalised tech career roadmap.';
+    document.getElementById('rm-avatar').textContent = p.fname.charAt(0).toUpperCase();
+    document.getElementById('rm-profile-name').textContent = `${p.fname} ${p.lname}`;
+    document.getElementById('rm-profile-qual').textContent = `${p.qual} · ${p.exp}`;
+    document.getElementById('rm-goal-badge').textContent = `🎯 ${p.goals[0]}`;
+    document.getElementById('rm-dur').textContent = d.summary.totalDuration;
+    document.getElementById('rm-phases').textContent = d.phases.length;
+    document.getElementById('rm-courses-count').textContent = d.courses.length;
+
+    // Summary cards
+    const sumEl = document.getElementById('rm-summary');
+    sumEl.innerHTML = (d.summaryCards || [
+      { icon: '⏱', value: d.summary.totalDuration, key: 'Total Duration' },
+      { icon: '🗺️', value: d.phases.length + ' phases', key: 'Learning Phases' },
+      { icon: '💰', value: d.summary.expectedSalary, key: 'Expected Salary' },
+      { icon: '🎯', value: d.summary.primaryGoal, key: 'Target Role' },
+    ]).map(c => `
+      <div class="summary-card rv">
+        <div class="summary-ico">${c.icon}</div>
+        <div class="summary-val">${c.value}</div>
+        <div class="summary-key">${c.key}</div>
+      </div>`).join('');
+
+    // Timeline — arrow-flow layout with hover tooltips
+    const colors     = ['c1','c2','c3','c4','c5','c6'];
+    const arrowColors= ['var(--gold)','var(--blue)','var(--purple)','var(--orange)','var(--pink)','var(--green)'];
+    const COLS       = 3;
+    const tlEl       = document.getElementById('rm-timeline');
+    const phases     = d.phases;
+
+    // Static tips + warnings shown on each transition arrow
+    const TRANSITION_TIPS = [
+      {
+        tips: ['✅ Complete all exercises before moving forward','📝 Build at least one mini-project to reinforce concepts'],
+        warn: '⚠️ Don\'t skip foundations — gaps here slow you down in every later phase.'
+      },
+      {
+        tips: ['✅ Practice coding daily for at least 1 hour','🔄 Revisit phase 1 concepts if anything feels unclear'],
+        warn: '⚠️ Students who rush this transition often struggle with real-world debugging later.'
+      },
+      {
+        tips: ['✅ Start contributing to GitHub — recruiters check this','🎯 Join the live project sessions at NareshIT for hands-on experience'],
+        warn: '⚠️ Theory without practice won\'t land you a job. Build, build, build.'
+      },
+      {
+        tips: ['✅ Update your resume with newly learned skills','💬 Attend mock interviews — practice makes placement'],
+        warn: '⚠️ Don\'t start the next phase until you can confidently explain your project.'
+      },
+      {
+        tips: ['✅ Connect with NareshIT placement cell','📚 Read industry blogs to stay current on tech trends'],
+        warn: '⚠️ Soft skills matter as much as technical skills — work on communication too.'
+      },
+      {
+        tips: ['✅ You\'re near the finish line — stay consistent!','🏆 Final phase: polish your portfolio and prepare for interviews'],
+        warn: '⚠️ Most students give up just before breakthrough. Keep pushing!'
+      },
+    ];
+
+    // SVG arrow right
+    const arrowSVG = (col) => `<svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="ag${col}" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="${arrowColors[col % 6]}" stop-opacity=".3"/>
+          <stop offset="100%" stop-color="${arrowColors[col % 6]}" stop-opacity="1"/>
+        </linearGradient>
+      </defs>
+      <path d="M4 21 L32 21" stroke="url(#ag${col})" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M26 13 L38 21 L26 29" stroke="${arrowColors[col % 6]}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>`;
+
+    // SVG arrow down (row connector)
+    const downSVG = (col) => `<svg viewBox="0 0 40 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dg${col}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="${arrowColors[col % 6]}" stop-opacity=".3"/>
+          <stop offset="100%" stop-color="${arrowColors[col % 6]}" stop-opacity="1"/>
+        </linearGradient>
+      </defs>
+      <path d="M20 4 L20 44" stroke="url(#dg${col})" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M10 36 L20 50 L30 36" stroke="${arrowColors[col % 6]}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>`;
+
+    // Build tooltip HTML
+    function tooltipHTML(tIdx) {
+      const t = TRANSITION_TIPS[tIdx % TRANSITION_TIPS.length];
+      return `<div class="arrow-tooltip">
+        <div class="tooltip-header">✦ Before you advance</div>
+        ${t.tips.map(tip => `<div class="tooltip-tip"><span class="tooltip-tip-icon">${tip.slice(0,2)}</span><span>${tip.slice(2)}</span></div>`).join('')}
+        <div class="tooltip-divider"></div>
+        <div class="tooltip-warn"><span class="tooltip-warn-icon">⚠️</span><span>${t.warn.replace('⚠️ ','')}</span></div>
+      </div>`;
+    }
+
+    // Build rows
+    let html = '';
+    let globalIdx = 0;
+    let arrowIdx  = 0;
+
+    for (let row = 0; row * COLS < phases.length; row++) {
+      const rowPhases = phases.slice(row * COLS, row * COLS + COLS);
+      const isReverse = row % 2 === 1;
+
+      if (row > 0) {
+        const connColor = (row - 1) * COLS + COLS - 1;
+        const side = isReverse
+          ? 'justify-content:flex-start;padding-left:calc(100%/3 - 28px)'
+          : 'justify-content:flex-end;padding-right:calc(100%/3 - 28px)';
+        html += `<div class="row-connector" style="display:flex;align-items:center;${side}">${downSVG(connColor)}</div>`;
+      }
+
+      html += `<div class="phase-row${isReverse ? ' reverse' : ''}">`;
+
+      rowPhases.forEach((ph, j) => {
+        const i     = globalIdx;
+        const ci    = colors[i % 6];
+        const delay = (j * 0.13).toFixed(2);
+
+        html += `<div class="phase phase-${ci}" style="transition-delay:${delay}s">
+          <div class="phase-inner">
+            <div class="phase-step-badge">${i + 1}</div>
+            <div class="phase-title">${ph.title}</div>
+            <div class="phase-dur">📆 ${ph.duration}</div>
+            <div class="phase-desc">${ph.description}</div>
+            <div class="topic-list">${ph.topics.map(t => `<span class="topic-tag">${t}</span>`).join('')}</div>
+            <div class="phase-outcome">✓ ${ph.outcome}</div>
+          </div>
+        </div>`;
+
+        // Arrow with tooltip between cards (not after last in row)
+        if (j < rowPhases.length - 1) {
+          html += `<div class="phase-arrow">
+            ${arrowSVG(i)}
+            ${tooltipHTML(arrowIdx)}
+          </div>`;
+          arrowIdx++;
+        }
+
+        globalIdx++;
+      });
+
+      html += `</div>`;
+    }
+
+    tlEl.innerHTML = html;
+
+    // Courses
+    const courseEl = document.getElementById('rm-courses');
+    courseEl.innerHTML = d.courses.map((c, i) => {
+      const badgeClass = c.type === 'Primary' ? 'badge-primary' : c.type === 'Secondary' ? 'badge-secondary' : 'badge-elective';
+      return `
+      <div class="course-rec" style="transition-delay:${i * 0.1}s">
+        <div class="course-rec-badge ${badgeClass}">${c.type}</div>
+        <div class="course-rec-name">${c.name}</div>
+        <div class="course-rec-meta">
+          <span>⏱ Duration: <b>${c.duration}</b></span>
+          ${c.trainer ? `<span>👤 Trainer: <b>${c.trainer}</b></span>` : ''}
+          <span>🖥 Mode: <b>${c.mode}</b></span>
+          ${c.highlights ? c.highlights.map(h => `<span>✓ ${h}</span>`).join('') : ''}
+        </div>
+        <div class="course-rec-why">"${c.why}"</div>
+        <button class="course-rec-enroll" type="button" onclick="location.href='courses.html'">Enroll Now →</button>
+      </div>`}).join('');
+
+    // Skills
+    const skillsEl = document.getElementById('rm-skills');
+    skillsEl.innerHTML = (d.skills || []).map(s => `
+      <div class="skill-row">
+        <div class="skill-header">
+          <span class="skill-name">${s.name}</span>
+          <span class="skill-pct">${s.pct}%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar" data-pct="${s.pct}" style="background:${s.color || 'var(--gold)'}"></div>
+        </div>
+      </div>`).join('');
+
+    // Careers
+    const careersEl = document.getElementById('rm-careers');
+    careersEl.innerHTML = (d.careers || []).map((c, i) => `
+      <div class="career-card" style="transition-delay:${i * 0.08}s">
+        <div class="career-ico">${c.icon}</div>
+        <div class="career-role">${c.role}</div>
+        <div class="career-sal">${c.salary}</div>
+        <div class="career-exp">${c.experience}</div>
+      </div>`).join('');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ── Scroll animations ── */
+  function initScrollAnimations() {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.phase, .course-rec, .career-card, .rv').forEach(el => io.observe(el));
+  }
+
+  /* ── Skill bars ── */
+  function initSkillBars() {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const bar = e.target;
+          bar.style.width = bar.dataset.pct + '%';
+          io.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-bar').forEach(b => io.observe(b));
+  }
+
+  /* ── AI CHAT ── */
+  function addChatMsg(text, isUser) {
+    const el = document.getElementById('ai-msgs');
+    const row = document.createElement('div');
+    row.className = `ai-bubble${isUser ? ' user' : ''}`;
+    const av = document.createElement('div');
+    av.className = 'ai-bav';
+    av.textContent = isUser ? 'You' : '✦';
+    const bbl = document.createElement('div');
+    bbl.className = 'ai-bbl';
+    bbl.innerHTML = text.replace(/\n/g, '<br>');
+    row.appendChild(av);
+    row.appendChild(bbl);
+    el.appendChild(row);
+    el.scrollTop = el.scrollHeight;
+  }
+
+  async function askAI(msg) {
+    const typingEl = document.getElementById('ai-typing');
+    typingEl.classList.add('on');
+    document.getElementById('ai-msgs').scrollTop = 9999;
+
+    chatHistory.push({ role: 'user', content: msg });
+
+    try {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 450,
+          system: aiContext,
+          messages: chatHistory,
+        }),
+      });
+      const data  = await res.json();
+      const reply = data.content.filter(b => b.type === 'text').map(b => b.text).join('');
+      chatHistory.push({ role: 'assistant', content: reply });
+      typingEl.classList.remove('on');
+      addChatMsg(reply, false);
+    } catch {
+      typingEl.classList.remove('on');
+      addChatMsg('Sorry, I\'m having trouble connecting. Please call us at <strong>+91 8179191999</strong> for immediate help!', false);
+      chatHistory.pop();
+    }
+  }
+
+  function handleChatSend() {
+    const inp = document.getElementById('ai-input');
+    const msg = inp.value.trim();
+    if (!msg) return;
+    document.getElementById('ai-suggestions').style.display = 'none';
+    addChatMsg(msg, true);
+    inp.value = '';
+    askAI(msg);
+  }
+
+  document.getElementById('ai-send').addEventListener('click', handleChatSend);
+  document.getElementById('ai-input').addEventListener('keydown', e => { if (e.key === 'Enter') handleChatSend(); });
+  document.getElementById('ai-suggestions').addEventListener('click', e => {
+    const btn = e.target.closest('.ai-sug');
+    if (!btn) return;
+    document.getElementById('ai-suggestions').style.display = 'none';
+    addChatMsg(btn.dataset.q, true);
+    askAI(btn.dataset.q);
+  });
+
+  /* ── Util ── */
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  </script>
+</body>
+</html>

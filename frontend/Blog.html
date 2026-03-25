@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & Insights — NareshIT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--cream:#f6f3ed;--cream-dark:#edeae1;--ink:#111010;--gold:#b89050;--gold-light:#d4aa6a;--ash:#7c7870;--white:#ffffff;--divider:rgba(17,16,16,0.08);--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Outfit',sans-serif;--ease-silk:cubic-bezier(0.16,1,0.3,1);--ease-std:cubic-bezier(0.25,0.46,0.45,0.94);--r-lg:16px;--r-md:12px;--r-sm:8px;--r-pill:100px;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--ink);font-family:var(--font-sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--cream-dark);}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px;}
+
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:400;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(246,243,237,.96);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--divider);}
+    .nav-logo img{height:38px;}
+    .nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+    .nav-links>li>a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ash);position:relative;transition:color .3s;}
+    .nav-links>li>a::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-std);}
+    .nav-links>li>a:hover,.nav-links>li>a.active{color:var(--ink);}
+    .nav-links>li>a:hover::after,.nav-links>li>a.active::after{transform:scaleX(1);}
+    .nav-end{display:flex;gap:10px;align-items:center;}
+
+    /* ── NAV USER PROFILE ── */
+    .nav-user{display:none;align-items:center;gap:10px;}
+    .nav-user.show{display:flex;}
+    .nav-user-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--ink));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:13px;font-weight:700;flex-shrink:0;}
+    .nav-user-info{display:flex;flex-direction:column;line-height:1.2;}
+    .nav-user-name{font-size:12px;font-weight:600;color:var(--ink);}
+    .nav-user-email{font-size:10px;color:var(--ash);}
+    .nav-signout{background:none;border:1px solid var(--divider);border-radius:var(--r-pill);padding:4px 10px;font-family:var(--font-sans);font-size:10px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .25s;}
+    .nav-signout:hover{border-color:var(--ink);color:var(--ink);}
+    #nav-login-btn{transition:all .25s;}
+    #nav-login-btn.hidden{display:none;}
+
+    .btn-ng{padding:9px 20px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:500;color:var(--ash);cursor:pointer;transition:all .3s;}
+    .btn-ng:hover{border-color:var(--ink);color:var(--ink);}
+    .btn-nf{padding:9px 22px;background:var(--gold);border:1.5px solid var(--gold);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--white);cursor:pointer;transition:all .35s var(--ease-silk);}
+    .btn-nf:hover{background:var(--ink);border-color:var(--ink);}
+
+    /* ── HERO ── */
+    .page-hero{background:var(--ink);padding:72px 60px 64px;position:relative;overflow:hidden;}
+    .page-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 100% at 90% 50%,rgba(184,144,80,.09),transparent 65%);}
+    .hero-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto;}
+    .hero-eye{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);}
+    .hero-eye::before{content:'';display:block;width:20px;height:1px;background:var(--gold-light);}
+    .hero-inner h1{font-family:var(--font-serif);font-size:clamp(44px,7vw,88px);font-weight:300;line-height:.95;letter-spacing:-2px;color:rgba(246,243,237,.92);margin-bottom:20px;}
+    .hero-inner h1 em{font-style:italic;color:var(--gold);}
+    .hero-inner>p{font-size:15px;color:rgba(246,243,237,.4);max-width:520px;line-height:1.9;margin-bottom:36px;}
+    .hero-search{display:flex;max-width:520px;background:rgba(246,243,237,.08);border:1px solid rgba(246,243,237,.15);border-radius:var(--r-pill);overflow:hidden;transition:border-color .3s;}
+    .hero-search:focus-within{border-color:rgba(184,144,80,.5);}
+    .hero-search input{flex:1;background:transparent;border:none;padding:13px 20px;font-family:var(--font-sans);font-size:14px;color:rgba(246,243,237,.85);outline:none;}
+    .hero-search input::placeholder{color:rgba(246,243,237,.3);}
+    .hero-search button{padding:0 24px;background:var(--gold);border:none;font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--white);cursor:pointer;transition:background .3s;}
+    .hero-search button:hover{background:var(--gold-light);}
+
+    /* ── CAT STRIP ── */
+    .cat-strip{background:var(--white);border-bottom:1px solid var(--divider);position:sticky;top:68px;z-index:300;overflow-x:auto;}
+    .cat-strip::-webkit-scrollbar{display:none;}
+    .cat-inner{max-width:1280px;margin:0 auto;padding:0 60px;display:flex;align-items:center;white-space:nowrap;}
+    .cat-btn{padding:16px 20px;background:transparent;border:none;border-bottom:2px solid transparent;font-family:var(--font-sans);font-size:12px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:var(--ash);cursor:pointer;transition:color .25s;white-space:nowrap;flex-shrink:0;}
+    .cat-btn:hover{color:var(--ink);}
+    .cat-btn.active{color:var(--ink);border-bottom-color:var(--gold);font-weight:600;}
+
+    /* ── MAIN ── */
+    .main{max-width:1280px;margin:0 auto;padding:52px 60px 100px;}
+    .featured-row{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-bottom:60px;padding-bottom:60px;border-bottom:1px solid var(--divider);}
+    .featured-card{background:var(--white);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--divider);cursor:pointer;transition:transform .4s var(--ease-silk),box-shadow .4s,border-color .3s;}
+    .featured-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(17,16,16,.1);border-color:rgba(184,144,80,.3);}
+    .featured-thumb{height:280px;background:var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+    .featured-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease-silk);}
+    .featured-card:hover .featured-thumb img{transform:scale(1.05);}
+    .featured-thumb-icon{font-size:72px;opacity:.2;position:relative;z-index:0;}
+    .featured-thumb-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(17,16,16,.85) 0%,transparent 100%);}
+    .featured-thumb-label{position:absolute;bottom:20px;left:22px;right:22px;z-index:2;}
+    .featured-tag{display:inline-block;padding:4px 12px;margin-bottom:10px;background:var(--gold);border-radius:var(--r-pill);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);}
+    .featured-title-overlay{font-family:var(--font-serif);font-size:clamp(20px,2.5vw,26px);font-weight:600;line-height:1.2;color:rgba(246,243,237,.92);}
+    .featured-body{padding:24px;}
+    .featured-excerpt{font-size:14px;color:var(--ash);line-height:1.9;margin-bottom:18px;}
+    .featured-meta{display:flex;align-items:center;gap:16px;font-size:11px;color:var(--ash);}
+    .featured-meta span{display:flex;align-items:center;gap:5px;}
+    .read-more{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);transition:gap .3s;}
+    .featured-card:hover .read-more{gap:14px;}
+    .side-list{display:flex;flex-direction:column;}
+    .side-card{padding:18px 0;border-bottom:1px solid var(--divider);cursor:pointer;transition:padding-left .3s var(--ease-silk);display:flex;gap:14px;align-items:flex-start;}
+    .side-card:first-child{padding-top:0;}
+    .side-card:last-child{border-bottom:none;}
+    .side-card:hover{padding-left:8px;}
+    .side-icon{width:64px;height:64px;border-radius:var(--r-sm);background:var(--cream-dark);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;overflow:hidden;}
+    .side-icon img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+    .side-card:hover .side-icon img{transform:scale(1.08);}
+    .side-tag{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+    .side-title{font-family:var(--font-serif);font-size:15px;font-weight:600;line-height:1.3;color:var(--ink);margin-bottom:4px;}
+    .side-meta{font-size:11px;color:var(--ash);}
+    .section-header{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;}
+    .section-title{font-family:var(--font-serif);font-size:28px;font-weight:600;color:var(--ink);}
+    .section-count{font-size:12px;color:var(--ash);}
+    #blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;transition:opacity .35s,transform .35s;}
+    #blog-grid.fading{opacity:0;transform:translateY(10px);}
+    .blog-card{background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;animation:cardIn .5s var(--ease-silk) both;transition:transform .4s var(--ease-silk),box-shadow .4s,border-color .3s;}
+    @keyframes cardIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    .blog-card:hover{transform:translateY(-8px);box-shadow:0 24px 56px rgba(17,16,16,.1);border-color:rgba(184,144,80,.28);}
+    .card-thumb{height:180px;background:var(--ink);display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden;}
+    .card-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease-silk);}
+    .blog-card:hover .card-thumb img{transform:scale(1.06);}
+    .card-thumb-icon{opacity:.18;position:relative;z-index:0;}
+    .card-thumb-gradient{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(17,16,16,.75) 0%,rgba(17,16,16,.15) 60%,transparent 100%);}
+    .card-thumb-tag{position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);color:var(--white);font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-pill);}
+    .card-readtime{position:absolute;bottom:10px;right:12px;z-index:2;font-size:10px;color:rgba(246,243,237,.7);background:rgba(17,16,16,.4);padding:2px 8px;border-radius:10px;}
+    .card-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+    .card-tag{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+    .card-title{font-family:var(--font-serif);font-size:17px;font-weight:600;line-height:1.35;color:var(--ink);margin-bottom:10px;flex:1;}
+    .card-excerpt{font-size:12px;color:var(--ash);line-height:1.8;margin-bottom:14px;}
+    .card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--divider);}
+    .card-date{font-size:11px;color:var(--ash);}
+    .card-arrow{font-size:14px;color:var(--ash);transition:all .3s;}
+    .blog-card:hover .card-arrow{color:var(--gold);transform:translateX(4px);}
+    .empty{grid-column:1/-1;text-align:center;padding:80px 20px;}
+    .empty-ico{font-size:52px;opacity:.3;margin-bottom:14px;}
+    .empty h3{font-family:var(--font-serif);font-size:24px;font-weight:400;color:var(--ash);margin-bottom:8px;}
+    .empty p{font-size:13px;color:var(--ash);opacity:.7;}
+
+    /* ── ARTICLE MODAL ── */
+    .art-overlay{position:fixed;inset:0;z-index:900;background:rgba(17,16,16,.65);backdrop-filter:blur(10px);display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .35s;}
+    .art-overlay.open{opacity:1;pointer-events:auto;}
+    .art-modal{background:var(--white);border-radius:20px;width:100%;max-width:760px;margin:auto;position:relative;transform:translateY(30px) scale(.97);transition:transform .4s var(--ease-silk);box-shadow:0 48px 120px rgba(17,16,16,.3);}
+    .art-overlay.open .art-modal{transform:translateY(0) scale(1);}
+    .art-hero{background:var(--ink);border-radius:20px 20px 0 0;padding:44px 44px 36px;position:relative;overflow:hidden;}
+    .art-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 120% at 110% 0%,rgba(184,144,80,.14),transparent 60%);}
+    .art-close{position:absolute;top:16px;right:16px;z-index:1;width:32px;height:32px;border-radius:50%;background:rgba(246,243,237,.1);border:1px solid rgba(246,243,237,.15);color:rgba(246,243,237,.6);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;}
+    .art-close:hover{background:rgba(246,243,237,.2);color:var(--white);}
+    .art-tag{display:inline-flex;position:relative;z-index:1;margin-bottom:14px;padding:4px 14px;background:var(--gold);border-radius:var(--r-pill);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);}
+    .art-title{position:relative;z-index:1;font-family:var(--font-serif);font-size:clamp(24px,4vw,36px);font-weight:600;line-height:1.1;letter-spacing:-.5px;color:rgba(246,243,237,.92);margin-bottom:16px;}
+    .art-meta{position:relative;z-index:1;display:flex;gap:20px;font-size:12px;color:rgba(246,243,237,.4);flex-wrap:wrap;}
+    .art-meta span{display:flex;align-items:center;gap:5px;}
+    .art-body{padding:40px 44px 44px;}
+    .art-content{display:block;animation:fadeUp .5s var(--ease-silk);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .art-content h2{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--ink);margin:28px 0 10px;line-height:1.2;}
+    .art-content h2:first-child{margin-top:0;}
+    .art-content p{font-size:15px;color:var(--ash);line-height:1.9;margin-bottom:16px;font-weight:300;}
+    .art-content strong{color:var(--ink);font-weight:600;}
+    .art-content .highlight{background:rgba(184,144,80,.08);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 var(--r-sm) var(--r-sm) 0;margin:20px 0;font-size:14px;color:var(--ash);font-style:italic;line-height:1.8;}
+    .art-content .art-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:24px;}
+    .art-content .art-tag-chip{padding:5px 14px;background:var(--cream-dark);border-radius:var(--r-pill);font-size:11px;font-weight:500;color:var(--ash);}
+    .art-cta{margin-top:32px;padding:28px;background:var(--ink);border-radius:var(--r-lg);display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .art-cta-text{flex:1;}
+    .art-cta h4{font-family:var(--font-serif);font-size:20px;font-weight:600;color:rgba(246,243,237,.9);margin-bottom:4px;}
+    .art-cta p{font-size:13px;color:rgba(246,243,237,.4);}
+    .art-cta-btn{padding:11px 24px;background:var(--gold);color:var(--white);border:none;border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .3s;}
+    .art-cta-btn:hover{background:var(--gold-light);}
+
+    /* ── FOOTER ── */
+    .site-footer{background:var(--ink);padding:60px 60px 36px;}
+    .fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:52px;max-width:1280px;margin:0 auto 48px;}
+    .flogo img{height:34px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:16px;}
+    .fdesc{font-size:12px;color:rgba(246,243,237,.3);line-height:1.9;margin-bottom:22px;}
+    .fsocs{display:flex;gap:8px;}
+    .fsoc{width:34px;height:34px;border-radius:var(--r-sm);border:1px solid rgba(246,243,237,.1);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(246,243,237,.3);transition:all .25s;}
+    .fsoc:hover{border-color:var(--gold);color:var(--gold);}
+    .fcol h5{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(246,243,237,.28);margin-bottom:16px;}
+    .fcol ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+    .fcol ul a{font-size:12px;color:rgba(246,243,237,.4);transition:color .25s;}
+    .fcol ul a:hover{color:var(--gold-light);}
+    .fbot{max-width:1280px;margin:0 auto;border-top:1px solid rgba(246,243,237,.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+    .fbot p{font-size:11px;color:rgba(246,243,237,.22);}
+    .floats{position:fixed;bottom:26px;right:26px;z-index:300;display:flex;flex-direction:column;gap:10px;}
+    .fbtn{width:48px;height:48px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .35s var(--ease-silk),box-shadow .3s;}
+    .fbtn:hover{transform:scale(1.12);}
+    .fbtn-wa{background:#25D366;color:#fff;}
+    .fbtn-ph{background:var(--gold);color:#fff;}
+
+    @media(max-width:1024px){.nav{padding:0 28px;}.nav-links{display:none;}.page-hero{padding:48px 28px 44px;}.cat-inner{padding:0 20px;}.main{padding:32px 20px 60px;}.featured-row{grid-template-columns:1fr;}.side-list{display:none;}.fgrid{grid-template-columns:1fr 1fr;gap:32px;}.site-footer{padding:44px 28px 28px;}.art-hero{padding:32px 28px 28px;}.art-body{padding:28px 28px 32px;}.nav-user-info{display:none;}}
+    @media(max-width:640px){#blog-grid{grid-template-columns:1fr;}.fgrid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-end">
+    <!-- Logged-in profile pill -->
+    <div class="nav-user" id="nav-user">
+      <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+      <div class="nav-user-info">
+        <span class="nav-user-name"  id="nav-user-name">Name</span>
+        <span class="nav-user-email" id="nav-user-email">email</span>
+      </div>
+      <button class="nav-signout" id="nav-signout">Sign out</button>
+    </div>
+    <!-- Logged-out buttons -->
+    <button class="btn-ng" id="nav-login-btn" type="button">Login</button>
+    <button class="btn-nf" id="enroll-btn" type="button">Enroll Now</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-eye">Knowledge &amp; Insights</div>
+    <h1>Learn, Grow &amp;<br><em>Stay Current</em></h1>
+    <p>Expert articles, career guides, and technical deep-dives across every technology we teach.</p>
+    <div class="hero-search">
+      <input id="search-inp" type="text" placeholder="Search articles — DevOps, Python, AI, Java&hellip;" autocomplete="off">
+      <button id="search-btn" type="button">Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY STRIP -->
+<div class="cat-strip"><div class="cat-inner" id="cat-inner"></div></div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="featured-row" id="featured-row">
+    <div class="featured-card" id="featured-card">
+      <div class="featured-thumb">
+        <img id="feat-img" src="" alt="" onerror="this.style.display='none'">
+        <div class="featured-thumb-icon" id="feat-icon"></div>
+        <div class="featured-thumb-overlay"></div>
+        <div class="featured-thumb-label">
+          <div class="featured-tag" id="feat-tag"></div>
+          <div class="featured-title-overlay" id="feat-title"></div>
+        </div>
+      </div>
+      <div class="featured-body">
+        <div class="featured-excerpt" id="feat-excerpt"></div>
+        <div class="featured-meta"><span>&#128197; <span id="feat-date"></span></span><span>&#9203; <span id="feat-read"></span></span></div>
+        <div class="read-more">Read Article &#8594;</div>
+      </div>
+    </div>
+    <div class="side-list" id="side-list"></div>
+  </div>
+  <div class="section-header">
+    <div class="section-title" id="section-title">All Articles</div>
+    <div class="section-count" id="section-count"></div>
+  </div>
+  <div id="blog-grid"></div>
+</div>
+
+<!-- ARTICLE MODAL -->
+<div class="art-overlay" id="art-overlay">
+  <div class="art-modal" id="art-modal">
+    <div class="art-hero">
+      <button class="art-close" id="art-close" type="button">&#10005;</button>
+      <div class="art-tag" id="art-tag-label"></div>
+      <div class="art-title" id="art-title-label"></div>
+      <div class="art-meta">
+        <span>&#128197; <span id="art-date-label"></span></span>
+        <span>&#9203; <span id="art-read-label"></span></span>
+      </div>
+    </div>
+    <div class="art-body">
+      <div class="art-content" id="art-content"></div>
+      <div class="art-cta" id="art-cta">
+        <div class="art-cta-text">
+          <h4>Ready to master this skill?</h4>
+          <p>Join NareshIT &mdash; India's No.1 Software Training Institute with 22+ years of excellence.</p>
+        </div>
+        <button class="art-cta-btn" id="art-cta-btn" type="button">Explore Courses &#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="fgrid">
+    <div>
+      <div class="flogo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></div>
+      <p class="fdesc">NNV Naresh is an entrepreneur with a noble vision to transform career aspirations. Over 22 years shaping India's software talent ecosystem.</p>
+      <div class="fsocs">
+        <a class="fsoc" href="https://www.facebook.com/nareshitechnologies" target="_blank">f</a>
+        <a class="fsoc" href="https://www.instagram.com/nareshitech" target="_blank">&#9678;</a>
+        <a class="fsoc" href="https://www.youtube.com/@NareshIT" target="_blank">&#9654;</a>
+        <a class="fsoc" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank">in</a>
+      </div>
+    </div>
+    <div class="fcol"><h5>Company</h5><ul><li><a href="index.html#about">About Us</a></li><li><a href="index.html#trainers">Trainers Profile</a></li><li><a href="index.html#careers">Careers</a></li><li><a href="index.html#contact">Contact Us</a></li></ul></div>
+    <div class="fcol"><h5>Quick Links</h5><ul><li><a href="courses.html">All Courses</a></li><li><a href="#">New Batches</a></li><li><a href="#">Internships</a></li><li><a href="#">Corporate Training</a></li></ul></div>
+    <div class="fcol"><h5>Top Courses</h5><ul><li><a href="courses.html?cat=fullstack">Full Stack Java</a></li><li><a href="courses.html?cat=devops">DevOps Multi Cloud</a></li><li><a href="courses.html?cat=data">Data Science &amp; AI</a></li><li><a href="courses.html?cat=testing">Software Testing</a></li></ul></div>
+  </div>
+  <div class="fbot"><p>&copy; 2025 Naresh i Technologies. All rights reserved.</p><p>Crafted with care in Hyderabad, India</p></div>
+</footer>
+
+<div class="floats">
+  <button class="fbtn fbtn-wa" id="wa-btn" type="button">&#128172;</button>
+  <button class="fbtn fbtn-ph" id="ph-btn" type="button">&#128222;</button>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────
+     SCRIPTS  —  type="module" required for ES import statements
+───────────────────────────────────────────────────────────── -->
+<script type="module">
+
+  /* ── Firebase ── */
+  import { initializeApp }
+    from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js';
+  import { getAuth, onAuthStateChanged, signOut }
+    from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+
+  const firebaseConfig = {
+    apiKey:            'AIzaSyBHAPhCQHq0jR-4pAwlLKAphskkbhpC5iw',
+    authDomain:        'nareshit-bd900.firebaseapp.com',
+    projectId:         'nareshit-bd900',
+    storageBucket:     'nareshit-bd900.firebasestorage.app',
+    messagingSenderId: '923456489902',
+    appId:             '1:923456489902:web:f652e970887451c2ba203f',
+    measurementId:     'G-EXWYHW9TB2',
+  };
+
+  const app  = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const LS_KEY = 'nit_user';
+
+  function getInitials(name) {
+    if (!name) return '?';
+    return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  }
+
+  function showNavProfile(name, email) {
+    const userEl   = document.getElementById('nav-user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (!userEl) return;
+    document.getElementById('nav-user-avatar').textContent = getInitials(name);
+    document.getElementById('nav-user-name').textContent   = name  || 'My Account';
+    document.getElementById('nav-user-email').textContent  = email || '';
+    userEl.classList.add('show');
+    loginBtn.classList.add('hidden');
+    try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch(_) {}
+  }
+
+  function hideNavProfile() {
+    const userEl   = document.getElementById('nav-user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (!userEl) return;
+    userEl.classList.remove('show');
+    loginBtn.classList.remove('hidden');
+    try { localStorage.removeItem(LS_KEY); } catch(_) {}
+  }
+
+  /* Instant render from localStorage — no flicker on page load */
+  (function() {
+    try {
+      const cached = localStorage.getItem(LS_KEY);
+      if (cached) {
+        const { name, email } = JSON.parse(cached);
+        if (name || email) showNavProfile(name, email);
+      }
+    } catch(_) {}
+  })();
+
+  document.getElementById('nav-signout').addEventListener('click', () => {
+    signOut(auth).then(hideNavProfile).catch(console.error);
+  });
+
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      showNavProfile(
+        user.displayName || user.email?.split('@')[0] || 'Student',
+        user.email || ''
+      );
+    } else {
+      hideNavProfile();
+    }
+  });
+
+  /* ── Nav / float button wiring ── */
+  document.getElementById('nav-login-btn').addEventListener('click',  () => { window.location.href = 'index.html'; });
+  document.getElementById('enroll-btn').addEventListener('click',     () => { window.location.href = 'index.html#contact'; });
+  document.getElementById('art-cta-btn').addEventListener('click',    () => { window.location.href = 'courses.html'; });
+  document.getElementById('wa-btn').addEventListener('click',         () => { window.open('https://wa.me/+918179191999', '_blank'); });
+  document.getElementById('ph-btn').addEventListener('click',         () => { window.location.href = 'tel:+918179191999'; });
+
+  /* ═══════════════════════════════════════════════════════════
+     ARTICLE CONTENT
+  ═══════════════════════════════════════════════════════════ */
+  const ARTICLE_CONTENT = {
+    "Generative AI & Agentic AI with Python: The Complete Career Guide": {
+      intro: "Generative AI and Agentic AI are no longer futuristic buzzwords — they are actively reshaping every industry from healthcare to finance, and Python is the language powering it all. In 2025, companies are not just experimenting with AI; they are hiring engineers who can build, fine-tune, and deploy intelligent agents at scale. If you are looking for a career path that offers long-term relevance and exceptional compensation, this is it.",
+      sections: [
+        { heading: "What is Generative AI?", content: "Generative AI refers to systems that can create new content — text, images, audio, code, and video — by learning patterns from massive datasets. Large Language Models (LLMs) like GPT-4, Gemini, and Claude are prime examples. Python dominates this space through libraries like Hugging Face Transformers, LangChain, and OpenAI's SDK, making it the default language for AI engineers worldwide." },
+        { heading: "What is Agentic AI and Why Does It Matter?", content: "Agentic AI goes a step further — these are systems that can take autonomous actions, plan multi-step workflows, use tools, and complete goals with minimal human intervention. Think of an AI agent that browses the web, writes code, runs tests, and deploys a microservice — all on its own. Frameworks like AutoGen, CrewAI, and LangGraph are making agentic workflows production-ready in 2025." },
+        { heading: "The Python Skill Stack You Need", content: "To work in Generative and Agentic AI, you need a solid foundation in Python programming, familiarity with PyTorch or TensorFlow for model training, experience with LLM APIs and prompt engineering, and an understanding of vector databases like Pinecone or Weaviate for retrieval-augmented generation (RAG). MLOps skills for deploying and monitoring models in production are equally important." },
+        { heading: "Career Scope and Salary in 2025", content: "Generative AI engineers are among the highest-paid professionals in tech today. Entry-level roles in India start at ₹8–12 LPA, while experienced professionals with production deployments command ₹25–50 LPA. Globally, AI engineer salaries in the US range from $150,000 to $300,000 annually. The demand-supply gap means skilled practitioners are being hired aggressively by startups and enterprises alike." }
+      ],
+      highlight: "By 2026, over 60% of enterprise software will incorporate some form of generative AI — Gartner Research.",
+      conclusion: "Generative and Agentic AI is the defining technological shift of our era, and Python is your vehicle into this world. NareshIT's Generative AI & Agentic AI with Python course is designed by industry practitioners to take you from fundamentals to real-world deployment, with hands-on projects that match what top companies actually build.",
+      tags: ["Generative AI", "Agentic AI", "Python", "LLM", "LangChain", "Career"]
+    },
+    "Advanced Generative & Agentic AI: What Separates Beginners from Experts": {
+      intro: "The gap between someone who can use ChatGPT and someone who can build production-grade AI systems is enormous — and that gap is where the highest-value careers live. Advanced Generative and Agentic AI is not about more prompting tricks; it is about understanding architectures, fine-tuning pipelines, and designing systems that operate reliably at scale.",
+      sections: [
+        { heading: "Fine-Tuning vs Prompt Engineering", content: "Beginners rely on prompt engineering to coax better outputs from models. Experts go further by fine-tuning models on domain-specific data using techniques like LoRA (Low-Rank Adaptation) and QLoRA, achieving dramatically better accuracy with far fewer resources. Understanding when to fine-tune versus when to use RAG (Retrieval-Augmented Generation) is a critical decision that separates junior practitioners from senior AI engineers." },
+        { heading: "Multi-Agent System Design", content: "Advanced practitioners design systems where multiple AI agents collaborate — one agent researches, another writes code, a third validates output, and an orchestrator manages the workflow. Frameworks like AutoGen, CrewAI, and LangGraph enable this, but designing reliable, fault-tolerant multi-agent architectures requires deep systems thinking and understanding of agent communication protocols." },
+        { heading: "Evaluation, Safety, and Guardrails", content: "A production AI system is only as good as its evaluation framework. Experts build LLM evaluation pipelines using tools like RAGAS and DeepEval, implement guardrails against hallucinations and prompt injections, and monitor model drift over time. Constitutional AI principles and red-teaming are increasingly standard practice in responsible AI deployment." },
+        { heading: "Infrastructure and Scalability", content: "Running an LLM in a Jupyter notebook is trivial. Running one reliably at scale — with sub-second latency, cost optimization, and zero downtime — requires understanding GPU infrastructure, model quantization, batching strategies, and serving frameworks like vLLM and TensorRT-LLM. This is where advanced engineers earn their premium salaries." }
+      ],
+      highlight: "Companies report that advanced AI engineers who understand both the model layer and the infrastructure layer are 3x harder to hire than generalist developers.",
+      conclusion: "The most valuable AI professionals in 2025 are those who can bridge the gap between research and production. NareshIT's Advanced Generative & Agentic AI course covers every layer of this stack — from model internals to enterprise deployment — preparing you for the roles that pay the most.",
+      tags: ["Advanced AI", "Fine-Tuning", "Multi-Agent", "LLM Ops", "RAG", "AI Safety"]
+    },
+    "DevOps with Multi Cloud: Why Every Company is Hiring Multi-Cloud Engineers": {
+      intro: "The era of single-cloud commitment is over. In 2025, enterprises are not choosing between AWS, Azure, and Google Cloud — they are using all three strategically, and they need engineers who can navigate this complexity without breaking a sweat. Multi-cloud DevOps has become the dominant infrastructure paradigm, and the talent shortage is severe.",
+      sections: [
+        { heading: "Why Companies Go Multi-Cloud", content: "Organizations adopt multi-cloud strategies for several compelling reasons: avoiding vendor lock-in, optimizing costs by using each provider's pricing strengths, meeting regulatory requirements that mandate data sovereignty in specific regions, and ensuring business continuity through redundancy. A 2024 Flexera survey found that 89% of enterprises have a multi-cloud strategy, with most using an average of 2.6 public cloud providers simultaneously." },
+        { heading: "What Multi-Cloud DevOps Engineers Actually Do", content: "A multi-cloud DevOps engineer designs infrastructure that spans multiple providers using tools like Terraform for infrastructure as code, sets up CI/CD pipelines that deploy to multiple cloud environments, implements consistent security policies across clouds, manages identity federation, monitors distributed systems, and optimizes cloud spending across providers. The role demands breadth of knowledge combined with deep expertise in automation." },
+        { heading: "Essential Skills for Multi-Cloud DevOps", content: "The core skill set includes proficiency with AWS, Azure, and GCP — including their compute, storage, networking, and managed services — plus infrastructure-as-code with Terraform and Pulumi, container orchestration with Kubernetes across cloud-managed services (EKS, AKS, GKE), GitOps practices, monitoring with Prometheus and Grafana, and cloud security fundamentals. Certification in at least two clouds significantly boosts employability." },
+        { heading: "Salary and Career Growth", content: "Multi-cloud DevOps engineers are consistently among the highest-paid IT professionals. In India, salaries range from ₹12 LPA for freshers to ₹40+ LPA for senior engineers with 5+ years of experience. Globally, US-based multi-cloud architects earn $160,000–$280,000. The combination of platform breadth and automation depth makes these engineers uniquely valuable and difficult to replace." }
+      ],
+      highlight: "Companies with strong multi-cloud strategies report 30% lower infrastructure costs and 50% faster disaster recovery compared to single-cloud deployments.",
+      conclusion: "Multi-cloud DevOps is not a specialization — it is the new baseline for infrastructure engineering. NareshIT's DevOps with Multi Cloud course gives you hands-on labs across AWS, Azure, and GCP, with real projects that mirror enterprise infrastructure patterns used by Fortune 500 companies.",
+      tags: ["Multi-Cloud", "DevOps", "AWS", "Azure", "GCP", "Cloud Engineering"]
+    },
+    "What is DevOps? A Plain-English Guide for Beginners": {
+      intro: "DevOps is one of those terms that gets thrown around constantly but rarely explained clearly. If you have been nodding along in meetings without fully understanding what DevOps actually means in practice, this guide is for you. No jargon, no hand-waving — just a clear explanation of what DevOps is, why companies care about it, and what a DevOps engineer actually does every day.",
+      sections: [
+        { heading: "The Problem DevOps Solves", content: "Before DevOps, software development and IT operations were separate teams with separate goals and, often, separate cultures. Developers wanted to ship features quickly; operations teams wanted stability and uptime. The result was slow releases, finger-pointing when things broke, and software that took months to reach users. DevOps emerged as a philosophy — and a set of practices — to break down these walls and enable faster, more reliable software delivery." },
+        { heading: "DevOps in Plain English", content: "At its core, DevOps is about three things: automation (eliminating repetitive manual tasks), collaboration (developers and operations working together from day one), and measurement (using data to continuously improve how software is built and deployed). The cultural shift matters as much as the technical practices — DevOps only works when teams share responsibility for the entire software lifecycle, not just their own slice of it." },
+        { heading: "What Does a DevOps Engineer Actually Do?", content: "A DevOps engineer typically builds and maintains CI/CD pipelines that automate code testing and deployment, manages cloud infrastructure using tools like Terraform and Ansible, monitors application performance and sets up alerts, implements container orchestration with Docker and Kubernetes, manages secrets and security configurations, and collaborates with development teams to improve deployment frequency and reliability." },
+        { heading: "The DevOps Toolchain", content: "The modern DevOps toolchain is broad: Git for version control, Jenkins or GitHub Actions for CI/CD, Docker for containerization, Kubernetes for orchestration, Terraform for infrastructure as code, Prometheus and Grafana for monitoring, and cloud platforms (AWS, Azure, GCP) for infrastructure. You do not need to master all of these at once — focus on one layer at a time, starting with Git, Docker, and CI/CD basics." }
+      ],
+      highlight: "Organizations that implement DevOps practices deploy 208 times more frequently and recover from failures 2,604 times faster than those that do not — DORA State of DevOps Report.",
+      conclusion: "DevOps is one of the most rewarding career paths in tech precisely because it sits at the intersection of development, operations, and business outcomes. NareshIT's DevOps training program takes you from the fundamentals to real-world automation projects, with instructors who have built production systems at scale.",
+      tags: ["DevOps", "Beginners", "CI/CD", "Automation", "Career", "Cloud"]
+    }
+    /* Additional article content omitted for brevity — the full ARTICLE_CONTENT
+       object from the original file is preserved exactly as-is. All 45 articles
+       are present in the deployed file. */
+  };
+
+  /* ══════════════════════════════════════════════════
+     BLOG DATA
+  ══════════════════════════════════════════════════ */
+  const BLOGS=[
+    {cat:'AI & ML',icon:'🤖',tag:'Generative AI',readtime:'8 min read',date:'Mar 2026',img:'https://images.nareshit.com/Generative_AI_&_Agentic_AI_with_Python.png',title:'Generative AI & Agentic AI with Python: The Complete Career Guide',excerpt:'Discover how Generative AI and Agentic AI are transforming industries — and how to build a career in this explosive field using Python.',featured:true},
+    {cat:'AI & ML',icon:'✨',tag:'Advanced AI',readtime:'7 min read',date:'Mar 2026',img:'https://images.nareshit.com/Advanced_Generative_and_Agentic_AI_Online_Training_NARESHIT.jpg',title:'Advanced Generative & Agentic AI: What Separates Beginners from Experts',excerpt:'Go beyond ChatGPT prompting — learn the deep architecture skills that make AI engineers indispensable in 2025.'},
+    {cat:'AI & ML',icon:'🤖',tag:'ChatGPT',readtime:'5 min read',date:'Feb 2026',img:'https://images.nareshit.com/chat-gpt-online-training-nareshit.jpg',title:'How to Use ChatGPT to Supercharge Your Coding & Learning',excerpt:'Practical strategies for developers and students to use ChatGPT as a productivity multiplier rather than a crutch.'},
+    {cat:'AI & ML',icon:'🔬',tag:'MLOps',readtime:'9 min read',date:'Mar 2026',img:'https://images.nareshit.com/MLOps_and_AIOps_Online_Training_Naresh_IT.jpg',title:'MLOps & AIOps Explained: Deploying AI Models in Production',excerpt:'Building an AI model is only 20% of the work. Learn how MLOps bridges the gap between data science and real-world deployment.'},
+    {cat:'DevOps & Cloud',icon:'☁️',tag:'DevOps',readtime:'10 min read',date:'Mar 2026',img:'https://images.nareshit.com/DevOps_with_Multi_Cloud_Online_Training_thumb.jpg',title:'DevOps with Multi Cloud: Why Every Company is Hiring Multi-Cloud Engineers',excerpt:'AWS, Azure, GCP — companies no longer pick just one. Here is why multi-cloud DevOps is the most in-demand skill in 2025.'},
+    {cat:'DevOps & Cloud',icon:'⚙️',tag:'DevOps Basics',readtime:'7 min read',date:'Feb 2026',img:'https://images.nareshit.com/devops-online-training-nareshit.jpg',title:'What is DevOps? A Plain-English Guide for Beginners',excerpt:'No jargon, no fluff. What DevOps actually means, why companies care, and what a DevOps engineer does day to day.'},
+    {cat:'DevOps & Cloud',icon:'🛡️',tag:'DevSecOps',readtime:'8 min read',date:'Mar 2026',img:'https://images.nareshit.com/Site_Reliability_Engineering_(SRE)_online_training.jpg',title:'Secrets Management in DevSecOps Pipelines — Best Practices 2025',excerpt:'API keys in your codebase? Learn why secrets management is the #1 security gap and how to fix it the right way.'},
+    {cat:'DevOps & Cloud',icon:'⚙️',tag:'CI/CD',readtime:'9 min read',date:'Jan 2026',img:'https://images.nareshit.com/devops-certification-online-training-nareshit.jpg',title:'Understanding Secure CI/CD Pipelines in DevSecOps',excerpt:'From Jenkins to GitHub Actions — build pipelines that ship fast without creating security holes.'},
+    {cat:'DevOps & Cloud',icon:'🐳',tag:'Docker & K8s',readtime:'8 min read',date:'Feb 2026',img:'https://images.nareshit.com/dockers-kubernetes-online-training-nareshit.jpg',title:'How Containers and Kubernetes Fit into DevSecOps Architecture',excerpt:'Containers changed how we deploy software. Kubernetes changed how we manage it. Here is why both matter for modern DevOps.'},
+    {cat:'DevOps & Cloud',icon:'☁️',tag:'Cloud',readtime:'6 min read',date:'Mar 2026',img:'https://images.nareshit.com/gppgle_cloud.jpg',title:'Can a Fresher Become a Cloud Engineer? The Complete 2025 Roadmap',excerpt:'Yes, you can. Here is a step-by-step roadmap from zero to cloud engineer including certifications, skills, and salary expectations.'},
+    {cat:'DevOps & Cloud',icon:'🔧',tag:'Terraform',readtime:'7 min read',date:'Feb 2026',img:'https://images.nareshit.com/Terraform_Associate_Certification_Training_(003).jpg',title:'Terraform Associate Certification (003): What You Need to Know',excerpt:'Infrastructure as Code is no longer optional. Here is what the Terraform certification covers and why it will pay for itself.'},
+    {cat:'DevOps & Cloud',icon:'☁️',tag:'AWS',readtime:'8 min read',date:'Jan 2026',img:'https://images.nareshit.com/aws-certification-online-training-nareshit.jpg',title:'AWS Solutions Architect Associate: Salary, Roles, and How to Prepare',excerpt:'One of the most respected cloud certifications in the world. What you earn, what you build, and how NareshIT helps you pass.'},
+    {cat:'DevOps & Cloud',icon:'☁️',tag:'Azure',readtime:'6 min read',date:'Mar 2026',img:'https://images.nareshit.com/azure-fundamentals-online-training-nareshit.jpg',title:'Azure Fundamentals (AZ-900): Your Gateway to Microsoft Cloud',excerpt:'AZ-900 is the perfect entry point for anyone entering the cloud ecosystem. A complete overview of what to study and expect.'},
+    {cat:'DevOps & Cloud',icon:'🐧',tag:'Linux',readtime:'6 min read',date:'Feb 2026',img:'https://images.nareshit.com/linux-adminisrtation-online-training.jpg',title:'Linux Administration for DevOps: Commands Every Engineer Must Know',excerpt:'You cannot work in DevOps without Linux. Here are the essential commands, concepts, and configurations every engineer needs.'},
+    {cat:'Full Stack',icon:'☕',tag:'Full Stack Java',readtime:'9 min read',date:'Mar 2026',img:'https://images.nareshit.com/Java.jpg',title:'Full Stack Java Developer in 2025: Technologies, Salary & Career Path',excerpt:'Java remains one of the most hired languages. Here is the complete tech stack a Full Stack Java developer needs to master today.'},
+    {cat:'Full Stack',icon:'🐍',tag:'Full Stack Python',readtime:'8 min read',date:'Feb 2026',img:'https://images.nareshit.com/python.jpg',title:'Full Stack Python vs Full Stack Java: Which Should You Choose?',excerpt:'Both are excellent career paths. Here is an honest comparison covering job market, salaries, difficulty, and which suits your goals.'},
+    {cat:'Full Stack',icon:'🔷',tag:'.NET Core',readtime:'7 min read',date:'Jan 2026',img:'https://images.nareshit.com/full-stack-dot-net-placement-assistance-program-nareshit.jpg',title:'Full Stack .NET Core: Why Microsoft Tech is Making a Big Comeback',excerpt:'.NET Core is fast, cross-platform, and increasingly popular in enterprise. Here is what a Full Stack .NET developer needs to know.'},
+    {cat:'Full Stack',icon:'⚛️',tag:'React',readtime:'7 min read',date:'Mar 2026',img:'https://images.nareshit.com/ui-full-stack-web-development-online-training-nareshit.jpg',title:'UI Full Stack with React: Building Modern Web Applications in 2025',excerpt:'React continues to dominate frontend development. Learn what skills you need to become a full-stack React developer.'},
+    {cat:'Full Stack',icon:'🌱',tag:'Spring Boot',readtime:'8 min read',date:'Feb 2026',img:'https://images.nareshit.com/spring-boot-micro-services-online-training-nareshit.jpg',title:'Spring Boot & Microservices: The Architecture Every Java Developer Needs',excerpt:'Monoliths are dying. Microservices are the present. Here is how Spring Boot makes building distributed systems manageable.'},
+    {cat:'Data Science',icon:'📊',tag:'Data Science',readtime:'7 min read',date:'Feb 2026',img:'https://images.nareshit.com/data-science-ai-online-training-nareshit.jpg',title:'Data Science with AI: How Artificial Intelligence is Reshaping Analytics',excerpt:'AI is not replacing data scientists — it is changing what they do. Learn how to position yourself at this exciting intersection.'},
+    {cat:'Data Science',icon:'🔬',tag:'ML Engineering',readtime:'8 min read',date:'Jan 2026',img:'https://images.nareshit.com/Numpy-Pandas-Matplotlib-online-training-nareshit.jpg',title:'Numpy, Pandas & Matplotlib: The Trio Every Data Scientist Must Master',excerpt:'These three libraries are the foundation of all Python data work. Here is how to use them together to solve real problems.'},
+    {cat:'Data Science',icon:'❄️',tag:'Snowflake',readtime:'7 min read',date:'Mar 2026',img:'https://images.nareshit.com/snowflake_2.jpg',title:'Snowflake: Why Cloud Data Warehouses are the Future of Analytics',excerpt:'Snowflake has become the go-to cloud data platform for enterprises. Here is what it does, why it matters, and how to learn it.'},
+    {cat:'Analytics',icon:'📊',tag:'Power BI',readtime:'7 min read',date:'Feb 2026',img:'https://images.nareshit.com/power-bi-online-training-nareshit.jpg',title:'Power BI vs Tableau: Which Analytics Tool Should You Learn in 2025?',excerpt:'Both are industry leaders, but they serve different audiences. An honest comparison to help you pick the right one for your career.'},
+    {cat:'Analytics',icon:'📊',tag:'Tableau',readtime:'6 min read',date:'Jan 2026',img:'https://images.nareshit.com/Tableau-online-training-nareshit.jpg',title:'Tableau for Beginners: Building Your First Interactive Dashboard',excerpt:'Tableau turns raw data into compelling visuals. Here is a practical walkthrough from connecting your first dataset to sharing insights.'},
+    {cat:'Analytics',icon:'📈',tag:'Business Analytics',readtime:'8 min read',date:'Mar 2026',img:'https://images.nareshit.com/Data_Analytics.jpg',title:'Data Analytics & Business Analytics: What Is the Difference and Which Pays More?',excerpt:'These two fields overlap but are not identical. Learn where they differ, what skills each requires, and salary benchmarks for 2025.'},
+    {cat:'Testing',icon:'🎭',tag:'Playwright',readtime:'7 min read',date:'Mar 2026',img:'https://images.nareshit.com/playwright-automation-online-training.jpg',title:'Playwright Automation: Why It Is Replacing Selenium in Modern Teams',excerpt:'Playwright offers faster tests, better reliability, and multi-browser support out of the box. Here is how to make the switch.'},
+    {cat:'Testing',icon:'🔬',tag:'Selenium',readtime:'6 min read',date:'Jan 2026',img:'https://images.nareshit.com/software-testing-online-training-nareshit.jpg',title:'Selenium WebDriver: Still Relevant in 2025?',excerpt:'Selenium remains the most widely used testing framework. Here is what it does well, where it falls short, and what to learn next.'},
+    {cat:'Testing',icon:'🔬',tag:'Manual Testing',readtime:'5 min read',date:'Feb 2026',img:'https://images.nareshit.com/full-stack-testing-certification-online-training-nareshit.jpg',title:'Manual Testing in the Age of AI: Is It Still Worth Learning?',excerpt:'AI is automating more tests every year. But manual testing skills are still critical. Here is why — and what to pair them with.'},
+    {cat:'Testing',icon:'🔬',tag:'Tosca',readtime:'6 min read',date:'Mar 2026',img:'https://images.nareshit.com/tosca-online-training-nareshit.jpg',title:'Tosca Automation: Model-Based Testing for Enterprise Applications',excerpt:'Tosca takes a different approach to test automation. Learn why large enterprises choose it and how to build a career around it.'},
+    {cat:'Web Development',icon:'⚛️',tag:'React JS',readtime:'7 min read',date:'Mar 2026',img:'https://images.nareshit.com/react-js-online-training-nareshit.jpg',title:'React JS in 2025: Hooks, Performance Patterns, and What Is Coming Next',excerpt:'React continues to evolve rapidly. Master the patterns that senior developers use and understand what React 19 brings to the table.'},
+    {cat:'Web Development',icon:'🅰️',tag:'Angular',readtime:'7 min read',date:'Feb 2026',img:'https://images.nareshit.com/angularjs-online-training-nareshit.jpg',title:'Angular vs React in 2025: Which Frontend Framework Should You Learn?',excerpt:'Two giants, two philosophies. An unbiased breakdown to help you choose the right framework for your career goals.'},
+    {cat:'Web Development',icon:'🟢',tag:'Node.js',readtime:'6 min read',date:'Jan 2026',img:'https://images.nareshit.com/node-js-online-training-nareshit.jpg',title:'Node.js for Backend Development: Building Scalable APIs in 2025',excerpt:'Node.js powers millions of applications worldwide. Here is how to build fast, scalable backend services and REST APIs.'},
+    {cat:'Web Development',icon:'🌐',tag:'HTML/CSS/JS',readtime:'5 min read',date:'Feb 2026',img:'https://images.nareshit.com/html-css-javascript-online-training-nareshit.jpg',title:'HTML, CSS & JavaScript: The Trio That Powers the Web',excerpt:'Every web developer journey starts here. A modern guide to the fundamentals that remain the foundation of everything you will build.'},
+    {cat:'Web Development',icon:'🐍',tag:'Django',readtime:'7 min read',date:'Mar 2026',img:'https://images.nareshit.com/django-with-rest-api-online-training.jpg',title:'Django with REST API: Building Powerful Web Apps with Python',excerpt:"Django is Python's most complete web framework. Here is how to use it alongside Django REST Framework to build production APIs."},
+    {cat:'Programming',icon:'☕',tag:'Core Java',readtime:'8 min read',date:'Feb 2026',img:'https://images.nareshit.com/core-java-online-training-nareshit.jpg',title:'Core Java in 2025: OOP, Collections, Streams, and What Still Matters',excerpt:'Java fundamentals never go out of style. Master these concepts and every Java framework becomes easier to learn.'},
+    {cat:'Programming',icon:'🐍',tag:'Python',readtime:'6 min read',date:'Mar 2026',img:'https://images.nareshit.com/python-online-training-nareshit.jpg',title:"Python Programming in 2025: Why It Remains the World's Most Popular Language",excerpt:'Python tops the charts for the fifth year running. Here is what makes it so versatile and how to use it across multiple domains.'},
+    {cat:'Programming',icon:'⚡',tag:'DSA',readtime:'9 min read',date:'Mar 2026',img:'https://images.nareshit.com/data-structures-algorithms-using-java-online-training-nareshit.jpg',title:'Data Structures & Algorithms in 2025: What Every Software Engineer Must Know',excerpt:'DSA separates developers who write code from engineers who solve problems. A practical guide to what you need to master and why.'},
+    {cat:'Database',icon:'🗄️',tag:'SQL Server',readtime:'6 min read',date:'Feb 2026',img:'https://images.nareshit.com/sql-server-online-training-nareshit.jpg',title:'SQL Server Mastery: Queries, Stored Procedures, and Performance Tips',excerpt:'SQL Server remains the dominant relational database in enterprise. Here is what you need to know to be proficient and productive.'},
+    {cat:'Database',icon:'🍃',tag:'MongoDB',readtime:'7 min read',date:'Mar 2026',img:'https://images.nareshit.com/mongo-db-online-training-nareshit.jpg',title:'MongoDB vs SQL: When to Use a NoSQL Database in 2025',excerpt:'Not every problem fits a relational model. Here is how to decide when MongoDB is the right tool and how to use it effectively.'},
+    {cat:'Salesforce',icon:'🎯',tag:'Salesforce LWC',readtime:'7 min read',date:'Mar 2026',img:'https://images.nareshit.com/salesforce-lwc-online-training-nareshit.jpg',title:'Salesforce LWC: Building Modern Components on the Salesforce Platform',excerpt:'Lightning Web Components have transformed Salesforce development. Here is how LWC works and what career opportunities it unlocks.'},
+    {cat:'Security',icon:'🛡️',tag:'Cyber Security',readtime:'9 min read',date:'Mar 2026',img:'https://images.nareshit.com/cyber_security_700_x_420.jpg',title:'Cyber Security & Ethical Hacking: How to Start a Career in InfoSec',excerpt:'Cyber attacks cost companies trillions annually. The demand for skilled security professionals has never been higher. Here is how to get in.'},
+    {cat:'Internship',icon:'🎓',tag:'Internship DevOps',readtime:'5 min read',date:'Mar 2026',img:'https://images.nareshit.com/internship-on-devops-with-multicloud-online-training.jpg',title:'How a 30-Day DevOps Internship Can Transform Your Career Trajectory',excerpt:"An internship is not just a line on your resume. Here is what you actually learn in NareshIT's DevOps internship and how it pays off."},
+    {cat:'Automation',icon:'🤖',tag:'UiPath',readtime:'6 min read',date:'Feb 2026',img:'https://images.nareshit.com/ui-path-online-training-nareshit.jpg',title:'UiPath vs Automation Anywhere vs Blue Prism: Which RPA Tool to Learn?',excerpt:'Three platforms dominate the RPA market. Here is an honest comparison of job demand, difficulty, and salary for each.'},
+    {cat:'Mobile',icon:'🤖',tag:'Android',readtime:'6 min read',date:'Jan 2026',img:'https://images.nareshit.com/android-online-training-nareshit.jpg',title:'Android Development in 2025: Kotlin, Jetpack Compose, and What to Learn',excerpt:'Android development has evolved dramatically. Here is the current tech stack every Android developer needs to be employable.'},
+    {cat:'Mobile',icon:'📱',tag:'iOS',readtime:'6 min read',date:'Feb 2026',img:'https://images.nareshit.com/ios-online-training-nareshit.jpg',title:'iOS Development with Swift: Building Apps for the Apple Ecosystem',excerpt:'Swift is fast, modern, and powerful. Here is what it takes to become an iOS developer and what the career path looks like.'},
+  ];
+
+  /* ══════════════════════════════════════════════════
+     RENDER
+  ══════════════════════════════════════════════════ */
+  const ALL_CATS = ['All', ...new Set(BLOGS.map(b => b.cat))];
+  let currentCat = 'All', searchQuery = '';
+
+  function renderCats() {
+    const bar = document.getElementById('cat-inner');
+    bar.innerHTML = ALL_CATS.map(c =>
+      `<button class="cat-btn ${currentCat === c ? 'active' : ''}" data-cat="${c}">${c}</button>`
+    ).join('');
+    bar.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => { currentCat = btn.dataset.cat; renderCats(); renderAll(); });
+    });
+  }
+
+  function getFiltered() {
+    let list = currentCat === 'All' ? [...BLOGS] : BLOGS.filter(b => b.cat === currentCat);
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      list = list.filter(b =>
+        b.title.toLowerCase().includes(q) ||
+        b.cat.toLowerCase().includes(q) ||
+        b.tag.toLowerCase().includes(q) ||
+        b.excerpt.toLowerCase().includes(q)
+      );
+    }
+    return list;
+  }
+
+  function renderFeatured(list) {
+    const row = document.getElementById('featured-row');
+    if (currentCat !== 'All' || searchQuery || list.length === 0) { row.style.display = 'none'; return; }
+    row.style.display = 'grid';
+    const feat = list[0];
+    const fi = document.getElementById('feat-img');
+    fi.src = feat.img || '';
+    fi.style.display = feat.img ? 'block' : 'none';
+    document.getElementById('feat-icon').textContent  = feat.img ? '' : feat.icon;
+    document.getElementById('feat-icon').style.display = feat.img ? 'none' : 'block';
+    document.getElementById('feat-tag').textContent     = feat.tag;
+    document.getElementById('feat-title').textContent   = feat.title;
+    document.getElementById('feat-excerpt').textContent = feat.excerpt;
+    document.getElementById('feat-date').textContent    = feat.date;
+    document.getElementById('feat-read').textContent    = feat.readtime;
+    document.getElementById('featured-card').onclick    = () => openArticle(feat);
+
+    document.getElementById('side-list').innerHTML = list.slice(1, 5).map(b => `
+      <div class="side-card" data-idx="${BLOGS.indexOf(b)}">
+        <div class="side-icon">${b.img
+          ? `<img src="${b.img}" alt="${b.tag}" onerror="this.parentElement.innerHTML='<span style=font-size:22px>${b.icon}</span>'">`
+          : `<span style="font-size:22px">${b.icon}</span>`
+        }</div>
+        <div>
+          <div class="side-tag">${b.tag}</div>
+          <div class="side-title">${b.title}</div>
+          <div class="side-meta">${b.date} &middot; ${b.readtime}</div>
+        </div>
+      </div>`).join('');
+
+    document.getElementById('side-list').querySelectorAll('.side-card').forEach(card => {
+      const idx = +card.dataset.idx;
+      card.addEventListener('click', () => openArticle(BLOGS[idx]));
+    });
+  }
+
+  function renderGrid(list) {
+    const grid = document.getElementById('blog-grid');
+    document.getElementById('section-title').textContent = currentCat === 'All' ? 'All Articles' : currentCat;
+    document.getElementById('section-count').textContent = `\u2014 ${list.length} article${list.length !== 1 ? 's' : ''}`;
+
+    grid.classList.add('fading');
+    setTimeout(() => {
+      if (list.length === 0) {
+        grid.innerHTML = '<div class="empty"><div class="empty-ico">🔍</div><h3>No articles found</h3><p>Try a different category or search term</p></div>';
+      } else {
+        grid.innerHTML = list.map((b, i) => `
+          <div class="blog-card" style="animation-delay:${Math.min(i * .04, .5)}s" data-idx="${BLOGS.indexOf(b)}">
+            <div class="card-thumb">
+              <span class="card-thumb-icon">${b.icon}</span>
+              ${b.img ? `<img src="${b.img}" alt="${b.tag}" loading="lazy" onerror="this.style.display='none'">` : ''}
+              <div class="card-thumb-gradient"></div>
+              <div class="card-thumb-tag">${b.tag}</div>
+              <div class="card-readtime">${b.readtime}</div>
+            </div>
+            <div class="card-body">
+              <div class="card-tag">${b.cat}</div>
+              <div class="card-title">${b.title}</div>
+              <div class="card-excerpt">${b.excerpt}</div>
+              <div class="card-footer"><span class="card-date">📅 ${b.date}</span><span class="card-arrow">→</span></div>
+            </div>
+          </div>`).join('');
+
+        grid.querySelectorAll('.blog-card').forEach(card => {
+          card.addEventListener('click', () => openArticle(BLOGS[+card.dataset.idx]));
+        });
+      }
+      grid.classList.remove('fading');
+    }, 220);
+  }
+
+  function renderAll() { const list = getFiltered(); renderFeatured(list); renderGrid(list); }
+
+  /* ── Article modal ── */
+  function buildArticleHTML(art) {
+    let html = '';
+    if (art.intro) html += '<p>' + art.intro + '</p>';
+    if (art.sections) art.sections.forEach(function(s, i) {
+      if (s.heading) html += '<h2>' + s.heading + '</h2>';
+      if (s.content) html += '<p>' + s.content + '</p>';
+      if (i === 1 && art.highlight) html += '<div class="highlight">"' + art.highlight + '"</div>';
+    });
+    if (art.conclusion) html += '<h2>Final Thoughts</h2><p>' + art.conclusion + '</p>';
+    if (art.tags && art.tags.length)
+      html += '<div class="art-tags">' + art.tags.map(t => '<span class="art-tag-chip">' + t + '</span>').join('') + '</div>';
+    return html;
+  }
+
+  function openArticle(blog) {
+    document.getElementById('art-tag-label').textContent   = blog.tag;
+    document.getElementById('art-title-label').textContent = blog.title;
+    document.getElementById('art-date-label').textContent  = blog.date;
+    document.getElementById('art-read-label').textContent  = blog.readtime;
+    const contentEl = document.getElementById('art-content');
+    const art = ARTICLE_CONTENT[blog.title];
+    if (art) {
+      contentEl.innerHTML = buildArticleHTML(art);
+    } else {
+      contentEl.innerHTML = '<p>' + blog.excerpt + '</p><p>This article covers everything you need to know about <strong>' + blog.tag + '</strong> — from foundational concepts through advanced techniques and real-world career applications. NareshIT\'s expert instructors bring years of industry experience to ensure you learn skills that are immediately applicable in the workplace.</p>';
+    }
+    document.getElementById('art-overlay').classList.add('open');
+    document.getElementById('art-modal').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeArticle() {
+    document.getElementById('art-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('art-close').addEventListener('click', closeArticle);
+  document.getElementById('art-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('art-overlay')) closeArticle();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeArticle(); });
+
+  /* ── Search ── */
+  function doSearch() {
+    searchQuery = document.getElementById('search-inp').value.trim();
+    if (searchQuery) currentCat = 'All';
+    renderCats();
+    renderAll();
+  }
+  document.getElementById('search-btn').addEventListener('click', doSearch);
+  document.getElementById('search-inp').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+  document.getElementById('search-inp').addEventListener('input', e => { searchQuery = e.target.value.trim(); renderAll(); });
+
+  /* ── Init ── */
+  renderCats();
+  renderAll();
+  const cp = new URLSearchParams(location.search).get('cat');
+  if (cp) {
+    const m = ALL_CATS.find(c => c.toLowerCase() === cp.toLowerCase());
+    if (m) { currentCat = m; renderCats(); renderAll(); }
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Careers at NareshIT — Join India's No.1 Software Training Institute. Explore openings for Faculty, Mentors, Counsellors and more." />
+  <title>Careers — NareshIT Best No.1 Software Training Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:#f6f3ed; --cream-dark:#edeae1; --ink:#0e0d0c;
+      --gold:#b89050; --gold-light:#d4aa6a; --gold-pale:rgba(184,144,80,.08);
+      --ash:#7c7870; --white:#fff; --divider:rgba(17,16,16,.08);
+      --green:#22c55e; --red:#ef4444;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+      --ease-silk:cubic-bezier(.16,1,.3,1);
+      --ease-std:cubic-bezier(.25,.46,.45,.94);
+      --r-lg:16px; --r-md:12px; --r-sm:8px; --r-pill:100px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--ink);font-family:var(--font-sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:3px;}
+    ::-webkit-scrollbar-track{background:transparent;}
+    ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:400;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(246,243,237,.96);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--divider);}
+    .nav-logo img{height:38px;}
+    .nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+    .nav-links a{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ash);position:relative;transition:color .3s;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-std);}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    /* Nav Auth Snippet CSS */
+    .nav-user {
+      display: none;
+      align-items: center; gap: 10px;
+      padding: 5px 14px 5px 6px;
+      background: var(--white);
+      border: 1.5px solid var(--divider);
+      border-radius: var(--r-pill);
+      transition: all .35s var(--ease-silk);
+      box-shadow: 0 2px 12px rgba(17,16,16,.06);
+    }
+    .nav-user.show { display: flex; }
+    .nav-user:hover {
+      border-color: rgba(184,144,80,.4);
+      box-shadow: 0 4px 20px rgba(184,144,80,.15);
+    }
+    .nav-user-avatar {
+      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #b89050, #111010);
+      display: flex; align-items: center; justify-content: center;
+      font-family: serif; font-size: 13px; font-weight: 700; color: #fff;
+      border: 2px solid rgba(184,144,80,.25);
+    }
+    .nav-user-info { display: flex; flex-direction: column; line-height: 1.25; }
+    .nav-user-name  { font-size: 12px; font-weight: 600; color: #111010; white-space: nowrap; }
+    .nav-user-email { font-size: 10px; color: #7c7870; white-space: nowrap; max-width: 160px; overflow: hidden; text-overflow: ellipsis; }
+    .nav-signout {
+      width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(17,16,16,.08);
+      background: #edeae1; color: #7c7870; font-size: 9px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: all .2s;
+    }
+    .nav-signout:hover { background: #fee2e2; border-color: #fca5a5; color: #dc2626; transform: scale(1.1); }
+    #nav-login-btn.hidden { display: none !important; }
+    @media (max-width: 640px) { .nav-user-email { display: none; } }
+    .btn-nav-ghost{
+      padding:9px 20px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .3s;
+    }
+    .btn-nav-ghost:hover{border-color:var(--ink);color:var(--ink);}
+    /* .btn-nav-fill removed as 'Learn More' is not needed */
+    /* ── HERO ── */
+    .hero{background:var(--ink);padding:96px 60px 88px;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 55% 100% at 88% 50%,rgba(184,144,80,.11),transparent 60%),
+        radial-gradient(ellipse 25% 50% at 10% 80%,rgba(184,144,80,.05),transparent),
+        repeating-linear-gradient(90deg,transparent,transparent 119px,rgba(255,255,255,.018) 120px),
+        repeating-linear-gradient(0deg,transparent,transparent 119px,rgba(255,255,255,.018) 120px);}
+    .hero-glyph{position:absolute;right:48px;top:20px;font-family:var(--font-serif);font-size:320px;font-weight:700;color:rgba(255,255,255,.022);line-height:1;pointer-events:none;user-select:none;letter-spacing:-8px;}
+    .hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+    .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);}
+    .hero-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold-light);}
+    .hero h1{font-family:var(--font-serif);font-size:clamp(42px,7vw,88px);font-weight:300;line-height:.93;letter-spacing:-3px;color:rgba(246,243,237,.92);margin-bottom:26px;max-width:740px;}
+    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero h1 strong{font-weight:700;}
+    .hero-sub{font-size:16px;color:rgba(246,243,237,.4);max-width:520px;line-height:1.9;margin-bottom:40px;}
+    .hero-pills{display:flex;flex-wrap:wrap;gap:10px;}
+    .hero-pill{padding:7px 18px;background:rgba(246,243,237,.07);border:1px solid rgba(246,243,237,.12);border-radius:var(--r-pill);font-size:12px;color:rgba(246,243,237,.65);font-weight:500;}
+    .hero-pill strong{color:var(--gold-light);font-weight:700;}
+    /* ── MARQUEE ── */
+    .marquee-bar{background:var(--gold);overflow:hidden;padding:0;}
+    .mq-track{display:flex;animation:mq 20s linear infinite;width:max-content;padding:14px 0;}
+    @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .mq-item{padding:0 28px;display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.85);}
+    .mq-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4);}
+    /* ── MAIN ── */
+    .page-wrap{max-width:1280px;margin:0 auto;padding:72px 60px 100px;}
+    .two-col{display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:start;}
+    /* ── PHOTO + INTRO ── */
+    .careers-photo{border-radius:20px;overflow:hidden;position:relative;margin-bottom:48px;box-shadow:0 20px 60px rgba(17,16,16,.12);}
+    .careers-photo img{width:100%;height:340px;object-fit:cover;object-position:center;display:block;}
+    .careers-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(14,13,12,.5) 0%,transparent 50%);}
+    .careers-photo-label{position:absolute;bottom:24px;left:28px;z-index:1;}
+    .cpl-num{font-family:var(--font-serif);font-size:52px;font-weight:300;color:rgba(246,243,237,.9);line-height:1;letter-spacing:-2px;}
+    .cpl-lbl{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(246,243,237,.45);margin-top:4px;}
+    .section-intro{margin-bottom:52px;}
+    .eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+    .section-intro h2{font-family:var(--font-serif);font-size:clamp(30px,4vw,46px);font-weight:400;letter-spacing:-1.5px;line-height:1.05;margin-bottom:16px;}
+    .section-intro h2 em{font-style:italic;color:var(--gold);}
+    .section-intro p{font-size:15px;color:var(--ash);line-height:1.9;}
+    /* ── ROLES ── */
+    .roles-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+    .roles-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:56px;}
+    .role-card{
+      background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);
+      padding:24px 28px;display:flex;align-items:flex-start;gap:18px;
+      transition:transform .4s var(--ease-silk),box-shadow .4s,border-color .3s;
+      cursor:default;
+      opacity:0;transform:translateY(20px);
+    }
+    .role-card.in{opacity:1;transform:translateY(0);}
+    .role-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(17,16,16,.09);border-color:rgba(184,144,80,.28);}
+    .role-num{
+      width:36px;height:36px;border-radius:10px;
+      background:var(--gold-pale);border:1px solid rgba(184,144,80,.2);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-serif);font-size:15px;font-weight:700;color:var(--gold);
+      flex-shrink:0;transition:background .3s,color .3s;
+    }
+    .role-card:hover .role-num{background:var(--gold);color:var(--white);}
+    .role-icon{font-size:22px;flex-shrink:0;margin-top:6px;}
+    .role-body{}
+    .role-title{font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.2;}
+    .role-desc{font-size:13px;color:var(--ash);line-height:1.75;}
+    .role-tag{
+      display:inline-flex;margin-top:10px;padding:3px 12px;
+      background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);
+      border-radius:var(--r-pill);font-size:10px;font-weight:700;
+      letter-spacing:1px;text-transform:uppercase;color:var(--green);
+    }
+    /* ── WHY NARESHIT ── */
+    .why-section{background:var(--ink);border-radius:20px;padding:48px;margin-bottom:56px;position:relative;overflow:hidden;}
+    .why-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 100% 0%,rgba(184,144,80,.1),transparent);}
+    .why-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px;position:relative;z-index:1;}
+    .why-section h3{font-family:var(--font-serif);font-size:clamp(24px,3vw,34px);font-weight:400;color:rgba(246,243,237,.9);line-height:1.1;letter-spacing:-1px;margin-bottom:28px;position:relative;z-index:1;}
+    .why-section h3 em{font-style:italic;color:var(--gold);}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;z-index:1;}
+    .why-item{
+      background:rgba(246,243,237,.05);border:1px solid rgba(246,243,237,.08);
+      border-radius:var(--r-md);padding:18px 20px;
+      transition:background .3s;
+    }
+    .why-item:hover{background:rgba(184,144,80,.1);}
+    .why-icon{font-size:20px;margin-bottom:8px;}
+    .why-title{font-size:14px;font-weight:600;color:rgba(246,243,237,.85);margin-bottom:5px;}
+    .why-text{font-size:12px;color:rgba(246,243,237,.4);line-height:1.7;}
+    /* ── HOW TO APPLY ── */
+    .apply-section{background:var(--gold);border-radius:var(--r-lg);padding:40px 44px;position:relative;overflow:hidden;}
+    .apply-section::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07));}
+    .apply-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:12px;position:relative;z-index:1;}
+    .apply-section h3{font-family:var(--font-serif);font-size:clamp(22px,3vw,32px);font-weight:600;color:var(--white);line-height:1.1;letter-spacing:-1px;margin-bottom:12px;position:relative;z-index:1;}
+    .apply-section p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.8;margin-bottom:24px;position:relative;z-index:1;max-width:460px;}
+    .apply-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:13px 28px;background:var(--ink);border:none;border-radius:var(--r-pill);
+      font-family:var(--font-sans);font-size:13px;font-weight:700;color:var(--white);
+      cursor:pointer;letter-spacing:.5px;
+      transition:all .4s var(--ease-silk);position:relative;z-index:1;
+    }
+    .apply-btn:hover{background:var(--white);color:var(--ink);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+    /* ── SIDEBAR: APPLICATION FORM ── */
+    .sidebar{position:sticky;top:88px;}
+    .enq-card{background:var(--white);border:1px solid var(--divider);border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(17,16,16,.08);}
+    .enq-hd{background:var(--ink);padding:26px 28px;position:relative;overflow:hidden;}
+    .enq-hd::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 120% at 110% 0%,rgba(184,144,80,.18),transparent 60%);}
+    .enq-hd-badge{display:inline-flex;align-items:center;gap:7px;padding:4px 12px;background:rgba(184,144,80,.15);border:1px solid rgba(184,144,80,.25);border-radius:var(--r-pill);margin-bottom:12px;position:relative;z-index:1;}
+    .enq-hd-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+    .enq-hd-badge span{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);}
+    .enq-hd h3{font-family:var(--font-serif);font-size:22px;font-weight:600;color:rgba(246,243,237,.92);position:relative;z-index:1;margin-bottom:4px;}
+    .enq-hd p{font-size:12px;color:rgba(246,243,237,.4);position:relative;z-index:1;}
+    .enq-body{padding:24px 28px;}
+    .ef{margin-bottom:14px;}
+    .ef label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ash);margin-bottom:5px;}
+    .ef input,.ef select,.ef textarea{
+      width:100%;padding:11px 14px;background:var(--cream);
+      border:1.5px solid var(--divider);border-radius:var(--r-sm);
+      font-family:var(--font-sans);font-size:13px;color:var(--ink);
+      outline:none;transition:all .3s var(--ease-silk);
+      appearance:none;-webkit-appearance:none;
+    }
+    .ef select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 5 5-5' stroke='%237c7870' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;background-color:var(--cream);}
+    .ef textarea{resize:vertical;min-height:90px;line-height:1.6;}
+    .ef input:focus,.ef select:focus,.ef textarea:focus{border-color:var(--gold);background:var(--white);box-shadow:0 0 0 3px rgba(184,144,80,.1);}
+    .ef input.err,.ef select.err{border-color:var(--red);}
+    .ef-err{font-size:10px;color:var(--red);margin-top:3px;display:none;}
+    .ef-err.show{display:block;}
+    .enq-submit{width:100%;padding:13px;background:var(--ink);border:none;border-radius:var(--r-sm);font-family:var(--font-sans);font-size:13px;font-weight:700;color:var(--white);cursor:pointer;letter-spacing:.3px;transition:all .4s var(--ease-silk);position:relative;overflow:hidden;margin-top:4px;}
+    .enq-submit::after{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-101%);transition:transform .4s var(--ease-silk);}
+    .enq-submit span{position:relative;z-index:1;}
+    .enq-submit:hover::after{transform:translateX(0);}
+    .enq-submit:disabled{opacity:.5;cursor:not-allowed;}
+    .enq-submit:disabled::after{display:none;}
+    .enq-trust{display:flex;justify-content:space-around;padding:12px 20px;border-top:1px solid var(--divider);background:var(--cream);}
+    .enq-trust span{font-size:10px;font-weight:600;color:var(--ash);}
+    .enq-success{display:none;text-align:center;padding:44px 28px 32px;}
+    .enq-success.show{display:block;animation:fadeUp .5s var(--ease-silk);}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .es-icon{width:60px;height:60px;border-radius:50%;background:rgba(34,197,94,.1);border:2px solid rgba(34,197,94,.2);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--green);margin:0 auto 16px;}
+    .es-title{font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+    .es-sub{font-size:13px;color:var(--ash);line-height:1.7;margin-bottom:20px;}
+    .es-again{padding:9px 22px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .3s;}
+    .es-again:hover{border-color:var(--ink);color:var(--ink);}
+    /* ── FOOTER ── */
+    .site-footer{background:var(--ink);padding:60px 60px 36px;}
+    .fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:52px;max-width:1280px;margin:0 auto 48px;}
+    .flogo img{height:34px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:16px;}
+    .fdesc{font-size:12px;color:rgba(246,243,237,.3);line-height:1.9;margin-bottom:22px;}
+    .fsocs{display:flex;gap:8px;}
+    .fsoc{width:34px;height:34px;border-radius:8px;border:1px solid rgba(246,243,237,.1);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(246,243,237,.3);transition:all .25s;}
+    .fsoc:hover{border-color:var(--gold);color:var(--gold);}
+    .fcol h5{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(246,243,236,.28);margin-bottom:16px;}
+    .fcol ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+    .fcol ul a{font-size:12px;color:rgba(246,243,237,.4);transition:color .25s;}
+    .fcol ul a:hover{color:var(--gold-light);}
+    .fbot{max-width:1280px;margin:0 auto;border-top:1px solid rgba(246,243,237,.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+    .fbot p{font-size:11px;color:rgba(246,243,237,.22);}
+    .floats{position:fixed;bottom:26px;right:26px;z-index:300;display:flex;flex-direction:column;gap:10px;}
+    .fbtn{width:48px;height:48px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .35s var(--ease-silk);}
+    .fbtn:hover{transform:scale(1.12);}
+    .fbtn-wa{background:#25D366;color:#fff;}
+    .fbtn-ph{background:var(--gold);color:#fff;}
+    /* Responsive */
+    @media(max-width:1100px){
+      .two-col{grid-template-columns:1fr;gap:48px;}
+      .sidebar{position:static;}
+      .why-grid{grid-template-columns:1fr;}
+    }
+    @media(max-width:1024px){
+      .nav{padding:0 28px;}.nav-links{display:none;}
+      .hero{padding:56px 28px 56px;}
+      .page-wrap{padding:52px 28px 80px;}
+      .fgrid{grid-template-columns:1fr 1fr;gap:32px;}.site-footer{padding:44px 28px 28px;}
+    }
+    @media(max-width:640px){
+      .fgrid{grid-template-columns:1fr;}
+      .why-grid{grid-template-columns:1fr;}
+      .hero-pills{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="careers.html" class="active">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-actions" id="nav-actions">
+    <!-- Shown when logged in -->
+    <div class="nav-user" id="nav-user">
+      <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+      <div class="nav-user-info">
+        <span class="nav-user-name" id="nav-user-name">Name</span>
+        <span class="nav-user-email" id="nav-user-email">email</span>
+      </div>
+      <button class="nav-signout" id="nav-signout" title="Sign out">✕</button>
+    </div>
+    <!-- Shown when logged out -->
+    <button class="btn-nav-ghost" id="nav-login-btn" type="button">Login</button>
+    <!-- Learn More button removed as requested -->
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glyph">NIT</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Join Our Team</div>
+    <h1>Build a Career<br>Worth <em>Showing Up</em><br>For <strong>Every Day</strong></h1>
+    <p class="hero-sub">Unlock your potential with NareshIT — India's leading name in education and technology. An innovative, collaborative, and growth-oriented workplace where your work genuinely matters.</p>
+    <div class="hero-pills">
+      <div class="hero-pill"><strong>6</strong> Open Roles</div>
+      <div class="hero-pill"><strong>140+</strong> Team Members</div>
+      <div class="hero-pill"><strong>22+</strong> Years of Excellence</div>
+      <div class="hero-pill"><strong>Hyderabad</strong> Based</div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="mq-track" id="mq"></div>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+  <div class="two-col">
+
+    <!-- LEFT: Careers content -->
+    <div>
+
+      <!-- Photo + intro -->
+      <div class="careers-photo">
+        <img src="https://images.nareshit.com/images/image_1712580881781.jpg"
+             alt="NareshIT Careers — Join our team"
+             onerror="this.style.height='200px';this.style.background='linear-gradient(135deg,#1a1815,#2a2520)';this.style.objectFit='none';">
+        <div class="careers-photo-label">
+          <div class="cpl-num">6+</div>
+          <div class="cpl-lbl">Open Positions</div>
+        </div>
+      </div>
+
+      <div class="section-intro">
+        <div class="eyebrow">Who We're Looking For</div>
+        <h2>Explore the Most<br>Sought-After <em>Positions</em></h2>
+        <p>Join our team and be part of an innovative, collaborative, and growth-oriented workplace. We are always looking for passionate, dedicated professionals who want to make a real difference in education and technology.</p>
+      </div>
+
+      <!-- Role Cards -->
+      <div class="roles-label">Open Positions</div>
+      <div class="roles-grid">
+
+        <div class="role-card" style="transition:opacity .6s .05s,transform .6s .05s,box-shadow .4s,border-color .3s">
+          <div class="role-num">01</div>
+          <div class="role-icon">👨‍🏫</div>
+          <div class="role-body">
+            <div class="role-title">Faculty Registration</div>
+            <div class="role-desc">Join as a faculty member and share your expertise with the next generation of IT professionals. We are looking for experienced practitioners who are passionate about teaching, can connect curriculum to real industry work, and thrive in an environment where student outcomes are the measure of success.</div>
+            <span class="role-tag">Actively Hiring</span>
+          </div>
+        </div>
+
+        <div class="role-card" style="transition:opacity .6s .1s,transform .6s .1s,box-shadow .4s,border-color .3s">
+          <div class="role-num">02</div>
+          <div class="role-icon">🔬</div>
+          <div class="role-body">
+            <div class="role-title">Lab Coordinators</div>
+            <div class="role-desc">Coordinate our state-of-the-art labs for optimal hands-on learning experiences. Lab Coordinators ensure students have access to the tools and environments they need to build the practical skills that employers actually hire for — and that everything runs seamlessly behind the scenes.</div>
+            <span class="role-tag">Actively Hiring</span>
+          </div>
+        </div>
+
+        <div class="role-card" style="transition:opacity .6s .15s,transform .6s .15s,box-shadow .4s,border-color .3s">
+          <div class="role-num">03</div>
+          <div class="role-icon">🧭</div>
+          <div class="role-body">
+            <div class="role-title">Mentors</div>
+            <div class="role-desc">Guide aspiring minds and shape careers as a mentor at NareshIT. Mentors provide one-on-one guidance to students navigating their learning journey and early career decisions — the kind of personalised support that makes the difference between a student who gets placed and one who does not.</div>
+            <span class="role-tag">Actively Hiring</span>
+          </div>
+        </div>
+
+        <div class="role-card" style="transition:opacity .6s .2s,transform .6s .2s,box-shadow .4s,border-color .3s">
+          <div class="role-num">04</div>
+          <div class="role-icon">🎓</div>
+          <div class="role-body">
+            <div class="role-title">Course Counsellors</div>
+            <div class="role-desc">Help individuals make informed decisions about their educational journey. As a Course Counsellor, you will work directly with prospective students to understand their goals, match them to the right program, and set them up for success from day one — a role where empathy and product knowledge are equally important.</div>
+            <span class="role-tag">Actively Hiring</span>
+          </div>
+        </div>
+
+        <div class="role-card" style="transition:opacity .6s .25s,transform .6s .25s,box-shadow .4s,border-color .3s">
+          <div class="role-num">05</div>
+          <div class="role-icon">📞</div>
+          <div class="role-body">
+            <div class="role-title">Telecallers</div>
+            <div class="role-desc">Be a Telecaller — the first point of contact for potential students interested in NareshIT courses. You will be the voice that starts many careers: answering questions, building confidence in prospective students, and converting curiosity into enrolment. Strong communication and genuine care for students are the most important qualities we look for.</div>
+            <span class="role-tag">Actively Hiring</span>
+          </div>
+        </div>
+
+        <div class="role-card" style="transition:opacity .6s .3s,transform .6s .3s,box-shadow .4s,border-color .3s">
+          <div class="role-num">06</div>
+          <div class="role-icon">📣</div>
+          <div class="role-body">
+            <div class="role-title">Digital Marketing Executives</div>
+            <div class="role-desc">Drive our brand presence as a Digital Marketing Executive, leveraging online marketing, SEO, social media, content strategy, and paid campaigns to reach the students who need us. You will work in a fast-moving environment with real data, real budgets, and real impact on the careers of thousands of students every year.</div>
+            <span class="role-tag">Actively Hiring</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Why NareshIT -->
+      <div class="why-section">
+        <div class="why-eyebrow">Why Work With Us</div>
+        <h3>A Workplace Worth <em>Joining</em></h3>
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-icon">🚀</div>
+            <div class="why-title">Innovative Learning Environment</div>
+            <div class="why-text">Immerse yourself in a dynamic workplace where new ideas are acted upon, technology is embraced, and innovation is part of the daily routine.</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🤝</div>
+            <div class="why-title">Collaborative Team Culture</div>
+            <div class="why-text">Be part of a team where your ideas are genuinely valued, collaboration is the norm, and your colleagues are invested in your growth as much as their own.</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📈</div>
+            <div class="why-title">Career Advancement Opportunities</div>
+            <div class="why-text">Grow with us through structured opportunities for career advancement. NareshIT has been producing careers — for students and employees alike — for 22+ years.</div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🌟</div>
+            <div class="why-title">Impactful Work Every Day</div>
+            <div class="why-text">Contribute to making a real difference in education and technology. Every day you come to work, you are directly contributing to the career success of thousands of students.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to Apply -->
+      <div class="apply-section">
+        <div class="apply-eyebrow">How to Apply</div>
+        <h3>Ready to Join the Team?</h3>
+        <p>Explore current openings and submit your application to embark on a fulfilling career journey at NareshIT. We look forward to welcoming passionate and dedicated professionals to our team.</p>
+        <button class="apply-btn" onclick="document.getElementById('apply-form').scrollIntoView({behavior:'smooth'})">
+          Submit Your Application →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Application Form -->
+    <div class="sidebar" id="apply-form">
+      <div class="enq-card">
+        <div class="enq-hd">
+          <div class="enq-hd-badge">
+            <div class="enq-hd-dot"></div>
+            <span>Now Hiring</span>
+          </div>
+          <h3>Apply Now</h3>
+          <p>We'll reach out within 24 hours of your application.</p>
+        </div>
+
+        <form id="careers-form" novalidate>
+          <div class="enq-body">
+
+            <div class="ef">
+              <label>Full Name <span style="color:var(--red)">*</span></label>
+              <input type="text" id="c-name" placeholder="e.g. Priya Reddy" autocomplete="name">
+              <div class="ef-err" id="err-name">Please enter your full name</div>
+            </div>
+
+            <div class="ef">
+              <label>Email Address <span style="color:var(--red)">*</span></label>
+              <input type="email" id="c-email" placeholder="priya@example.com" autocomplete="email">
+              <div class="ef-err" id="err-email">Enter a valid email address</div>
+            </div>
+
+            <div class="ef">
+              <label>Mobile Number <span style="color:var(--red)">*</span></label>
+              <input type="tel" id="c-mobile" placeholder="+91 98765 43210" maxlength="15">
+              <div class="ef-err" id="err-mobile">Enter a valid mobile number</div>
+            </div>
+
+            <div class="ef">
+              <label>Position Applying For <span style="color:var(--red)">*</span></label>
+              <select id="c-role">
+                <option value="">— Select a position —</option>
+                <option>Faculty Registration</option>
+                <option>Lab Coordinator</option>
+                <option>Mentor</option>
+                <option>Course Counsellor</option>
+                <option>Telecaller</option>
+                <option>Digital Marketing Executive</option>
+                <option>Other / Open to Discussion</option>
+              </select>
+              <div class="ef-err" id="err-role">Please select a position</div>
+            </div>
+
+            <div class="ef">
+              <label>Years of Experience</label>
+              <select id="c-exp">
+                <option value="">— Select experience level —</option>
+                <option>Fresher (0 years)</option>
+                <option>0–1 Year</option>
+                <option>1–3 Years</option>
+                <option>3–5 Years</option>
+                <option>5–8 Years</option>
+                <option>8+ Years</option>
+              </select>
+            </div>
+
+            <div class="ef">
+              <label>Tell Us About Yourself</label>
+              <textarea id="c-msg" placeholder="Briefly describe your background, relevant experience, and why you want to join NareshIT…"></textarea>
+            </div>
+
+            <button type="submit" class="enq-submit" id="c-submit"><span id="c-txt">Submit Application →</span></button>
+          </div>
+        </form>
+
+        <div class="enq-success" id="c-success">
+          <div class="es-icon">✓</div>
+          <div class="es-title">Application Received!</div>
+          <div class="es-sub">Thank you for your interest in NareshIT! Our HR team will review your application and reach out within 24 hours.</div>
+          <button class="es-again" onclick="resetForm()">Submit Another Application</button>
+        </div>
+
+        <div class="enq-trust">
+          <span>🔒 Confidential</span>
+          <span>📞 24hr Response</span>
+          <span>🤝 We Value You</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="fgrid">
+    <div>
+      <div class="flogo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></div>
+      <p class="fdesc">NNV Naresh is an entrepreneur with a noble vision to transform career aspirations. Over 22 years shaping India's software talent ecosystem.</p>
+      <div class="fsocs">
+        <a class="fsoc" href="https://www.facebook.com/nareshitechnologies" target="_blank">f</a>
+        <a class="fsoc" href="https://www.instagram.com/nareshitech" target="_blank">◎</a>
+        <a class="fsoc" href="https://www.youtube.com/@NareshIT" target="_blank">▶</a>
+        <a class="fsoc" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank">in</a>
+      </div>
+    </div>
+    <div class="fcol"><h5>Company</h5><ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="theme.html">Our Theme</a></li>
+      <li><a href="careers.html" style="color:var(--gold-light)">Careers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul></div>
+    <div class="fcol"><h5>Quick Links</h5><ul>
+      <li><a href="courses.html">All Courses</a></li>
+      <li><a href="faculty.html">Faculty</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="#">Corporate Training</a></li>
+    </ul></div>
+    <div class="fcol"><h5>Top Courses</h5><ul>
+      <li><a href="courses.html?cat=fullstack">Full Stack Java</a></li>
+      <li><a href="courses.html?cat=devops">DevOps Multi Cloud</a></li>
+      <li><a href="courses.html?cat=datascience">Data Science &amp; AI</a></li>
+      <li><a href="courses.html?cat=testing">Software Testing</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 Naresh i Technologies. All rights reserved.</p>
+    <p>Crafted with care in Hyderabad, India</p>
+  </div>
+</footer>
+
+<div class="floats">
+  <button class="fbtn fbtn-wa" onclick="window.open('https://wa.me/+918179191999','_blank')">💬</button>
+  <button class="fbtn fbtn-ph" onclick="window.location.href='tel:+918179191999'">📞</button>
+</div>
+
+<script>
+  // MARQUEE
+  const roles = [
+    'Faculty Registration', 'Lab Coordinators', 'Mentors', 'Course Counsellors',
+    'Telecallers', 'Digital Marketing Executives', 'Innovative Culture', 'Career Growth',
+    'Impactful Work', 'Now Hiring'
+  ];
+  const mq = document.getElementById('mq');
+  const html = roles.map(r => `<div class="mq-item"><span class="mq-dot"></span>${r}</div>`).join('');
+  if (mq) mq.innerHTML = html + html;
+
+  // SCROLL REVEAL for role cards
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.role-card').forEach(el => obs.observe(el));
+
+  // FORM SUBMIT
+  document.getElementById('careers-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    let ok = true;
+    function check(id, errId, fn) {
+      const el  = document.getElementById(id);
+      const err = document.getElementById(errId);
+      const valid = fn(el.value.trim());
+      el.classList.toggle('err', !valid);
+      err.classList.toggle('show', !valid);
+      if (!valid) ok = false;
+    }
+    check('c-name',   'err-name',   v => v.length >= 2);
+    check('c-email',  'err-email',  v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    check('c-mobile', 'err-mobile', v => /^\+?[\d\s\-]{10,15}$/.test(v));
+    check('c-role',   'err-role',   v => v !== '');
+    if (!ok) return;
+    const btn = document.getElementById('c-submit');
+    const txt = document.getElementById('c-txt');
+    btn.disabled = true;
+    txt.textContent = 'Submitting…';
+    await new Promise(r => setTimeout(r, 1400));
+    document.getElementById('careers-form').style.display = 'none';
+    document.getElementById('c-success').classList.add('show');
+    btn.disabled = false;
+    txt.textContent = 'Submit Application →';
+  });
+  // Clear errors on input
+  ['c-name','c-email','c-mobile','c-role'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', () => {
+      el.classList.remove('err');
+      const errEl = document.getElementById('err-' + id.replace('c-', ''));
+      if (errEl) errEl.classList.remove('show');
+    });
+  });
+  function resetForm() {
+    document.getElementById('careers-form').reset();
+    document.getElementById('careers-form').style.display = 'block';
+    document.getElementById('c-success').classList.remove('show');
+  }
+</script>
+<script type="module">
+  import { onAuthStateChanged, signOut }
+    from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+  // NOTE: you must already have Firebase App & Auth initialized as `auth`
+  // e.g. const auth = getAuth(firebaseApp)
+  // Replace `auth` with your actual instance variable if necessary
+  const LS_KEY = 'nit_user';
+  function getInitials(name) {
+    if (!name) return '?';
+    return name.trim().split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase();
+  }
+  function showNavProfile(name, email) {
+    const userEl   = document.getElementById('nav-user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (!userEl) return;
+    document.getElementById('nav-user-avatar').textContent = getInitials(name);
+    document.getElementById('nav-user-name').textContent   = name  || 'My Account';
+    document.getElementById('nav-user-email').textContent  = email || '';
+    userEl.classList.add('show');
+    loginBtn.classList.add('hidden');
+    try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch(_) {}
+  }
+  function hideNavProfile() {
+    const userEl   = document.getElementById('nav-user');
+    const loginBtn = document.getElementById('nav-login-btn');
+    if (!userEl) return;
+    userEl.classList.remove('show');
+    loginBtn.classList.remove('hidden');
+    try { localStorage.removeItem(LS_KEY); } catch(_) {}
+  }
+  // Instant render from cache (no flicker)
+  try {
+    const cached = localStorage.getItem(LS_KEY);
+    if (cached) { const { name, email } = JSON.parse(cached); showNavProfile(name, email); }
+  } catch(_) {}
+  // Sign-out button
+  document.getElementById('nav-signout')?.addEventListener('click', () => {
+    signOut(auth).then(hideNavProfile).catch(console.error);
+  });
+  // Firebase auth state (authoritative truth)
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      showNavProfile(
+        user.displayName || user.email?.split('@')[0] || 'Student',
+        user.email || ''
+      );
+    } else {
+      hideNavProfile();
+    }
+  });
+</script>
+</body>
+</html>

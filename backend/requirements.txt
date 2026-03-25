@@ -1,0 +1,8 @@
+flask
+flask-cors
+groq
+python-dotenv
+requests
+beautifulsoup4
+sentence-transformers
+scikit-learn

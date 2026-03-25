@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse all NareshIT courses — Full Stack, DevOps, Data Science, AI, Cloud, Testing and more." />
+  <title>All Courses — NareshIT Best No.1 Software Training Institute</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream:      #f6f3ed;
+      --cream-dark: #edeae1;
+      --ink:        #111010;
+      --gold:       #b89050;
+      --gold-light: #d4aa6a;
+      --ash:        #7c7870;
+      --white:      #ffffff;
+      --divider:    rgba(17,16,16,.08);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'Outfit', sans-serif;
+
+      --ease-silk:  cubic-bezier(0.16,1,0.3,1);
+      --ease-std:   cubic-bezier(0.25,0.46,0.45,0.94);
+
+      --r-lg:  16px;
+      --r-md:  12px;
+      --r-sm:  8px;
+      --r-pill:100px;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; font-size:16px; }
+    body { background:var(--cream); color:var(--ink); font-family:var(--font-sans); font-weight:300; line-height:1.7; overflow-x:hidden; }
+    a { color:inherit; text-decoration:none; }
+    img { display:block; max-width:100%; }
+
+    ::-webkit-scrollbar        { width:4px; }
+    ::-webkit-scrollbar-track  { background:var(--cream-dark); }
+    ::-webkit-scrollbar-thumb  { background:var(--gold); border-radius:4px; }
+
+    /* ── NAV ── */
+    .nav {
+      position:sticky; top:0; z-index:400;
+      height:68px; display:flex; align-items:center; justify-content:space-between;
+      padding:0 60px;
+      background:rgba(246,243,237,.96);
+      backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+      box-shadow:0 1px 0 var(--divider);
+    }
+    .nav-logo img { height:38px; width:auto; }
+    .nav-links { display:flex; gap:36px; list-style:none; }
+    .nav-links a {
+      font-size:12px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase;
+      color:var(--ash); position:relative; transition:color .3s;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; left:0; bottom:-4px; right:0; height:1px;
+      background:var(--gold); transform:scaleX(0); transform-origin:left;
+      transition:transform .35s var(--ease-std);
+    }
+    .nav-links a:hover,.nav-links a.active { color:var(--ink); }
+    .nav-links a:hover::after,.nav-links a.active::after { transform:scaleX(1); }
+    .nav-end { display:flex; gap:10px; align-items:center; }
+
+    /* ── NAV USER PROFILE ── */
+    .nav-user { display:none; align-items:center; gap:10px; }
+    .nav-user.show { display:flex; }
+    .nav-user-avatar {
+      width:34px; height:34px; border-radius:50%;
+      background:linear-gradient(135deg, var(--gold), var(--ink));
+      color:#fff; display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-serif); font-size:13px; font-weight:700;
+      flex-shrink:0;
+    }
+    .nav-user-info { display:flex; flex-direction:column; line-height:1.2; }
+    .nav-user-name  { font-size:12px; font-weight:600; color:var(--ink); }
+    .nav-user-email { font-size:10px; color:var(--ash); }
+    .nav-signout {
+      background:none; border:1px solid var(--divider); border-radius:var(--r-pill);
+      padding:4px 10px; font-family:var(--font-sans); font-size:10px; font-weight:600;
+      color:var(--ash); cursor:pointer; transition:all .25s;
+    }
+    .nav-signout:hover { border-color:var(--ink); color:var(--ink); }
+    #nav-login-btn { transition:all .25s; }
+    #nav-login-btn.hidden { display:none; }
+
+    .btn-ng {
+      padding:9px 20px; background:transparent; border:1.5px solid var(--divider);
+      border-radius:var(--r-pill); font-family:var(--font-sans); font-size:12px;
+      font-weight:500; letter-spacing:.5px; color:var(--ash); cursor:pointer;
+      transition:all .3s var(--ease-std);
+    }
+    .btn-ng:hover { border-color:var(--ink); color:var(--ink); }
+    .btn-nf {
+      padding:9px 22px; background:var(--gold); border:1.5px solid var(--gold);
+      border-radius:var(--r-pill); font-family:var(--font-sans); font-size:12px;
+      font-weight:600; letter-spacing:.5px; color:var(--white); cursor:pointer;
+      transition:all .35s var(--ease-silk);
+    }
+    .btn-nf:hover { background:var(--ink); border-color:var(--ink); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background:var(--ink);
+      padding:64px 60px 56px;
+      position:relative; overflow:hidden;
+    }
+    .page-hero::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 80% 120% at 50% 0%, rgba(184,144,80,.12), transparent 70%);
+      pointer-events:none;
+    }
+    .page-hero-inner {
+      max-width:1200px; margin:0 auto; position:relative; z-index:1;
+      display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+    }
+    .lbl-hero {
+      display:flex; align-items:center; gap:12px;
+      font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase;
+      color:var(--gold-light); margin-bottom:16px;
+    }
+    .lbl-hero::before { content:''; display:block; width:24px; height:1px; background:var(--gold-light); }
+    .page-hero h1 {
+      font-family:var(--font-serif); font-size:clamp(36px,4vw,64px);
+      font-weight:300; line-height:1.0; color:rgba(246,243,237,.92);
+      letter-spacing:-1px; margin-bottom:16px;
+    }
+    .page-hero h1 em { font-style:italic; color:var(--gold); }
+    .page-hero p { font-size:15px; color:rgba(246,243,237,.4); max-width:440px; line-height:1.9; margin-bottom:32px; }
+    .search-wrap {
+      display:flex; gap:0; max-width:520px;
+      background:rgba(246,243,237,.06); border:1px solid rgba(246,243,237,.14);
+      border-radius:var(--r-pill); overflow:hidden; padding:4px 4px 4px 20px;
+    }
+    .search-wrap input {
+      flex:1; background:transparent; border:none; outline:none;
+      font-family:var(--font-sans); font-size:13px; font-weight:300;
+      color:rgba(246,243,237,.85); caret-color:var(--gold);
+    }
+    .search-wrap input::placeholder { color:rgba(246,243,237,.28); }
+    .search-wrap button {
+      padding:10px 22px; background:var(--gold); border:none; border-radius:var(--r-pill);
+      font-family:var(--font-sans); font-size:12px; font-weight:600; letter-spacing:.5px;
+      color:var(--white); cursor:pointer; transition:background .3s var(--ease-silk);
+    }
+    .search-wrap button:hover { background:var(--gold-light); }
+    .hero-chips { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+    .chip {
+      padding:7px 16px; background:rgba(246,243,237,.05);
+      border:1px solid rgba(246,243,237,.1); border-radius:var(--r-pill);
+      font-size:11px; font-weight:500; letter-spacing:.5px; color:rgba(246,243,237,.5);
+    }
+    .chip strong { color:var(--gold-light); font-weight:600; }
+
+    /* ── AI SUGGESTION WIDGET ── */
+    .ai-suggest-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(184,144,80,0.3);
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    .ai-suggest-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .ai-box-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .ai-icon-pulse {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #e8c07a);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(184,144,80,0.4);
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(184,144,80,0.4); }
+      70%  { box-shadow: 0 0 0 10px rgba(184,144,80,0); }
+      100% { box-shadow: 0 0 0 0 rgba(184,144,80,0); }
+    }
+    .ai-box-title { font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: rgba(246,243,237,0.92); line-height: 1.2; }
+    .ai-box-subtitle { font-size: 11px; color: rgba(184,144,80,0.8); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+    .ai-steps { display: flex; gap: 6px; margin-bottom: 20px; }
+    .ai-step-pill { flex: 1; height: 3px; border-radius: 99px; background: rgba(246,243,237,0.1); transition: background 0.4s; }
+    .ai-step-pill.done { background: var(--gold); }
+    .ai-step-pill.active { background: rgba(184,144,80,0.5); }
+    .ai-field { margin-bottom: 14px; }
+    .ai-field label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(246,243,237,0.35); margin-bottom: 7px; }
+    .ai-field select, .ai-field input {
+      width: 100%;
+      background: rgba(246,243,237,0.06);
+      border: 1.5px solid rgba(246,243,237,0.1);
+      border-radius: var(--r-sm);
+      padding: 11px 14px;
+      font-family: var(--font-sans); font-size: 13px; font-weight: 300;
+      color: rgba(246,243,237,0.85); outline: none;
+      transition: all 0.3s var(--ease-silk);
+      cursor: pointer; appearance: none; -webkit-appearance: none;
+    }
+    .ai-field select option { background: #1a1a1a; color: #f0ede7; }
+    .ai-field select:focus, .ai-field input:focus { border-color: rgba(184,144,80,0.6); background: rgba(246,243,237,0.09); box-shadow: 0 0 0 4px rgba(184,144,80,0.08); }
+    .ai-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btn-ai-suggest {
+      width: 100%; padding: 13px;
+      background: linear-gradient(135deg, var(--gold) 0%, #c9a060 100%);
+      border: none; border-radius: var(--r-sm);
+      font-family: var(--font-serif); font-size: 16px; font-weight: 600;
+      color: var(--white); cursor: pointer;
+      transition: all 0.35s var(--ease-silk);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      letter-spacing: 0.3px;
+    }
+    .btn-ai-suggest:hover { background: linear-gradient(135deg, #c9a060 0%, var(--gold-light) 100%); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,144,80,0.3); }
+    .btn-ai-suggest:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+    .ai-thinking { display: none; align-items: center; gap: 10px; padding: 14px 0; margin-bottom: 4px; }
+    .ai-thinking.visible { display: flex; }
+    .ai-thinking-dots { display: flex; gap: 5px; }
+    .ai-thinking-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold-light); animation: dotBounce 1.2s infinite ease-in-out; }
+    .ai-thinking-dot:nth-child(2) { animation-delay: 0.2s; }
+    .ai-thinking-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotBounce { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+    .ai-thinking-text { font-size: 12px; color: rgba(246,243,237,0.45); font-style: italic; letter-spacing: 0.3px; }
+    .ai-result { display: none; animation: slideResult 0.5s var(--ease-silk) both; }
+    .ai-result.visible { display: block; }
+    @keyframes slideResult { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+    .ai-result-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .ai-result-title { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); }
+    .btn-ai-reset { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: rgba(246,243,237,0.3); background: none; border: none; cursor: pointer; transition: color 0.25s; }
+    .btn-ai-reset:hover { color: rgba(246,243,237,0.7); }
+    .ai-summary-badge { background: rgba(184,144,80,0.12); border: 1px solid rgba(184,144,80,0.2); border-radius: var(--r-sm); padding: 12px 14px; margin-bottom: 14px; font-size: 13px; color: rgba(246,243,237,0.65); line-height: 1.7; }
+    .ai-course-recs { display: flex; flex-direction: column; gap: 8px; }
+    .ai-rec-card { background: rgba(246,243,237,0.04); border: 1px solid rgba(246,243,237,0.08); border-radius: var(--r-md); padding: 13px 15px; display: flex; align-items: center; gap: 13px; cursor: pointer; transition: all 0.3s var(--ease-silk); position: relative; overflow: hidden; }
+    .ai-rec-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--gold); opacity: 0; transition: opacity 0.3s; }
+    .ai-rec-card:hover { border-color: rgba(184,144,80,0.3); background: rgba(246,243,237,0.07); }
+    .ai-rec-card:hover::before { opacity: 1; }
+    .ai-rec-icon { font-size: 22px; flex-shrink: 0; width: 40px; height: 40px; background: rgba(184,144,80,0.1); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; }
+    .ai-rec-info { flex: 1; min-width: 0; }
+    .ai-rec-name { font-size: 13px; font-weight: 500; color: rgba(246,243,237,0.85); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 3px; }
+    .ai-rec-reason { font-size: 11px; color: rgba(246,243,237,0.35); line-height: 1.4; }
+    .ai-rec-match { font-size: 11px; font-weight: 700; color: var(--gold-light); flex-shrink: 0; letter-spacing: 0.5px; }
+    .ai-enroll-all { margin-top: 14px; width: 100%; padding: 11px; background: transparent; border: 1px solid rgba(184,144,80,0.35); border-radius: var(--r-sm); font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.5px; color: var(--gold-light); cursor: pointer; transition: all 0.3s var(--ease-silk); }
+    .ai-enroll-all:hover { background: rgba(184,144,80,0.1); border-color: var(--gold-light); }
+
+    /* ── MAIN LAYOUT ── */
+    .page-body { max-width:1200px; margin:0 auto; padding:48px 60px 100px; display:flex; gap:32px; align-items:flex-start; }
+    .sidebar { width:220px; flex-shrink:0; position:sticky; top:88px; }
+    .sidebar-title { font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--ash); margin-bottom:12px; padding-left:4px; }
+    .cat-list { list-style:none; display:flex; flex-direction:column; gap:2px; }
+    .cat-btn { width:100%; text-align:left; padding:11px 16px; background:transparent; border:none; border-radius:var(--r-md); font-family:var(--font-sans); font-size:13px; font-weight:400; color:var(--ash); cursor:pointer; transition:all .3s var(--ease-silk); display:flex; align-items:center; justify-content:space-between; }
+    .cat-btn:hover { background:var(--white); color:var(--ink); }
+    .cat-btn.active { background:var(--ink); color:var(--white); font-weight:500; }
+    .cat-btn .count { font-size:10px; font-weight:600; padding:2px 7px; background:rgba(184,144,80,.2); border-radius:20px; color:var(--gold); transition:all .3s; }
+    .cat-btn.active .count { background:rgba(255,255,255,.15); color:rgba(255,255,255,.7); }
+    .courses-area { flex:1; min-width:0; }
+    .toolbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid var(--divider); }
+    .toolbar-left { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .active-cat-label { font-family:var(--font-serif); font-size:24px; font-weight:600; color:var(--ink); }
+    .result-count { font-size:13px; color:var(--ash); }
+    .sort-select { padding:8px 14px; background:var(--white); border:1px solid var(--divider); border-radius:var(--r-sm); font-family:var(--font-sans); font-size:12px; color:var(--ash); cursor:pointer; outline:none; }
+    .course-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(248px,1fr)); gap:16px; transition:opacity .4s var(--ease-std), transform .4s var(--ease-std); }
+    .course-grid.fading { opacity:0; transform:translateY(10px); }
+    .course-card { background:var(--white); border:1px solid var(--divider); border-radius:var(--r-lg); overflow:hidden; display:flex; flex-direction:column; cursor:pointer; transition:transform .45s var(--ease-silk), box-shadow .45s var(--ease-silk), border-color .3s; animation:cardIn .5s var(--ease-silk) both; }
+    @keyframes cardIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    .course-card:hover { transform:translateY(-8px) scale(1.01); box-shadow:0 24px 56px rgba(17,16,16,.1); border-color:rgba(184,144,80,.3); }
+    .course-thumb { height:128px; background:var(--cream-dark); display:flex; align-items:center; justify-content:center; font-size:38px; position:relative; }
+    .course-badge { position:absolute; top:10px; left:10px; background:var(--gold); color:var(--white); font-size:8px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:3px 9px; border-radius:var(--r-pill); }
+    .course-body { padding:20px; flex:1; display:flex; flex-direction:column; }
+    .course-name { font-family:var(--font-serif); font-size:16px; font-weight:600; line-height:1.3; color:var(--ink); margin-bottom:10px; }
+    .course-stars { display:flex; align-items:center; gap:2px; margin-bottom:10px; }
+    .c-star { font-size:12px; color:var(--gold-light); }
+    .c-rating { font-size:12px; color:var(--ash); margin-left:5px; }
+    .course-meta { font-size:12px; color:var(--ash); line-height:1.9; flex:1; }
+    .course-meta span { display:block; }
+    .course-meta b { color:var(--ink); font-weight:500; }
+    .course-foot { display:flex; gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid var(--divider); }
+    .btn-enroll { flex:1; padding:10px; background:var(--ink); color:var(--white); border:none; border-radius:var(--r-sm); font-family:var(--font-sans); font-size:12px; font-weight:600; letter-spacing:.5px; cursor:pointer; transition:background .35s var(--ease-silk); }
+    .btn-enroll:hover { background:var(--gold); }
+    .btn-share { padding:10px 14px; background:transparent; border:1px solid var(--divider); border-radius:var(--r-sm); font-size:13px; color:var(--ash); cursor:pointer; transition:all .25s; }
+    .btn-share:hover { border-color:var(--ink); color:var(--ink); }
+    .no-results { grid-column:1/-1; text-align:center; padding:80px 20px; }
+    .no-results p { font-family:var(--font-serif); font-size:24px; color:var(--ash); margin-top:12px; }
+    .floats { position:fixed; bottom:28px; right:28px; z-index:300; display:flex; flex-direction:column; gap:10px; }
+    .fbtn { width:50px; height:50px; border-radius:50%; border:none; display:flex; align-items:center; justify-content:center; font-size:20px; cursor:pointer; box-shadow:0 4px 20px rgba(0,0,0,.18); transition:transform .35s var(--ease-silk), box-shadow .35s; }
+    .fbtn:hover { transform:scale(1.12); box-shadow:0 8px 30px rgba(0,0,0,.22); }
+    .fbtn-wa { background:#25D366; color:#fff; }
+    .fbtn-ph { background:var(--gold); color:#fff; }
+
+    /* ── ENROLL MODAL ── */
+    .modal-overlay { position:fixed; inset:0; background:rgba(17,16,16,.5); backdrop-filter:blur(6px); z-index:500; display:none; align-items:center; justify-content:center; padding:20px; }
+    .modal-overlay.open { display:flex; }
+    .modal-box { background:var(--white); border-radius:var(--r-lg); width:100%; max-width:480px; padding:44px; position:relative; animation:modalIn .45s var(--ease-silk); }
+    @keyframes modalIn { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .modal-close { position:absolute; top:18px; right:18px; width:32px; height:32px; border-radius:50%; border:1px solid var(--divider); background:transparent; font-size:16px; color:var(--ash); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .25s; }
+    .modal-close:hover { background:var(--ink); color:var(--white); border-color:var(--ink); }
+    .modal-course-name { font-family:var(--font-serif); font-size:22px; font-weight:600; color:var(--ink); margin-bottom:4px; }
+    .modal-sub { font-size:13px; color:var(--ash); margin-bottom:28px; }
+    .fgrp { margin-bottom:14px; }
+    .fgrp label { display:block; font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--ash); margin-bottom:7px; }
+    .fgrp input, .fgrp select, .fgrp textarea { width:100%; background:var(--cream-dark); border:1.5px solid transparent; border-radius:var(--r-sm); padding:12px 14px; font-family:var(--font-sans); font-size:14px; font-weight:300; color:var(--ink); outline:none; transition:all .3s var(--ease-silk); }
+    .fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus { background:var(--white); border-color:var(--gold); box-shadow:0 0 0 4px rgba(184,144,80,.1); }
+    .frow { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .btn-submit-modal { width:100%; padding:14px; background:var(--ink); color:var(--white); border:none; border-radius:var(--r-sm); margin-top:8px; font-family:var(--font-serif); font-size:17px; font-weight:600; cursor:pointer; transition:all .4s var(--ease-silk); }
+    .btn-submit-modal:hover { background:var(--gold); }
+
+    /* ── FOOTER ── */
+    .site-footer { background:var(--ink); padding:64px 60px 36px; }
+    .fgrid { display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:56px; max-width:1200px; margin:0 auto 52px; }
+    .flogo img { height:36px; filter:brightness(0) invert(1); opacity:.85; margin-bottom:16px; }
+    .fdesc { font-size:13px; color:rgba(246,243,237,.35); line-height:1.9; margin-bottom:24px; }
+    .fsocs { display:flex; gap:10px; }
+    .fsoc { width:36px; height:36px; border-radius:var(--r-sm); border:1px solid rgba(246,243,237,.1); display:flex; align-items:center; justify-content:center; font-size:13px; color:rgba(246,243,237,.35); transition:all .3s; }
+    .fsoc:hover { border-color:var(--gold); color:var(--gold); }
+    .fcol h5 { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(246,243,237,.3); margin-bottom:20px; }
+    .fcol ul { list-style:none; display:flex; flex-direction:column; gap:9px; }
+    .fcol ul a { font-size:13px; color:rgba(246,243,237,.45); transition:color .25s; }
+    .fcol ul a:hover { color:var(--gold-light); }
+    .fbot { max-width:1200px; margin:0 auto; border-top:1px solid rgba(246,243,237,.07); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+    .fbot p { font-size:12px; color:rgba(246,243,237,.25); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px) {
+      .nav { padding:0 28px; }
+      .nav-links { display:none; }
+      .page-hero { padding:48px 28px 44px; }
+      .page-hero-inner { grid-template-columns:1fr; gap:36px; }
+      .page-body { padding:32px 28px 80px; flex-direction:column; gap:0; }
+      .sidebar { width:100%; position:static; margin-bottom:28px; }
+      .cat-list { flex-direction:row; flex-wrap:wrap; gap:6px; }
+      .cat-btn { width:auto; padding:8px 16px; border:1px solid var(--divider); }
+      .cat-btn.active { border-color:var(--ink); }
+      .cat-btn .count { display:none; }
+      .fgrid { grid-template-columns:1fr 1fr; gap:36px; }
+      .site-footer { padding:52px 28px 32px; }
+      .nav-user-info { display:none; }
+    }
+    @media(max-width:640px) {
+      .fgrid { grid-template-columns:1fr; }
+      .frow { grid-template-columns:1fr; }
+      .course-grid { grid-template-columns:1fr 1fr; }
+      .ai-field-row { grid-template-columns: 1fr; }
+    }
+    @media(max-width:420px) {
+      .course-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation">
+    <a href="index.html" class="nav-logo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html" class="active">Courses</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      <!-- Logged-in profile pill -->
+      <div class="nav-user" id="nav-user">
+        <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+        <div class="nav-user-info">
+          <span class="nav-user-name"  id="nav-user-name">Name</span>
+          <span class="nav-user-email" id="nav-user-email">email</span>
+        </div>
+        <button class="nav-signout" id="nav-signout">Sign out</button>
+      </div>
+      <!-- Logged-out buttons -->
+      <button class="btn-ng" id="nav-login-btn" type="button">Login</button>
+      <button class="btn-nf" id="nav-enroll-btn" type="button">Enroll Now</button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="hero-left">
+        <div class="lbl-hero">Our Full Curriculum</div>
+        <h1>Courses Crafted for<br><em>Real Careers</em></h1>
+        <p>Every programme is built around industry demand, live projects, and expert mentors who are currently active practitioners.</p>
+        <div class="search-wrap">
+          <input type="text" id="search-input" placeholder="Search any course, technology, skill…" autocomplete="off" />
+          <button type="button" id="search-btn">Search</button>
+        </div>
+        <div class="hero-chips">
+          <div class="chip"><strong>80+</strong> Courses</div>
+          <div class="chip"><strong>22+</strong> Years</div>
+          <div class="chip"><strong>10L+</strong> Students Trained</div>
+          <div class="chip"><strong>95%</strong> Success Rate</div>
+          <div class="chip"><strong>Online · Offline · Weekend</strong></div>
+        </div>
+      </div>
+
+      <!-- AI Suggestion Widget -->
+      <div class="hero-right">
+        <div class="ai-suggest-box">
+          <div class="ai-box-header">
+            <div class="ai-icon-pulse">✦</div>
+            <div>
+              <div class="ai-box-title">AI Course Advisor</div>
+              <div class="ai-box-subtitle">Personalised for you</div>
+            </div>
+          </div>
+
+          <div class="ai-steps">
+            <div class="ai-step-pill active" id="step-1"></div>
+            <div class="ai-step-pill" id="step-2"></div>
+            <div class="ai-step-pill" id="step-3"></div>
+          </div>
+
+          <div id="ai-form">
+            <div class="ai-field-row">
+              <div class="ai-field">
+                <label>Education Level</label>
+                <select id="ai-edu">
+                  <option value="">Select level</option>
+                  <option value="10th">10th Pass</option>
+                  <option value="12th">12th Pass</option>
+                  <option value="diploma">Diploma</option>
+                  <option value="btech">B.Tech / B.E.</option>
+                  <option value="bsc">B.Sc (CS/IT)</option>
+                  <option value="bca">BCA</option>
+                  <option value="mtech">M.Tech / MCA</option>
+                  <option value="msc">M.Sc / MBA</option>
+                  <option value="working">Working Professional</option>
+                </select>
+              </div>
+              <div class="ai-field">
+                <label>Stream / Specialisation</label>
+                <select id="ai-stream">
+                  <option value="">Select stream</option>
+                  <option value="cs">Computer Science</option>
+                  <option value="it">Information Technology</option>
+                  <option value="ece">ECE / EEE</option>
+                  <option value="mech">Mechanical / Civil</option>
+                  <option value="commerce">Commerce / BBA</option>
+                  <option value="arts">Arts / Humanities</option>
+                  <option value="science">Science (Non-CS)</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="ai-field">
+              <label>Current Skills / Experience</label>
+              <select id="ai-skill">
+                <option value="">Select your level</option>
+                <option value="zero">Complete Beginner (no coding)</option>
+                <option value="basic">Know basics (HTML/Python basics)</option>
+                <option value="intermediate">Intermediate (1–2 languages)</option>
+                <option value="advanced">Advanced (3+ years experience)</option>
+                <option value="professional">IT Professional (switching domain)</option>
+              </select>
+            </div>
+
+            <div class="ai-field">
+              <label>Career Goal</label>
+              <select id="ai-goal">
+                <option value="">What's your aim?</option>
+                <option value="fullstack">Full Stack Developer</option>
+                <option value="devops">DevOps / Cloud Engineer</option>
+                <option value="data">Data Scientist / Analyst</option>
+                <option value="ai">AI / ML Engineer</option>
+                <option value="testing">QA / Test Engineer</option>
+                <option value="mobile">Mobile App Developer</option>
+                <option value="cyber">Cyber Security Expert</option>
+                <option value="placement">Get Placed Fast</option>
+                <option value="freelance">Freelancing / Upskill</option>
+              </select>
+            </div>
+
+            <div class="ai-thinking" id="ai-thinking">
+              <div class="ai-thinking-dots">
+                <div class="ai-thinking-dot"></div>
+                <div class="ai-thinking-dot"></div>
+                <div class="ai-thinking-dot"></div>
+              </div>
+              <span class="ai-thinking-text" id="ai-thinking-text">Analysing your profile…</span>
+            </div>
+
+            <button class="btn-ai-suggest" id="btn-ai-go" type="button">
+              <span>✦</span> Get My Course Recommendations
+            </button>
+          </div>
+
+          <div class="ai-result" id="ai-result">
+            <div class="ai-result-header">
+              <span class="ai-result-title">✦ Your Top Picks</span>
+              <button class="btn-ai-reset" id="btn-ai-reset" type="button">← Start Over</button>
+            </div>
+            <div class="ai-summary-badge" id="ai-summary-text"></div>
+            <div class="ai-course-recs" id="ai-recs"></div>
+            <button class="ai-enroll-all" id="ai-enroll-all" type="button">Speak to a Counsellor about these Courses</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="page-body">
+    <aside class="sidebar">
+      <div class="sidebar-title">Browse by Category</div>
+      <ul class="cat-list" id="cat-list"></ul>
+    </aside>
+    <div class="courses-area">
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <span class="active-cat-label" id="active-cat-label">All Courses</span>
+          <span class="result-count" id="result-count"></span>
+        </div>
+        <select class="sort-select" id="sort-select">
+          <option value="default">Sort: Default</option>
+          <option value="rating-high">Highest Rated</option>
+          <option value="rating-low">Lowest Rated</option>
+          <option value="name-az">Name A–Z</option>
+          <option value="name-za">Name Z–A</option>
+        </select>
+      </div>
+      <div class="course-grid" id="course-grid"></div>
+    </div>
+  </div>
+
+  <!-- ENROLL MODAL -->
+  <div class="modal-overlay" id="enroll-modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" type="button">✕</button>
+      <p style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Enroll Now</p>
+      <div class="modal-course-name" id="modal-course-name">Course Name</div>
+      <div class="modal-sub">Fill in the form — our team will reach out within 24 hours.</div>
+      <div class="frow">
+        <div class="fgrp"><label>Full Name</label><input type="text" id="m-name" placeholder="Your full name" /></div>
+        <div class="fgrp"><label>Mobile</label><input type="tel" id="m-phone" placeholder="+91 XXXXXXXXXX" /></div>
+      </div>
+      <div class="fgrp"><label>Email Address</label><input type="email" id="m-email" placeholder="you@email.com" /></div>
+      <div class="fgrp">
+        <label>Mode of Training</label>
+        <select id="m-mode">
+          <option value="">Select mode</option>
+          <option>Online</option>
+          <option>Offline / Classroom</option>
+          <option>Weekend</option>
+          <option>Corporate</option>
+        </select>
+      </div>
+      <button class="btn-submit-modal" id="modal-submit" type="button">Submit Enquiry</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="fgrid">
+      <div>
+        <div class="flogo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT" /></div>
+        <p class="fdesc">NNV Naresh is an entrepreneur with a noble vision to transform career aspirations. Over 22 years shaping India's software talent ecosystem.</p>
+        <div class="fsocs">
+          <a class="fsoc" href="https://www.facebook.com/nareshitechnologies" target="_blank" rel="noopener">f</a>
+          <a class="fsoc" href="https://www.instagram.com/nareshitech" target="_blank" rel="noopener">◎</a>
+          <a class="fsoc" href="https://www.youtube.com/@NareshIT" target="_blank" rel="noopener">▶</a>
+          <a class="fsoc" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank" rel="noopener">in</a>
+        </div>
+      </div>
+      <div class="fcol"><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Trainers Profile</a></li><li><a href="#">Careers</a></li><li><a href="#">Testimonials</a></li><li><a href="#">Privacy Policy</a></li><li><a href="index.html#contact">Contact Us</a></li></ul></div>
+      <div class="fcol"><h5>Quick Links</h5><ul><li><a href="#">New Batches</a></li><li><a href="#">Hire from NareshIT</a></li><li><a href="#">Interview Questions</a></li><li><a href="index.html#blog">Blog</a></li><li><a href="#">Internships</a></li><li><a href="#">Corporate Training</a></li></ul></div>
+      <div class="fcol"><h5>Top Courses</h5><ul><li><a href="#">Full Stack Java</a></li><li><a href="#">Full Stack Python</a></li><li><a href="#">DevOps Multi Cloud</a></li><li><a href="#">Data Science & AI</a></li><li><a href="#">Generative AI</a></li><li><a href="#">Cyber Security</a></li><li><a href="#">Software Testing</a></li></ul></div>
+    </div>
+    <div class="fbot"><p>© 2025 Naresh i Technologies. All rights reserved.</p><p>Crafted with care in Hyderabad, India</p></div>
+  </footer>
+
+  <div class="floats">
+    <button class="fbtn fbtn-wa" id="wa-btn" aria-label="WhatsApp">💬</button>
+    <button class="fbtn fbtn-ph" id="ph-btn" aria-label="Call">📞</button>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────────────────
+       SCRIPTS  —  type="module" required for ES import statements
+  ───────────────────────────────────────────────────────────── -->
+  <script type="module">
+
+    /* ── Firebase ── */
+    import { initializeApp }
+      from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged, signOut }
+      from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+
+    const firebaseConfig = {
+      apiKey:            'AIzaSyBHAPhCQHq0jR-4pAwlLKAphskkbhpC5iw',
+      authDomain:        'nareshit-bd900.firebaseapp.com',
+      projectId:         'nareshit-bd900',
+      storageBucket:     'nareshit-bd900.firebasestorage.app',
+      messagingSenderId: '923456489902',
+      appId:             '1:923456489902:web:f652e970887451c2ba203f',
+      measurementId:     'G-EXWYHW9TB2',
+    };
+
+    const app  = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const LS_KEY = 'nit_user';
+
+    function getInitials(name) {
+      if (!name) return '?';
+      return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    }
+
+    function showNavProfile(name, email) {
+      const userEl   = document.getElementById('nav-user');
+      const loginBtn = document.getElementById('nav-login-btn');
+      if (!userEl) return;
+      document.getElementById('nav-user-avatar').textContent = getInitials(name);
+      document.getElementById('nav-user-name').textContent   = name  || 'My Account';
+      document.getElementById('nav-user-email').textContent  = email || '';
+      userEl.classList.add('show');
+      loginBtn.classList.add('hidden');
+      try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch(_) {}
+    }
+
+    function hideNavProfile() {
+      const userEl   = document.getElementById('nav-user');
+      const loginBtn = document.getElementById('nav-login-btn');
+      if (!userEl) return;
+      userEl.classList.remove('show');
+      loginBtn.classList.remove('hidden');
+      try { localStorage.removeItem(LS_KEY); } catch(_) {}
+    }
+
+    /* Instant render from localStorage — no flicker on page load */
+    (function() {
+      try {
+        const cached = localStorage.getItem(LS_KEY);
+        if (cached) {
+          const { name, email } = JSON.parse(cached);
+          if (name || email) showNavProfile(name, email);
+        }
+      } catch(_) {}
+    })();
+
+    document.getElementById('nav-signout').addEventListener('click', () => {
+      signOut(auth).then(hideNavProfile).catch(console.error);
+    });
+
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        showNavProfile(
+          user.displayName || user.email?.split('@')[0] || 'Student',
+          user.email || ''
+        );
+      } else {
+        hideNavProfile();
+      }
+    });
+
+    /* ── Nav button wiring ── */
+    document.getElementById('nav-login-btn').addEventListener('click',  () => { window.location.href = 'index.html'; });
+    document.getElementById('nav-enroll-btn').addEventListener('click', () => { openModal('General Enquiry'); });
+    document.getElementById('wa-btn').addEventListener('click', () => { window.open('https://wa.me/+918179191999', '_blank'); });
+    document.getElementById('ph-btn').addEventListener('click', () => { window.location.href = 'tel:+918179191999'; });
+
+    /* ─────────────────────────────────────────
+       COURSE DATA
+    ───────────────────────────────────────── */
+    const CATEGORIES = [
+      { id:'all',          label:'All Courses' },
+      { id:'trending',     label:'Trending' },
+      { id:'fullstack',    label:'Full Stack' },
+      { id:'placement',    label:'Placement' },
+      { id:'nasscom',      label:'NASSCOM' },
+      { id:'internship',   label:'Internships' },
+      { id:'certification',label:'Certification' },
+      { id:'devops',       label:'DevOps' },
+      { id:'cloud',        label:'Cloud' },
+      { id:'data',         label:'Data Science' },
+      { id:'testing',      label:'Testing' },
+      { id:'webdev',       label:'Web Dev' },
+      { id:'programming',  label:'Programming' },
+      { id:'database',     label:'Database' },
+      { id:'ai',           label:'AI & ML' },
+      { id:'mobile',       label:'Mobile' },
+    ];
+
+    const ALL_COURSES = [
+      { name:'Generative AI & Agentic AI with Python', icon:'🤖', rating:4.8, start:'18 Mar 2026', dur:'3 months', trainer:'Mr. Prudhvi',      badge:'HOT',  cats:['trending','ai'] },
+      { name:'DevOps with Multi Cloud',                 icon:'☁️', rating:5.0, start:'23 Mar 2026', dur:'5 months', trainer:'Mr. Veera Babu',  badge:'TOP',  cats:['trending','devops','cloud'] },
+      { name:'Cyber Security & Ethical Hacking',        icon:'🛡️', rating:4.7, start:'25 Mar 2026', dur:'3 months', trainer:'Expert Trainer', badge:'',     cats:['trending','certification'] },
+      { name:'Full Stack Data Science & AI',            icon:'📊', rating:5.0, start:'18 Mar 2026', dur:'4 months', trainer:'Mr. Nikhil',      badge:'HOT',  cats:['trending','fullstack','data','ai'] },
+      { name:'Playwright Automation',                   icon:'🎭', rating:4.5, start:'25 Mar 2026', dur:'3 months', trainer:'Mr. Karthik',     badge:'NEW',  cats:['trending','testing'] },
+      { name:'Advanced Generative & Agentic AI',        icon:'✨', rating:4.9, start:'18 Mar 2026', dur:'3 months', trainer:'Mr. Prudhvi',     badge:'NEW',  cats:['trending','ai'] },
+      { name:'DSA with AI Engineer Program',            icon:'⚡', rating:4.5, start:'23 Mar 2026', dur:'60 days',  trainer:'Mr. Abhijeeth',   badge:'',     cats:['trending','programming','ai'] },
+      { name:'Snowflake',                               icon:'❄️', rating:4.6, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer',  badge:'',     cats:['trending','data','database'] },
+      { name:'Playwright with TypeScript',              icon:'🎭', rating:0,   start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer',  badge:'NEW',  cats:['trending','testing'] },
+      { name:'Data Structures & Algorithms with Python',icon:'🐍', rating:0,   start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer',  badge:'',     cats:['trending','programming'] },
+      { name:'MLOps & AIOps',                           icon:'🔬', rating:4.5, start:'23 Mar 2026', dur:'3 months', trainer:'Expert Trainer',  badge:'',     cats:['trending','ai','devops'] },
+      { name:'Full Stack Java',                         icon:'☕', rating:5.0, start:'23 Mar 2026', dur:'6 months', trainer:'Mr. Hari Krishna', badge:'POPULAR', cats:['fullstack','trending'] },
+      { name:'Full Stack Python',                       icon:'🐍', rating:5.0, start:'23 Mar 2026', dur:'5 months', trainer:'Mr. Satish Gupta', badge:'POPULAR', cats:['fullstack'] },
+      { name:'Full Stack .NET Core',                    icon:'🔷', rating:4.5, start:'23 Mar 2026', dur:'5 months', trainer:'Mr. Bangar Raju',  badge:'',        cats:['fullstack'] },
+      { name:'UI Full Stack Web Development with React',icon:'⚛️', rating:4.5, start:'23 Mar 2026', dur:'4 months', trainer:'Expert Trainer',   badge:'',        cats:['fullstack','webdev'] },
+      { name:'Full Stack Software Testing',             icon:'🔬', rating:4.5, start:'25 Mar 2026', dur:'2 months', trainer:'Mr. Madhusudhan',  badge:'',        cats:['fullstack','testing'] },
+      { name:'Backend Development',                     icon:'⚙️', rating:4.5, start:'25 Mar 2026', dur:'3 months', trainer:'Expert Trainer',   badge:'',        cats:['fullstack','webdev'] },
+      { name:'Full Stack Java Placement Assistance Program',   icon:'☕', rating:4.5, start:'23 Mar 2026', dur:'6 months', trainer:'Real-Time Expert', badge:'GUARANTEED', cats:['placement','fullstack'] },
+      { name:'Full Stack .Net Placement Assistance Program',   icon:'🔷', rating:5.0, start:'18 Mar 2026', dur:'5 months', trainer:'Real-Time Expert', badge:'GUARANTEED', cats:['placement','fullstack'] },
+      { name:'Full Stack Java Developer Program',         icon:'☕', rating:4.8, start:'23 Mar 2026', dur:'4 months', trainer:'Expert', badge:'NASSCOM', cats:['nasscom','fullstack'] },
+      { name:'AWS Solutions Architect Associate',         icon:'☁️', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'NASSCOM', cats:['nasscom','cloud'] },
+      { name:'Full Stack Data Science Program',           icon:'📊', rating:4.5, start:'23 Mar 2026', dur:'4 months', trainer:'Expert', badge:'NASSCOM', cats:['nasscom','data'] },
+      { name:'Python Developer',                          icon:'🐍', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'NASSCOM', cats:['nasscom','programming'] },
+      { name:'Software Testing',                          icon:'🔬', rating:4.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'NASSCOM', cats:['nasscom','testing'] },
+      { name:'DevOps Certification Course',               icon:'⚙️', rating:4.5, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'NASSCOM', cats:['nasscom','devops','certification'] },
+      { name:'Internship Program on DevOps with Cloud',  icon:'⚙️', rating:4.5, start:'23 Mar 2026', dur:'30 days', trainer:'Expert', badge:'NASSCOM', cats:['internship','devops'] },
+      { name:'Internship Program on Python',              icon:'🐍', rating:5.0, start:'23 Mar 2026', dur:'30 days', trainer:'Expert', badge:'NASSCOM', cats:['internship','programming'] },
+      { name:'Internship Program on Data Science',        icon:'📊', rating:5.0, start:'23 Mar 2026', dur:'30 days', trainer:'Expert', badge:'NASSCOM', cats:['internship','data'] },
+      { name:'Terraform Associate (003)',         icon:'🔧', rating:4.7, start:'23 Mar 2026', dur:'45 days',  trainer:'Expert', badge:'CERT', cats:['certification','devops'] },
+      { name:'Azure Fundamentals AZ-900',         icon:'☁️', rating:5.0, start:'23 Mar 2026', dur:'30 days',  trainer:'Expert', badge:'CERT', cats:['certification','cloud'] },
+      { name:'Azure Administrator AZ-104',        icon:'☁️', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'CERT', cats:['certification','cloud'] },
+      { name:'Azure Developer Associate AZ-204',  icon:'☁️', rating:4.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'CERT', cats:['certification','cloud'] },
+      { name:'Azure DevOps AZ-400',               icon:'☁️', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'CERT', cats:['certification','cloud','devops'] },
+      { name:'DevOps',                             icon:'⚙️', rating:4.5, start:'23 Mar 2026', dur:'4 months', trainer:'Expert Trainer', badge:'', cats:['devops'] },
+      { name:'DevOps with AWS',                    icon:'⚙️', rating:5.0, start:'23 Mar 2026', dur:'4 months', trainer:'Expert Trainer', badge:'', cats:['devops','cloud'] },
+      { name:'DevOps & Site Reliability Eng. SRE', icon:'⚙️', rating:0,   start:'23 Mar 2026', dur:'3 months', trainer:'Expert Trainer', badge:'', cats:['devops'] },
+      { name:'Docker & Kubernetes',                icon:'🐳', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['devops','cloud'] },
+      { name:'Linux Administration',               icon:'🐧', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['devops'] },
+      { name:'Amazon Web Services (AWS)',           icon:'☁️', rating:4.5, start:'23 Mar 2026', dur:'3 months', trainer:'Expert Trainer', badge:'', cats:['cloud'] },
+      { name:'Multi Cloud',                         icon:'☁️', rating:5.0, start:'23 Mar 2026', dur:'4 months', trainer:'Expert Trainer', badge:'', cats:['cloud'] },
+      { name:'Google Cloud (GCP)',                  icon:'☁️', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['cloud'] },
+      { name:'MS Azure + Azure DevOps',             icon:'☁️', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert Trainer', badge:'', cats:['cloud','devops'] },
+      { name:'Azure Data Engineer',                 icon:'☁️', rating:4.5, start:'23 Mar 2026', dur:'3 months', trainer:'Expert Trainer', badge:'', cats:['cloud','data'] },
+      { name:'MS Azure Data Factory',               icon:'☁️', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['cloud','data'] },
+      { name:'Data Science with AI',                icon:'📊', rating:5.0, start:'23 Mar 2026', dur:'4 months', trainer:'Expert Trainer', badge:'', cats:['data','ai'] },
+      { name:'Data Analytics & Business Analytics', icon:'📈', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert Trainer', badge:'', cats:['data'] },
+      { name:'Numpy | Pandas | Matplotlib',         icon:'📊', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['data','programming'] },
+      { name:'Power BI',                            icon:'📊', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['data'] },
+      { name:'Tableau',                             icon:'📊', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['data'] },
+      { name:'Hadoop Online Training',              icon:'🗄️', rating:4.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['data'] },
+      { name:'R Programming',                       icon:'📊', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['data','programming'] },
+      { name:'Selenium',                            icon:'🔬', rating:4.8, start:'23 Mar 2026', dur:'3 months', trainer:'Expert Trainer', badge:'', cats:['testing'] },
+      { name:'Manual Testing',                      icon:'🔬', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['testing'] },
+      { name:'Tosca',                               icon:'🔬', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['testing'] },
+      { name:'Automation Anywhere',                 icon:'🤖', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert Trainer', badge:'', cats:['testing','ai'] },
+      { name:'React JS',            icon:'⚛️', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'', cats:['webdev'] },
+      { name:'Angular',             icon:'🅰️', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'', cats:['webdev'] },
+      { name:'Node JS',             icon:'🟢', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['webdev'] },
+      { name:'HTML CSS JavaScript', icon:'🌐', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['webdev'] },
+      { name:'BootStrap',           icon:'🎨', rating:4.5, start:'23 Mar 2026', dur:'1 month',  trainer:'Expert', badge:'', cats:['webdev'] },
+      { name:'PhP with MySQL',      icon:'🐘', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['webdev','database'] },
+      { name:'Django with Rest API',icon:'🐍', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['webdev','programming'] },
+      { name:'Core Java',           icon:'☕', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'Advanced Java',       icon:'☕', rating:4.8, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'Spring',              icon:'🌱', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'Spring Boot & Microservices', icon:'🌱', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'', cats:['programming','fullstack'] },
+      { name:'Python Programming',  icon:'🐍', rating:4.3, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'C Language',          icon:'©️', rating:0,   start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'C#.NET',              icon:'🔷', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'Asp.Net MVC 5 + MVC Core 9', icon:'🔷', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'DSA using Java',      icon:'⚡', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'DSA using C',         icon:'⚡', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'Java Real-Time Projects', icon:'☕', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['programming'] },
+      { name:'MySQL',               icon:'🗄️', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['database'] },
+      { name:'SQL Server',          icon:'🗄️', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['database'] },
+      { name:'Oracle',              icon:'🗄️', rating:4.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['database'] },
+      { name:'MongoDB',             icon:'🍃', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['database'] },
+      { name:'Chat GPT',            icon:'🤖', rating:4.5, start:'23 Mar 2026', dur:'1 month', trainer:'Expert', badge:'', cats:['ai'] },
+      { name:'Salesforce LWC',      icon:'☁️', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'', cats:['ai','cloud'] },
+      { name:'Salesforce CRM',      icon:'☁️', rating:4.5, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['ai'] },
+      { name:'Power Apps',          icon:'⚡', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['ai'] },
+      { name:'Blue Prism',          icon:'🤖', rating:4.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['ai','testing'] },
+      { name:'UiPath',              icon:'🤖', rating:5.0, start:'23 Mar 2026', dur:'2 months', trainer:'Expert', badge:'', cats:['ai'] },
+      { name:'Android',             icon:'🤖', rating:4.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'', cats:['mobile'] },
+      { name:'iOS (iPhone OS)',      icon:'📱', rating:5.0, start:'23 Mar 2026', dur:'3 months', trainer:'Expert', badge:'', cats:['mobile'] },
+    ];
+
+    /* ─────────────────────────────────────────
+       AI SUGGESTION LOGIC
+    ───────────────────────────────────────── */
+    const AI_RULES = {
+      fullstack: {
+        beginner:     [ { name:'Full Stack Java', reason:'Best end-to-end track for beginners aiming at high-paying roles', match:'97%' }, { name:'HTML CSS JavaScript', reason:'Essential foundation before any full-stack journey', match:'95%' }, { name:'Full Stack Python', reason:'Python-based stack with strong industry demand', match:'92%' } ],
+        intermediate: [ { name:'Full Stack Java', reason:'Structured path to senior developer role with live projects', match:'96%' }, { name:'Spring Boot & Microservices', reason:'Upgrade existing Java skills to enterprise-grade', match:'93%' }, { name:'React JS', reason:'Add modern frontend to your backend knowledge', match:'89%' } ],
+        advanced:     [ { name:'Full Stack Java Placement Assistance Program', reason:'Placement-guaranteed track ideal for experienced devs', match:'95%' }, { name:'Spring Boot & Microservices', reason:'Deepen backend architecture expertise', match:'91%' }, { name:'DevOps with Multi Cloud', reason:'Expand into DevOps to become a 10× developer', match:'88%' } ],
+      },
+      devops: {
+        beginner:     [ { name:'Linux Administration', reason:'Mandatory foundation for every DevOps engineer', match:'98%' }, { name:'DevOps', reason:'Comprehensive beginner-friendly DevOps bootcamp', match:'95%' }, { name:'Docker & Kubernetes', reason:'Most in-demand containerisation skills', match:'90%' } ],
+        intermediate: [ { name:'DevOps with Multi Cloud', reason:'Multi-cloud expertise fetches premium salaries', match:'96%' }, { name:'DevOps with AWS', reason:'AWS is the #1 cloud platform globally', match:'93%' }, { name:'Terraform Associate (003)', reason:'Infrastructure-as-code cert for cloud automation', match:'89%' } ],
+        advanced:     [ { name:'DevOps with Multi Cloud', reason:'Level up to architect-level multi-cloud mastery', match:'97%' }, { name:'Azure DevOps AZ-400', reason:'Microsoft certification boosts consulting rates', match:'92%' }, { name:'MLOps & AIOps', reason:'Emerging field blending DevOps with AI operations', match:'87%' } ],
+      },
+      data: {
+        beginner:     [ { name:'Python Programming', reason:'Python is the de-facto language for data science', match:'98%' }, { name:'Data Analytics & Business Analytics', reason:'Entry-level data analyst track — no prior coding needed', match:'94%' }, { name:'Power BI', reason:'Quick-win tool for business analytics roles', match:'90%' } ],
+        intermediate: [ { name:'Data Science with AI', reason:'Full data science curriculum with ML & AI modules', match:'96%' }, { name:'Full Stack Data Science & AI', reason:'End-to-end programme highly valued by top firms', match:'94%' }, { name:'Numpy | Pandas | Matplotlib', reason:'Core Python data manipulation libraries', match:'89%' } ],
+        advanced:     [ { name:'Full Stack Data Science & AI', reason:'Advanced programme covering MLOps and deployment', match:'96%' }, { name:'MLOps & AIOps', reason:'Bridge data science and production engineering', match:'93%' }, { name:'Snowflake', reason:'Cloud data warehousing — top skill in 2026', match:'89%' } ],
+      },
+      ai: {
+        beginner:     [ { name:'Python Programming', reason:'Start with Python — the language of AI', match:'98%' }, { name:'Chat GPT', reason:'Learn to leverage AI tools for productivity', match:'94%' }, { name:'Data Science with AI', reason:'Structured AI learning path from fundamentals', match:'91%' } ],
+        intermediate: [ { name:'Generative AI & Agentic AI with Python', reason:'Hottest skill in 2026 — Agentic AI demand is exploding', match:'97%' }, { name:'Advanced Generative & Agentic AI', reason:'Deep-dive into LLMs, RAG, and autonomous agents', match:'94%' }, { name:'MLOps & AIOps', reason:'Deploy AI models at scale like top-tier engineers', match:'89%' } ],
+        advanced:     [ { name:'Advanced Generative & Agentic AI', reason:'Build production-ready AI agents and LLM pipelines', match:'97%' }, { name:'DSA with AI Engineer Program', reason:'Combine algorithms + AI for FAANG-level interviews', match:'93%' }, { name:'MLOps & AIOps', reason:'Own the full AI lifecycle from training to production', match:'90%' } ],
+      },
+      testing: {
+        beginner:     [ { name:'Manual Testing', reason:'Best starting point — no coding required', match:'97%' }, { name:'Software Testing', reason:'NASSCOM-certified track with placement support', match:'93%' }, { name:'Selenium', reason:'Most demanded automation tool in the market', match:'89%' } ],
+        intermediate: [ { name:'Full Stack Software Testing', reason:'Complete testing programme covering manual + automation', match:'96%' }, { name:'Playwright Automation', reason:'Modern framework overtaking Selenium in 2026', match:'93%' }, { name:'Selenium', reason:'Master the industry-standard automation framework', match:'90%' } ],
+        advanced:     [ { name:'Playwright with TypeScript', reason:'TypeScript + Playwright is the new gold standard', match:'95%' }, { name:'Tosca', reason:'SAP/enterprise test automation — premium salary', match:'91%' }, { name:'UiPath', reason:'RPA automation — rapidly growing field', match:'87%' } ],
+      },
+      mobile: {
+        beginner:     [ { name:'Android', reason:'Largest mobile platform — high developer demand', match:'96%' }, { name:'iOS (iPhone OS)', reason:'Apple ecosystem — premium app development', match:'93%' }, { name:'HTML CSS JavaScript', reason:'Foundation for cross-platform mobile apps', match:'88%' } ],
+        intermediate: [ { name:'Android', reason:'Build production apps for billions of users', match:'95%' }, { name:'iOS (iPhone OS)', reason:'iOS pays among the highest mobile dev salaries', match:'92%' }, { name:'React JS', reason:'React Native extends web skills to mobile', match:'87%' } ],
+        advanced:     [ { name:'iOS (iPhone OS)', reason:'Native iOS mastery for app store success', match:'94%' }, { name:'Android', reason:'Advanced Android with Kotlin & Jetpack Compose', match:'91%' }, { name:'Full Stack Java', reason:'Java powers Android backend & native apps', match:'87%' } ],
+      },
+      cyber: {
+        beginner:     [ { name:'Cyber Security & Ethical Hacking', reason:'Industry-aligned security course — high demand', match:'98%' }, { name:'Linux Administration', reason:'Linux is the backbone of all security work', match:'94%' }, { name:'DevOps', reason:'Networking knowledge essential for cyber roles', match:'88%' } ],
+        intermediate: [ { name:'Cyber Security & Ethical Hacking', reason:'Ethical hacking certification — growing field globally', match:'97%' }, { name:'Azure Administrator AZ-104', reason:'Cloud security is the fastest-growing cyber segment', match:'91%' }, { name:'DevOps & Site Reliability Eng. SRE', reason:'SRE overlaps heavily with security operations', match:'86%' } ],
+        advanced:     [ { name:'Cyber Security & Ethical Hacking', reason:'Advanced penetration testing and exploit development', match:'97%' }, { name:'Azure DevOps AZ-400', reason:'DevSecOps pipelines — premium consulting market', match:'91%' }, { name:'MLOps & AIOps', reason:'AI-powered threat detection is the next frontier', match:'85%' } ],
+      },
+      placement: {
+        beginner:     [ { name:'Full Stack Java Placement Assistance Program', reason:'Guaranteed placement support with real-time training', match:'98%' }, { name:'Internship Program on Python', reason:'30-day internship certificate strengthens your resume', match:'92%' }, { name:'Software Testing', reason:'NASSCOM cert + placement support for fresh graduates', match:'89%' } ],
+        intermediate: [ { name:'Full Stack Java Placement Assistance Program', reason:'Placement-first programme with mock interviews', match:'97%' }, { name:'Full Stack .Net Placement Assistance Program', reason:'.NET has massive corporate demand in India', match:'93%' }, { name:'Full Stack Java Developer Program', reason:'NASSCOM certified — opens MNC doors', match:'89%' } ],
+        advanced:     [ { name:'Full Stack .Net Placement Assistance Program', reason:'Fastest path to senior role with placement guarantee', match:'96%' }, { name:'DevOps with Multi Cloud', reason:'Multi-cloud engineers are getting ₹25-40 LPA offers', match:'93%' }, { name:'Advanced Generative & Agentic AI', reason:'AI skills command the highest salaries in 2026', match:'91%' } ],
+      },
+      freelance: {
+        beginner:     [ { name:'HTML CSS JavaScript', reason:'Freelancing starts with web fundamentals', match:'96%' }, { name:'Python Programming', reason:'Python automation is highly paid on Upwork', match:'92%' }, { name:'Power BI', reason:'Quick-win skill for freelance data dashboards', match:'88%' } ],
+        intermediate: [ { name:'React JS', reason:'React freelancers earn top rates on all platforms', match:'96%' }, { name:'Django with Rest API', reason:'Full-stack Python for independent project delivery', match:'92%' }, { name:'Generative AI & Agentic AI with Python', reason:'AI consulting is the highest-earning freelance niche', match:'90%' } ],
+        advanced:     [ { name:'Advanced Generative & Agentic AI', reason:'Build AI products — consulting rates $100+/hour', match:'97%' }, { name:'DevOps with Multi Cloud', reason:'Cloud architecture consulting — premium niche', match:'93%' }, { name:'Salesforce LWC', reason:'Salesforce freelancers command top enterprise rates', match:'88%' } ],
+      },
+    };
+
+    function getSkillLevel(v) {
+      if (v === 'zero' || v === 'basic') return 'beginner';
+      if (v === 'advanced' || v === 'professional') return 'advanced';
+      return 'intermediate';
+    }
+
+    function getSummaryText(edu, stream, skill, goal) {
+      const eduL  = { '10th':'10th pass','12th':'12th pass','diploma':'Diploma','btech':'B.Tech/B.E.','bsc':'B.Sc (CS/IT)','bca':'BCA','mtech':'M.Tech/MCA','msc':'M.Sc/MBA','working':'Working Professional' };
+      const goalL = { fullstack:'Full Stack Developer', devops:'DevOps / Cloud Engineer', data:'Data Scientist', ai:'AI / ML Engineer', testing:'QA Engineer', mobile:'Mobile Developer', cyber:'Cyber Security Expert', placement:'Job Placement', freelance:'Freelancing' };
+      const skillL = { zero:'no prior coding', basic:'basic coding knowledge', intermediate:'intermediate skills', advanced:'advanced expertise', professional:'professional experience' };
+      return `Based on your profile — <strong>${eduL[edu] || edu}</strong> background with ${skillL[skill] || skill} — here are the best courses to become a <strong>${goalL[goal] || goal}</strong>:`;
+    }
+
+    function getRecommendations(edu, stream, skill, goal) {
+      const level   = getSkillLevel(skill);
+      const ruleSet = AI_RULES[goal];
+      if (!ruleSet) return AI_RULES.fullstack.beginner;
+      return ruleSet[level] || ruleSet.intermediate || AI_RULES.fullstack.beginner;
+    }
+
+    function findCourse(name) {
+      return ALL_COURSES.find(c => c.name === name);
+    }
+
+    /* AI widget interactions */
+    const thinkingMessages = ['Analysing your education profile…','Matching your skills to industry demand…','Calculating best-fit courses for you…','Almost there — personalising results…'];
+
+    document.getElementById('btn-ai-go').addEventListener('click', function() {
+      const edu   = document.getElementById('ai-edu').value;
+      const stream= document.getElementById('ai-stream').value;
+      const skill = document.getElementById('ai-skill').value;
+      const goal  = document.getElementById('ai-goal').value;
+
+      if (!edu || !skill || !goal) {
+        [!edu && 'ai-edu', !skill && 'ai-skill', !goal && 'ai-goal'].filter(Boolean).forEach(id => {
+          const el = document.getElementById(id);
+          el.style.borderColor = 'rgba(220,80,80,0.6)';
+          setTimeout(() => { el.style.borderColor = ''; }, 700);
+        });
+        return;
+      }
+
+      const thinking = document.getElementById('ai-thinking');
+      thinking.classList.add('visible');
+      this.disabled = true;
+
+      document.getElementById('step-1').classList.add('done');
+      document.getElementById('step-2').classList.add('active');
+
+      let msgIdx = 0;
+      const msgInterval = setInterval(() => {
+        document.getElementById('ai-thinking-text').textContent = thinkingMessages[msgIdx % thinkingMessages.length];
+        msgIdx++;
+      }, 800);
+
+      setTimeout(() => {
+        clearInterval(msgInterval);
+        thinking.classList.remove('visible');
+        document.getElementById('step-2').classList.add('done');
+        document.getElementById('step-2').classList.remove('active');
+        document.getElementById('step-3').classList.add('active', 'done');
+
+        const recs = getRecommendations(edu, stream, skill, goal);
+        document.getElementById('ai-summary-text').innerHTML = getSummaryText(edu, stream, skill, goal);
+
+        const recsContainer = document.getElementById('ai-recs');
+        recsContainer.innerHTML = recs.map(rec => {
+          const course = findCourse(rec.name);
+          const icon   = course ? course.icon : '📚';
+          return `
+            <div class="ai-rec-card" data-course="${rec.name.replace(/"/g,'&quot;')}">
+              <div class="ai-rec-icon">${icon}</div>
+              <div class="ai-rec-info">
+                <div class="ai-rec-name">${rec.name}</div>
+                <div class="ai-rec-reason">${rec.reason}</div>
+              </div>
+              <div class="ai-rec-match">${rec.match}</div>
+            </div>`;
+        }).join('');
+
+        /* Delegate clicks on rec cards */
+        recsContainer.querySelectorAll('.ai-rec-card').forEach(card => {
+          card.addEventListener('click', () => openModal(card.dataset.course));
+        });
+
+        document.getElementById('ai-form').style.display = 'none';
+        document.getElementById('ai-result').classList.add('visible');
+      }, 3200);
+    });
+
+    document.getElementById('btn-ai-reset').addEventListener('click', function() {
+      document.getElementById('ai-form').style.display = '';
+      document.getElementById('ai-result').classList.remove('visible');
+      document.getElementById('btn-ai-go').disabled = false;
+      document.getElementById('ai-thinking').classList.remove('visible');
+      ['step-1','step-2','step-3'].forEach((id, i) => {
+        const el = document.getElementById(id);
+        el.classList.remove('done','active');
+        if (i === 0) el.classList.add('active');
+      });
+      ['ai-edu','ai-stream','ai-skill','ai-goal'].forEach(id => { document.getElementById(id).value = ''; });
+    });
+
+    document.getElementById('ai-enroll-all').addEventListener('click', () => {
+      openModal('AI-Recommended Courses');
+    });
+
+    /* ─────────────────────────────────────────
+       COURSES RENDER
+    ───────────────────────────────────────── */
+    let currentCat  = 'all';
+    let currentSort = 'default';
+    let searchQuery = '';
+
+    function stars(r) {
+      return Array.from({length:5},(_,i)=>{
+        const op = i < Math.floor(r) ? 1 : (i === Math.floor(r) && r%1 >= .5) ? .45 : .2;
+        return `<span class="c-star" style="opacity:${op}">★</span>`;
+      }).join('');
+    }
+
+    function filterCourses() {
+      let list = [...ALL_COURSES];
+      if (currentCat !== 'all') list = list.filter(c => c.cats.includes(currentCat));
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        list = list.filter(c => c.name.toLowerCase().includes(q) || c.trainer.toLowerCase().includes(q));
+      }
+      if (currentSort === 'rating-high') list.sort((a,b) => b.rating - a.rating);
+      if (currentSort === 'rating-low')  list.sort((a,b) => a.rating - b.rating);
+      if (currentSort === 'name-az')     list.sort((a,b) => a.name.localeCompare(b.name));
+      if (currentSort === 'name-za')     list.sort((a,b) => b.name.localeCompare(a.name));
+      return list;
+    }
+
+    function renderSidebar() {
+      const ul = document.getElementById('cat-list');
+      ul.innerHTML = CATEGORIES.map(cat => {
+        const count = cat.id === 'all' ? ALL_COURSES.length : ALL_COURSES.filter(c => c.cats.includes(cat.id)).length;
+        return `<li><button class="cat-btn ${currentCat === cat.id ? 'active' : ''}" data-cat="${cat.id}">${cat.label}<span class="count">${count}</span></button></li>`;
+      }).join('');
+    }
+
+    function renderCourses() {
+      const grid    = document.getElementById('course-grid');
+      const label   = document.getElementById('active-cat-label');
+      const countEl = document.getElementById('result-count');
+      const catObj  = CATEGORIES.find(c => c.id === currentCat);
+      const list    = filterCourses();
+
+      label.textContent   = catObj ? catObj.label : 'All Courses';
+      countEl.textContent = `— ${list.length} course${list.length !== 1 ? 's' : ''}`;
+
+      grid.classList.add('fading');
+      setTimeout(() => {
+        if (list.length === 0) {
+          grid.innerHTML = `<div class="no-results"><div style="font-size:48px">🔍</div><p>No courses found for "${searchQuery}"</p></div>`;
+        } else {
+          grid.innerHTML = list.map((c, i) => `
+            <div class="course-card" style="animation-delay:${Math.min(i,20)*30}ms" data-course="${c.name.replace(/"/g,'&quot;')}">
+              <div class="course-thumb">
+                ${c.badge ? `<span class="course-badge">${c.badge}</span>` : ''}
+                ${c.icon}
+              </div>
+              <div class="course-body">
+                <h3 class="course-name">${c.name}</h3>
+                <div class="course-stars">${stars(c.rating)}<span class="c-rating">${c.rating || '—'}</span></div>
+                <div class="course-meta">
+                  <span>⏱ Starts <b>${c.start}</b></span>
+                  <span>📆 Duration: <b>${c.dur}</b></span>
+                  <span>👤 By <b>${c.trainer}</b></span>
+                </div>
+                <div class="course-foot">
+                  <button class="btn-enroll">Enroll Now</button>
+                  <button class="btn-share" title="Share">↗</button>
+                </div>
+              </div>
+            </div>
+          `).join('');
+
+          /* Delegate enroll clicks — no inline onclick needed */
+          grid.querySelectorAll('.btn-enroll').forEach(btn => {
+            btn.addEventListener('click', e => {
+              e.stopPropagation();
+              const card = btn.closest('.course-card');
+              openModal(card.dataset.course);
+            });
+          });
+        }
+        grid.classList.remove('fading');
+      }, 200);
+    }
+
+    function openModal(courseName) {
+      document.getElementById('modal-course-name').textContent = courseName;
+      document.getElementById('enroll-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('enroll-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('enroll-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('enroll-modal')) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    document.getElementById('modal-submit').addEventListener('click', function() {
+      this.textContent = "✓ Submitted — we'll reach out shortly!";
+      this.style.background = '#2a7a5a';
+      setTimeout(() => {
+        this.textContent = 'Submit Enquiry';
+        this.style.background = '';
+        closeModal();
+      }, 2800);
+    });
+
+    document.getElementById('cat-list').addEventListener('click', e => {
+      const btn = e.target.closest('.cat-btn');
+      if (!btn) return;
+      currentCat = btn.dataset.cat;
+      renderSidebar();
+      renderCourses();
+      const grid = document.getElementById('course-grid');
+      const top  = grid.getBoundingClientRect().top + window.scrollY - 100;
+      if (window.scrollY > top) window.scrollTo({ top, behavior:'smooth' });
+    });
+
+    document.getElementById('sort-select').addEventListener('change', e => {
+      currentSort = e.target.value;
+      renderCourses();
+    });
+
+    function doSearch() {
+      searchQuery = document.getElementById('search-input').value.trim();
+      currentCat  = 'all';
+      renderSidebar();
+      renderCourses();
+    }
+    document.getElementById('search-btn').addEventListener('click', doSearch);
+    document.getElementById('search-input').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+
+    /* Read URL params */
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('cat');
+      if (cat && CATEGORIES.find(c => c.id === cat)) currentCat = cat;
+    })();
+
+    renderSidebar();
+    renderCourses();
+
+  </script>
+</body>
+</html>

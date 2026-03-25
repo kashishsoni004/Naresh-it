@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="description" content="News & Events — NareshIT. Latest technology news, industry updates from India's Best No.1 Software Training Institute."/>
+  <title>News & Events — NareshIT Best No.1 Software Training Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --cream:#f6f3ed;--cream-dark:#edeae1;--ink:#0e0d0c;
+      --gold:#b89050;--gold-light:#d4aa6a;--gold-pale:rgba(184,144,80,.08);
+      --ash:#7c7870;--white:#fff;--divider:rgba(17,16,16,.08);
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+      --ease-silk:cubic-bezier(.16,1,.3,1);
+      --ease-std:cubic-bezier(.25,.46,.45,.94);
+      --r-lg:16px;--r-md:12px;--r-sm:8px;--r-pill:100px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--cream);color:var(--ink);font-family:var(--font-sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+    ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+
+    /* ── NAV ── */
+    .nav{position:sticky;top:0;z-index:500;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(246,243,237,.96);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--divider);}
+    .nav-logo img{height:38px;}
+    .nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+    .nav-links a{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ash);position:relative;transition:color .3s;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:-4px;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease-std);}
+    .nav-links a:hover,.nav-links a.active{color:var(--ink);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-end{display:flex;gap:10px;align-items:center;}
+
+    /* ── NAV USER PROFILE ── */
+    .nav-user{
+      display:none;align-items:center;gap:10px;
+      padding:5px 14px 5px 6px;
+      background:var(--white);border:1.5px solid var(--divider);
+      border-radius:var(--r-pill);cursor:default;
+      transition:all .35s var(--ease-silk);
+      box-shadow:0 2px 12px rgba(17,16,16,.06);
+    }
+    .nav-user.show{display:flex;}
+    .nav-user:hover{border-color:rgba(184,144,80,.4);box-shadow:0 4px 20px rgba(184,144,80,.15);}
+    .nav-user-avatar{
+      width:32px;height:32px;border-radius:50%;flex-shrink:0;
+      background:linear-gradient(135deg,var(--gold),var(--ink));
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-serif);font-size:13px;font-weight:700;color:var(--white);
+      border:2px solid rgba(184,144,80,.25);
+    }
+    .nav-user-info{display:flex;flex-direction:column;line-height:1.25;}
+    .nav-user-name{font-size:12px;font-weight:600;color:var(--ink);white-space:nowrap;}
+    .nav-user-email{font-size:10px;color:var(--ash);white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;}
+    .nav-signout{
+      width:22px;height:22px;border-radius:50%;border:1px solid var(--divider);
+      background:var(--cream-dark);color:var(--ash);font-size:9px;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;transition:all .2s;
+    }
+    .nav-signout:hover{background:#fee2e2;border-color:#fca5a5;color:#dc2626;transform:scale(1.1);}
+    #nav-login-btn.hidden{display:none!important;}
+    @media(max-width:640px){.nav-user-email{display:none;}}
+
+    .btn-ng{padding:9px 20px;background:transparent;border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .3s;}
+    .btn-ng:hover{border-color:var(--ink);color:var(--ink);}
+    .btn-nf{padding:9px 22px;background:var(--gold);border:1.5px solid var(--gold);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:700;color:var(--white);cursor:pointer;transition:all .35s var(--ease-silk);}
+    .btn-nf:hover{background:var(--ink);border-color:var(--ink);}
+
+    /* ── HERO ── */
+    .hero{background:var(--ink);padding:96px 60px 88px;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 55% 110% at 92% 50%,rgba(184,144,80,.12),transparent 60%),
+        radial-gradient(ellipse 30% 50% at 5% 80%,rgba(184,144,80,.05),transparent),
+        repeating-linear-gradient(90deg,transparent,transparent 119px,rgba(255,255,255,.018) 120px),
+        repeating-linear-gradient(0deg,transparent,transparent 119px,rgba(255,255,255,.018) 120px);}
+    .hero-glyph{position:absolute;right:24px;top:-40px;font-family:Georgia,serif;font-size:480px;font-weight:900;color:rgba(255,255,255,.022);line-height:1;pointer-events:none;user-select:none;}
+    .hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;}
+    .hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);}
+    .hero-eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--gold-light);}
+    .hero h1{font-family:var(--font-serif);font-size:clamp(44px,7vw,88px);font-weight:300;line-height:.92;letter-spacing:-2.5px;color:rgba(246,243,237,.92);margin-bottom:22px;max-width:720px;}
+    .hero h1 em{font-style:italic;color:var(--gold);}
+    .hero h1 strong{font-weight:700;}
+    .hero-desc{font-size:15px;color:rgba(246,243,237,.42);max-width:520px;line-height:1.9;margin-bottom:44px;}
+    .hero-pills{display:flex;gap:12px;flex-wrap:wrap;}
+    .hero-pill{padding:8px 20px;border:1px solid rgba(246,243,237,.15);border-radius:var(--r-pill);font-size:11px;font-weight:600;color:rgba(246,243,237,.55);letter-spacing:.3px;cursor:pointer;transition:all .3s;}
+    .hero-pill:hover,.hero-pill.active{background:rgba(184,144,80,.15);border-color:rgba(184,144,80,.35);color:var(--gold-light);}
+
+    /* ── NEWS TICKER ── */
+    .ticker{background:var(--gold);overflow:hidden;padding:0;}
+    .ticker-track{display:flex;width:max-content;animation:tickscroll 28s linear infinite;padding:14px 0;}
+    .ticker-track:hover{animation-play-state:paused;}
+    @keyframes tickscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .ticker-item{display:flex;align-items:center;gap:10px;padding:0 36px;white-space:nowrap;font-size:12px;font-weight:600;color:rgba(255,255,255,.92);letter-spacing:.2px;}
+    .ticker-sep{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4);}
+
+    /* ── LAYOUT ── */
+    .page-wrap{max-width:1280px;margin:0 auto;padding:72px 60px 100px;}
+    .main-grid{display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:start;}
+
+    /* ── FILTER + SEARCH ── */
+    .toolbar{display:flex;align-items:center;gap:12px;margin-bottom:36px;flex-wrap:wrap;}
+    .filter-pills{display:flex;gap:8px;flex-wrap:wrap;flex:1;}
+    .fpill{padding:7px 18px;background:var(--white);border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:11px;font-weight:600;color:var(--ash);cursor:pointer;transition:all .25s var(--ease-silk);white-space:nowrap;}
+    .fpill:hover{border-color:var(--ash);color:var(--ink);}
+    .fpill.on{background:var(--ink);border-color:var(--ink);color:var(--white);}
+    .search-wrap{position:relative;flex-shrink:0;}
+    .search-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--ash);pointer-events:none;}
+    .search-inp{padding:9px 16px 9px 36px;background:var(--white);border:1.5px solid var(--divider);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;color:var(--ink);outline:none;width:200px;transition:all .35s var(--ease-silk);}
+    .search-inp::placeholder{color:var(--ash);}
+    .search-inp:focus{border-color:var(--gold);width:240px;box-shadow:0 0 0 3px rgba(184,144,80,.1);}
+
+    /* ── FEATURED ── */
+    .featured{background:var(--white);border:1px solid var(--divider);border-radius:20px;overflow:hidden;margin-bottom:40px;display:grid;grid-template-columns:1.2fr 1fr;gap:0;box-shadow:0 4px 24px rgba(17,16,16,.06);cursor:pointer;transition:transform .4s var(--ease-silk),box-shadow .4s;}
+    .featured:hover{transform:translateY(-5px);box-shadow:0 24px 64px rgba(17,16,16,.11);}
+    .feat-img{position:relative;overflow:hidden;min-height:320px;}
+    .feat-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-silk);}
+    .featured:hover .feat-img img{transform:scale(1.04);}
+    .feat-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 50%,rgba(255,255,255,.04));}
+    .feat-live{position:absolute;top:16px;left:16px;display:flex;align-items:center;gap:7px;padding:5px 14px;background:var(--gold);border-radius:var(--r-pill);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);}
+    .feat-live-dot{width:5px;height:5px;border-radius:50%;background:var(--white);animation:blink 1.8s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .feat-body{padding:40px 40px;display:flex;flex-direction:column;justify-content:center;}
+    .feat-cat{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+    .feat-body h2{font-family:var(--font-serif);font-size:clamp(20px,2.5vw,30px);font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:14px;letter-spacing:-.5px;}
+    .feat-body p{font-size:13.5px;color:var(--ash);line-height:1.85;margin-bottom:22px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+    .feat-meta{display:flex;gap:16px;font-size:11px;color:var(--ash);margin-bottom:24px;flex-wrap:wrap;}
+    .feat-meta span{display:flex;align-items:center;gap:5px;}
+    .read-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:var(--ink);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:700;color:var(--white);width:fit-content;transition:all .35s var(--ease-silk);}
+    .featured:hover .read-btn{background:var(--gold);}
+    .read-btn-arr{transition:transform .3s var(--ease-silk);}
+    .featured:hover .read-btn-arr{transform:translateX(5px);}
+
+    /* ── RESULTS BAR ── */
+    .results-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:10px;}
+    .results-label{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--ink);}
+    .results-count{font-size:12px;color:var(--ash);}
+
+    /* ── NEWS CARDS GRID ── */
+    #cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;transition:opacity .3s var(--ease-std),transform .3s;}
+    #cards-grid.fading{opacity:0;transform:translateY(10px);}
+
+    .ncard{background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;animation:cardIn .55s var(--ease-silk) both;transition:transform .4s var(--ease-silk),box-shadow .4s,border-color .3s;}
+    @keyframes cardIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .ncard:hover{transform:translateY(-7px);box-shadow:0 22px 56px rgba(17,16,16,.1);border-color:rgba(184,144,80,.28);}
+    .ncard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease-silk);}
+    .ncard{position:relative;}
+    .ncard:hover::before{transform:scaleX(1);}
+    .ncard-img{height:190px;overflow:hidden;position:relative;background:var(--ink);}
+    .ncard-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease-silk);}
+    .ncard:hover .ncard-img img{transform:scale(1.06);}
+    .ncard-badge{position:absolute;top:12px;left:12px;padding:4px 12px;background:var(--gold);border-radius:var(--r-pill);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);}
+    .ncard-body{padding:22px;flex:1;display:flex;flex-direction:column;}
+    .ncard-date{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ash);margin-bottom:8px;display:flex;align-items:center;gap:5px;}
+    .ncard h3{font-family:var(--font-serif);font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:10px;flex:1;}
+    .ncard-excerpt{font-size:12.5px;color:var(--ash);line-height:1.8;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+    .ncard-footer{display:flex;align-items:center;justify-content:flex-end;padding-top:14px;border-top:1px solid var(--divider);}
+    .ncard-arr{font-size:11px;font-weight:700;color:var(--ash);letter-spacing:.3px;transition:all .3s;display:flex;align-items:center;gap:5px;}
+    .ncard:hover .ncard-arr{color:var(--gold);gap:9px;}
+
+    .empty{grid-column:1/-1;text-align:center;padding:80px 20px;}
+    .empty-ico{font-size:52px;opacity:.3;margin-bottom:14px;}
+    .empty h3{font-family:var(--font-serif);font-size:24px;color:var(--ash);}
+
+    /* ── SIDEBAR ── */
+    .sidebar{position:sticky;top:88px;display:flex;flex-direction:column;gap:20px;}
+    .sw{background:var(--white);border:1px solid var(--divider);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 2px 16px rgba(17,16,16,.05);}
+    .sw-hd{background:var(--ink);padding:18px 22px;position:relative;overflow:hidden;}
+    .sw-hd::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 120% at 110% 0%,rgba(184,144,80,.15),transparent 60%);}
+    .sw-hd h4{font-family:var(--font-serif);font-size:18px;font-weight:600;color:rgba(246,243,237,.9);position:relative;z-index:1;}
+    .sw-hd p{font-size:11px;color:rgba(246,243,237,.4);position:relative;z-index:1;margin-top:2px;}
+    .sw-list{padding:8px 0;}
+    .sw-item{display:flex;gap:12px;padding:14px 20px;border-bottom:1px solid var(--divider);cursor:pointer;transition:background .25s var(--ease-silk);}
+    .sw-item:last-child{border-bottom:none;}
+    .sw-item:hover{background:var(--cream);}
+    .sw-item-img{width:56px;height:56px;border-radius:var(--r-sm);object-fit:cover;flex-shrink:0;background:var(--cream-dark);}
+    .sw-item-cat{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+    .sw-item-title{font-size:12px;font-weight:600;color:var(--ink);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .sw-item-date{font-size:10px;color:var(--ash);margin-top:4px;}
+    .sw-links{padding:8px 0;}
+    .sw-link{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;font-size:13px;font-weight:500;color:var(--ash);border-bottom:1px solid var(--divider);cursor:pointer;transition:all .25s;}
+    .sw-link:last-child{border-bottom:none;}
+    .sw-link:hover{background:var(--cream);color:var(--ink);padding-left:24px;}
+    .sw-link span{font-size:12px;color:var(--gold);}
+    .enroll-card{background:var(--gold);border-radius:var(--r-lg);padding:28px 24px;text-align:center;position:relative;overflow:hidden;}
+    .enroll-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08),transparent);}
+    .enroll-card h4{font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px;position:relative;z-index:1;}
+    .enroll-card p{font-size:12px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:18px;position:relative;z-index:1;}
+    .enroll-btn{display:block;padding:11px 24px;background:var(--ink);border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:700;color:var(--white);cursor:pointer;transition:all .3s;position:relative;z-index:1;}
+    .enroll-btn:hover{background:var(--white);color:var(--ink);}
+
+    /* ── PAGINATION ── */
+    .pagination{display:flex;gap:8px;margin-top:40px;justify-content:center;flex-wrap:wrap;}
+    .pg-btn{width:38px;height:38px;border-radius:var(--r-sm);border:1.5px solid var(--divider);background:var(--white);font-family:var(--font-sans);font-size:13px;font-weight:600;color:var(--ash);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease-silk);}
+    .pg-btn:hover{border-color:var(--ink);color:var(--ink);}
+    .pg-btn.active{background:var(--ink);border-color:var(--ink);color:var(--white);}
+    .pg-btn.arrow{font-size:16px;}
+
+    /* ── ARTICLE MODAL ── */
+    .art-overlay{position:fixed;inset:0;z-index:900;background:rgba(14,13,12,.7);backdrop-filter:blur(12px);display:flex;align-items:flex-start;justify-content:center;padding:28px 20px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .35s var(--ease-std);}
+    .art-overlay.open{opacity:1;pointer-events:all;}
+    .art-modal{background:var(--white);border-radius:20px;width:100%;max-width:860px;margin:auto;transform:translateY(28px) scale(.97);transition:transform .4s var(--ease-silk);box-shadow:0 48px 120px rgba(14,13,12,.3);overflow:hidden;}
+    .art-overlay.open .art-modal{transform:translateY(0) scale(1);}
+    .art-hero{height:380px;position:relative;overflow:hidden;}
+    .art-hero img{width:100%;height:100%;object-fit:cover;}
+    .art-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(14,13,12,.75) 0%,transparent 50%);}
+    .art-close{position:absolute;top:16px;right:16px;z-index:10;width:34px;height:34px;border-radius:50%;background:rgba(14,13,12,.55);border:1px solid rgba(255,255,255,.2);color:var(--white);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;backdrop-filter:blur(8px);}
+    .art-close:hover{background:rgba(14,13,12,.85);}
+    .art-overlay-info{position:absolute;bottom:0;left:0;right:0;padding:32px 44px;z-index:1;}
+    .art-cat-pill{display:inline-flex;padding:4px 14px;background:var(--gold);border-radius:var(--r-pill);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:12px;}
+    .art-h1{font-family:var(--font-serif);font-size:clamp(20px,3.5vw,34px);font-weight:700;color:rgba(246,243,237,.95);line-height:1.15;letter-spacing:-.5px;}
+    .art-meta{display:flex;gap:20px;margin-top:12px;font-size:11px;color:rgba(246,243,237,.5);flex-wrap:wrap;}
+    .art-body-wrap{padding:40px 44px 52px;}
+    .art-body-wrap p{font-size:14.5px;color:var(--ash);line-height:2;margin-bottom:18px;}
+    .art-body-wrap h2,.art-body-wrap h3{font-family:var(--font-serif);font-size:clamp(18px,2vw,24px);font-weight:700;color:var(--ink);margin:28px 0 12px;line-height:1.2;}
+    .art-body-wrap a{color:var(--gold);text-underline-offset:2px;text-decoration:underline;}
+    .art-body-wrap a:hover{color:var(--gold-light);}
+    .art-body-wrap img{border-radius:var(--r-md);margin:16px auto;max-width:100%;}
+    .art-body-wrap ul,.art-body-wrap ol{margin:0 0 18px 22px;}
+    .art-body-wrap li{font-size:14px;color:var(--ash);line-height:1.9;margin-bottom:6px;}
+    .art-body-wrap strong{color:var(--ink);font-weight:600;}
+    .art-inline-cta{background:var(--ink);border-radius:var(--r-lg);padding:28px 32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:32px 0;}
+    .art-cta-text h4{font-family:var(--font-serif);font-size:20px;font-weight:700;color:rgba(246,243,237,.92);margin-bottom:4px;}
+    .art-cta-text p{font-size:12px;color:rgba(246,243,237,.4);line-height:1.7;}
+    .art-cta-btn{padding:10px 24px;background:var(--gold);color:var(--white);border:none;border-radius:var(--r-pill);font-family:var(--font-sans);font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .3s;}
+    .art-cta-btn:hover{background:var(--white);color:var(--ink);}
+
+    /* ── FOOTER ── */
+    .site-footer{background:var(--ink);padding:60px 60px 36px;}
+    .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.6fr;gap:52px;max-width:1280px;margin:0 auto 48px;}
+    .flogo img{height:34px;filter:brightness(0) invert(1);opacity:.8;margin-bottom:16px;}
+    .fdesc{font-size:12px;color:rgba(246,243,237,.3);line-height:1.9;margin-bottom:20px;}
+    .fsocs{display:flex;gap:8px;flex-wrap:wrap;}
+    .fsoc{width:34px;height:34px;border-radius:8px;border:1px solid rgba(246,243,237,.1);display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(246,243,237,.3);transition:all .25s;}
+    .fsoc:hover{border-color:var(--gold);color:var(--gold);}
+    .fapp{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+    .fapp img{height:36px;border-radius:6px;opacity:.6;transition:opacity .25s;}
+    .fapp img:hover{opacity:1;}
+    .fcol h5{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(246,243,237,.28);margin-bottom:14px;}
+    .fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .fcol ul a{font-size:12px;color:rgba(246,243,237,.4);transition:color .25s;}
+    .fcol ul a:hover{color:var(--gold-light);}
+    .freach p{font-size:12px;color:rgba(246,243,237,.4);line-height:1.7;margin-bottom:7px;}
+    .freach strong{color:rgba(246,243,237,.65);}
+    .fbot{max-width:1280px;margin:0 auto;border-top:1px solid rgba(246,243,237,.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+    .fbot p{font-size:11px;color:rgba(246,243,237,.22);}
+    .floats{position:fixed;bottom:26px;right:26px;z-index:300;display:flex;flex-direction:column;gap:10px;}
+    .fbtn{width:48px;height:48px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.18);transition:transform .35s var(--ease-silk);}
+    .fbtn:hover{transform:scale(1.12);}
+    .fbtn-wa{background:#25D366;color:#fff;}
+    .fbtn-ph{background:var(--gold);color:#fff;}
+
+    @media(max-width:1100px){
+      .main-grid{grid-template-columns:1fr;}
+      .sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+      .enroll-card{grid-column:1/-1;}
+    }
+    @media(max-width:1024px){
+      .nav{padding:0 28px;}.nav-links{display:none;}
+      .hero{padding:60px 28px 60px;}
+      .page-wrap{padding:48px 28px 80px;}
+      .featured{grid-template-columns:1fr;}
+      .feat-img{min-height:220px;}
+      .feat-body{padding:28px;}
+      #cards-grid{grid-template-columns:1fr;}
+      .art-hero{height:250px;}
+      .art-overlay-info{padding:20px 24px;}
+      .art-body-wrap{padding:28px 24px 40px;}
+      .fgrid{grid-template-columns:1fr 1fr;gap:32px;}.site-footer{padding:44px 28px 28px;}
+      .nav-user-email{max-width:120px;}
+    }
+    @media(max-width:640px){
+      .fgrid{grid-template-columns:1fr;}
+      .sidebar{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="faculty.html">Faculty</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="news.html" class="active">News &amp; Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-end">
+    <!-- Logged-in profile pill -->
+    <div class="nav-user" id="nav-user">
+      <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+      <div class="nav-user-info">
+        <span class="nav-user-name"  id="nav-user-name">Name</span>
+        <span class="nav-user-email" id="nav-user-email">email</span>
+      </div>
+      <button class="nav-signout" id="nav-signout" title="Sign out">✕</button>
+    </div>
+    <!-- Logged-out login button -->
+    <button class="btn-ng" id="nav-login-btn" onclick="window.location.href='index.html'">Login</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-glyph">N</div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">NareshIT News &amp; Events</div>
+    <h1>Stay <em>Informed,</em><br><strong>Stay Ahead</strong></h1>
+    <p class="hero-desc">The latest technology news, industry developments, hiring updates and career insights — curated to keep you a step ahead in the ever-evolving IT landscape.</p>
+    <div class="hero-pills" id="hero-pills"></div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-track" id="ticker"></div></div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+  <div class="main-grid">
+    <div class="content-col">
+      <div class="toolbar">
+        <div class="filter-pills" id="filter-pills"></div>
+        <div class="search-wrap">
+          <span class="search-ico">🔍</span>
+          <input class="search-inp" id="search-inp" type="text" placeholder="Search news…" autocomplete="off">
+        </div>
+      </div>
+      <div id="featured-wrap"></div>
+      <div class="results-bar">
+        <div>
+          <span class="results-label" id="rl"></span>
+          <span class="results-count" id="rc"></span>
+        </div>
+      </div>
+      <div id="cards-grid"></div>
+      <div class="pagination" id="pagination"></div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sw">
+        <div class="sw-hd"><h4>Latest Updates</h4><p>What's happening right now</p></div>
+        <div class="sw-list" id="sw-list"></div>
+      </div>
+      <div class="sw">
+        <div class="sw-hd"><h4>Quick Access</h4></div>
+        <div class="sw-links">
+          <div class="sw-link" onclick="window.location.href='courses.html'">All Courses <span>→</span></div>
+          <div class="sw-link" onclick="window.location.href='blog.html'">Blog &amp; Articles <span>→</span></div>
+          <div class="sw-link">New Batches <span>→</span></div>
+          <div class="sw-link">Placement Registration <span>→</span></div>
+          <div class="sw-link">Corporate Training <span>→</span></div>
+          <div class="sw-link">Interview Questions <span>→</span></div>
+          <div class="sw-link">Webinars &amp; Workshops <span>→</span></div>
+        </div>
+      </div>
+      <div class="enroll-card">
+        <h4>Ready to Launch Your Career?</h4>
+        <p>Join 10 Lakh+ students who trained at NareshIT — India's #1 software training institute for 22+ years.</p>
+        <div class="enroll-btn" onclick="window.location.href='contact.html'">Talk to a Counsellor →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE MODAL -->
+<div class="art-overlay" id="art-overlay">
+  <div class="art-modal">
+    <button class="art-close" onclick="closeArt()">✕</button>
+    <div class="art-hero">
+      <img id="art-img" src="" alt="">
+      <div class="art-overlay-info">
+        <div class="art-cat-pill" id="art-cat"></div>
+        <div class="art-h1" id="art-title"></div>
+        <div class="art-meta">
+          <span>📅 <span id="art-date"></span></span>
+          <span>📰 NareshIT News</span>
+        </div>
+      </div>
+    </div>
+    <div class="art-body-wrap" id="art-body"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="fgrid">
+    <div>
+      <div class="flogo"><img src="https://cdn.nareshit.com/images/naresh-it-logo.png" alt="NareshIT"></div>
+      <p class="fdesc">NNV Naresh is an entrepreneur armed with a noble vision to make a difference in the career aspirations of the students. 20+ years of experience in the education sector, Naresh is the founder and the driving force behind the victorious journey of NareshIT.</p>
+      <div class="fsocs">
+        <a class="fsoc" href="https://www.facebook.com/nareshitechnologies" target="_blank">f</a>
+        <a class="fsoc" href="https://www.instagram.com/nareshitech" target="_blank">◎</a>
+        <a class="fsoc" href="https://www.youtube.com/@NareshIT" target="_blank">▶</a>
+        <a class="fsoc" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank">in</a>
+        <a class="fsoc" href="https://wa.me/+918179191999" target="_blank">💬</a>
+        <a class="fsoc" href="https://t.me/nareshit" target="_blank">✈</a>
+      </div>
+      <div class="fapp">
+        <img src="https://cdn.nareshit.com/images/andorid-store.svg" alt="Android">
+        <img src="https://cdn.nareshit.com/images/apple-store.svg" alt="iOS">
+      </div>
+    </div>
+    <div class="fcol"><h5>Company</h5><ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="faculty.html">Trainers Profile</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Refund Policy</a></li>
+      <li><a href="#">Terms &amp; Conditions</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="news.html" style="color:var(--gold-light)">News &amp; Events</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul></div>
+    <div class="fcol"><h5>Quick Access</h5><ul>
+      <li><a href="#">Become an Instructor</a></li>
+      <li><a href="#">Hire from NareshIT</a></li>
+      <li><a href="#">New Batches</a></li>
+      <li><a href="https://nareshjobs.com/" target="_blank">NareshJobs</a></li>
+      <li><a href="#">Interview Questions</a></li>
+      <li><a href="blog.html">Blogs</a></li>
+      <li><a href="#">Internships</a></li>
+      <li><a href="#">Webinars</a></li>
+      <li><a href="#">Corporate Training</a></li>
+    </ul></div>
+    <div class="freach fcol"><h5>Reach Us</h5>
+      <p><strong>Phone:</strong> 040-23746666</p>
+      <p><strong>Email:</strong> info@nareshit.com</p>
+      <p><strong>Call/WhatsApp:</strong> +91 8179191999</p>
+      <p><strong>International:</strong> +1 404-232-9879, +1 248-522-6925</p>
+      <p><strong>Head Office:</strong> 2nd Floor, Durga Bhavani Plaza, Ameerpet, Hyderabad 500016</p>
+      <p><strong>Ameerpet Branch:</strong> Ground Floor, Manjeera Square, Opp Prime Hospital, Ameerpet, Hyd</p>
+      <p><strong>KPHB Branch:</strong> 2nd Floor, Sreeramoju Complex, KPHB Phase 1, Hyderabad 500072</p>
+      <p><strong>USA:</strong> 5007 Arbor View Pkwy NW, Acworth, GA 30101</p>
+    </div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 Naresh i Technologies. All rights reserved.</p>
+    <p>Crafted with care in Hyderabad, India</p>
+  </div>
+</footer>
+
+<div class="floats">
+  <button class="fbtn fbtn-wa" onclick="window.open('https://wa.me/+918179191999','_blank')">💬</button>
+  <button class="fbtn fbtn-ph" onclick="window.location.href='tel:+918179191999'">📞</button>
+</div>
+
+<script type="module">
+/* ──────────────────────────────────────────
+   FIREBASE AUTH — Persistent Nav Profile
+────────────────────────────────────────── */
+import { initializeApp }
+  from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js';
+import { getAuth, onAuthStateChanged, signOut }
+  from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+
+const firebaseConfig = {
+  apiKey:            'AIzaSyBHAPhCQHq0jR-4pAwlLKAphskkbhpC5iw',
+  authDomain:        'nareshit-bd900.firebaseapp.com',
+  projectId:         'nareshit-bd900',
+  storageBucket:     'nareshit-bd900.firebasestorage.app',
+  messagingSenderId: '923456489902',
+  appId:             '1:923456489902:web:f652e970887451c2ba203f',
+  measurementId:     'G-EXWYHW9TB2',
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const LS_KEY = 'nit_user';
+
+function getInitials(name) {
+  if (!name) return '?';
+  return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+}
+
+function showNavProfile(name, email) {
+  const userEl   = document.getElementById('nav-user');
+  const loginBtn = document.getElementById('nav-login-btn');
+  if (!userEl) return;
+  document.getElementById('nav-user-avatar').textContent = getInitials(name);
+  document.getElementById('nav-user-name').textContent   = name  || 'My Account';
+  document.getElementById('nav-user-email').textContent  = email || '';
+  userEl.classList.add('show');
+  loginBtn.classList.add('hidden');
+  try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch(_) {}
+}
+
+function hideNavProfile() {
+  const userEl   = document.getElementById('nav-user');
+  const loginBtn = document.getElementById('nav-login-btn');
+  if (!userEl) return;
+  userEl.classList.remove('show');
+  loginBtn.classList.remove('hidden');
+  try { localStorage.removeItem(LS_KEY); } catch(_) {}
+}
+
+/* Instant render from localStorage — no flicker on page load */
+(function() {
+  try {
+    const cached = localStorage.getItem(LS_KEY);
+    if (cached) {
+      const { name, email } = JSON.parse(cached);
+      if (name || email) showNavProfile(name, email);
+    }
+  } catch(_) {}
+})();
+
+/* Sign-out button */
+document.getElementById('nav-signout').addEventListener('click', () => {
+  signOut(auth).then(hideNavProfile).catch(console.error);
+});
+
+/* Firebase auth — authoritative source of truth */
+onAuthStateChanged(auth, user => {
+  if (user) {
+    showNavProfile(
+      user.displayName || user.email?.split('@')[0] || 'Student',
+      user.email || ''
+    );
+  } else {
+    hideNavProfile();
+  }
+});
+
+
+/* ──────────────────────────────────────────
+   NEWS DATA
+────────────────────────────────────────── */
+const NEWS = [
+  {
+    id:1, cat:'AI & Technology', date:'Mar 2026',
+    title:'Ollama Unveils Desktop App for macOS & Windows with Image & Code File Support',
+    img:'https://images.nareshit.com/Ollama_Unveils_Desktop_App_for_macOS_&_Windows_with_Image_&_Code_File_Support_-_Naresh_IT.png',
+    excerpt:'Ollama has officially launched a desktop application for both macOS and Windows, making powerful AI models more accessible to a wider audience. This new GUI eliminates the need for command-line interactions, allowing users to easily download AI models and chat with them directly.',
+    body:`<p><a href="https://ollama.com/" target="_blank">Ollama</a> has officially launched a <a href="https://ollama.com/download" target="_blank">desktop application for both macOS and Windows</a>, making powerful AI models more accessible to a wider audience. This new graphical user interface (GUI) eliminates the need for command-line interactions, allowing users to easily download AI models and chat with them directly.</p>
+<h2>Enhanced User Experience with File and Image Support</h2>
+<p>The Ollama desktop app significantly improves the user experience by introducing drag-and-drop functionality for text files and PDFs. Users can now effortlessly feed documents to AI models for tasks like summarization or analysis. The app also boasts the ability to read code files, empowering developers and coders with AI assistance for comprehension and documentation generation.</p>
+<h2>Multimodal AI and Flexible Context Length</h2>
+<p>A key new feature is multimodal input support, enabling users to send images to compatible AI models such as <a href="https://deepmind.google/models/gemma/gemma-3/" target="_blank">Google DeepMind's Gemma 3</a>. This expands the types of interactions and applications for local AI. Furthermore, users can adjust the context length within the settings, allowing the AI models to process larger documents, though this may impact memory usage. For those who prefer the traditional approach, Ollama's CLI tools remain <a href="https://github.com/ollama/ollama/releases" target="_blank">available on GitHub</a>.</p>
+<div class="art-inline-cta"><div class="art-cta-text"><h4>Work with cutting-edge AI tools professionally</h4><p>NareshIT's Generative AI & Agentic AI programs train you on the tools reshaping the industry.</p></div><button class="art-cta-btn" onclick="window.location.href='courses.html'">Explore AI Courses</button></div>`
+  },
+  {
+    id:2, cat:'Industry News', date:'Feb 2026',
+    title:"Telangana Minister Announces Two New IT Parks in Hyderabad's Outskirts",
+    img:"https://images.nareshit.com/Telangana_Minister_Announces_Two_New_IT_Parks_in_Hyderabad's_Outskirts.jpg",
+    excerpt:"Dew Software to Invest Rs.100 Crore. Telangana IT Minister Duddilla Sridhar Babu unveiled plans to establish two new IT parks in suburban Hyderabad following the model of HITEC City, generating employment for 900 professionals over the next five years.",
+    body:`<p><strong>Dew Software to Invest Rs.100 Crore; State Focuses on IT Growth</strong></p>
+<p><strong>Hyderabad:</strong> Telangana IT and Industries Minister, Duddilla Sridhar Babu, has unveiled plans to establish two new IT parks in the suburban areas of Hyderabad. During a high-level discussion at the Secretariat with representatives of Dew Software, which has committed an investment of Rs.100 crore, the minister reaffirmed the government's vision to expand the state's IT sector.</p>
+<p>"Hyderabad has positioned itself as a thriving IT hub, drawing substantial investments from global players. To sustain this momentum, we are planning two new IT parks on the city's outskirts, following the model of HITEC City," Sridhar Babu stated.</p>
+<h2>Cutting-Edge Infrastructure for IT Professionals</h2>
+<p>The upcoming IT parks will be equipped with world-class infrastructure and modern facilities catering to professionals. "We will integrate advanced transport systems and other essential amenities to facilitate smooth commuting from different parts of the city," Sridhar Babu assured.</p>
+<h2>Boosting Employment in the IT Sector</h2>
+<p>Dew Software's Rs.100 crore investment marks a significant step in strengthening Hyderabad's IT ecosystem. The minister emphasized that this initiative would generate employment for <strong>900 professionals over the next five years</strong>.</p>
+<div class="art-inline-cta"><div class="art-cta-text"><h4>Position Yourself for Hyderabad's IT Boom</h4><p>These new parks will create thousands of jobs. NareshIT prepares you to be job-ready for them.</p></div><button class="art-cta-btn" onclick="window.location.href='contact.html'">Talk to a Counsellor</button></div>`
+  },
+  {
+    id:3, cat:'Hiring & Jobs', date:'Jan 2026',
+    title:'HCLTech to Create 5,000 New Jobs with Expansion in Hyderabad',
+    img:'https://images.nareshit.com/HCLTech_to_Create_5,000_New_Jobs_with_Expansion_in_Hyderabad.jpg',
+    excerpt:'HCLTech is strengthening its presence in Hyderabad by launching a new 3,20,000 sq. ft. tech center in Hi-Tech City, generating 5,000 additional employment opportunities in cloud computing, AI, and digital transformation.',
+    body:`<p>HCLTech, a globally renowned technology company, is strengthening its presence in Hyderabad by launching a new state-of-the-art tech center, which will generate <strong>5,000 additional employment opportunities</strong>.</p>
+<p>The announcement was made following a meeting between Telangana Chief Minister A. Revanth Reddy, IT & Industries Minister D. Sridhar Babu, and HCLTech's Global CEO & Managing Director, C. Vijayakumar at the World Economic Forum Annual Meeting in Davos, Switzerland.</p>
+<p>Strategically located in Hyderabad's Hi-Tech City, the new 3,20,000 sq. ft. facility will focus on delivering cutting-edge solutions in cloud computing, artificial intelligence, and digital transformation.</p>
+<h2>Expansion into Tier 2 and 3 Cities</h2>
+<p>IT Minister D. Sridhar Babu highlighted the Telangana government's commitment to nurturing the tech ecosystem. He encouraged HCLTech to explore expansion into tier 2 and tier 3 cities to create more job opportunities for local talent.</p>
+<p>HCLTech has been operational in Hyderabad since 2007 and, with the launch of this new facility, will now have <strong>five centers</strong> across the city.</p>
+<div class="art-inline-cta"><div class="art-cta-text"><h4>5,000 new HCLTech roles need skilled engineers</h4><p>NareshIT's Cloud and AI programs prepare you for exactly these opportunities.</p></div><button class="art-cta-btn" onclick="window.location.href='courses.html?cat=devops'">Cloud &amp; DevOps Courses</button></div>`
+  },
+  {
+    id:4, cat:'Cloud & Tech Trends', date:'Jan 2026',
+    title:'7 Game-Changing Cloud Computing Trends Shaping Business Success in 2025',
+    img:'https://images.nareshit.com/7_Game-Changing_Cloud_Computing_Trends_Shaping_Business_Success_in_2025.jpg',
+    excerpt:'Quantum computing, AI-driven cloud operations, edge-cloud integration, multi-cloud architectures, generative AI development, supercloud layers, and sustainability imperatives — the seven trends every technology professional must understand in 2025.',
+    body:`<p>Cloud computing has already transformed our work, lifestyle, and innovation. But in 2025, this transformation is poised to go beyond simple upgrades — we're looking at a radical reinvention of cloud capabilities.</p>
+<h2>1. AI Takes Center Stage in Cloud Operations</h2>
+<p>In 2025, AI will do more than run applications in the cloud — it will revolutionize cloud management itself. Picture an AI-driven cloud ecosystem that anticipates and allocates resources in real-time, adjusts scaling automatically, and preempts threats before they emerge.</p>
+<h2>2. Edge and Cloud Computing Unite</h2>
+<p>The distinction between edge and cloud computing is fading, giving rise to a seamless integration that pushes the boundaries of technology. Imagine self-driving cars making split-second decisions locally, yet drawing from cloud-based analytics.</p>
+<h2>3. Quantum Computing Becomes Accessible</h2>
+<p>Quantum computing is poised to break out of research labs and enter mainstream business via the cloud. By 2025, major cloud providers like IBM, Google, Microsoft, and Amazon will offer quantum computing as a service.</p>
+<h2>4. Hybrid and Multi-Cloud Architectures Become Essential</h2>
+<p>Forward-thinking organizations will move away from relying on a single cloud provider. Instead, 2025 will see businesses leveraging complex hybrid and multi-cloud architectures, blending private and public infrastructures across multiple vendors.</p>
+<h2>5. Generative AI Transforms Cloud Development</h2>
+<p>Generative AI is reshaping how cloud applications are designed, deployed, and customized. Developers will be able to auto-generate optimized code, while users will enjoy cloud interfaces that cater to their individual needs.</p>
+<h2>6. The Emergence of Supercloud</h2>
+<p>Enter the "supercloud" — a unified data management layer that bridges the gap between on-premises, public, and private clouds. With supercloud technology, organizations will achieve seamless access and governance across multiple environments.</p>
+<h2>7. Sustainability as a Cloud Imperative</h2>
+<p>Sustainable cloud practices will move to the forefront in 2025, driven by both corporate responsibility and business survival. Cloud providers will increasingly adopt renewable energy sources and energy-efficient data centers.</p>
+<div class="art-inline-cta"><div class="art-cta-text"><h4>Master Multi-Cloud and AI-Driven DevOps</h4><p>NareshIT's DevOps with Multi Cloud program covers every trend shaping cloud careers today.</p></div><button class="art-cta-btn" onclick="window.location.href='courses.html?cat=devops'">Explore Cloud Courses</button></div>
+<p><strong>For More Details About Full Stack Courses:</strong> <a href="courses.html">Visit Here</a><br><strong>Register For Free Demo on Upcoming Batches:</strong> <a href="contact.html">Click Here</a></p>`
+  },
+];
+
+/* ─────────────── STATE ─────────────── */
+const PER_PAGE = 3;
+const CATS = ['All', ...new Set(NEWS.map(n => n.cat))];
+let currentCat  = 'All';
+let searchQ     = '';
+let currentPage = 1;
+
+/* ─────────────── TICKER ─────────────── */
+(function() {
+  const items = NEWS.map(n =>
+    `<div class="ticker-item">📰 ${n.title}<span class="ticker-sep"></span></div>`
+  ).join('');
+  document.getElementById('ticker').innerHTML = items + items;
+})();
+
+/* ─────────────── HERO PILLS ─────────────── */
+function renderHeroPills() {
+  document.getElementById('hero-pills').innerHTML = CATS.map(c =>
+    `<div class="hero-pill${currentCat===c?' active':''}" onclick="setCat('${c}')">${c}</div>`
+  ).join('');
+}
+
+/* ─────────────── FILTER PILLS ─────────────── */
+function renderFilterPills() {
+  document.getElementById('filter-pills').innerHTML = CATS.map(c =>
+    `<div class="fpill${currentCat===c?' on':''}" onclick="setCat('${c}')">${c}</div>`
+  ).join('');
+}
+
+window.setCat = function(c) {
+  currentCat  = c;
+  currentPage = 1;
+  renderHeroPills();
+  renderFilterPills();
+  renderAll();
+};
+
+/* ─────────────── FILTER ─────────────── */
+function getFiltered() {
+  let list = currentCat === 'All' ? [...NEWS] : NEWS.filter(n => n.cat === currentCat);
+  if (searchQ) {
+    const q = searchQ.toLowerCase();
+    list = list.filter(n => n.title.toLowerCase().includes(q) || n.excerpt.toLowerCase().includes(q));
+  }
+  return list;
+}
+
+/* ─────────────── SIDEBAR ─────────────── */
+function renderSidebar() {
+  document.getElementById('sw-list').innerHTML = NEWS.map(n => `
+    <div class="sw-item" onclick="openArt(${n.id})">
+      <img class="sw-item-img" src="${n.img}" alt="${n.title}" onerror="this.style.display='none'">
+      <div class="sw-item-body">
+        <div class="sw-item-cat">${n.cat}</div>
+        <div class="sw-item-title">${n.title}</div>
+        <div class="sw-item-date">📅 ${n.date}</div>
+      </div>
+    </div>`).join('');
+}
+
+/* ─────────────── RENDER ALL ─────────────── */
+function renderAll() {
+  const list     = getFiltered();
+  const total    = list.length;
+  const isAll    = currentCat === 'All' && !searchQ;
+  const featured = isAll ? list[0] : null;
+  const rest     = isAll ? list.slice(1) : list;
+  const totalPages = Math.ceil(rest.length / PER_PAGE);
+  const pageItems  = rest.slice((currentPage-1)*PER_PAGE, currentPage*PER_PAGE);
+
+  document.getElementById('rl').textContent = currentCat === 'All' ? 'All News' : currentCat;
+  document.getElementById('rc').textContent = `— ${total} article${total!==1?'s':''}`;
+
+  const fw = document.getElementById('featured-wrap');
+  if (featured) {
+    fw.innerHTML = `
+    <div class="featured" onclick="openArt(${featured.id})">
+      <div class="feat-img">
+        <img src="${featured.img}" alt="${featured.title}" onerror="this.style.display='none'">
+        <div class="feat-img-overlay"></div>
+        <div class="feat-live"><div class="feat-live-dot"></div>Latest</div>
+      </div>
+      <div class="feat-body">
+        <div class="feat-cat">${featured.cat}</div>
+        <h2>${featured.title}</h2>
+        <p>${featured.excerpt}</p>
+        <div class="feat-meta">
+          <span>📅 ${featured.date}</span>
+          <span>📰 NareshIT</span>
+        </div>
+        <div class="read-btn">Read Full Article <span class="read-btn-arr">→</span></div>
+      </div>
+    </div>`;
+  } else {
+    fw.innerHTML = '';
+  }
+
+  const grid = document.getElementById('cards-grid');
+  grid.classList.add('fading');
+  setTimeout(() => {
+    if (!pageItems.length) {
+      grid.innerHTML = `<div class="empty"><div class="empty-ico">📰</div><h3>No articles found</h3></div>`;
+    } else {
+      grid.innerHTML = pageItems.map((n,i) => `
+        <div class="ncard" style="animation-delay:${Math.min(i*.07,.4)}s" onclick="openArt(${n.id})">
+          <div class="ncard-img">
+            <img src="${n.img}" alt="${n.title}" onerror="this.style.display='none'">
+            <div class="ncard-badge">${n.cat}</div>
+          </div>
+          <div class="ncard-body">
+            <div class="ncard-date">📅 ${n.date}</div>
+            <h3>${n.title}</h3>
+            <p class="ncard-excerpt">${n.excerpt}</p>
+            <div class="ncard-footer">
+              <div class="ncard-arr">Read article <span>→</span></div>
+            </div>
+          </div>
+        </div>`).join('');
+    }
+    grid.classList.remove('fading');
+  }, 220);
+
+  const pg = document.getElementById('pagination');
+  if (totalPages <= 1) { pg.innerHTML=''; return; }
+  let html = '';
+  if (currentPage > 1) html += `<button class="pg-btn arrow" onclick="goPage(${currentPage-1})">‹</button>`;
+  for (let p=1; p<=totalPages; p++) {
+    html += `<button class="pg-btn${p===currentPage?' active':''}" onclick="goPage(${p})">${p}</button>`;
+  }
+  if (currentPage < totalPages) html += `<button class="pg-btn arrow" onclick="goPage(${currentPage+1})">›</button>`;
+  pg.innerHTML = html;
+}
+
+window.goPage = function(p) {
+  currentPage = p;
+  renderAll();
+  document.querySelector('.content-col').scrollIntoView({behavior:'smooth',block:'start'});
+};
+
+/* ─────────────── ARTICLE MODAL ─────────────── */
+window.openArt = function(id) {
+  const art = NEWS.find(n => n.id === id);
+  if (!art) return;
+  document.getElementById('art-img').src           = art.img;
+  document.getElementById('art-img').alt           = art.title;
+  document.getElementById('art-cat').textContent   = art.cat;
+  document.getElementById('art-title').textContent = art.title;
+  document.getElementById('art-date').textContent  = art.date;
+  document.getElementById('art-body').innerHTML    = art.body;
+  const ov = document.getElementById('art-overlay');
+  ov.classList.add('open');
+  ov.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeArt = function() {
+  document.getElementById('art-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+};
+
+document.getElementById('art-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('art-overlay')) window.closeArt();
+});
+document.addEventListener('keydown', e => { if (e.key==='Escape') window.closeArt(); });
+
+/* ─────────────── SEARCH ─────────────── */
+document.getElementById('search-inp').addEventListener('input', e => {
+  searchQ     = e.target.value.trim();
+  currentPage = 1;
+  if (searchQ) currentCat = 'All';
+  renderHeroPills();
+  renderFilterPills();
+  renderAll();
+});
+
+/* ─────────────── INIT ─────────────── */
+renderHeroPills();
+renderFilterPills();
+renderSidebar();
+renderAll();
+
+</script>
+</body>
+</html>

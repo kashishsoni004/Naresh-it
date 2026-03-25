@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Meet NareshIT's expert trainers — industry practitioners with real-world experience in Java, Python, DevOps, Data Science, AI, Cloud and more." />
+  <title>Trainers Profile — NareshIT Best No.1 Software Training Institute</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --cream: #f6f3ed;
+      --cream-dark: #edeae1;
+      --ink: #111010;
+      --gold: #b89050;
+      --gold-light: #d4aa6a;
+      --ash: #7c7870;
+      --white: #ffffff;
+      --divider: rgba(17, 16, 16, 0.08);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Outfit', sans-serif;
+
+      --ease-silk: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-std: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      --r-lg: 16px;
+      --r-md: 12px;
+      --r-sm: 8px;
+      --r-pill: 100px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--cream-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 4px;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 400;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      background: rgba(246, 243, 237, .96);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 1px 0 var(--divider);
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ash);
+      position: relative;
+      transition: color .3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s var(--ease-std);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-end {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* ── NAV USER PROFILE ── */
+    .nav-user {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-user.show {
+      display: flex;
+    }
+
+    .nav-user-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--ink));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .nav-user-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-user-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .nav-user-email {
+      font-size: 10px;
+      color: var(--ash);
+    }
+
+    .nav-signout {
+      background: none;
+      border: 1px solid var(--divider);
+      border-radius: var(--r-pill);
+      padding: 4px 10px;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--ash);
+      cursor: pointer;
+      transition: all .25s;
+    }
+
+    .nav-signout:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    #nav-login-btn {
+      transition: all .25s;
+    }
+
+    #nav-login-btn.hidden {
+      display: none;
+    }
+
+    .btn-ng {
+      padding: 9px 20px;
+      background: transparent;
+      border: 1.5px solid var(--divider);
+      border-radius: var(--r-pill);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ash);
+      cursor: pointer;
+      transition: all .3s;
+    }
+
+    .btn-ng:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    /* ============================================================
+       PAGE HERO
+    ============================================================ */
+    .page-hero {
+      background: var(--ink);
+      padding: 64px 60px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 70% 100% at 100% 50%, rgba(184, 144, 80, .08), transparent 65%),
+        repeating-linear-gradient(90deg, transparent, transparent 99px, rgba(255, 255, 255, .02) 100px),
+        repeating-linear-gradient(0deg, transparent, transparent 99px, rgba(255, 255, 255, .02) 100px);
+    }
+
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .lbl-hero {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+    }
+
+    .lbl-hero::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold-light);
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 6vw, 80px);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -2px;
+      color: rgba(246, 243, 237, .92);
+      margin-bottom: 18px;
+    }
+
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .page-hero p {
+      font-size: 15px;
+      color: rgba(246, 243, 237, .4);
+      max-width: 480px;
+      line-height: 1.9;
+    }
+
+    .hero-nums {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .hero-num-val {
+      font-family: var(--font-serif);
+      font-size: 44px;
+      font-weight: 300;
+      line-height: 1;
+      color: rgba(246, 243, 237, .88);
+    }
+
+    .hero-num-val em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-num-lbl {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(246, 243, 237, .35);
+      margin-top: 6px;
+    }
+
+    /* ============================================================
+       FILTER BAR
+    ============================================================ */
+    .filter-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--divider);
+      position: sticky;
+      top: 68px;
+      z-index: 300;
+    }
+
+    .filter-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+    }
+
+    .filter-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-btn {
+      padding: 18px 22px;
+      background: transparent;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--ash);
+      cursor: pointer;
+      white-space: nowrap;
+      position: relative;
+      transition: color .25s var(--ease-std);
+      border-bottom: 2px solid transparent;
+    }
+
+    .filter-btn::after {
+      content: attr(data-count);
+      font-size: 9px;
+      font-weight: 600;
+      background: var(--cream-dark);
+      color: var(--ash);
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-left: 7px;
+      transition: all .25s;
+    }
+
+    .filter-btn:hover {
+      color: var(--ink);
+    }
+
+    .filter-btn.active {
+      color: var(--ink);
+      border-bottom-color: var(--gold);
+      font-weight: 600;
+    }
+
+    .filter-btn.active::after {
+      background: rgba(184, 144, 80, .18);
+      color: var(--gold);
+    }
+
+    .filter-search {
+      margin-left: auto;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fsearch-inp {
+      padding: 8px 16px 8px 36px;
+      background: var(--cream);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-pill);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--ink);
+      outline: none;
+      width: 200px;
+      transition: all .3s var(--ease-silk);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='%237c7870' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.099zm-5.44 1.409a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 12px center;
+    }
+
+    .fsearch-inp::placeholder {
+      color: var(--ash);
+    }
+
+    .fsearch-inp:focus {
+      border-color: var(--gold);
+      background-color: var(--white);
+      width: 260px;
+      box-shadow: 0 0 0 3px rgba(184, 144, 80, .1);
+    }
+
+    /* ============================================================
+       MAIN CONTENT
+    ============================================================ */
+    .main-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 48px 60px 100px;
+    }
+
+    .result-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .result-label {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .result-count {
+      font-size: 12px;
+      color: var(--ash);
+      margin-left: 10px;
+    }
+
+    .sort-sel {
+      padding: 8px 14px;
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-sm);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--ash);
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    /* ============================================================
+       FACULTY GRID
+    ============================================================ */
+    #faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      transition: opacity .35s var(--ease-std), transform .35s var(--ease-std);
+    }
+
+    #faculty-grid.fading {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .fcard {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: cardUp .55s var(--ease-silk) both;
+      transition: transform .4s var(--ease-silk), box-shadow .4s var(--ease-silk), border-color .3s;
+      cursor: pointer;
+    }
+
+    @keyframes cardUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fcard:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 60px rgba(17, 16, 16, .1);
+      border-color: rgba(184, 144, 80, .3);
+    }
+
+    .fphoto {
+      position: relative;
+      height: 200px;
+      background: linear-gradient(160deg, var(--cream-dark), var(--cream));
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fphoto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .5s var(--ease-silk);
+    }
+
+    .fcard:hover .fphoto img {
+      transform: scale(1.05);
+    }
+
+    .fphoto-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      background: rgba(17, 16, 16, .72);
+      backdrop-filter: blur(8px);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(246, 243, 237, .85);
+    }
+
+    .fphoto-placeholder {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--ink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .fbody {
+      padding: 18px 20px 20px;
+    }
+
+    .fname {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .fspeciality {
+      font-size: 11px;
+      color: var(--ash);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .fdomain-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+      padding: 4px 12px;
+      background: rgba(184, 144, 80, .08);
+      border: 1px solid rgba(184, 144, 80, .2);
+      border-radius: var(--r-pill);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .empty-state {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .empty-state .ico {
+      font-size: 52px;
+      margin-bottom: 16px;
+      opacity: .35;
+    }
+
+    .empty-state h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--ash);
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      font-size: 13px;
+      color: var(--ash);
+      opacity: .7;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .site-footer {
+      background: var(--ink);
+      padding: 60px 60px 36px;
+    }
+
+    .fgrid-footer {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 52px;
+      max-width: 1300px;
+      margin: 0 auto 48px;
+    }
+
+    .flogo img {
+      height: 34px;
+      filter: brightness(0) invert(1);
+      opacity: .8;
+      margin-bottom: 16px;
+    }
+
+    .fdesc {
+      font-size: 12px;
+      color: rgba(246, 243, 237, .3);
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+
+    .fsocs {
+      display: flex;
+      gap: 8px;
+    }
+
+    .fsoc {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--r-sm);
+      border: 1px solid rgba(246, 243, 237, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(246, 243, 237, .3);
+      transition: all .25s;
+    }
+
+    .fsoc:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .fcol h5 {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(246, 243, 237, .28);
+      margin-bottom: 16px;
+    }
+
+    .fcol ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .fcol ul a {
+      font-size: 12px;
+      color: rgba(246, 243, 237, .4);
+      transition: color .25s;
+    }
+
+    .fcol ul a:hover {
+      color: var(--gold-light);
+    }
+
+    .fbot {
+      max-width: 1300px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(246, 243, 237, .07);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .fbot p {
+      font-size: 11px;
+      color: rgba(246, 243, 237, .22);
+    }
+
+    .floats {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fbtn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .18);
+      transition: transform .35s var(--ease-silk), box-shadow .3s;
+    }
+
+    .fbtn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .22);
+    }
+
+    .fbtn-wa {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .fbtn-ph {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    /* ============================================================
+       TRAINER PROFILE MODAL
+    ============================================================ */
+    .tmodal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 800;
+      background: rgba(17, 16, 16, .6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s var(--ease-std);
+    }
+
+    .tmodal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .tmodal {
+      background: var(--white);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 640px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(28px) scale(.97);
+      transition: transform .4s var(--ease-silk);
+      box-shadow: 0 40px 100px rgba(17, 16, 16, .25);
+    }
+
+    .tmodal-overlay.open .tmodal {
+      transform: translateY(0) scale(1);
+    }
+
+    .tmodal::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .tmodal::-webkit-scrollbar-thumb {
+      background: var(--cream-dark);
+      border-radius: 3px;
+    }
+
+    .tmodal-header {
+      background: var(--ink);
+      padding: 36px 36px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tmodal-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 80% 120% at 100% 0%, rgba(184, 144, 80, .15), transparent 65%);
+    }
+
+    .tmodal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(246, 243, 237, .1);
+      border: 1px solid rgba(246, 243, 237, .15);
+      color: rgba(246, 243, 237, .6);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .25s;
+      z-index: 1;
+    }
+
+    .tmodal-close:hover {
+      background: rgba(246, 243, 237, .2);
+      color: var(--white);
+    }
+
+    .tmodal-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .tmodal-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid rgba(184, 144, 80, .5);
+    }
+
+    .tmodal-initials {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--ink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      border: 2px solid rgba(184, 144, 80, .5);
+    }
+
+    .tmodal-name {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: rgba(246, 243, 237, .92);
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .tmodal-role {
+      font-size: 12px;
+      color: rgba(246, 243, 237, .45);
+      letter-spacing: .5px;
+    }
+
+    .tmodal-domain {
+      display: inline-flex;
+      margin-top: 10px;
+      padding: 4px 12px;
+      background: rgba(184, 144, 80, .18);
+      border: 1px solid rgba(184, 144, 80, .3);
+      border-radius: var(--r-pill);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .tmodal-body {
+      padding: 32px 36px 36px;
+    }
+
+    .ai-profile-section {
+      background: var(--cream);
+      border: 1px solid var(--divider);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    .ai-profile-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--divider);
+      background: var(--white);
+    }
+
+    .ai-profile-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .ai-profile-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    .ai-live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      margin-left: auto;
+      animation: adot 2s infinite;
+    }
+
+    @keyframes adot {
+      0%, 100% { opacity: 1 }
+      50% { opacity: .4 }
+    }
+
+    .ai-loading {
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .skel {
+      height: 12px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--cream-dark) 25%, #e8e4db 50%, var(--cream-dark) 75%);
+      background-size: 200% 100%;
+      animation: shimmer-skel 1.4s infinite;
+    }
+
+    .skel.w100 { width: 100%; }
+    .skel.w80  { width: 80%; }
+    .skel.w60  { width: 60%; }
+    .skel.w90  { width: 90%; }
+    .skel.w70  { width: 70%; }
+
+    @keyframes shimmer-skel {
+      0%   { background-position: 200% }
+      100% { background-position: -200% }
+    }
+
+    .ai-content {
+      padding: 20px;
+      display: none;
+    }
+
+    .ai-content.show {
+      display: block;
+    }
+
+    .ai-section {
+      margin-bottom: 20px;
+    }
+
+    .ai-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .ai-section-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ai-section-body {
+      font-size: 14px;
+      color: var(--ash);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .ai-section-body strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .ai-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+
+    .ai-tag {
+      padding: 4px 12px;
+      background: var(--cream-dark);
+      border-radius: var(--r-pill);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ash);
+    }
+
+    .ai-error-box {
+      padding: 18px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--ash);
+      display: none;
+    }
+
+    .ai-error-box.show {
+      display: block;
+    }
+
+    .tmodal-cta {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .tmodal-btn-primary {
+      flex: 1;
+      padding: 12px;
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      border-radius: var(--r-sm);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .3s var(--ease-silk);
+    }
+
+    .tmodal-btn-primary:hover {
+      background: var(--gold);
+    }
+
+    .tmodal-btn-outline {
+      padding: 12px 20px;
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--divider);
+      border-radius: var(--r-sm);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .3s var(--ease-silk);
+    }
+
+    .tmodal-btn-outline:hover {
+      border-color: var(--ink);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width:1024px) {
+      .nav             { padding: 0 28px; }
+      .nav-links       { display: none; }
+      .page-hero       { padding: 48px 28px 44px; }
+      .page-hero-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
+      .filter-inner    { padding: 0 20px; }
+      .filter-search   { display: none; }
+      .main-wrap       { padding: 32px 20px 60px; }
+      .fgrid-footer    { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .site-footer     { padding: 44px 28px 28px; }
+    }
+
+    @media (max-width:640px) {
+      #faculty-grid  { grid-template-columns: 1fr 1fr; }
+      .fgrid-footer  { grid-template-columns: 1fr; }
+      .hero-nums     { gap: 28px; }
+      .nav-user-info { display: none; }
+    }
+
+    @media (max-width:420px) {
+      #faculty-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation">
+    <a href="index.html" class="nav-logo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png"
+        alt="NareshIT" /></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="faculty.html" class="active">Faculty</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      <div class="nav-user" id="nav-user">
+        <div class="nav-user-avatar" id="nav-user-avatar">?</div>
+        <div class="nav-user-info">
+          <span class="nav-user-name" id="nav-user-name">Name</span>
+          <span class="nav-user-email" id="nav-user-email">email</span>
+        </div>
+        <button class="nav-signout" id="nav-signout">Sign out</button>
+      </div>
+      <button class="btn-ng" id="nav-login-btn" type="button" onclick="window.location.href='index.html'">Login</button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="hero-left">
+        <div class="lbl-hero">Our Faculty</div>
+        <h1>Learn from <em>Real</em><br>Industry Experts</h1>
+        <p>Every NareshIT trainer is an active industry practitioner — not a textbook lecturer. They bring current,
+          real-world knowledge into every session.</p>
+      </div>
+      <div class="hero-nums">
+        <div class="hero-num">
+          <div class="hero-num-val">100<em>+</em></div>
+          <div class="hero-num-lbl">Expert Trainers</div>
+        </div>
+        <div class="hero-num">
+          <div class="hero-num-val">22<em>+</em></div>
+          <div class="hero-num-lbl">Years Training</div>
+        </div>
+        <div class="hero-num">
+          <div class="hero-num-val">10<em>L+</em></div>
+          <div class="hero-num-lbl">Students Taught</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-inner" id="filter-bar">
+      <div class="filter-search">
+        <input class="fsearch-inp" id="search-inp" type="text" placeholder="Search trainer or skill…"
+          autocomplete="off" />
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-wrap">
+    <div class="result-bar">
+      <div>
+        <span class="result-label" id="cat-label">All Faculty</span>
+        <span class="result-count" id="result-count"></span>
+      </div>
+      <select class="sort-sel" id="sort-sel">
+        <option value="default">Sort: Default</option>
+        <option value="az">Name A–Z</option>
+        <option value="za">Name Z–A</option>
+      </select>
+    </div>
+    <div id="faculty-grid"></div>
+  </div>
+
+  <!-- TRAINER PROFILE MODAL -->
+  <div class="tmodal-overlay" id="tmodal-overlay">
+    <div class="tmodal" id="tmodal">
+
+      <div class="tmodal-header">
+        <button class="tmodal-close" id="tmodal-close" type="button">✕</button>
+        <div class="tmodal-meta">
+          <img class="tmodal-photo" id="tmodal-photo" src="" alt="" />
+          <div class="tmodal-initials" id="tmodal-initials" style="display:none;"></div>
+          <div class="tmodal-info">
+            <div class="tmodal-name" id="tmodal-name"></div>
+            <div class="tmodal-role" id="tmodal-role"></div>
+            <div class="tmodal-domain" id="tmodal-domain"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tmodal-body">
+        <div class="ai-profile-section">
+          <div class="ai-profile-header">
+            <div class="ai-profile-badge">✦</div>
+            <span class="ai-profile-label">AI Trainer Insight</span>
+            <div class="ai-live-dot"></div>
+          </div>
+
+          <div class="ai-loading" id="ai-loading">
+            <div class="skel w80"></div>
+            <div class="skel w100"></div>
+            <div class="skel w60"></div>
+            <div class="skel w90" style="margin-top:6px"></div>
+            <div class="skel w100"></div>
+            <div class="skel w70"></div>
+            <div class="skel w80" style="margin-top:6px"></div>
+            <div class="skel w50"></div>
+          </div>
+
+          <div class="ai-content" id="ai-content">
+            <div class="ai-section">
+              <div class="ai-section-title">👤 About the Trainer</div>
+              <div class="ai-section-body" id="ai-about"></div>
+            </div>
+            <div class="ai-section">
+              <div class="ai-section-title">📚 Courses & Expertise</div>
+              <div class="ai-section-body" id="ai-courses"></div>
+            </div>
+            <div class="ai-section">
+              <div class="ai-section-title">🎯 Teaching Style</div>
+              <div class="ai-section-body" id="ai-style"></div>
+            </div>
+            <div class="ai-section">
+              <div class="ai-section-title">🏷 Key Skills Covered</div>
+              <div class="ai-tags" id="ai-tags"></div>
+            </div>
+            <div class="ai-section">
+              <div class="ai-section-title">💼 Why Learn from This Trainer</div>
+              <div class="ai-section-body" id="ai-why"></div>
+            </div>
+          </div>
+
+          <div class="ai-error-box" id="ai-error-box">
+            ⚠️ Could not load trainer info. Please try again.
+          </div>
+        </div>
+
+        <div class="tmodal-cta">
+          <button class="tmodal-btn-primary" id="tmodal-enroll" type="button">
+            Enroll with this Trainer
+          </button>
+          <button class="tmodal-btn-outline" id="tmodal-wa" type="button">
+            💬 WhatsApp
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="fgrid-footer">
+      <div>
+        <div class="flogo"><img src="https://cdn.nareshit.com/images/naresh-it-logo2.png" alt="NareshIT" /></div>
+        <p class="fdesc">NNV Naresh is an entrepreneur with a noble vision to transform career aspirations. Over 22
+          years shaping India's software talent ecosystem.</p>
+        <div class="fsocs">
+          <a class="fsoc" href="https://www.facebook.com/nareshitechnologies" target="_blank">f</a>
+          <a class="fsoc" href="https://www.instagram.com/nareshitech" target="_blank">◎</a>
+          <a class="fsoc" href="https://www.youtube.com/@NareshIT" target="_blank">▶</a>
+          <a class="fsoc" href="https://in.linkedin.com/company/naresh-i-technologies" target="_blank">in</a>
+        </div>
+      </div>
+      <div class="fcol">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="Careers.html">Careers</a></li>
+          <li><a href="Testimonials.html">Testimonials</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="courses.html">All Courses</a></li>
+          <li><a href="#">New Batches</a></li>
+          <li><a href="#">Hire from NareshIT</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Internships</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h5>Top Courses</h5>
+        <ul>
+          <li><a href="courses.html?cat=fullstack">Full Stack Java</a></li>
+          <li><a href="courses.html?cat=devops">DevOps Multi Cloud</a></li>
+          <li><a href="courses.html?cat=datascience">Data Science & AI</a></li>
+          <li><a href="courses.html?cat=datascience">Generative AI</a></li>
+          <li><a href="courses.html?cat=testing">Software Testing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <p>© 2025 Naresh i Technologies. All rights reserved.</p>
+      <p>Crafted with care in Hyderabad, India</p>
+    </div>
+  </footer>
+
+  <div class="floats">
+    <button class="fbtn fbtn-wa" onclick="window.open('https://wa.me/+918179191999','_blank')"
+      aria-label="WhatsApp">💬</button>
+    <button class="fbtn fbtn-ph" onclick="window.location.href='tel:+918179191999'" aria-label="Call">📞</button>
+  </div>
+
+  <script type="module">
+
+    /* ── Firebase ── */
+    import { initializeApp }
+      from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js';
+    import { getAuth, onAuthStateChanged, signOut }
+      from 'https://www.gstatic.com/firebasejs/12.11.0/firebase-auth.js';
+
+    const firebaseConfig = {
+      apiKey: 'AIzaSyBHAPhCQHq0jR-4pAwlLKAphskkbhpC5iw',
+      authDomain: 'nareshit-bd900.firebaseapp.com',
+      projectId: 'nareshit-bd900',
+      storageBucket: 'nareshit-bd900.firebasestorage.app',
+      messagingSenderId: '923456489902',
+      appId: '1:923456489902:web:f652e970887451c2ba203f',
+      measurementId: 'G-EXWYHW9TB2',
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const LS_KEY = 'nit_user';
+
+    function getNavInitials(name) {
+      if (!name) return '?';
+      return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    }
+
+    function showNavProfile(name, email) {
+      const userEl = document.getElementById('nav-user');
+      const loginBtn = document.getElementById('nav-login-btn');
+      if (!userEl) return;
+      document.getElementById('nav-user-avatar').textContent = getNavInitials(name);
+      document.getElementById('nav-user-name').textContent = name || 'My Account';
+      document.getElementById('nav-user-email').textContent = email || '';
+      userEl.classList.add('show');
+      loginBtn.classList.add('hidden');
+      try { localStorage.setItem(LS_KEY, JSON.stringify({ name, email })); } catch (_) { }
+    }
+
+    function hideNavProfile() {
+      const userEl = document.getElementById('nav-user');
+      const loginBtn = document.getElementById('nav-login-btn');
+      if (!userEl) return;
+      userEl.classList.remove('show');
+      loginBtn.classList.remove('hidden');
+      try { localStorage.removeItem(LS_KEY); } catch (_) { }
+    }
+
+    (function () {
+      try {
+        const cached = localStorage.getItem(LS_KEY);
+        if (cached) {
+          const { name, email } = JSON.parse(cached);
+          if (name || email) showNavProfile(name, email);
+        }
+      } catch (_) { }
+    })();
+
+    document.getElementById('nav-signout').addEventListener('click', () => {
+      signOut(auth).then(hideNavProfile).catch(console.error);
+    });
+
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        showNavProfile(
+          user.displayName || user.email?.split('@')[0] || 'Student',
+          user.email || ''
+        );
+      } else {
+        hideNavProfile();
+      }
+    });
+
+    document.getElementById('tmodal-enroll').addEventListener('click', () => {
+      window.location.href = 'index.html#contact';
+    });
+    document.getElementById('tmodal-wa').addEventListener('click', () => {
+      window.open('https://wa.me/+918179191999', '_blank');
+    });
+
+    /* ----------------------------------------------------------
+       TRAINER DATA
+    ---------------------------------------------------------- */
+    const TRAINERS = [
+      // Java / Full Stack
+      { name: 'Mr. Nataraj', role: 'Java / J2EE Trainer', img: 'https://images.nareshit.com/images/image_1706080522457.jpg', domain: 'java' },
+      { name: 'Mr. Hari Krishna', role: 'Java / J2EE Trainer', img: 'https://images.nareshit.com/images/image_1706081180938.jpg', domain: 'java' },
+      { name: 'Mr. K V Rao', role: 'Python & Java Trainer', img: 'https://images.nareshit.com/images/image_1706081294209.jpg', domain: 'java' },
+      { name: 'Mr. Satish Gupta', role: 'Python & Java Trainer', img: 'https://images.nareshit.com/images/image_1706081758519.jpg', domain: 'java' },
+      { name: 'Mr. Kishan B', role: 'Java Trainer', img: 'https://images.nareshit.com/images/image_1706082545773.jpg', domain: 'java' },
+      { name: 'Mr. Younus', role: 'Core Java Trainer', img: 'https://images.nareshit.com/images/image_1714021836193.png', domain: 'java' },
+      { name: 'Mr. Shiva Kumar', role: 'Java Trainer', img: 'https://images.nareshit.com/images/image_1715234700461.png', domain: 'java' },
+      { name: 'Mr. Venkatesh Mansani', role: 'Full Stack Java Trainer', img: 'https://images.nareshit.com/images/image_1712898329769.png', domain: 'java' },
+      { name: 'Mr. Suresh', role: 'Full Stack Java Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'java' },
+      { name: 'Mr. Shivam Kumar', role: 'Java Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'java' },
+      { name: 'Mr. Jagganath', role: 'Java Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'java' },
+      { name: 'Mr. Ramana', role: 'Java Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'java' },
+      { name: 'Mr. Jagannath Bhandari', role: 'Java Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'java' },
+      { name: 'Mr. Mahendra', role: 'Core Java Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'java' },
+      { name: 'Mr. Ram Shankar', role: 'Full Stack Java Trainer', img: 'https://images.nareshit.com/Full_Stack_Java_Naresh_IT.png', domain: 'java' },
+      // Python
+      { name: 'Mr. Shareef', role: 'Full Stack Python Trainer', img: 'https://images.nareshit.com/Full_Stack_Python_Mr._Shareef.png', domain: 'python' },
+      { name: 'Mr. Sai Vardhan', role: 'Python Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'python' },
+      { name: 'Mr. Naseer Basha', role: 'DSA with Python Trainer', img: 'https://images.nareshit.com/Data_Structures_&_Algorithms_with_Python_in_NIT.png', domain: 'python' },
+      // .NET
+      { name: 'Mr. Sudhakar L', role: 'MS.NET & Oracle Trainer', img: 'https://images.nareshit.com/images/image_1712225936061.jpg', domain: 'dotnet' },
+      { name: 'Mr. Bangar Raju', role: 'MS.NET Trainer', img: 'https://images.nareshit.com/images/image_1712226550177.jpg', domain: 'dotnet' },
+      { name: 'Mr. Yawar Ali', role: 'MS.Net Trainer', img: 'https://images.nareshit.com/images/image_1714022445570.png', domain: 'dotnet' },
+      { name: 'Mr. Vishwa', role: '.Net Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'dotnet' },
+      { name: 'Ms. Prathibha', role: 'C#.Net & Full Stack .Net', img: 'https://images.nareshit.com/C#.Net_&_Full_Stack_.Net_at_Nareshit.png', domain: 'dotnet' },
+      // DevOps & Cloud
+      { name: 'Mr. Veera Babu', role: 'DevOps Trainer', img: 'https://images.nareshit.com/images/image_1714369263599.png', domain: 'devops' },
+      { name: 'Mr. Wasif', role: 'Azure DevOps Trainer', img: 'https://images.nareshit.com/images/image_1712145736743.png', domain: 'devops' },
+      { name: 'Mr. Naveen', role: 'Azure DevOps Trainer', img: 'https://images.nareshit.com/images/image_1712226116630.png', domain: 'devops' },
+      { name: 'Mr. Rajinikanth', role: 'DevOps Trainer', img: 'https://images.nareshit.com/images/image_1712477724153.png', domain: 'devops' },
+      { name: 'Mr. Raham', role: 'DevOps Trainer', img: 'https://images.nareshit.com/images/image_1712225616969.jpg', domain: 'devops' },
+      { name: 'Mr. Riyaz', role: 'AWS Trainer', img: 'https://images.nareshit.com/Mr._Riyaz.jpg', domain: 'devops' },
+      { name: 'Mr. Jubair', role: 'AWS Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'devops' },
+      { name: 'Mr. Imran', role: 'Unix / Linux Trainer', img: 'https://images.nareshit.com/image_1712142972236.png', domain: 'devops' },
+      { name: 'Mr. Ravi', role: 'DevOps SRE Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'devops' },
+      { name: 'Mr. Shiva', role: 'Cloud + DevOps Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'devops' },
+      { name: 'Mr. Ram', role: 'DevOps & Cloud Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'devops' },
+      { name: 'Mr. Venkat Reddy', role: 'Azure Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'devops' },
+      { name: 'Mr. Bhaskar', role: 'Azure Data Engineer Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'devops' },
+      { name: 'Mr. Gareth', role: 'Azure Data Engineer Trainer', img: 'https://images.nareshit.com/images/image_1712145837825.png', domain: 'devops' },
+      { name: 'Mr. Prakash Senapathi', role: 'DevOps Trainer', img: 'https://images.nareshit.com/images/image_1712226331634.jpg', domain: 'devops' },
+      // Data Science & AI
+      { name: 'Mr. Daniel', role: 'Data Science Trainer', img: 'https://images.nareshit.com/images/image_1712143674289.png', domain: 'datascience' },
+      { name: 'Mr. Omkar', role: 'Data Science Trainer', img: 'https://images.nareshit.com/images/image_1712225424004.jpg', domain: 'datascience' },
+      { name: 'Mr. Shiva Rama Krishna', role: 'Data Science Trainer', img: 'https://images.nareshit.com/Mr._Shiva_Rama_Krishna.jpg', domain: 'datascience' },
+      { name: 'Mr. Nikhil', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'datascience' },
+      { name: 'Mr. Mayur', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'datascience' },
+      { name: 'Mr. Deepak', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'datascience' },
+      { name: 'Mr. Sriram', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'datascience' },
+      { name: 'Mr. Jayanth', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'datascience' },
+      { name: 'Mr. Arun Kumar', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712142972236.png', domain: 'datascience' },
+      { name: 'Mr. Manohar', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'datascience' },
+      { name: 'Mr. Prudhvi', role: 'Generative AI & Agentic AI Trainer', img: 'https://images.nareshit.com/Advance_Generative_AI_with_Agentic_AI.png', domain: 'datascience' },
+      { name: 'Mr. Karthik Gupta', role: 'Generative AI with Python Trainer', img: 'https://images.nareshit.com/Generative_AI_&_Agentic_AI_with_Python.png', domain: 'datascience' },
+      { name: 'Mr. Rakesh', role: 'Full Stack Data Science & AI Trainer', img: 'https://images.nareshit.com/Full_Stack_Data_Science_&_AI_by_rakesh.png', domain: 'datascience' },
+      { name: 'Mr. Rahul', role: 'Data Analytics Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'datascience' },
+      { name: 'Sr. Data Scientist', role: 'Data Science Trainer', img: 'https://images.nareshit.com/Sr.Data_Scientist_.png', domain: 'datascience' },
+      { name: 'Miss. Kavitha', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'datascience' },
+      { name: 'Mr. Abhijeeth', role: 'DSA with Java & System Design', img: 'https://images.nareshit.com/Data_Analytics_&_Business_Analytics.png', domain: 'datascience' },
+      { name: 'Mr. Manohar (DA)', role: 'Data Analytics & Business Analytics', img: 'https://images.nareshit.com/Data_Analytics_&_Business_Analytics_.png', domain: 'datascience' },
+      { name: 'Sr. Data Scientist (2)', role: 'Sr. Data Scientist', img: 'https://images.nareshit.com/Sr.Data_Scientist_.png', domain: 'datascience' },
+      // Analytics
+      { name: 'Miss. Mohana', role: 'Power BI Trainer', img: 'https://images.nareshit.com/images/image_1712145883843.png', domain: 'analytics' },
+      { name: 'Mr. Vijay Rama Raju', role: 'Power BI Trainer', img: 'https://images.nareshit.com/images/image_1712146074930.png', domain: 'analytics' },
+      { name: 'Mr. Laxman', role: 'Power BI Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'analytics' },
+      { name: 'Mr. Dhruv Singh', role: 'Power BI Trainer', img: 'https://images.nareshit.com/image_1712142972236.png', domain: 'analytics' },
+      { name: 'Mr. Vijaya Kumar', role: 'SQL Server Trainer', img: 'https://images.nareshit.com/images/image_1712144429719.png', domain: 'analytics' },
+      { name: 'Mr. Sandeep Krishna', role: 'Data Analytics Trainer', img: 'https://images.nareshit.com/image_1712142972236.png', domain: 'analytics' },
+      { name: 'Mr. Rajendra Prasad', role: 'Data Analytics Trainer', img: 'https://images.nareshit.com/image_1712142972236.png', domain: 'analytics' },
+      { name: 'Mr. Sai', role: 'Data Analytics Trainer', img: 'https://images.nareshit.com/image_1712142972236.png', domain: 'analytics' },
+      { name: 'Miss. Tarakeshwari', role: 'Data Analytics & Business Analytics', img: 'https://images.nareshit.com/Data_Analytics_&_Business_Analytics.png', domain: 'analytics' },
+      // Testing
+      { name: 'Mr. Mahesh', role: 'Selenium Trainer', img: 'https://images.nareshit.com/images/image_1712143755898.png', domain: 'testing' },
+      { name: 'Mr. Vamshi Mohan', role: 'Selenium Trainer', img: 'https://images.nareshit.com/images/image_1713328226353.png', domain: 'testing' },
+      { name: 'Mr. Sumanth', role: 'Selenium Trainer', img: 'https://images.nareshit.com/images/image_1714020591238.png', domain: 'testing' },
+      { name: 'Mr. Shaik Rabbani', role: 'Software Testing Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'testing' },
+      { name: 'Mr. Ravikanth', role: 'Software Testing Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'testing' },
+      { name: 'Mr. Adhan', role: 'Testing Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'testing' },
+      { name: 'Mr. Sumanth (2)', role: 'Testing Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'testing' },
+      { name: 'Mr. Kumar', role: 'Data Structures Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'testing' },
+      { name: 'Mr. Karthik', role: 'Playwright Automation Trainer', img: 'https://images.nareshit.com/Playwright_Automation_at_Naresh_IT.png', domain: 'testing' },
+      { name: 'Mr. Madhusudhan', role: 'Full Stack Testing with AI', img: 'https://images.nareshit.com/Full_Stack_Testing_with_AI_at_NARESHIT_.png', domain: 'testing' },
+      // Web & UI
+      { name: 'Mr. Sudhakar Sharma', role: 'UI Full Stack Trainer', img: 'https://images.nareshit.com/Mr._Sudhakar_Sharma.jpg', domain: 'webdev' },
+      { name: 'Mr. Durga Prasad', role: 'UI Full Stack Trainer', img: 'https://images.nareshit.com/images/image_1712479105312.jpeg', domain: 'webdev' },
+      { name: 'Mr. Sanjay', role: 'UI Full Stack Trainer', img: 'https://images.nareshit.com/images/image_1712479159158.jpeg', domain: 'webdev' },
+      { name: 'Mr. Sagar', role: 'UI Full Stack Trainer', img: 'https://images.nareshit.com/images/image_1712479204926.jpeg', domain: 'webdev' },
+      { name: 'Mr. Prasad', role: 'HTML | CSS | JavaScript Trainer', img: 'https://images.nareshit.com/images/image_1712145958824.png', domain: 'webdev' },
+      // C / C++
+      { name: 'Mr. Kishore', role: 'C & C++ Trainer', img: 'https://images.nareshit.com/images/image_1706083661572.jpg', domain: 'cprog' },
+      { name: 'Mr. Srinivas', role: 'C / C++ Trainer', img: 'https://images.nareshit.com/images/image_1714023599416.png', domain: 'cprog' },
+      { name: 'Mr. Srikanth', role: 'C Language Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'cprog' },
+      // Database
+      { name: 'Mr. Shiva Chaitanya', role: 'Oracle Trainer', img: 'https://images.nareshit.com/images/image_1712225986049.jpg', domain: 'database' },
+      { name: 'Mr. Sharma', role: 'Oracle Trainer', img: 'https://images.nareshit.com/images/image_1712479336344.jpeg', domain: 'database' },
+      // Salesforce
+      { name: 'Mr. Satish', role: 'Salesforce Trainer', img: 'https://images.nareshit.com/image_1712142972236.png', domain: 'salesforce' },
+      { name: 'Mr. Adhan (SF)', role: 'Salesforce Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'salesforce' },
+      { name: 'Ms. Sk Asma', role: 'Salesforce Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'salesforce' },
+      { name: 'Mr. Faizal Khan', role: 'Salesforce CRM with LWC Trainer', img: 'https://images.nareshit.com/Salesforce_CRM_with_LWC_at_NIT.png', domain: 'salesforce' },
+      // Cyber Security
+      { name: 'Miss. Priya', role: 'Cyber Security Trainer', img: 'https://images.nareshit.com/image_1712142972236.png', domain: 'security' },
+      { name: 'Mr. John', role: 'Cyber Security & Ethical Hacking', img: 'https://images.nareshit.com/Cyber_Security_&_Ethical_Hacking.png', domain: 'security' },
+      // Others
+      { name: 'Real-Time Expert', role: 'Sr. Trainer', img: 'https://images.nareshit.com/images/image_1712142972236.png', domain: 'others' },
+      { name: 'Mr. Ramakanth', role: 'Digital Marketing Trainer', img: 'https://images.nareshit.com/images/image_1712146156277.png', domain: 'others' },
+      { name: 'Mr. Amith Pandey', role: 'Spoken English Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'others' },
+      { name: 'Mr. Durga Naresh', role: 'CRT Trainer', img: 'https://images.nareshit.com/images/image_1715404380949.png', domain: 'others' },
+      { name: 'Mr. Pavan', role: 'Android Trainer', img: 'https://images.nareshit.com/images/image_1715403664843.png', domain: 'others' },
+      { name: 'Mr. Rajanikanth', role: 'Digital Marketing Trainer', img: 'https://images.nareshit.com/images/image_1712146156277.png', domain: 'others' },
+      { name: 'Mr. Manohar (DS)', role: 'DevOps & Cloud Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'others' },
+      { name: 'Mr. Sriram', role: 'Data Science Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'others' },
+      { name: 'Mr. Ramana', role: 'Java Trainer', img: 'https://images.nareshit.com/image_1712224915953.png', domain: 'others' },
+    ];
+
+    const CATS = [
+      { id: 'all', label: 'All' },
+      { id: 'java', label: 'Java & Full Stack' },
+      { id: 'python', label: 'Python' },
+      { id: 'dotnet', label: '.NET' },
+      { id: 'devops', label: 'DevOps & Cloud' },
+      { id: 'datascience', label: 'Data Science & AI' },
+      { id: 'analytics', label: 'Analytics' },
+      { id: 'testing', label: 'Testing' },
+      { id: 'webdev', label: 'Web Dev' },
+      { id: 'cprog', label: 'C / C++' },
+      { id: 'database', label: 'Database' },
+      { id: 'salesforce', label: 'Salesforce' },
+      { id: 'security', label: 'Cyber Security' },
+      { id: 'others', label: 'Others' },
+    ];
+
+    const DOMAIN_LABELS = {
+      java: 'Java', python: 'Python', dotnet: '.NET', devops: 'DevOps / Cloud',
+      datascience: 'Data Science & AI', analytics: 'Analytics', testing: 'Testing',
+      webdev: 'Web Dev', cprog: 'C / C++', database: 'Database',
+      salesforce: 'Salesforce', security: 'Security', others: 'Others',
+    };
+
+    let currentCat = 'all';
+    let searchQuery = '';
+    let sortMode = 'default';
+
+    function renderFilters() {
+      const bar = document.getElementById('filter-bar');
+      const search = bar.querySelector('.filter-search');
+      [...bar.querySelectorAll('.filter-btn')].forEach(b => b.remove());
+
+      CATS.forEach(cat => {
+        const count = cat.id === 'all'
+          ? TRAINERS.length
+          : TRAINERS.filter(t => t.domain === cat.id).length;
+
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn' + (currentCat === cat.id ? ' active' : '');
+        btn.dataset.cat = cat.id;
+        btn.dataset.count = count;
+        btn.textContent = cat.label;
+        btn.type = 'button';
+        btn.addEventListener('click', () => {
+          currentCat = cat.id;
+          renderFilters();
+          renderGrid();
+        });
+        bar.insertBefore(btn, search);
+      });
+    }
+
+    function getFiltered() {
+      let list = currentCat === 'all'
+        ? [...TRAINERS]
+        : TRAINERS.filter(t => t.domain === currentCat);
+
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        list = list.filter(t =>
+          t.name.toLowerCase().includes(q) ||
+          t.role.toLowerCase().includes(q)
+        );
+      }
+
+      if (sortMode === 'az') list.sort((a, b) => a.name.localeCompare(b.name));
+      if (sortMode === 'za') list.sort((a, b) => b.name.localeCompare(a.name));
+      return list;
+    }
+
+    function getInitials(name) {
+      const parts = name.replace(/^(Mr\.|Ms\.|Miss\.|Sr\.)/, '').trim().split(/\s+/);
+      return parts.slice(0, 2).map(p => p[0]?.toUpperCase() || '').join('');
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('faculty-grid');
+      const label = document.getElementById('cat-label');
+      const count = document.getElementById('result-count');
+      const list = getFiltered();
+      const catObj = CATS.find(c => c.id === currentCat);
+
+      label.textContent = catObj
+        ? (catObj.id === 'all' ? 'All Faculty' : catObj.label + ' Trainers')
+        : 'Faculty';
+      count.textContent = `— ${list.length} trainer${list.length !== 1 ? 's' : ''}`;
+
+      grid.classList.add('fading');
+
+      setTimeout(() => {
+        if (list.length === 0) {
+          grid.innerHTML = `
+            <div class="empty-state">
+              <div class="ico">🔍</div>
+              <h3>No trainers found</h3>
+              <p>Try a different filter or search term</p>
+            </div>`;
+        } else {
+          grid.innerHTML = list.map((t, i) => {
+            const delay = Math.min(i * 0.03, 0.5);
+            const inits = getInitials(t.name);
+            return `
+              <div class="fcard" style="animation-delay:${delay}s">
+                <div class="fphoto">
+                  <img src="${t.img}" alt="${t.name}" loading="lazy"
+                    onerror="this.style.display='none'; this.parentElement.querySelector('.fphoto-placeholder').style.display='flex';" />
+                  <div class="fphoto-placeholder" style="display:none;">${inits}</div>
+                  <div class="fphoto-tag">${t.role}</div>
+                </div>
+                <div class="fbody">
+                  <div class="fname">${t.name}</div>
+                  <div class="fspeciality">${t.role}</div>
+                  <div class="fdomain-pill">${DOMAIN_LABELS[t.domain] || t.domain}</div>
+                </div>
+              </div>`;
+          }).join('');
+        }
+        grid.classList.remove('fading');
+      }, 220);
+    }
+
+    document.getElementById('sort-sel').addEventListener('change', e => {
+      sortMode = e.target.value;
+      renderGrid();
+    });
+
+    document.getElementById('search-inp').addEventListener('input', e => {
+      searchQuery = e.target.value.trim();
+      if (searchQuery && currentCat !== 'all') {
+        currentCat = 'all';
+        renderFilters();
+      }
+      renderGrid();
+    });
+
+    renderFilters();
+    renderGrid();
+
+    const catParam = new URLSearchParams(location.search).get('cat');
+    if (catParam && CATS.find(c => c.id === catParam)) {
+      currentCat = catParam;
+      renderFilters();
+      renderGrid();
+    }
+
+    /* ----------------------------------------------------------
+       TRAINER PROFILE MODAL
+    ---------------------------------------------------------- */
+    function openTrainerModal(trainer) {
+      const photo = document.getElementById('tmodal-photo');
+      const initials = document.getElementById('tmodal-initials');
+
+      photo.src = trainer.img;
+      photo.alt = trainer.name;
+      photo.style.display = 'block';
+      initials.style.display = 'none';
+
+      photo.onerror = () => {
+        photo.style.display = 'none';
+        initials.style.display = 'flex';
+        initials.textContent = getInitials(trainer.name);
+      };
+
+      document.getElementById('tmodal-name').textContent = trainer.name;
+      document.getElementById('tmodal-role').textContent = trainer.role;
+      document.getElementById('tmodal-domain').textContent = DOMAIN_LABELS[trainer.domain] || trainer.domain;
+
+      document.getElementById('ai-loading').style.display = 'flex';
+      document.getElementById('ai-content').classList.remove('show');
+      document.getElementById('ai-error-box').classList.remove('show');
+
+      document.getElementById('tmodal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      fetchTrainerInfo(trainer);
+    }
+
+    function closeModal() {
+      document.getElementById('tmodal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('tmodal-close').addEventListener('click', closeModal);
+    document.getElementById('tmodal-overlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('tmodal-overlay')) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    document.getElementById('faculty-grid').addEventListener('click', e => {
+      const card = e.target.closest('.fcard');
+      if (!card) return;
+      const idx = [...document.querySelectorAll('.fcard')].indexOf(card);
+      const list = getFiltered();
+      if (list[idx]) openTrainerModal(list[idx]);
+    });
+
+    /* ----------------------------------------------------------
+       GROQ BACKEND API — Generate trainer profile info
+    ---------------------------------------------------------- */
+    async function fetchTrainerInfo(trainer) {
+      try {
+        document.getElementById('ai-loading').style.display = 'flex';
+        document.getElementById('ai-content').classList.remove('show');
+        document.getElementById('ai-error-box').classList.remove('show');
+
+        const res = await fetch("http://localhost:5000/trainer", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: trainer.name,
+            role: trainer.role
+          })
+        });
+
+        const data = await res.json();
+
+        let parsed;
+        try {
+          parsed = JSON.parse(data.result);
+        } catch (e) {
+          throw new Error("Invalid JSON from backend");
+        }
+
+        document.getElementById('ai-loading').style.display = 'none';
+        document.getElementById('ai-content').classList.add('show');
+
+        document.getElementById('ai-about').textContent = parsed.about || "No data available";
+        document.getElementById('ai-courses').textContent = parsed.courses || "No data available";
+        document.getElementById('ai-style').textContent = parsed.style || "No data available";
+        document.getElementById('ai-why').textContent = parsed.why || "No data available";
+
+        const tagsContainer = document.getElementById('ai-tags');
+        tagsContainer.innerHTML = (parsed.tags || []).map(tag =>
+          `<span class="ai-tag">${tag}</span>`
+        ).join("");
+
+      } catch (err) {
+        console.error("Frontend Error:", err);
+        document.getElementById('ai-loading').style.display = 'none';
+        document.getElementById('ai-error-box').classList.add('show');
+      }
+    }
+  </script>
+</body>
+</html>
