@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   build:
@@ -24,18 +21,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r backend/requirements.txt
 
-      - name: Run App (Test)
+      - name: Run app
         run: |
-          python app.py &
-          sleep 5
-          curl http://localhost:5000 || echo "App not responding"
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy Step (Dummy)
-        run: echo "Deploy step here (EC2 / Docker / etc)"
+          python backend/app.py
