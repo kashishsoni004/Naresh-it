@@ -1,0 +1,54 @@
+# 🔒 Environment variables (VERY IMPORTANT)
+
+.env
+backend/.env
+
+# 🐍 Python cache & compiled files
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+
+# 📦 Virtual environment
+
+venv/
+env/
+ENV/
+
+# 🧪 Logs
+
+*.log
+
+# 🗄️ OS files
+
+.DS_Store
+Thumbs.db
+
+# 🧰 IDE / Editor files
+
+.vscode/
+.idea/
+
+# 🔐 Secrets & config
+
+*.env
+*.key
+
+# 📦 Build / dist (if used later)
+
+dist/
+build/
+
+# 🐳 Docker (if you add later)
+
+*.pid
+
+# 📊 Coverage / testing
+
+.coverage
+htmlcov/
+
+# 🔄 Git
+
+*.swp
