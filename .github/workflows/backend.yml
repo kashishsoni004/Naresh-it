@@ -19,7 +19,7 @@ jobs:
           script: |
             cd /home/ec2-user
             rm -rf app
-            git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git app
+            git clone  https://github.com/kashishsoni004/Naresh-it.git app
             cd app
 
             # start server
