@@ -1,24 +1,35 @@
 name: Backend CI
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches:
       - main
 
+  pull_request:
+    branches:
+      - main
+
 jobs:
   build:
-    runs-on: self-hosted   # 🔥 EC2 pe run hoga
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Build Project
-        run: |
-          cd backend
-          mvn clean package
+      - name: Show Folder Structure (Debug)
+        run: ls -R
 
-      - name: Run App
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Find and Build Project
         run: |
-          pkill -f java || true
-          nohup java -jar backend/target/*.jar > app.log 2>&1 &
+          cd $(find . -name "pom.xml" -exec dirname {} \; | head -n 1)
+          mvn clean install
