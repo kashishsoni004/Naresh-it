@@ -19,18 +19,18 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4   # ✅ MUST be v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4   # ✅ MUST be v4
         with:
-          node-version: 'lts/*'   # always latest stable
+          node-version: 20
 
       - name: Install Dependencies
-        run: npm ci   # faster & better than npm install
+        run: npm ci
 
-      - name: Build Project
+      - name: Build
         run: npm run build
 
-      - name: Run Tests
+      - name: Test
         run: npm test --if-present
