@@ -1,7 +1,7 @@
 name: Backend CI
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # optional (warning avoid)
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
   push:
@@ -16,13 +16,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: backend
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Show Folder Structure (Debug)
+        run: ls -R
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -30,8 +29,7 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Build Project
-        run: mvn clean install
-
-      - name: Run Tests
-        run: mvn test
+      - name: Find and Build Project
+        run: |
+          cd $(find . -name "pom.xml" -exec dirname {} \; | head -n 1)
+          mvn clean install
