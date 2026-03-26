@@ -1,7 +1,4 @@
-name: Backend CI/CD
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+name: Deploy Simple App
 
 on:
   push:
@@ -9,24 +6,10 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
-
-      - name: Build Project
-        run: |
-          cd $(find . -name "pom.xml" -exec dirname {} \; | head -n 1)
-          mvn clean package
-
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -38,7 +21,6 @@ jobs:
             rm -rf app
             git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git app
             cd app
-            cd $(find . -name "pom.xml" -exec dirname {} \; | head -n 1)
-            mvn clean package
-            pkill -f java || true
-            nohup java -jar target/*.jar > app.log 2>&1 &
+
+            # start server
+            nohup python3 -m http.server 8080 > app.log 2>&1 &
